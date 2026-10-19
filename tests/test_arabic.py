@@ -94,6 +94,18 @@ async def main():
         ck('no errors', not e, e)
         await pg.close()
 
+        # the built file on its own, from a plain server that names no charset:
+        # the page has to declare UTF-8 itself or Arabic falls back to windows-1252
+        import http.server, threading, functools
+        srv=http.server.ThreadingHTTPServer(('127.0.0.1',0),functools.partial(
+            type('Q',(http.server.SimpleHTTPRequestHandler,),{'log_message':lambda *a:None}),directory=os.getcwd()))
+        threading.Thread(target=srv.serve_forever,daemon=True).start()
+        raw=await b.new_page()
+        await raw.goto(f'http://127.0.0.1:{srv.server_address[1]}/atlas.html'); await raw.wait_for_timeout(800)
+        cs=await raw.evaluate("()=>[document.characterSet,document.title]")
+        ck('the bare file declares UTF-8 itself', cs[0]=='UTF-8' and cs[1]=='Jāhiliyya Atlas', cs)
+        await raw.close(); srv.shutdown()
+
         ph=await b.new_page(viewport={'width':390,'height':844})
         await ph.goto('file://'+os.path.abspath('_wrap.html')); await ph.wait_for_timeout(1500)
         await ph.click('#langBtn'); await ph.wait_for_timeout(500)

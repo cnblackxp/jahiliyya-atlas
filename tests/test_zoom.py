@@ -85,6 +85,26 @@ async def main():
             await new Promise(r=>setTimeout(r,25));}
           await new Promise(r=>setTimeout(r,400)); ob.disconnect(); return n;}""")
         ck('ten wheel ticks do not trigger ten relayouts', calls<=6, f'{calls} mutation bursts')
+
+        # --- opening a record centres it, and never zooms out from where the reader is ---
+        async def open_card():
+            await pg.click('[data-tab="events"]'); await pg.wait_for_timeout(300)
+            eid=await pg.locator('#pbody .ev[data-ev]').first.get_attribute('data-ev')
+            await pg.locator('#pbody .ev[data-ev]').first.click(); await pg.wait_for_timeout(700)
+            return eid
+        await pg.click('#zfit'); await pg.wait_for_timeout(400)
+        for _ in range(7): await pg.click('#zin'); await pg.wait_for_timeout(60)
+        await pg.wait_for_timeout(300); deep=(await pg.evaluate(VIEW))['s']
+        await open_card(); s=(await pg.evaluate(VIEW))['s']
+        ck('opening an event while zoomed in does not zoom out', s>=deep-1e-6, f'{deep:.2f} → {s:.2f}')
+        await pg.click('#zfit'); await pg.wait_for_timeout(400)
+        await open_card(); s=(await pg.evaluate(VIEW))['s']
+        ck('opening an event from the whole map still zooms in to it', s>home*2.5, f'home {home:.2f} → {s:.2f}')
+        # the event's place lands in the middle of the visible map
+        off=await pg.evaluate("""()=>{const sel=document.querySelector('.L-events circle[stroke="var(--accent)"]');
+          if(!sel) return null; const b=sel.getBoundingClientRect(), m=document.getElementById('map').getBoundingClientRect();
+          return [Math.abs(b.x+b.width/2-(m.left+m.width/2)), Math.abs(b.y+b.height/2-(m.top+m.height/2))];}""")
+        ck('the opened event is centred on the map', off and off[0]<40 and off[1]<40, off)
         ck('no errors', not e, e[:3])
         await b.close()
 asyncio.run(main())

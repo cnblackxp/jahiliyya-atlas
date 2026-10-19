@@ -1281,7 +1281,8 @@ document.getElementById('zfit').onclick=()=>{fit(HOME);drawDynamic();};
 function flyTo(lon,lat,z){
   const r=map.getBoundingClientRect(), q=px(lon,lat);
   const cover=coverPx();
-  st.view.s = st.view.home * (z||2.4);
+  // zoom in to at least z times the home framing, but never out of a closer view the reader chose
+  st.view.s = Math.max(st.view.s, st.view.home * (z||2.4));
   st.view.tx = r.width/2 - q[0]*st.view.s;
   st.view.ty = (r.height-cover)/2 - q[1]*st.view.s;
   applyView(); drawDynamic();

@@ -1,0 +1,7 @@
+# Natural Earth downloads cached by make_basemap.py
+src/geo/_ne_*.geojson
+src/geo/_*.geojson
+
+__pycache__/
+*.pyc
+.DS_Store

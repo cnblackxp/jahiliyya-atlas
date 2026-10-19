@@ -1,0 +1,1895 @@
+<title>Jāhiliyya Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a full-bleed map under a fixed timeline rail, with a docked evidence panel
+   that becomes a bottom sheet on phones. Palette from basalt, sand and oxidised bronze. */
+:root{
+  --bg:#e9e4d9; --panel:#f7f3ea; --panel2:#efe9dc; --fg:#241f18; --muted:#6d6555; --faint:#8e8674;
+  --line:#d2c9b6; --line2:#bfb49c;
+  --accent:#b45a2b; --accent2:#2b7f70;
+  --sea:#b4c9d4; --sea2:#9db6c4; --land:#e0d3b1; --sand:#ecdcad; --sandline:#cbb98a;
+  --ridge:#b09a74; --river:#6e9fb6; --coast:#9d8e73; --mapfg:#3c3528; --mapfaint:#7c7259;
+  --epi:#1d7a68; --ext:#2c6a9e; --trad:#b06a1e; --recon:#7a6596;
+  --shadow:0 1px 2px rgba(40,32,20,.12), 0 8px 24px rgba(40,32,20,.08);
+  --f-display:'Amiri',Georgia,'Times New Roman',serif;
+  --f-ui:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#12151a; --panel:#191e25; --panel2:#141920; --fg:#e9e3d5; --muted:#9a9282; --faint:#7b7466;
+  --line:#2b323c; --line2:#3a434f;
+  --accent:#d9814f; --accent2:#54b8a4;
+  --sea:#0d1620; --sea2:#0a111a; --land:#3a3528; --sand:#453f2e; --sandline:#5a5240;
+  --ridge:#6a6149; --river:#36687f; --coast:#6e6650; --mapfg:#d8d0bb; --mapfaint:#8d856e;
+  --epi:#4fd0b4; --ext:#74b6ee; --trad:#e3a964; --recon:#b5a6dc;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.35);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#12151a; --panel:#191e25; --panel2:#141920; --fg:#e9e3d5; --muted:#9a9282; --faint:#7b7466;
+  --line:#2b323c; --line2:#3a434f;
+  --accent:#d9814f; --accent2:#54b8a4;
+  --sea:#0d1620; --sea2:#0a111a; --land:#3a3528; --sand:#453f2e; --sandline:#5a5240;
+  --ridge:#6a6149; --river:#36687f; --coast:#6e6650; --mapfg:#d8d0bb; --mapfaint:#8d856e;
+  --epi:#4fd0b4; --ext:#74b6ee; --trad:#e3a964; --recon:#b5a6dc;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-ui);font-size:14px;line-height:1.5;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+#app{display:grid;grid-template-rows:auto minmax(0,1fr);height:100%}
+
+/* ---------- timeline rail ---------- */
+#rail{zoom:var(--us,1);background:var(--panel);border-bottom:1px solid var(--line);
+  padding-block:10px 8px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:7px;position:relative;z-index:6}
+.railtop{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-size:19px;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.yearbox{display:flex;align-items:baseline;gap:8px;margin-left:auto}
+#yearNum{font-family:var(--f-mono);font-size:30px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.yearce{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+#eraName{font-size:12px;color:var(--muted);font-style:italic;max-width:42ch}
+
+.trackwrap{position:relative;height:54px;margin-top:2px;direction:ltr}
+#range,.ticks,#eras,#density{direction:ltr}
+#eras,#density{position:absolute;left:0;right:0;width:100%}
+#eras{top:0;height:17px}
+#density{top:18px;height:19px}
+#range{position:absolute;left:0;right:0;bottom:0;width:100%;height:18px;margin:0;background:none;-webkit-appearance:none;appearance:none}
+#range::-webkit-slider-runnable-track{height:3px;background:var(--line2);border-radius:2px}
+#range::-moz-range-track{height:3px;background:var(--line2);border-radius:2px}
+#range::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:var(--accent);border:2.5px solid var(--panel);box-shadow:0 0 0 1px var(--accent);margin-top:-6px}
+#range::-moz-range-thumb{width:15px;height:15px;border-radius:50%;background:var(--accent);border:2.5px solid var(--panel);box-shadow:0 0 0 1px var(--accent)}
+.ticks{position:absolute;left:0;right:0;bottom:-3px;height:12px;pointer-events:none}
+.ticks span{position:absolute;transform:translateX(-50%);font-family:var(--f-mono);font-size:9.5px;color:var(--faint)}
+
+.controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.btn{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:12px;color:var(--fg);display:inline-flex;align-items:center;gap:5px}
+.btn:hover{border-color:var(--line2)}
+.btn[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{background:var(--panel2);border:0;padding:4px 8px;font-size:11.5px;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.ctl-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-right:1px}
+:root[data-lang="ar"] #panel,:root[data-lang="ar"] #rail{direction:rtl}
+:root[data-lang="ar"] .trackwrap,:root[data-lang="ar"] #range,:root[data-lang="ar"] .ticks{direction:ltr}
+:root[data-lang="ar"] .ev .ar,:root[data-lang="ar"] #tip .ar,:root[data-lang="ar"] .arx{direction:rtl;text-align:start}
+:root[data-lang="ar"] .ev .r1{flex-direction:row}
+:root[data-lang="ar"] .brand,:root[data-lang="ar"] .phead,:root[data-lang="ar"] .detail h3,
+:root[data-lang="ar"] .ev .ti,:root[data-lang="ar"] .sgrow .nm b{font-family:var(--f-display)}
+:root[data-lang="ar"] .sect,:root[data-lang="ar"] .ctl-label,:root[data-lang="ar"] .dhead,
+:root[data-lang="ar"] .tiptype{letter-spacing:0;text-transform:none;font-size:11.5px}
+:root[data-lang="ar"] .yearce{letter-spacing:0}
+:root[data-lang="ar"] #pbody{text-align:start}
+:root[data-lang="ar"] .ptabs button{min-width:0;padding:9px 6px;font-size:12.5px}
+:root[data-lang="ar"] .ev{border-left-width:1px;border-right-width:3px}
+.sgwrap{position:relative;display:inline-block}
+#search{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font:inherit;font-size:12px;color:var(--fg);width:195px}
+#search::placeholder{color:var(--faint)}
+#sg{position:absolute;top:calc(100% + 4px);left:0;width:300px;max-height:330px;overflow-y:auto;z-index:20;
+  background:var(--panel);border:1px solid var(--line2);border-radius:8px;box-shadow:var(--shadow);padding:4px}
+.sgrow{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;padding:6px 8px;border-radius:6px;cursor:pointer}
+.sgrow[aria-selected="true"],.sgrow:hover{background:var(--panel2)}
+.sgrow .nm{min-width:0}
+.sgrow .nm b{display:block;font-family:var(--f-display);font-size:14px;font-weight:400;line-height:1.2;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sgrow .nm span{font-size:10.5px;color:var(--muted)}
+.sgrow .arx{font-family:var(--f-display);font-size:13px;color:var(--muted);direction:rtl}
+.sghead{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding:7px 8px 3px}
+.sgnone{padding:10px;color:var(--faint);font-size:12px;font-style:italic}
+.ic{width:1em;height:1em;flex:0 0 auto;vertical-align:-.13em}
+.ic-event{color:var(--accent)} .ic-person{color:var(--accent)} .ic-place{color:var(--fg)}
+.ic-tribe{color:var(--accent2)} .ic-polity{color:var(--accent)}
+.sgrow .ic{width:17px;height:17px}
+.tiptype{display:flex;align-items:center;gap:5px;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:3px}
+.tiptype .ic{width:13px;height:13px}
+.dhead{display:flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.dhead .ic{width:14px;height:14px}
+.chip .ic{width:13px;height:13px;margin-right:3px}
+.ev .ti .ic{width:13px;height:13px;margin-right:3px;opacity:.7}
+.symkey{display:grid;grid-template-columns:auto 1fr;gap:8px 10px;align-items:center;font-size:12px}
+.symkey svg{width:22px;height:18px}
+
+/* ---------- body split ---------- */
+#split{display:grid;grid-template-columns:minmax(0,1fr) 370px;min-height:0}
+#mapwrap{position:relative;min-width:0;background:var(--sea);overflow:hidden}
+#map{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#map.drag{cursor:grabbing}
+.mapctl{position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:5px;z-index:3}
+.mapctl button{width:30px;height:30px;border-radius:7px;background:var(--panel);border:1px solid var(--line);
+  font-size:15px;line-height:1;display:grid;place-items:center;box-shadow:var(--shadow)}
+#tip{position:absolute;pointer-events:none;z-index:5;background:var(--panel);border:1px solid var(--line2);
+  border-radius:7px;padding:7px 10px;max-width:250px;box-shadow:var(--shadow);font-size:12px;opacity:0;transition:opacity .1s}
+#tip.on{opacity:1}
+#tip b{font-family:var(--f-display);font-size:14px;display:block}
+#tip .ar{font-family:var(--f-display);font-size:14px;color:var(--muted);direction:rtl}
+#tip p{margin:4px 0 0;color:var(--muted);line-height:1.4}
+
+/* ---------- panel ---------- */
+#panel{zoom:var(--us,1);background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;min-height:0;min-width:0}
+.ptabs{display:flex;border-bottom:1px solid var(--line);flex:0 0 auto;overflow-x:auto;scrollbar-width:none}
+.ptabs::-webkit-scrollbar{display:none}
+.ptabs button{flex:1 0 auto;min-width:68px;background:none;border:0;padding:9px 9px;font-size:12px;color:var(--muted);white-space:nowrap;
+  border-bottom:2px solid transparent;letter-spacing:.03em}
+.ptabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent);font-weight:500}
+#pbody{overflow-y:auto;padding:14px 16px 28px;min-height:0;flex:1}
+.phead{font-family:var(--f-display);font-size:17px;margin:0 0 2px}
+.psub{font-size:11.5px;color:var(--muted);margin:0 0 12px}
+
+.ev{border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin-bottom:8px;background:var(--panel2);
+  cursor:pointer;display:grid;gap:3px;border-left-width:3px}
+.ev:hover{border-color:var(--line2)}
+.ev.now{background:color-mix(in srgb,var(--accent) 9%,var(--panel2));border-color:var(--accent)}
+.ev .r1{display:flex;align-items:baseline;gap:8px}
+.ev .yr{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.ev .ti{font-family:var(--f-display);font-size:15px;line-height:1.25;min-width:0}
+.ev .ar{font-family:var(--f-display);font-size:13px;color:var(--muted);direction:rtl;text-align:right}
+.ev .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:2px}
+.tag{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;padding:1.5px 5px;border-radius:3px;
+  border:1px solid currentColor;font-weight:500;white-space:nowrap}
+.t-EPI{color:var(--epi)} .t-EXT{color:var(--ext)} .t-TRAD{color:var(--trad)} .t-RECON{color:var(--recon)}
+.cert{font-size:10.5px;color:var(--faint)}
+.cert.contested,.cert.legendary{color:var(--trad)}
+.where{font-size:11px;color:var(--muted)}
+
+.detail h3{font-family:var(--f-display);font-size:20px;margin:6px 0 1px;line-height:1.2}
+.detail .arbig{font-family:var(--f-display);font-size:17px;color:var(--muted);direction:rtl;margin-bottom:8px}
+.detail p{margin:0 0 10px;max-width:62ch}
+.detail .disp{background:color-mix(in srgb,var(--trad) 10%,transparent);border-left:2px solid var(--trad);
+  padding:8px 10px;border-radius:0 6px 6px 0;font-size:12.5px;margin-bottom:10px}
+.detail .disp b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--trad);margin-bottom:2px}
+.detail .disp.basis{background:color-mix(in srgb,var(--accent2) 10%,transparent);border-left-color:var(--accent2)}
+.detail .disp.basis b{color:var(--accent2)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12px;margin-bottom:10px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+.back{background:none;border:0;padding:0;color:var(--accent);font-size:12px;margin-bottom:4px}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.chip{border:1px solid var(--line);border-radius:999px;padding:3px 9px;font-size:11.5px;background:var(--panel2);cursor:pointer}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip .ar{font-family:var(--f-display);color:var(--muted)}
+.lifeline{display:grid;grid-template-columns:1fr;gap:5px}
+.lf{display:grid;grid-template-columns:120px 1fr;gap:8px;align-items:center;font-size:11.5px;cursor:pointer}
+.lf:hover .lf-n{color:var(--accent)}
+.lf-n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lf-bar{position:relative;height:7px;background:var(--panel2);border:1px solid var(--line);border-radius:4px}
+.lf-bar i{position:absolute;top:-1px;bottom:-1px;border-radius:4px;opacity:.8}
+.lf-bar u{position:absolute;top:-3px;width:2px;height:13px;background:var(--accent)}
+.sect{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);
+  margin:18px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.sect:first-child{margin-top:0}
+.none{color:var(--faint);font-size:12.5px;font-style:italic}
+.leg{display:grid;gap:7px;font-size:12px}
+.leg div{display:grid;grid-template-columns:auto 1fr;gap:9px;align-items:start}
+.filters{display:grid;gap:4px}
+.filters label{display:flex;gap:7px;align-items:center;font-size:12.5px;cursor:pointer}
+.filters input{accent-color:var(--accent);margin:0}
+a{color:var(--accent)}
+.foot{margin-top:20px;font-size:11px;color:var(--faint);line-height:1.5;border-top:1px solid var(--line);padding-top:10px}
+
+/* ---------- map type ---------- */
+.lbl{font-family:var(--f-display);fill:var(--mapfg);pointer-events:none;paint-order:stroke;
+  stroke:var(--land);stroke-width:calc(2.8px*var(--k,1)*var(--ms,1));stroke-linejoin:round}
+.z2{display:none}
+#map.zoomed .z2{display:inline}
+.lbl-region{font-size:calc(10px*var(--k,1)*var(--ms,1));letter-spacing:.2em;text-transform:uppercase;fill:var(--mapfaint);font-family:var(--f-ui)}
+.lbl-region-ar{font-size:calc(10.5px*var(--k,1)*var(--ms,1));fill:var(--mapfaint)}
+.lbl-sea{font-size:calc(8.4px*var(--k,1)*var(--ms,1));letter-spacing:.18em;text-transform:uppercase;fill:var(--river);font-family:var(--f-ui);stroke:none;font-style:italic}
+.lbl-sea-ar{font-size:calc(9px*var(--k,1)*var(--ms,1));fill:var(--river);stroke:none;opacity:.85}
+.lbl-ridge{font-size:calc(8.2px*var(--k,1)*var(--ms,1));letter-spacing:.12em;fill:var(--ridge);font-family:var(--f-ui)}
+.lbl-place{font-size:calc(10.8px*var(--k,1)*var(--ms,1))}
+.lbl-tribe{font-size:calc(10.5px*var(--k,1)*var(--ms,1));fill:var(--accent2);opacity:.92}
+.lbl-polity{font-size:calc(13px*var(--k,1)*var(--ms,1));letter-spacing:.06em;font-weight:700;opacity:.95;stroke:var(--land);stroke-width:calc(3.2px*var(--k,1)*var(--ms,1))}
+.hit{cursor:pointer}
+
+@media (max-width:860px){
+  #focuspill{top:10px;left:10px;bottom:auto;max-width:calc(100vw - 110px)}
+  #focuspill b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  #app{grid-template-rows:auto minmax(0,1fr)}
+  #split{grid-template-columns:1fr;grid-template-rows:minmax(0,1fr);position:relative}
+  #mapwrap{grid-row:1;grid-column:1}
+
+  /* the panel becomes a sheet over the map, dragged by its handle */
+  #panel{position:absolute;left:0;right:0;bottom:0;top:0;border-left:0;
+    border-top:1px solid var(--line2);border-radius:16px 16px 0 0;
+    box-shadow:0 -2px 20px rgba(0,0,0,.18);
+    transform:translateY(var(--sheet-y,84%));
+    transition:transform .28s cubic-bezier(.22,.9,.3,1);
+    will-change:transform}
+  #panel.dragging{transition:none}
+  #grip{display:block;flex:0 0 auto;padding:7px 0 3px;cursor:grab;touch-action:none;
+    border-radius:16px 16px 0 0;background:var(--panel)}
+  #grip:active{cursor:grabbing}
+  #grip .bar{width:38px;height:4px;border-radius:2px;background:var(--line2);margin:0 auto}
+  #grip .peek{display:flex;align-items:baseline;gap:8px;padding:5px 16px 7px;font-size:12px;color:var(--muted)}
+  #grip .peek b{font-family:var(--f-mono);font-size:16px;color:var(--fg);font-weight:500}
+  #pbody{padding-bottom:40px}
+  .mapctl{bottom:auto;top:10px;right:10px}
+  #scalebar{bottom:auto;top:46px;left:12px}
+  #zoomlvl{right:52px;top:48px;bottom:auto}
+
+  /* rail: one compact row, the rest folded away */
+  #rail{padding-block:7px 6px;gap:5px}
+  .brand{font-size:15px}
+  #eraName{display:none}
+  #yearNum{font-size:23px}
+  .trackwrap{height:40px}
+  #eras{display:none}
+  #density{top:4px;height:14px}
+  .controls{gap:5px}
+  .controls.folded > *{display:none}
+  .controls.folded > .btn-more,.controls.folded > #play,.controls.folded > #langBtn,
+  .controls.folded > .sgwrap,.controls.folded > #themeBtn{display:inline-flex}
+  .btn-more{display:inline-flex}
+  #search{width:100%;min-width:0}
+  .sgwrap{flex:1 1 120px;min-width:0}
+  #sg{width:min(300px,calc(100vw - 32px))}
+  .ptabs button{min-width:62px;font-size:11.5px;padding:9px 7px}
+}
+@media (min-width:861px){ #grip{display:none} .btn-more{display:none} }
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+:root[data-contrast="high"]{
+  --fg:#000; --muted:#333; --faint:#444; --line:#8c8577; --line2:#6d6658;
+  --land:#fffaea; --sand:#ffe9a8; --sea:#45758c; --coast:#000; --mapfg:#000; --mapfaint:#2a2519;
+  --river:#1d5570; --ridge:#7d6a44; --accent:#8a3b11; --accent2:#0d5d4f;
+  --epi:#0a5b4c; --ext:#17497a; --trad:#8a4d06; --recon:#51387a;
+}
+:root[data-contrast="high"] .L-land path{stroke-width:.9}
+:root[data-contrast="high"] .L-rivers path{stroke-width:.9}
+:root[data-contrast="high"] .lbl{stroke-width:calc(4px*var(--k,1)*var(--ms,1))}
+:root[data-contrast="high"] .lbl-region,:root[data-contrast="high"] .lbl-sea{letter-spacing:.1em}
+@media (prefers-color-scheme:dark){:root[data-contrast="high"]:not([data-theme="light"]){
+  --fg:#fff; --muted:#d8d2c4; --faint:#bdb7a8; --line:#5c6672; --line2:#8a93a0;
+  --land:#1e1b10; --sand:#2c2714; --sea:#000; --coast:#f2e8c6; --mapfg:#fff; --mapfaint:#ded5b8;
+  --river:#7cc6ee; --ridge:#b4a67e; --accent:#ffa368; --accent2:#6fe7cd;
+  --epi:#7cf0d6; --ext:#9bd0ff; --trad:#ffc98a; --recon:#d3c6ff;
+}}
+:root[data-contrast="high"][data-theme="dark"]{
+  --fg:#fff; --muted:#d8d2c4; --faint:#bdb7a8; --line:#5c6672; --line2:#8a93a0;
+  --land:#1e1b10; --sand:#2c2714; --sea:#000; --coast:#f2e8c6; --mapfg:#fff; --mapfaint:#ded5b8;
+  --river:#7cc6ee; --ridge:#b4a67e; --accent:#ffa368; --accent2:#6fe7cd;
+  --epi:#7cf0d6; --ext:#9bd0ff; --trad:#ffc98a; --recon:#d3c6ff;
+}
+#focuspill{position:absolute;left:12px;top:12px;z-index:4;background:var(--panel);border:1px solid var(--accent);
+  color:var(--accent);border-radius:999px;padding:4px 11px;font-size:11.5px;box-shadow:var(--shadow);
+  display:inline-flex;gap:6px;align-items:center;zoom:var(--us,1)}
+#focuspill .ic{width:13px;height:13px}
+#focuspill b{font-weight:500}
+#focuspill span{color:var(--muted);border-left:1px solid var(--line);padding-left:7px}
+:root[data-lang="ar"] #focuspill span{border-left:0;border-right:1px solid var(--line);padding-left:0;padding-right:7px}
+#scalebar{position:absolute;left:12px;bottom:12px;z-index:3;font-family:var(--f-mono);font-size:10px;
+  color:var(--mapfg);pointer-events:none;opacity:.8;zoom:var(--us,1)}
+#scalebar .bar{height:5px;border:1px solid var(--mapfg);border-top:0;margin-bottom:2px}
+#zoomlvl{position:absolute;right:50px;bottom:14px;z-index:3;font-family:var(--f-mono);font-size:10px;
+  color:var(--mapfg);opacity:.65;pointer-events:none;zoom:var(--us,1)}
+.row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.row>.ctl-label{width:100%;margin-bottom:2px}
+</style>
+
+<div id="app">
+  <header id="rail">
+    <div class="railtop">
+      <div class="brand">Jāhiliyya <span>Atlas</span></div>
+      <div id="eraName"></div>
+      <div class="yearbox"><span id="yearNum">400</span><span class="yearce">CE</span></div>
+    </div>
+
+    <div class="trackwrap">
+      <svg id="eras" viewBox="0 0 1000 17" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <svg id="density" viewBox="0 0 1000 19" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <input id="range" type="range" min="300" max="640" step="1" value="400" aria-label="Year">
+      <div class="ticks" id="ticks"></div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="play" aria-pressed="false">▶ Play</button>
+      <button class="btn" id="stepB" title="Previous event">◀</button>
+      <button class="btn" id="stepF" title="Next event">▶</button>
+      <span class="ctl-label">Window</span>
+      <span class="seg" id="win">
+        <button data-w="0" aria-pressed="false">Exact</button>
+        <button data-w="5" aria-pressed="true">±5</button>
+        <button data-w="15" aria-pressed="false">±15</button>
+        <button data-w="9999" aria-pressed="false">All</button>
+      </span>
+      <span class="sgwrap"><input id="search" type="search" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="sg" placeholder="Search people, places, tribes…" aria-label="Search"><div id="sg" role="listbox" hidden></div></span>
+      <button class="btn" id="langBtn" title="Switch language">ع</button>
+      <button class="btn btn-more" id="moreBtn" aria-expanded="false" aria-label="More controls">⋯</button>
+      <button class="btn" id="themeBtn" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <div id="split">
+    <div id="mapwrap">
+      <svg id="map" tabindex="0" role="application" aria-label="Map of Arabia and its neighbours. Drag to pan, scroll or press plus and minus to zoom, arrow keys to move."></svg>
+      <div id="scalebar"><div class="bar"></div><span id="scaletxt">500 km</span></div>
+      <div id="zoomlvl">1.0×</div>
+      <div class="mapctl">
+        <button id="zin" aria-label="Zoom in">+</button>
+        <button id="zout" aria-label="Zoom out">−</button>
+        <button id="zfit" aria-label="Reset view" title="Reset view">⤢</button>
+      </div>
+      <div id="tip" role="status"></div>
+      <button id="focuspill" hidden></button>
+    </div>
+
+    <aside id="panel">
+      <div id="grip" role="button" tabindex="0" aria-label="Drag to resize the panel, or press Enter to expand">
+        <div class="bar"></div>
+        <div class="peek"><b id="peekYear">554</b><span id="peekText">events this year</span></div>
+      </div>
+      <div class="ptabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="all">All</button>
+        <button role="tab" aria-selected="false" data-tab="events">Events</button>
+        <button role="tab" aria-selected="false" data-tab="people">People</button>
+        <button role="tab" aria-selected="false" data-tab="places">Places</button>
+        <button role="tab" aria-selected="false" data-tab="tribes">Tribes</button>
+        <button role="tab" aria-selected="false" data-tab="legend">Legend</button>
+        <button role="tab" aria-selected="false" data-tab="display">Display</button>
+      </div>
+      <div id="pbody"></div>
+    </aside>
+  </div>
+</div>
+
+<script id="geo" type="application/json">__GEO__</script>
+<script id="data" type="application/json">__DATA__</script>
+<script id="uiar" type="application/json">__UIAR__</script>
+<script id="dataar" type="application/json">__DATAAR__</script>
+<script>
+(function(){
+"use strict";
+const GEO = JSON.parse(document.getElementById('geo').textContent);
+const D   = JSON.parse(document.getElementById('data').textContent);
+const UIAR = JSON.parse(document.getElementById('uiar').textContent||'null');
+const DAR  = JSON.parse(document.getElementById('dataar').textContent||'null');
+
+const Y0 = (D.meta&&D.meta.range&&D.meta.range[0])||300;
+const Y1 = (D.meta&&D.meta.range&&D.meta.range[1])||640;
+
+/* ---------- indexes ---------- */
+const placeById = new Map((D.places||[]).map(p=>[p.id,p]));
+const personById= new Map((D.people||[]).map(p=>[p.id,p]));
+const polityById= new Map((D.polities||[]).map(p=>[p.id,p]));
+const events = (D.events||[]).slice().sort((a,b)=>(a.year||0)-(b.year||0));
+
+const EV = {EPI:'Inscription-fixed',EXT:'External source',TRAD:'Later Arabic tradition',RECON:'Modern reconstruction'};
+const HUES=['#c8713d','#3f9e8c','#6f7fc4','#a2689e','#8a9a4a','#b1524a','#4e95c0','#c09a3e','#7f8fa6','#9c6f4f','#5aa36d','#b07ab0','#6b93a8'];
+(D.polities||[]).forEach((p,i)=>{p._c=HUES[i%HUES.length];});
+const CATS = [...new Set(events.map(e=>e.category).filter(Boolean))].sort();
+
+/* ---------- language ---------- */
+const UIEN={ui:{
+ brand:'Jāhiliyya Atlas', year:'Year', ce:'CE', play:'Play', pause:'Pause',
+ window:'Window', exact:'Exact', all:'All', search:'Search people, places, tribes…',
+ tabEvents:'Events', tabPeople:'People', tabPlaces:'Places', tabTribes:'Tribes',
+ tabLegend:'Legend', tabDisplay:'Display',
+ eventsThisYear:'events dated to this year', nothingThisYear:'Nothing is dated to this exact year',
+ aroundThisYear:'Around this year', aliveIn:'Alive in', notAliveIn:'Not alive in this year',
+ noDates:'No dates at all', otherFigures:'Other figures',
+ connections:'Connections', figures:'Figures', tribes:'Tribes', powers:'Powers', place:'Place',
+ appearsIn:'Appears in', whereTheyWere:'Where they were', whereTheyTurnUp:'Where they turn up',
+ howToRead:'How to read this map', evidence:'Evidence', dateCertainty:'How sure is the date?',
+ placeCertainty:'How sure is the place?', symbols:'What the symbols mean', whatIsInHere:'What is in here',
+ layers:'Map layers', reading:'Reading', interfaceText:'Interface text', mapLabelSize:'Map label size',
+ mapLabels:'Map labels', contrast:'Contrast', normal:'Normal', high:'High', on:'On', off:'Off',
+ auto:'Auto', pan:'Pan', zoom:'Zoom', scrollWheel:'Scroll wheel', pulsingMarkers:'Pulsing markers',
+ language:'Language', back:'Back', source:'Source', disagree:'Where scholars disagree',
+ proposedRange:'Could be anywhere in', kind:'Kind', coordinates:'Coordinates', span:'Span',
+ seat:'Seat', role:'Role', tribe:'Tribe', dates:'Dates', dating:'Dating',
+ rangeCentre:'Range centre', nothingMatches:'Nothing matches that.', events:'events', zones:'Zones'},
+ evidence:{EPI:'Inscription-fixed',EXT:'External source',TRAD:'Later Arabic tradition',RECON:'Modern reconstruction'},
+ certainty:{fixed:'fixed',approximate:'approximate',contested:'contested',legendary:'legendary',estimated:'estimated'},
+ coord:{exact:'exact',approximate:'approximate',guessed:'guessed'},
+ category:{}, placeKind:{}, role:{},
+ notes:{
+  blobs:'Spheres of influence are soft blobs on purpose: these powers had reach and clients, not borders.',
+  coastlines:'Coastlines are modern — the head of the Gulf and the Tihāma shore both sat differently in late antiquity.',
+  tribeLinks:'Tribe links are matched on names in the event text and on each figure\u2019s stated tribe, so they are a reading aid rather than a claim in the sources.',
+  regions:'Region names are placed on a modern outline, not surveyed.'}};
+
+function dict(){ return (st.lang==='ar' && UIAR) ? UIAR : UIEN; }
+function T(k){ const d=dict(); return (d.ui&&d.ui[k]) || UIEN.ui[k] || k; }
+function Tg(group,k){ const d=dict(); return (d[group]&&d[group][k]) || (UIEN[group]&&UIEN[group][k]) || k; }
+function isAr(){ return st.lang==='ar'; }
+// Arabic prose for a record, falling back to the English while the translation is incomplete
+function LOC(kind,o,field){
+  if(isAr() && DAR && DAR[kind] && DAR[kind][o.id] && DAR[kind][o.id][field])
+    return DAR[kind][o.id][field];
+  return o[field];
+}
+function NAME(kind,o){
+  const n=LOC(kind,o,kind==='events'?'title':'name');
+  if(n && n!==o[kind==='events'?'title':'name']) return n;
+  return (isAr() && o.ar) ? o.ar : (o.name||o.title);
+}
+function hasAr(){ return !!UIAR; }
+
+/* ---------- icons ---------- */
+const ICON={
+ person:'<path d="M8 2.4a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Zm5.2 11.4c0-3.1-2.5-4.8-5.2-4.8s-5.2 1.7-5.2 4.8Z"/>',
+ tribe:'<path d="M1 13 4.7 5.6 8.4 13Z"/><path d="M8.2 13l3.4-6.4L15 13Z" opacity=".55"/>',
+ event:'<path d="M8 1.4 14.6 8 8 14.6 1.4 8Z"/>',
+ polity:'<path d="M1.6 13.2.6 3.9l4.2 3.2L8 2.2l3.2 4.9 4.2-3.2-1 9.3Z"/>',
+ capital:'<path d="M2.3 14V6.9l2.6-1.7V3.1h1.5v1.3L8 3.3l1.6 1.1V3.1h1.5v2.1L13.7 7v7Z"/>',
+ city:'<path d="M1.8 14V7.4h4.4V4.2h3.6v3.2h4.4V14Z"/>',
+ oasis:'<path d="M7.3 14V8.3C5.6 8 4.2 7 3.6 5.7c1.4-.6 3-.3 4 .7-.5-1.5-.2-3.1.8-4.2 1 1.1 1.3 2.7.8 4.2 1-1 2.6-1.3 4-.7-.6 1.3-2 2.3-3.7 2.6V14Z"/>',
+ shrine:'<path d="M5.4 14V6.6a2.6 2.6 0 0 1 5.2 0V14Z"/>',
+ fair:'<path d="M8 1.8 14.6 14H1.4Z"/>',
+ battle:'<path d="M2.6 3.9 3.9 2.6l9.5 9.5-1.3 1.3Z"/><path d="M12.1 2.6l1.3 1.3-9.5 9.5-1.3-1.3Z"/>',
+ site:'<path d="M3 3h10v10H3Z"/>',
+ region:'<path d="M1.6 4.2 6 2.6l4 1.6 4.4-1.6v9.2L10 13.4l-4-1.6-4.4 1.6Z"/>',
+ year:'<path d="M8 1.6A6.4 6.4 0 1 0 8 14.4 6.4 6.4 0 0 0 8 1.6Zm.75 3.1v3.6l2.6 1.5-.75 1.3-3.35-1.95V4.7Z"/>'
+};
+const PKIND={capital:'capital',city:'city',town:'city',oasis:'oasis',shrine:'shrine',fair:'fair',
+             battlefield:'battle',site:'site',region:'region'};
+const TYPE={event:'Event',person:'Figure',place:'Place',tribe:'Tribe',polity:'Power'};
+const TYPEK={event:'tabEvents',person:'tabPeople',place:'place',tribe:'tribe',polity:'powers'};
+function TYPE2(k){ return isAr()? (dict().ui[TYPEK[k]]||TYPE[k]) : TYPE[k]; }
+function altOf(kind,o){ const n=NAME(kind,o); const en=o.name||o.title; return isAr()? (n!==en?en:null) : (o.ar||null); }
+function iconName(kind,o){
+  if(kind==='place') return PKIND[o&&o.kind]||'site';
+  return kind;
+}
+function ico(name,cls){
+  return '<svg class="ic '+(cls||'')+'" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">'+(ICON[name]||ICON.site)+'</svg>';
+}
+function typeIco(kind,o){ return ico(iconName(kind,o),'ic-'+kind); }
+
+/* ---------- name matching for cross-links ---------- */
+function norm(x){return (x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .replace(/[\u02BE\u02BF\u2018\u2019'`\u02BC]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();}
+const tribeKeys=new Map();
+(D.tribes||[]).forEach(t=>{
+  const base=norm(t.name).replace(/^ban[uiy] /,'');
+  const keys=new Set([base]);
+  base.split(' ').forEach(w=>{ if(w.length>=4) keys.add(w); });
+  tribeKeys.set(t.id,[...keys].filter(Boolean));
+});
+const evText=new Map(events.map(e=>[e.id,norm((e.title||'')+' '+(e.summary||''))]));
+function hasKey(hay,keys){
+  return keys.some(k=>k && new RegExp('(^| )'+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'( |$)').test(hay));
+}
+function tribeOfPerson(p){
+  if(!p.tribe) return null;
+  const n=norm(p.tribe);
+  return (D.tribes||[]).find(t=>hasKey(n,tribeKeys.get(t.id))||hasKey(norm(t.name),[n]))||null;
+}
+const tribeMembers=new Map(), tribeEvents=new Map();
+(D.tribes||[]).forEach(t=>{tribeMembers.set(t.id,[]);tribeEvents.set(t.id,[]);});
+(D.people||[]).forEach(p=>{const t=tribeOfPerson(p); if(t) tribeMembers.get(t.id).push(p); p._tribe=t;});
+events.forEach(e=>{
+  const txt=evText.get(e.id);
+  const viaPeople=new Set((e.peopleIds||[]).map(i=>personById.get(i)).filter(Boolean)
+    .map(p=>p._tribe&&p._tribe.id).filter(Boolean));
+  (D.tribes||[]).forEach(t=>{
+    if(viaPeople.has(t.id)||hasKey(txt,tribeKeys.get(t.id))) tribeEvents.get(t.id).push(e);
+  });
+});
+const placeEvents=new Map();
+events.forEach(e=>{ if(!e.placeId) return;
+  if(!placeEvents.has(e.placeId)) placeEvents.set(e.placeId,[]);
+  placeEvents.get(e.placeId).push(e); });
+
+/* ---------- projection ---------- */
+const LON0=25, LAT_TOP=45, K=Math.cos(25*Math.PI/180), S=10;
+const px = (lon,lat)=>[(lon-LON0)*K*S,(LAT_TOP-lat)*S];
+const WORLD_W=(64-LON0)*K*S, WORLD_H=(LAT_TOP-4)*S;
+const HOME=[31,10.5,61,38.5]; // default framing
+
+const map = document.getElementById('map');
+const NS='http://www.w3.org/2000/svg';
+function el(n,a){const e=document.createElementNS(NS,n);if(a)for(const k in a)e.setAttribute(k,a[k]);return e;}
+function ring(pts){let d='M';for(let i=0;i<pts.length;i++){const q=px(pts[i][0],pts[i][1]);d+=(i?'L':'')+q[0].toFixed(1)+','+q[1].toFixed(1);}return d+'Z';}
+function line(pts){let d='M';for(let i=0;i<pts.length;i++){const q=px(pts[i][0],pts[i][1]);d+=(i?'L':'')+q[0].toFixed(1)+','+q[1].toFixed(1);}return d;}
+function kmToU(km,lat){ return km/111.32*S; }
+
+/* ---------- state ---------- */
+const st = {
+  year: 554, win: 5, playing:false, sel:null,
+  show:{sands:true,ranges:true,rivers:true,polities:true,tribes:false,places:true,events:true,people:true,regions:true},
+  cats:new Set(CATS), evid:new Set(['EPI','EXT','TRAD','RECON']),
+  view:{s:1,tx:0,ty:0,home:1},
+  tab:'all',
+  script:'both', us:1, ms:1, contrast:'normal', motion:'on', wheel:'auto', theme:'auto', lang:'en',
+  sheet:1
+};
+
+/* ---------- static map ---------- */
+const gRoot = el('g',{id:'root'});
+map.appendChild(gRoot);
+const layer = {};
+['sea','land','sands','ranges','rivers','lakes','polity','tribes','regions','leaders','places','events','people','labels']
+  .forEach(n=>{layer[n]=el('g',{class:'L-'+n});gRoot.appendChild(layer[n]);});
+
+const defs = el('defs'); map.appendChild(defs);
+defs.innerHTML =
+ '<pattern id="sandpat" width="4" height="4" patternUnits="userSpaceOnUse">'+
+ '<circle cx="1" cy="1" r=".42" fill="var(--sandline)" opacity=".55"/></pattern>'+
+ '<radialGradient id="tribgrad"><stop offset="0%" stop-color="var(--accent2)" stop-opacity=".20"/>'+
+ '<stop offset="100%" stop-color="var(--accent2)" stop-opacity="0"/></radialGradient>'+
+ (D.polities||[]).map(p=>
+   '<radialGradient id="pg-'+p.id+'">'+
+   '<stop offset="0%" stop-color="'+p._c+'" stop-opacity=".30"/>'+
+   '<stop offset="50%" stop-color="'+p._c+'" stop-opacity=".13"/>'+
+   '<stop offset="100%" stop-color="'+p._c+'" stop-opacity="0"/></radialGradient>').join('');
+
+function buildStatic(){
+  layer.sea.appendChild(el('rect',{x:-50,y:-50,width:WORLD_W+100,height:WORLD_H+100,fill:'var(--sea)'}));
+  GEO.land.forEach(p=>{
+    const path = el('path',{d:ring(p.o),fill:'var(--land)',stroke:'var(--coast)','stroke-width':.35,'stroke-linejoin':'round'});
+    layer.land.appendChild(path);
+  });
+  // deserts
+  GEO.terrain.sands.forEach(s=>{
+    layer.sands.appendChild(el('path',{d:ring(s.o),fill:'var(--sand)',stroke:'var(--sandline)','stroke-width':.25,opacity:.95}));
+    layer.sands.appendChild(el('path',{d:ring(s.o),fill:'url(#sandpat)',stroke:'none'}));
+  });
+  // ranges
+  GEO.terrain.ranges.forEach(r=>{
+    layer.ranges.appendChild(el('path',{d:line(r.p),fill:'none',stroke:'var(--ridge)','stroke-width':r.w,
+      'stroke-linecap':'round','stroke-linejoin':'round',opacity:.5}));
+    layer.ranges.appendChild(el('path',{d:line(r.p),fill:'none',stroke:'var(--ridge)','stroke-width':r.w*.4,
+      'stroke-linecap':'round','stroke-linejoin':'round',opacity:.75,'stroke-dasharray':'1.6 2.2'}));
+  });
+  GEO.rivers.forEach(r=>layer.rivers.appendChild(el('path',{d:line(r.p),fill:'none',stroke:'var(--river)','stroke-width':.55,'stroke-linecap':'round',opacity:.85})));
+  GEO.lakes.forEach(l=>layer.lakes.appendChild(el('path',{d:ring(l.o),fill:'var(--sea)',stroke:'var(--river)','stroke-width':.3})));
+
+}
+
+
+function drawLabels(){
+  const U = 1/st.view.s;
+  layer.labels.textContent='';
+  const L = layer.labels;
+  const DZ=st.view.s/st.view.home;
+  const DD=detail();
+  if(!DD.names) return;
+  // ridge names, set along the range
+  GEO.terrain.ranges.forEach(r=>{
+    if(!r.name) return;
+    const mid=r.p[Math.floor(r.p.length/2)], a=r.p[0], b=r.p[r.p.length-1];
+    const pa=px(a[0],a[1]), pb=px(b[0],b[1]);
+    let rot=Math.atan2(pb[1]-pa[1],pb[0]-pa[0])*180/Math.PI;
+    if(rot>90) rot-=180; if(rot<-90) rot+=180;
+    const q=px(mid[0],mid[1]);
+    if(DZ<1.6) return;
+    const t=el('text',{x:q[0],y:q[1]-2.2*U,class:'lbl lbl-ridge','text-anchor':'middle',
+      transform:`rotate(${rot.toFixed(1)} ${q[0]} ${q[1]})`});
+    t.textContent=r.name; L.appendChild(t);
+  });
+  // region + sand-sea names
+  const named=[];
+  GEO.terrain.regions.forEach(([n,ar,lon,lat,tier])=>named.push([n,ar,lon,lat,tier]));
+  GEO.terrain.sands.forEach(s=>named.push([s.name,s.ar,s.label[0],s.label[1],s.t||1]));
+  named.forEach(([n,ar,lon,lat,tier])=>{
+    if(tier===2 && (DD.small || DZ<1.3)) return;
+    const q=px(lon,lat), cls='';
+    if(st.script!=='arabic'||!ar){const t=el('text',{x:q[0],y:q[1],class:'lbl lbl-region'+cls,'text-anchor':'middle'});t.textContent=n;L.appendChild(t);}
+    if(ar&&st.script!=='latin'&&(DD.sub||st.script==='arabic')){const yy=st.script==='arabic'?q[1]:q[1]+6.6*U;
+      const a=el('text',{x:q[0],y:yy,class:'lbl lbl-region-ar'+cls,'text-anchor':'middle'});a.textContent=ar;L.appendChild(a);}
+  });
+  GEO.terrain.seas.forEach(([n,ar,lon,lat,rot])=>{
+    const q=px(lon,lat);
+    const g=el('g',{transform:`rotate(${rot} ${q[0]} ${q[1]})`});
+    const t=el('text',{x:q[0],y:q[1],class:'lbl lbl-sea','text-anchor':'middle'});t.textContent=n;
+    g.appendChild(t);
+    if(ar&&st.script!=='latin'&&DD.sub){const a=el('text',{x:q[0],y:q[1]+6.4*U,class:'lbl lbl-sea-ar','text-anchor':'middle'});a.textContent=ar;g.appendChild(a);}
+    L.appendChild(g);
+  });
+
+}
+
+/* ---------- dynamic map ---------- */
+function activeZone(p,y){
+  if(!p.zones) return null;
+  for(const z of p.zones){ if(y>=(z.from??-9999) && y<=(z.to??9999)) return z; }
+  return null;
+}
+function evColor(e){return 'var(--'+(e.evidence||'TRAD').toLowerCase()+')';}
+
+// Progressive disclosure. Far out the map shows only the big anchors as plain dots;
+// zooming in brings on the lesser places, then the shape-coded symbols, then the labels.
+const RANK_KIND={capital:0,city:1,oasis:2,fair:2,shrine:3,town:3,site:4,region:4,battlefield:2};
+function detail(){
+  const z=st.view.s/st.view.home;
+  // a small map pane holds fewer labels, so every tier asks for more zoom
+  const small = map.clientWidth<560 || map.clientHeight<430;
+  // with a single layer showing there is room for more of it
+  const k = (small?1.6:1) * (focusKind()?0.62:1);
+  return {z, small,
+    maxRank: z<0.95*k?0 : z<1.35*k?1 : z<1.9*k?2 : z<2.8*k?3 : 9,
+    shapes:  z>=1.35*k,
+    labelRank: z<1.35*k?-1 : z<1.9*k?0 : z<2.8*k?2 : 9,
+    names:   !small || z>=0.98,     // region and sea names
+    sub:     !small || z>=1.9,      // the Arabic second line under them
+    polity:  !small || z>=1.25,
+    tribe:   z>=(small?1.5:0.9)*(focusKind()==='tribes'?0.55:1)};
+}
+
+// Shape tells you what a pin is at a glance; the rings around it tell you how sure the location is.
+function placeMark(g,kind,q,r,U){
+  const F='var(--mapfg)', S2='var(--land)', sw=1.5*U;
+  // a soft halo first, so a dark symbol still reads over sand and a light one over basalt
+  g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r+2.2*U,fill:'var(--land)',opacity:.75}));
+  if(kind==='dot'){
+    g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r*.72,fill:F,stroke:S2,'stroke-width':sw*.7}));
+    return;
+  }
+  if(kind==='battlefield'){
+    g.appendChild(el('path',{d:`M${q[0]-r} ${q[1]-r}L${q[0]+r} ${q[1]+r}M${q[0]+r} ${q[1]-r}L${q[0]-r} ${q[1]+r}`,
+      stroke:F,'stroke-width':1.7*U,'stroke-linecap':'round',fill:'none'}));
+  } else if(kind==='fair'){
+    g.appendChild(el('path',{d:`M${q[0]} ${q[1]-r*1.45}L${q[0]+r*1.3} ${q[1]+r}L${q[0]-r*1.3} ${q[1]+r}Z`,
+      fill:F,stroke:S2,'stroke-width':sw,'stroke-linejoin':'round'}));
+  } else if(kind==='shrine'){
+    g.appendChild(el('rect',{x:q[0]-r*.95,y:q[1]-r*.95,width:r*1.9,height:r*1.9,fill:F,stroke:S2,'stroke-width':sw}));
+  } else if(kind==='capital'){
+    g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:F,stroke:S2,'stroke-width':sw}));
+    g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r*.42,fill:S2}));
+  } else if(kind==='oasis'){
+    g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:'none',stroke:F,'stroke-width':r*.55}));
+    g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r*.3,fill:F}));
+  } else if(kind==='site'||kind==='region'){
+    g.appendChild(el('rect',{x:q[0]-r*.9,y:q[1]-r*.9,width:r*1.8,height:r*1.8,
+      fill:'none',stroke:F,'stroke-width':r*.5}));
+  } else {
+    g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:F,stroke:S2,'stroke-width':sw}));
+  }
+}
+
+function drawDynamic(){
+  const y=st.year;
+  for(const k of ['polity','tribes','places','events','people','leaders']) if(layer[k]) layer[k].textContent='';
+  drawLabels();
+  const U=1/st.view.s;
+  const DT=detail(), DTT=DT;
+
+  // polities
+  if(layerOn('polities')){
+    (D.polities||[]).forEach(p=>{
+      if(y<(p.from??-9999)||y>(p.to??9999)) return;
+      const z=activeZone(p,y); if(!z) return;
+      const g=el('g',{color:p._c});
+      (z.centers||[]).forEach(c=>{
+        const q=px(c.lon,c.lat), r=kmToU(c.r||200);
+        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:'url(#pg-'+p.id+')'}));
+      });
+      const c0=(z.centers||[])[0];
+      if(c0 && DT.polity){const q=px(c0.lon,c0.lat);
+        const t=el('text',{x:q[0],y:q[1]-kmToU(c0.r||200)*.66,class:'lbl lbl-polity','text-anchor':'middle',fill:p._c});
+        t.textContent=(st.script==='arabic'&&p.ar)?p.ar:NAME('polities',p); g.appendChild(t);}
+      layer.polity.appendChild(g);
+    });
+  }
+  // tribes
+  if(layerOn('tribes')){
+    (D.tribes||[]).forEach(t=>{
+      const q=px(t.lon,t.lat), r=kmToU(t.r||180);
+      const selT = st.sel&&st.sel.kind==='tribe'&&st.sel.o.id===t.id;
+      const g=el('g',{color:'var(--accent2)',class:'hit'});
+      g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r*.5,fill:'transparent'}));
+      g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:'url(#tribgrad)'}));
+      if(selT){
+        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:r,fill:'none',stroke:'var(--accent)',
+          'stroke-width':1.6*U,'stroke-dasharray':(5*U)+' '+(4*U),opacity:.95}));
+        g.appendChild(el('circle',{cx:q[0],cy:q[1],r:2.6*U,fill:'var(--accent)'}));
+      }
+      if(DTT.tribe){
+        const tx=el('text',{x:q[0],y:q[1],class:'lbl lbl-tribe','text-anchor':'middle'});
+        tx.textContent=(st.script==='arabic'&&t.ar)?t.ar:NAME('tribes',t);
+        g.appendChild(tx);
+      }
+      bind(g,{kind:'tribe',o:t});
+      if(selT) layer.tribes.appendChild(g); else layer.tribes.insertBefore(g,layer.tribes.firstChild);
+    });
+  }
+
+  // ---- collect every point marker, then push them apart before drawing ----
+  const liveEv = visibleEvents();
+  const hotPlaces = new Set(liveEv.map(e=>e.placeId).filter(Boolean));
+  const marks=[];
+
+  if(layerOn('places')){
+    (D.places||[]).forEach(p=>{
+      if(y<(p.from??-9999)||y>(p.to??9999)) return;
+      if(p.kind==='battlefield' && !hotPlaces.has(p.id)) return;
+      const rank = RANK_KIND[p.kind]??4;
+      const isHot = hotPlaces.has(p.id);
+      if(rank>DT.maxRank && !isHot) return;
+      const q=px(p.lon,p.lat);
+      const major = p.kind==='capital';
+      marks.push({L:'places', ref:{kind:'place',o:p}, o:p, x0:q[0], y0:q[1], x:q[0], y:q[1],
+        glyph: DT.shapes ? (PKIND[p.kind]||'site') : null,
+        size: major?20:rank<=1?17.5:16,
+        fill:'var(--mapfg)', ring:p.coordConfidence,
+        label: ((DT.labelRank>=0 && rank<=DT.labelRank) || (major&&DT.labelRank>=0) || isHot)
+               ? ((st.script==='arabic'&&p.ar)?p.ar:NAME('places',p)) : null});
+    });
+  }
+  if(layerOn('events')){
+    liveEv.forEach(e=>{
+      const pl = e.placeId && placeById.get(e.placeId); if(!pl) return;
+      const q=px(pl.lon,pl.lat), exact=e.year===y;
+      marks.push({L:'events', ref:{kind:'event',o:e}, o:e, x0:q[0], y0:q[1], x:q[0], y:q[1],
+        glyph: DT.shapes?'event':null, size: exact?18:15, fill:evColor(e),
+        dim: exact?1:0.55, pulse: exact && st.motion!=='off', label:null, pri:1});
+    });
+  }
+  if(layerOn('people')){
+    (D.people||[]).forEach(pr=>{
+      if(!pr.path||!pr.path.length) return;
+      let cur=null;
+      for(const sp of pr.path){ if(sp.year<=y && (!cur||sp.year>=cur.year)) cur=sp; }
+      if(!cur) return;
+      if(pr.death!=null && y>pr.death+2) return;
+      const pl=placeById.get(cur.placeId); if(!pl) return;
+      const q=px(pl.lon,pl.lat);
+      marks.push({L:'people', ref:{kind:'person',o:pr,at:cur}, o:pr, x0:q[0], y0:q[1], x:q[0], y:q[1],
+        glyph: DT.shapes?'person':null, size:17, fill:'var(--accent)', label:null, pri:2});
+    });
+  }
+
+  separate(marks,U);
+  const sid=st.sel&&st.sel.o&&st.sel.o.id;
+  marks.sort((a,b)=>((a.o&&a.o.id)===sid?1:0)-((b.o&&b.o.id)===sid?1:0));
+  marks.forEach(m=>drawMark(m,U));
+
+  const fk=focusKind(), fp=document.getElementById('focuspill');
+  if(fp){
+    if(fk){
+      const nm={events:T('tabEvents'),people:T('tabPeople'),places:T('tabPlaces'),tribes:T('tabTribes')}[fk];
+      const ik={events:'event',people:'person',places:'place',tribes:'tribe'}[fk];
+      fp.innerHTML=typeIco(ik,{})+'<b>'+esc(nm)+'</b><span>'+esc(isAr()?'عرض الكلّ':'show all')+'</span>';
+      fp.hidden=false;
+    } else fp.hidden=true;
+  }
+  layer.labels.style.display = st.show.regions?'':'none';
+  layer.sands.style.display = st.show.sands?'':'none';
+  layer.ranges.style.display= st.show.ranges?'':'none';
+  layer.rivers.style.display= st.show.rivers?'':'none';
+}
+
+// Markers that land on top of each other get nudged apart, and anything moved
+// keeps a hairline back to where it really belongs — the pin is a label, the
+// line end is the claim.
+function separate(ms,U){
+  if(ms.length<2 || ms.length>320) return;
+  const minD=25*U, maxPull=26*U;
+  for(let it=0; it<70; it++){
+    let moved=false;
+    for(let i=0;i<ms.length;i++){
+      for(let j=i+1;j<ms.length;j++){
+        const a=ms[i], b=ms[j];
+        let dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy);
+        if(d>=minD) continue;
+        if(d<1e-9){ dx=(i%2?1:-1)*0.001; dy=(j%2?1:-1)*0.001; d=Math.hypot(dx,dy); }
+        const push=(minD-d)*0.28, ux=dx/d, uy=dy/d;
+        a.x-=ux*push; a.y-=uy*push; b.x+=ux*push; b.y+=uy*push;
+        moved=true;
+      }
+    }
+    if(!moved) break;
+  }
+  ms.forEach(m=>{
+    const dx=m.x-m.x0, dy=m.y-m.y0, d=Math.hypot(dx,dy);
+    if(d>maxPull){ m.x=m.x0+dx/d*maxPull; m.y=m.y0+dy/d*maxPull; }
+    m.off=Math.hypot(m.x-m.x0,m.y-m.y0);
+  });
+}
+
+function drawMark(m,U){
+  const g=el('g',{class:'hit'});
+  const selId=st.sel&&st.sel.o&&st.sel.o.id;
+  const isSel = selId && m.o && m.o.id===selId;
+  if(isSel) m.size=m.size*1.25;
+  // leader back to the true position
+  if(m.off>2.2*U){
+    const ld=el('g');
+    ld.appendChild(el('line',{x1:m.x0,y1:m.y0,x2:m.x,y2:m.y,stroke:'var(--mapfaint)',
+      'stroke-width':.8*U,opacity:.6}));
+    ld.appendChild(el('circle',{cx:m.x0,cy:m.y0,r:1.2*U,fill:'var(--mapfaint)',opacity:.75}));
+    layer.leaders.appendChild(ld);
+  }
+  const r=(m.size/2)*U;
+  if(m.pulse){
+    const pulse=el('circle',{cx:m.x,cy:m.y,r:r,fill:'none',stroke:m.fill,'stroke-width':1.4*U,opacity:.9});
+    pulse.appendChild(el('animate',{attributeName:'r',values:r+';'+(r*2.8)+';'+r,dur:'2.6s',repeatCount:'indefinite'}));
+    pulse.appendChild(el('animate',{attributeName:'opacity',values:'.9;0;.9',dur:'2.6s',repeatCount:'indefinite'}));
+    g.appendChild(pulse);
+  }
+  // halo so a filled glyph reads over sand, basalt or sea
+  g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r+2*U,fill:'var(--land)',opacity:.88}));
+  g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r+2*U,fill:'none',stroke:m.fill,'stroke-width':.9*U,opacity:.45}));
+  if(m.glyph){
+    const sc=(m.size*U)/16;
+    const gl=el('g',{transform:'translate('+(m.x-8*sc)+' '+(m.y-8*sc)+') scale('+sc+')',
+      fill:m.fill, opacity:m.dim??1});
+    gl.innerHTML=ICON[m.glyph]||ICON.site;
+    g.appendChild(gl);
+  } else {
+    g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r*.55,fill:m.fill,opacity:m.dim??1}));
+  }
+  if(m.ring==='guessed')
+    g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r+3.4*U,fill:'none',stroke:'var(--mapfaint)',
+      'stroke-width':.9*U,'stroke-dasharray':(1.6*U)+' '+(2.1*U)}));
+  else if(m.ring==='approximate')
+    g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r+2.8*U,fill:'none',stroke:'var(--mapfaint)',
+      'stroke-width':.7*U,opacity:.45}));
+  g.appendChild(el('circle',{cx:m.x,cy:m.y,r:Math.max(r+2.5*U,11.5*U),fill:'transparent'}));
+  if(isSel){
+    g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r+6*U,fill:'none',stroke:'var(--accent)','stroke-width':1.8*U}));
+    if(st.motion!=='off'){
+      const halo=el('circle',{cx:m.x,cy:m.y,r:r+6*U,fill:'none',stroke:'var(--accent)','stroke-width':1.2*U});
+      halo.appendChild(el('animate',{attributeName:'r',values:(r+6*U)+';'+(r+15*U)+';'+(r+6*U),dur:'2s',repeatCount:'indefinite'}));
+      halo.appendChild(el('animate',{attributeName:'opacity',values:'.85;0;.85',dur:'2s',repeatCount:'indefinite'}));
+      g.appendChild(halo);
+    }
+  }
+  if(m.label || isSel){
+    const t=el('text',{x:m.x+(r+3.4*U),y:m.y+3.6*U,class:'lbl lbl-place',
+      'pointer-events':'visiblePainted',style:'cursor:pointer'});
+    t.textContent=m.label||NAME({place:'places',event:'events',person:'people'}[m.ref.kind]||'places',m.o); g.appendChild(t);
+  }
+  bind(g,m.ref);
+  layer[m.L].appendChild(g);
+}
+
+// A content tab narrows the map to its own kind; All, Legend and Display leave it alone.
+const FOCUS={events:'events',people:'people',places:'places',tribes:'tribes'};
+const MARKERS=['events','people','places','tribes'];
+function focusKind(){ return FOCUS[st.tab]||null; }
+function layerOn(k){
+  const f=focusKind();
+  // whatever is selected stays drawable even if its layer or filter would hide it
+  const selK=st.sel&&{place:'places',event:'events',person:'people',tribe:'tribes'}[st.sel.kind];
+  if(selK===k) return true;
+  if(f && MARKERS.includes(k)) return k===f && st.show[k];
+  return st.show[k];
+}
+function visibleEvents(){
+  const y=st.year,w=st.win;
+  return events.filter(e=>
+    Math.abs((e.year??0)-y)<=w &&
+    st.cats.has(e.category) && st.evid.has(e.evidence||'TRAD'));
+}
+
+/* ---------- tooltip & selection ---------- */
+const tip=document.getElementById('tip');
+function bind(g,ref){
+  g.addEventListener('pointerenter',ev=>showTip(ev,ref));
+  g.addEventListener('pointermove',ev=>moveTip(ev));
+  g.addEventListener('pointerleave',()=>tip.classList.remove('on'));
+  g.addEventListener('click',ev=>{ev.stopPropagation();select(ref);});
+}
+function typeLine(kind,o){
+  let sub=TYPE2(kind);
+  if(kind==='place'&&o.kind) sub+=' · '+Tg('placeKind',o.kind);
+  if(kind==='event'&&o.year!=null) sub+=' · '+o.year+' CE';
+  if(kind==='person'&&o.role) sub+=' · '+Tg('role',o.role);
+  return sub;
+}
+function showTip(ev,ref){
+  const o=ref.o, k=ref.kind;
+  let h='<div class="tiptype">'+typeIco(k,o)+'<span>'+esc(typeLine(k,o))+'</span></div>';
+  const kk={person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events'}[k];
+  h+='<b>'+esc(NAME(kk,o))+'</b>';
+  const alt=altOf(kk,o); if(alt) h+='<div class="ar">'+esc(alt)+'</div>';
+  const txt = LOC(kk,o,o.blurb!==undefined?'blurb':'summary')||o.blurb||o.summary||'';
+  if(txt) h+='<p>'+esc(txt.length>150?txt.slice(0,147)+'…':txt)+'</p>';
+  if(k==='person'&&ref.at&&ref.at.what) h+='<p>'+esc(ref.at.what)+'</p>';
+  if(k==='place'&&o.coordConfidence&&o.coordConfidence!=='exact')
+    h+='<p style="color:var(--trad)">'+esc(o.coordConfidence)+' location</p>';
+  if(k==='event'&&o.dispute) h+='<p style="color:var(--trad)">Scholars disagree — click for the detail.</p>';
+  tip.innerHTML=h; tip.classList.add('on'); moveTip(ev);
+}
+function moveTip(ev){
+  const r=document.getElementById('mapwrap').getBoundingClientRect();
+  let x=ev.clientX-r.left+14, y=ev.clientY-r.top+14;
+  if(x+260>r.width) x=ev.clientX-r.left-260;
+  if(y+150>r.height) y=Math.max(4,ev.clientY-r.top-150);
+  tip.style.left=x+'px'; tip.style.top=y+'px';
+}
+// Everything that opens a record goes through here, so the panel, the tabs,
+// the layers and the camera can never disagree about what is being looked at.
+function reveal(ref,opts){
+  opts=opts||{};
+  st.sel=ref;
+  const k=ref.kind, o=ref.o;
+  if(k==='event'&&o.year!=null) setYear(o.year,true);
+  if(opts.tab!==false)
+    st.tab = k==='event'?'events' : k==='person'?'people' : k==='tribe'?'tribes'
+           : k==='polity'?'all' : 'places';
+  if(k==='tribe')  st.show.tribes=true;
+  if(k==='person') st.show.people=true;
+  if(k==='place')  st.show.places=true;
+  if(k==='event')  st.show.events=true;
+  syncTabs();
+  if(opts.move!==false) moveTo(ref);
+  else { drawDynamic(); }
+  renderPanel(); raiseSheet();
+}
+function moveTo(ref){
+  const k=ref.kind, o=ref.o;
+  if(k==='tribe'){ flyToArea(o.lon,o.lat,o.r||180); return; }
+  if(k==='polity'){
+    const z=(o.zones||[]).find(z=>st.year>=(z.from??-9e9)&&st.year<=(z.to??9e9))||(o.zones||[])[0];
+    const c=z&&(z.centers||[])[0];
+    if(c) flyToArea(c.lon,c.lat,c.r||300); else drawDynamic();
+    return;
+  }
+  if(k==='place'){ flyTo(o.lon,o.lat,3.2); return; }
+  if(k==='event'){
+    const pl=o.placeId&&placeById.get(o.placeId);
+    if(pl) flyTo(pl.lon,pl.lat,3.2); else drawDynamic();
+    return;
+  }
+  if(k==='person'){
+    let cur=null; (o.path||[]).forEach(sp=>{ if(sp.year<=st.year&&(!cur||sp.year>=cur.year)) cur=sp; });
+    const pl=cur&&placeById.get(cur.placeId);
+    if(pl) flyTo(pl.lon,pl.lat,3.2); else drawDynamic();
+    return;
+  }
+  drawDynamic();
+}
+// clicking the marker itself: open it, but leave the camera where the user put it
+function select(ref){ reveal(ref,{move:false}); }
+
+/* ---------- pan / zoom ---------- */
+function clampView(){
+  const r=map.getBoundingClientRect(); if(!r.width) return;
+  const s=st.view.s, w=WORLD_W*s, h=WORLD_H*s;
+  const padX=r.width*0.35, padY=Math.max(r.height*0.35, coverPx()*0.9);
+  st.view.tx=Math.min(padX, Math.max(r.width-w-padX, st.view.tx));
+  st.view.ty=Math.min(padY, Math.max(r.height-h-padY, st.view.ty));
+}
+function applyView(){
+  clampView();
+  gRoot.setAttribute('transform',`translate(${st.view.tx} ${st.view.ty}) scale(${st.view.s})`);
+  map.classList.toggle('zoomed', st.view.s > st.view.home*1.3);
+  map.style.setProperty('--k', (1/st.view.s).toFixed(4));
+  updateScale();
+  const sp=document.getElementById('sandpat');
+  if(sp) sp.setAttribute('patternTransform','scale('+(1/st.view.s).toFixed(4)+')');
+}
+function coverPx(){
+  const p=document.getElementById('panel');
+  if(!p || !window.matchMedia('(max-width:860px)').matches) return 0;
+  return p.getBoundingClientRect().height*(1-SNAPS[st.sheet]);
+}
+let lastCover=0;
+function fit(box){
+  const r=map.getBoundingClientRect();
+  const a=px(box[0],box[3]), b=px(box[2],box[1]);
+  const w=b[0]-a[0], h=b[1]-a[1];
+  const cover=coverPx(); lastCover=cover;
+  const avail=Math.max(120,r.height-cover);
+  const s=Math.min(r.width/w, avail/h);
+  st.view.s=s; st.view.home=s;
+  st.view.tx=-a[0]*s+(r.width-w*s)/2;
+  st.view.ty=-a[1]*s+(avail-h*s)/2;
+  map.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`);
+  applyView();
+}
+let redrawT=null;
+function redrawSoon(ms){ clearTimeout(redrawT); redrawT=setTimeout(drawDynamic, ms??90); }
+function zoomAt(f,cx,cy){
+  const lo=st.view.home*0.7, hi=st.view.home*22;
+  const ns=Math.max(lo,Math.min(hi,st.view.s*f)); if(ns===st.view.s) return;
+  const k=ns/st.view.s;
+  st.view.tx=cx-(cx-st.view.tx)*k; st.view.ty=cy-(cy-st.view.ty)*k; st.view.s=ns;
+  applyView();
+  // the transform is instant; re-laying out 60-odd markers is not, so it waits
+  // for the gesture to settle instead of stuttering through every wheel tick
+  redrawSoon(90);
+}
+function mapPt(e){const r=map.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top];}
+function clampS(v){ return Math.max(st.view.home*0.7, Math.min(st.view.home*22, v)); }
+
+/* Touch and mouse are different input models, so they get different handlers.
+   Touch: one finger pans, two fingers pan and zoom together about their midpoint.
+   Mouse: drag pans, and capture is deferred so a click stays a click.
+   Move and up are bound on window, because a touch target that re-renders
+   mid-gesture would otherwise take its own pointer events with it. */
+(function(){
+  const touch=new Map();
+  let g1=null, g2=null, mouse=null;
+  const isTouch=e=>e.pointerType==='touch'||e.pointerType==='pen';
+
+  function startOneFinger(p){
+    g2=null;
+    g1={x:p.x, y:p.y, tx:st.view.tx, ty:st.view.ty, armed:false};
+  }
+  function startTwoFinger(){
+    const [a,b]=[...touch.values()];
+    g1=null;
+    g2={d0:Math.max(1,Math.hypot(a.x-b.x,a.y-b.y)),
+        mx:(a.x+b.x)/2, my:(a.y+b.y)/2,
+        s0:st.view.s, tx0:st.view.tx, ty0:st.view.ty};
+    map.classList.add('drag');
+  }
+  function onTouchMove(e){
+    if(!touch.has(e.pointerId)) return;
+    e.preventDefault();
+    touch.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    const r=map.getBoundingClientRect();
+    if(g2 && touch.size>=2){
+      const [a,b]=[...touch.values()];
+      const d=Math.max(1,Math.hypot(a.x-b.x,a.y-b.y));
+      const mx=(a.x+b.x)/2-r.left, my=(a.y+b.y)/2-r.top;
+      const m0x=g2.mx-r.left, m0y=g2.my-r.top;
+      const s=clampS(g2.s0*(d/g2.d0));
+      // hold the world point that was under the midpoint, then follow the midpoint
+      st.view.s=s;
+      st.view.tx = mx - ((m0x-g2.tx0)/g2.s0)*s;
+      st.view.ty = my - ((m0y-g2.ty0)/g2.s0)*s;
+      applyView(); redrawSoon(90);
+      return;
+    }
+    if(g1){
+      const dx=e.clientX-g1.x, dy=e.clientY-g1.y;
+      if(!g1.armed){
+        if(Math.hypot(dx,dy)<8) return;          // a tap, not a drag
+        g1.armed=true; map.classList.add('drag');
+      }
+      st.view.tx=g1.tx+dx; st.view.ty=g1.ty+dy; applyView(); redrawSoon(120);
+    }
+  }
+  function onTouchEnd(e){
+    if(!touch.has(e.pointerId)) return;
+    touch.delete(e.pointerId);
+    if(touch.size===1){
+      const only=[...touch.values()][0];
+      startOneFinger(only); g1.armed=true;        // carry on panning with the finger left down
+    } else if(touch.size===0){
+      const moved=(g1&&g1.armed)||g2;
+      g1=null; g2=null; map.classList.remove('drag');
+      window.removeEventListener('pointermove',onTouchMove);
+      window.removeEventListener('pointerup',onTouchEnd);
+      window.removeEventListener('pointercancel',onTouchEnd);
+      if(moved) drawDynamic();
+    } else if(touch.size>=2){ startTwoFinger(); }
+  }
+  function onMouseMove(e){
+    if(!mouse) return;
+    const dx=e.clientX-mouse.x, dy=e.clientY-mouse.y;
+    if(!mouse.armed){
+      if(Math.hypot(dx,dy)<5) return;             // a click, not a drag
+      mouse.armed=true; map.classList.add('drag');
+    }
+    st.view.tx=mouse.tx+dx; st.view.ty=mouse.ty+dy; applyView();
+  }
+  function onMouseUp(){
+    const moved=mouse&&mouse.armed;
+    mouse=null; map.classList.remove('drag');
+    window.removeEventListener('pointermove',onMouseMove);
+    window.removeEventListener('pointerup',onMouseUp);
+    if(moved) drawDynamic();
+  }
+
+  map.addEventListener('pointerdown',e=>{
+    if(isTouch(e)){
+      // a touch target implicitly captures its own pointer; let it go so the
+      // gesture survives the marker underneath being redrawn
+      try{ if(e.target.hasPointerCapture&&e.target.hasPointerCapture(e.pointerId))
+             e.target.releasePointerCapture(e.pointerId); }catch(_){}
+      touch.set(e.pointerId,{x:e.clientX,y:e.clientY});
+      if(touch.size===1) startOneFinger({x:e.clientX,y:e.clientY});
+      else startTwoFinger();
+      window.addEventListener('pointermove',onTouchMove,{passive:false});
+      window.addEventListener('pointerup',onTouchEnd);
+      window.addEventListener('pointercancel',onTouchEnd);
+    } else if(e.button===0){
+      mouse={x:e.clientX,y:e.clientY,tx:st.view.tx,ty:st.view.ty,armed:false};
+      window.addEventListener('pointermove',onMouseMove);
+      window.addEventListener('pointerup',onMouseUp);
+    }
+  });
+  // a stray gesture left mid-flight by a resize or a tab switch should not stick
+  window.addEventListener('blur',()=>{touch.clear();g1=null;g2=null;mouse=null;map.classList.remove('drag');});
+})();
+map.addEventListener('dblclick',e=>{const q=mapPt(e);zoomAt(e.shiftKey?1/1.9:1.9,q[0],q[1]);});
+map.addEventListener('keydown',e=>{
+  const step=60, r=map.getBoundingClientRect();
+  const K={ArrowLeft:[step,0],ArrowRight:[-step,0],ArrowUp:[0,step],ArrowDown:[0,-step]}[e.key];
+  if(K){e.preventDefault();e.stopPropagation();st.view.tx+=K[0];st.view.ty+=K[1];applyView();return;}
+  if(e.key==='+'||e.key==='='){e.preventDefault();zoomAt(1.45,r.width/2,(r.height-coverPx())/2);}
+  if(e.key==='-'||e.key==='_'){e.preventDefault();zoomAt(1/1.45,r.width/2,(r.height-coverPx())/2);}
+  if(e.key==='0'){e.preventDefault();fit(HOME);drawDynamic();}
+});
+// A trackpad two-finger drag arrives as a wheel event with small, often fractional
+// deltas and a live deltaX; a mouse wheel arrives in chunky line- or page-sized steps.
+// A trackpad pinch arrives as a wheel event with ctrlKey set.
+function wheelMode(e){
+  if(e.ctrlKey) return 'zoom';
+  if(st.wheel==='zoom'||st.wheel==='pan') return st.wheel;
+  if(e.deltaMode!==0) return 'zoom';
+  if(Math.abs(e.deltaX)>0.5) return 'pan';
+  if(Math.abs(e.deltaY)>=48 && Number.isInteger(e.deltaY)) return 'zoom';
+  return 'pan';
+}
+map.addEventListener('wheel',e=>{
+  e.preventDefault();
+  const r=map.getBoundingClientRect();
+  if(wheelMode(e)==='pan'){
+    st.view.tx-=e.deltaX; st.view.ty-=e.deltaY; applyView();
+    redrawSoon(110);
+  } else {
+    const f=Math.exp(-e.deltaY*(e.ctrlKey?0.012:0.0022));
+    zoomAt(Math.max(0.5,Math.min(2,f)), e.clientX-r.left, e.clientY-r.top);
+  }
+},{passive:false});
+document.getElementById('zin').onclick=()=>{const r=map.getBoundingClientRect();zoomAt(1.45,r.width/2,(r.height-coverPx())/2);};
+document.getElementById('zout').onclick=()=>{const r=map.getBoundingClientRect();zoomAt(1/1.45,r.width/2,(r.height-coverPx())/2);};
+document.getElementById('zfit').onclick=()=>{fit(HOME);drawDynamic();};
+// z is a multiple of the home framing, never an absolute scale — the home scale
+// differs between a desktop pane and a phone, so absolute numbers zoom the wrong way.
+function flyTo(lon,lat,z){
+  const r=map.getBoundingClientRect(), q=px(lon,lat);
+  const cover=coverPx();
+  st.view.s = st.view.home * (z||2.4);
+  st.view.tx = r.width/2 - q[0]*st.view.s;
+  st.view.ty = (r.height-cover)/2 - q[1]*st.view.s;
+  applyView(); drawDynamic();
+}
+// frame a circle of radius km around a point, so a tribal range or a sphere fills the view
+function flyToArea(lon,lat,km){
+  const r=map.getBoundingClientRect(), q=px(lon,lat), cover=coverPx();
+  const want=kmToU(km*2.1);
+  const s=Math.min(r.width/want, Math.max(140,r.height-cover)/want);
+  st.view.s=Math.max(st.view.home*0.75, Math.min(st.view.home*18, s));
+  st.view.tx=r.width/2-q[0]*st.view.s;
+  st.view.ty=(r.height-cover)/2-q[1]*st.view.s;
+  applyView(); drawDynamic();
+}
+
+function updateScale(){
+  const kmPerUnit = 111.32/S;               // 1 world unit at the standard parallel
+  const target = 110;                        // aim for a ~110px bar
+  const rawKm = target/st.view.s*kmPerUnit;
+  const steps=[10,25,50,100,200,250,500,1000,2000];
+  let km=steps[steps.length-1];
+  for(const v of steps){ if(v>=rawKm){km=v;break;} }
+  const w = km/kmPerUnit*st.view.s;
+  const bar=document.querySelector('#scalebar .bar');
+  if(bar){bar.style.width=w.toFixed(0)+'px';document.getElementById('scaletxt').textContent=km+(isAr()?' كم':' km');}
+  const z=document.getElementById('zoomlvl');
+  if(z){const d=detail();
+    z.textContent=(st.view.s/st.view.home).toFixed(1)+'× · '+
+      (isAr()? (d.maxRank<=0?'المعالم الكبرى':d.maxRank<=1?'المدن':d.maxRank<=2?'البلدات':d.maxRank<=3?'المشاهد':'كل شيء')
+             : (d.maxRank<=0?'anchors':d.maxRank<=1?'cities':d.maxRank<=2?'towns':d.maxRank<=3?'shrines':'everything'));}
+}
+
+/* ---------- timeline ---------- */
+const range=document.getElementById('range');
+range.min=Y0; range.max=Y1;
+function buildRail(){
+  // density
+  const svg=document.getElementById('density'); svg.textContent='';
+  const B=5, nb=Math.ceil((Y1-Y0)/B), buckets=new Array(nb).fill(0);
+  events.forEach(e=>{const i=Math.floor(((e.year??Y0)-Y0)/B); if(i>=0&&i<nb) buckets[i]++;});
+  const mx=Math.max(1,...buckets);
+  buckets.forEach((v,i)=>{
+    if(!v) return;
+    const h=3+ (v/mx)*15, w=1000/nb;
+    svg.appendChild(el('rect',{x:i*w+.4,y:19-h,width:Math.max(1.1,w-.8),height:h,
+      fill:'var(--accent)',opacity:.30,rx:.6}));
+  });
+  // era bands from polities
+  const esvg=document.getElementById('eras'); esvg.textContent='';
+  const bands=(D.polities||[]).filter(p=>p.from!=null&&p.to!=null)
+    .sort((a,b)=>(a.from-b.from)).slice(0,14);
+  const rows=[];
+  bands.forEach(p=>{
+    let r=0; while(rows[r]!=null && rows[r] > p.from) r++;
+    rows[r]=p.to;
+    if(r>2) return;
+    const x0=(p.from-Y0)/(Y1-Y0)*1000, x1=(p.to-Y0)/(Y1-Y0)*1000;
+    const yy=r*5.6, g=el('g');
+    g.appendChild(el('rect',{x:x0,y:yy,width:Math.max(2,x1-x0),height:4.3,rx:2,
+      fill:'var(--accent2)',opacity:.26}));
+    esvg.appendChild(g);
+  });
+  // spans: events that cover a stretch of years rather than a point
+  events.filter(e=>e.endYear&&e.endYear>e.year).forEach(e=>{
+    const x0=(e.year-Y0)/(Y1-Y0)*1000, x1=(Math.min(e.endYear,Y1)-Y0)/(Y1-Y0)*1000;
+    esvg.appendChild(el('rect',{x:x0,y:12.6,width:Math.max(2,x1-x0),height:3,rx:1.5,
+      fill:'var(--trad)',opacity:.45}));
+  });
+  // ticks
+  const tk=document.getElementById('ticks'); tk.textContent='';
+  for(let y=Math.ceil(Y0/50)*50;y<=Y1;y+=50){
+    const s=document.createElement('span');
+    s.style.left=((y-Y0)/(Y1-Y0)*100)+'%'; s.textContent=y; tk.appendChild(s);
+  }
+}
+function currentEra(){
+  const act=(D.polities||[]).filter(p=>st.year>=(p.from??9e9)&&st.year<=(p.to??-9e9));
+  const names=act.filter(p=>p.kind!=='empire').map(p=>NAME('polities',p));
+  return names.slice(0,3).join(' · ');
+}
+function setYear(y,noScroll){
+  st.year=Math.max(Y0,Math.min(Y1,Math.round(y)));
+  range.value=st.year;
+  document.getElementById('yearNum').textContent=st.year;
+  document.getElementById('eraName').textContent=currentEra();
+  drawDynamic();
+  renderPanel(noScroll);
+  updatePeek();
+}
+range.addEventListener('input',()=>{st.sel=null;setYear(+range.value);});
+
+let timer=null;
+const playBtn=document.getElementById('play');
+playBtn.onclick=()=>{
+  st.playing=!st.playing; playBtn.setAttribute('aria-pressed',st.playing);
+  playBtn.textContent=st.playing?'❚❚ Pause':'▶ Play';
+  if(timer) clearInterval(timer);
+  if(st.playing) timer=setInterval(()=>{
+    if(st.year>=Y1){st.playing=false;playBtn.setAttribute('aria-pressed',false);playBtn.textContent='▶ Play';clearInterval(timer);return;}
+    st.sel=null; setYear(st.year+1,true);
+  },170);
+};
+document.getElementById('stepF').onclick=()=>{const n=events.find(e=>e.year>st.year); if(n){st.sel=null;setYear(n.year);}};
+document.getElementById('stepB').onclick=()=>{const p=[...events].reverse().find(e=>e.year<st.year); if(p){st.sel=null;setYear(p.year);}};
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT'&&e.target.type!=='range') return;
+  if(e.key==='ArrowRight'){setYear(st.year+(e.shiftKey?10:1));}
+  if(e.key==='ArrowLeft'){setYear(st.year-(e.shiftKey?10:1));}
+});
+
+/* ---------- panel ---------- */
+const pbody=document.getElementById('pbody');
+function backBtn(){return '<button class="back" data-back="1">'+(isAr()?'→ ':'← ')+st.year+'</button>';}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function yearStr(e){
+  if(e.year==null) return '—';
+  const c=(e.estimated?(isAr()?'نحو ':'c. '):'')+e.year;
+  return e.endYear? c+'–'+e.endYear : c;
+}
+function rangeStr(e){
+  if(!e.dateRange) return '';
+  const [a,b]=e.dateRange;
+  return a===b? '' : a+'–'+b;
+}
+function tagEl(e){return '<span class="tag t-'+(e.evidence||'TRAD')+'">'+(e.evidence||'TRAD')+'</span>';}
+
+document.querySelectorAll('.ptabs button').forEach(b=>{
+  b.onclick=()=>{st.tab=b.dataset.tab;st.sel=null;
+    if(st.tab==='tribes') st.show.tribes=true;
+    syncTabs();drawDynamic();renderPanel();raiseSheet();};
+});
+function syncTabs(){
+  document.querySelectorAll('.ptabs button').forEach(b=>{
+    const on=b.dataset.tab===st.tab;
+    b.setAttribute('aria-selected',on);
+    if(on) try{b.scrollIntoView({block:'nearest',inline:'center'});}catch(_){}
+  });
+}
+
+function chip(kind,o,label){
+  const attr={person:'data-person',place:'data-place',tribe:'data-tribe',polity:'data-polity',event:'data-ev'}[kind];
+  const kk={person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events'}[kind];
+  return '<span class="chip" '+attr+'="'+esc(o.id)+'">'+typeIco(kind,o)+esc(label||NAME(kk,o))+'</span>';
+}
+function evCard(e){
+  const pl=e.placeId&&placeById.get(e.placeId);
+  const ti=NAME('events',e), alt=(isAr()? e.title : e.ar);
+  const rng=rangeStr(e);
+  return '<div class="ev'+(e.year===st.year?' now':'')+'" data-ev="'+esc(e.id)+'" style="border-left-color:'+evColor(e)+'">'
+    +'<div class="r1"><span class="yr">'+esc(yearStr(e))+'</span><span class="ti">'+ico('event','ic-event')+esc(ti)+'</span></div>'
+    +(alt&&alt!==ti?'<div class="ar">'+esc(alt)+'</div>':'')
+    +'<div class="meta">'+tagEl(e)
+    +'<span class="cert '+esc(e.dateCertainty||'')+'">'+esc(Tg('certainty',e.dateCertainty||''))
+      +(rng?' · '+rng:'')+'</span>'
+    +(pl?'<span class="where">· '+esc(NAME('places',pl))+'</span>':'')
+    +'</div></div>';
+}
+function evDetail(e){
+  const pl=e.placeId&&placeById.get(e.placeId);
+  const ppl=(e.peopleIds||[]).map(i=>personById.get(i)).filter(Boolean);
+  const pol=(e.politiesIds||[]).map(i=>polityById.get(i)).filter(Boolean);
+  let h=backBtn()
+   +'<div class="detail"><div class="dhead">'+typeIco('event',e)+'<span>'+esc(TYPE2('event'))+(e.category?' · '+esc(Tg('category',e.category)):'')+'</span></div>'
+   +'<h3>'+esc(NAME('events',e))+'</h3>'
+   +(altOf('events',e)?'<div class="arbig">'+esc(altOf('events',e))+'</div>':'')
+   +'<div class="meta" style="margin-bottom:10px">'+tagEl(e)
+   +'<span class="cert '+esc(e.dateCertainty||'')+'">'+esc(Tg('evidence',e.evidence||'')||'')+' · '+esc(Tg('certainty',e.dateCertainty||''))+'</span></div>'
+   +'<p>'+esc(LOC('events',e,'summary')||'')+'</p>';
+  const dn=LOC('events',e,'dateNote');
+  if(dn) h+='<div class="disp basis"><b>'+esc(isAr()?'على أيّ شيء يقوم التأريخ':'What the date rests on')+'</b>'+esc(dn)+'</div>';
+  const dp=LOC('events',e,'dispute');
+  if(dp) h+='<div class="disp"><b>'+esc(T('disagree'))+'</b>'+esc(dp)+'</div>';
+  h+='<dl class="kv">';
+  h+='<dt>'+esc(isAr()?(e.endYear?'السنوات':T('year')):(e.endYear?'Years':'Year'))+'</dt><dd>'+esc(yearStr(e))
+    +(e.estimated?' <span class="cert">'+esc(Tg('certainty','estimated'))+'</span>':'')+'</dd>';
+  const rs=rangeStr(e);
+  if(rs) h+='<dt>'+esc(T('proposedRange'))+'</dt><dd>'+esc(rs)+'</dd>';
+  if(pl) h+='<dt>'+esc(T('place'))+'</dt><dd>'+esc(NAME('places',pl))
+    +(altOf('places',pl)?' · <span style="font-family:var(--f-display)">'+esc(altOf('places',pl))+'</span>':'')
+    +'<br><span class="cert">'+esc(isAr()?('موضعٌ '+Tg('coord',pl.coordConfidence||'')):((pl.coordConfidence||'')+' location'))+'</span></dd>';
+  if(e.category) h+='<dt>'+esc(T('kind'))+'</dt><dd>'+esc(Tg('category',e.category))+'</dd>';
+  h+='</dl>';
+  const trb=(D.tribes||[]).filter(t=>(tribeEvents.get(t.id)||[]).includes(e));
+  if(ppl.length) h+='<div class="sect">'+esc(T('figures'))+'</div><div class="chips">'+ppl.map(x=>chip('person',x)).join('')+'</div>';
+  if(trb.length) h+='<div class="sect">'+esc(T('tribes'))+'</div><div class="chips">'+trb.map(x=>chip('tribe',x)).join('')+'</div>';
+  if(pol.length) h+='<div class="sect">'+esc(T('powers'))+'</div><div class="chips">'+pol.map(x=>chip('polity',x)).join('')+'</div>';
+  if(pl) h+='<div class="sect">'+esc(T('place'))+'</div><div class="chips">'+chip('place',pl)+'</div>';
+  if(e.source) h+='<p style="font-size:11.5px"><a href="'+esc(e.source)+'" target="_blank" rel="noopener">'+esc(T('source'))+'</a></p>';
+  return h+'</div>';
+}
+function personDetail(p){
+  const evs=events.filter(e=>(e.peopleIds||[]).includes(p.id));
+  let h=backBtn()+'<div class="detail">'
+   +'<div class="dhead">'+typeIco('person',p)+'<span>Figure'+(p.role?' · '+esc(p.role):'')+'</span></div>'
+   +'<h3>'+esc(NAME('people',p))+'</h3>'+(altOf('people',p)?'<div class="arbig">'+esc(altOf('people',p))+'</div>':'')
+   +'<p>'+esc(LOC('people',p,'blurb')||'')+'</p><dl class="kv">'
+   +'<dt>'+esc(T('role'))+'</dt><dd>'+esc(Tg('role',p.role||'')||'—')+'</dd>'
+   +(p.tribe?'<dt>Tribe</dt><dd>'+esc(p.tribe)+'</dd>':'')
+   +'<dt>'+esc(T('dates'))+'</dt><dd>'+(p.lifeCertainty&&p.lifeCertainty!=='fixed'?(isAr()?'نحو ':'c. '):'')+(p.birth??'?')+' – '+(p.death??'?')
+   +' <span class="cert '+esc(p.lifeCertainty||'')+'">'+esc(p.lifeCertainty||'')+'</span></dd>'
+   +'</dl>';
+  const ln=LOC('people',p,'lifeNote');
+  if(ln) h+='<div class="disp"><b>'+esc(T('dating'))+'</b>'+esc(ln)+'</div>';
+  if(p.path&&p.path.length){
+    h+='<div class="sect">'+esc(T('whereTheyWere'))+'</div>';
+    h+=p.path.map(s=>{const pl=placeById.get(s.placeId);
+      return '<div class="ev" data-year="'+s.year+'"'+(pl?' data-place="'+esc(pl.id)+'"':'')+'>'
+        +'<div class="r1"><span class="yr">'+s.year+'</span><span class="ti" style="font-size:13.5px">'+esc(pl?pl.name:s.placeId)+'</span></div>'
+        +'<div class="where">'+esc(s.what||'')+'</div></div>';}).join('');
+  }
+  const myTribe=p._tribe;
+  const myPlaces=[...new Set((p.path||[]).map(x=>x.placeId))].map(i=>placeById.get(i)).filter(Boolean);
+  const withPeople=[...new Set(evs.flatMap(e=>e.peopleIds||[]))].filter(i=>i!==p.id)
+    .map(i=>personById.get(i)).filter(Boolean);
+  if(myTribe||myPlaces.length||withPeople.length){
+    h+='<div class="sect">'+esc(T('connections'))+'</div><div class="chips">'
+      +(myTribe?chip('tribe',myTribe):'')
+      +myPlaces.map(x=>chip('place',x)).join('')
+      +withPeople.slice(0,12).map(x=>chip('person',x)).join('')+'</div>';
+  }
+  if(evs.length){ h+='<div class="sect">'+esc(T('appearsIn'))+' · '+evs.length+'</div>'+evs.map(evCard).join(''); }
+  return h+'</div>';
+}
+function placeDetail(p){
+  const evs=events.filter(e=>e.placeId===p.id);
+  let h=backBtn()+'<div class="detail">'
+   +'<div class="dhead">'+typeIco('place',p)+'<span>Place'+(p.kind?' · '+esc(p.kind):'')+'</span></div>'
+   +'<h3>'+esc(NAME('places',p))+'</h3>'+(altOf('places',p)?'<div class="arbig">'+esc(altOf('places',p))+'</div>':'')
+   +'<p>'+esc(LOC('places',p,'blurb')||'')+'</p><dl class="kv">'
+   +'<dt>'+esc(T('kind'))+'</dt><dd>'+esc(Tg('placeKind',p.kind||'')||'—')+'</dd>'
+   +'<dt>'+esc(T('coordinates'))+'</dt><dd style="font-family:var(--f-mono);font-size:11.5px">'+p.lat.toFixed(2)+', '+p.lon.toFixed(2)
+   +'<br><span class="cert">'+esc(p.coordConfidence||'')+'</span></dd></dl>';
+  const here=[...new Set(evs.flatMap(e=>e.peopleIds||[]))].map(i=>personById.get(i)).filter(Boolean);
+  const visitors=(D.people||[]).filter(pp=>(pp.path||[]).some(x=>x.placeId===p.id));
+  const trb=(D.tribes||[]).filter(t=>(tribeEvents.get(t.id)||[]).some(e=>e.placeId===p.id));
+  const seat=(D.polities||[]).filter(po=>po.capitalId===p.id);
+  const conn=[...new Set([...here,...visitors])];
+  if(conn.length||trb.length||seat.length){
+    h+='<div class="sect">'+esc(T('connections'))+'</div><div class="chips">'
+      +seat.map(x=>chip('polity',x,NAME('polities',x)+' ('+T('seat')+')')).join('')
+      +trb.map(x=>chip('tribe',x)).join('')
+      +conn.slice(0,16).map(x=>chip('person',x)).join('')+'</div>';
+  }
+  if(evs.length) h+='<div class="sect">'+evs.length+' event'+(evs.length>1?'s':'')+' here</div>'+evs.map(evCard).join('');
+  return h+'</div>';
+}
+function tribeDetail(t){
+  const mem=tribeMembers.get(t.id)||[], evs=(tribeEvents.get(t.id)||[]).slice().sort((a,b)=>(a.year||0)-(b.year||0));
+  const pls=[...new Set(evs.map(e=>e.placeId).filter(Boolean))].map(i=>placeById.get(i)).filter(Boolean);
+  let h=backBtn()+'<div class="detail">'
+   +'<div class="dhead">'+typeIco('tribe',t)+'<span>Tribe · range</span></div>'
+   +'<h3>'+esc(NAME('tribes',t))+'</h3>'+(altOf('tribes',t)?'<div class="arbig">'+esc(altOf('tribes',t))+'</div>':'')
+   +'<p>'+esc(LOC('tribes',t,'blurb')||'')+'</p>'
+   +'<dl class="kv"><dt>Range centre</dt><dd style="font-family:var(--f-mono);font-size:11.5px">'
+   +t.lat.toFixed(2)+', '+t.lon.toFixed(2)+'<br><span class="cert">~'+(t.r||180)+' km of soft influence</span></dd></dl>';
+  if(mem.length) h+='<div class="sect">'+(isAr()?'شخصيات القبيلة':'Figures of this tribe')+'</div><div class="chips">'+mem.map(x=>chip('person',x)).join('')+'</div>';
+  if(pls.length) h+='<div class="sect">'+esc(T('whereTheyTurnUp'))+'</div><div class="chips">'+pls.map(x=>chip('place',x)).join('')+'</div>';
+  if(evs.length) h+='<div class="sect">'+evs.length+' event'+(evs.length>1?'s':'')+'</div>'+evs.map(evCard).join('');
+  else h+='<p class="none">No events in the dataset name this tribe.</p>';
+  h+='<div class="foot">Tribe links are matched on names in the event text and on each figure\u2019s stated tribe, '
+   +'so they are a reading aid rather than a claim in the sources.</div>';
+  return h+'</div>';
+}
+function polityDetail(p){
+  const evs=events.filter(e=>(e.politiesIds||[]).includes(p.id));
+  const cap=p.capitalId&&placeById.get(p.capitalId);
+  let h=backBtn()+'<div class="detail">'
+   +'<div class="dhead">'+typeIco('polity',p)+'<span>Power'+(p.kind?' · '+esc(p.kind):'')+'</span></div>'
+   +'<h3>'+esc(NAME('polities',p))+'</h3>'+(altOf('polities',p)?'<div class="arbig">'+esc(altOf('polities',p))+'</div>':'')
+   +'<p>'+esc(LOC('polities',p,'blurb')||'')+'</p><dl class="kv">'
+   +'<dt>'+esc(T('span'))+'</dt><dd>'+(p.from??'?')+' – '+(p.to??'?')+' CE</dd>'
+   +(cap?'<dt>'+esc(T('seat'))+'</dt><dd>'+esc(NAME('places',cap))+'</dd>':'')
+   +'<dt>'+esc(T('zones'))+'</dt><dd>'+((p.zones||[]).length)+' '
+   +esc(isAr()?'طورًا من أطوار الامتداد':('phase'+(((p.zones||[]).length)===1?'':'s')+' of extent'))+'</dd>'
+   +'</dl>';
+  if(cap) h+='<div class="sect">Connections</div><div class="chips">'+chip('place',cap)+'</div>';
+  if(evs.length) h+='<div class="sect">'+evs.length+' event'+(evs.length>1?'s':'')+'</div>'+evs.map(evCard).join('');
+  return h+'</div>';
+}
+
+function renderPanel(noScroll){
+  const keep=noScroll?pbody.scrollTop:0;
+  if(st.sel){
+    const r=st.sel;
+    pbody.innerHTML = r.kind==='event'?evDetail(r.o): r.kind==='person'?personDetail(r.o)
+      : r.kind==='tribe'?tribeDetail(r.o): r.kind==='polity'?polityDetail(r.o) : placeDetail(r.o);
+  } else if(st.tab==='all'){
+    const vis=visibleEvents(), exact=vis.filter(e=>e.year===st.year);
+    const y=st.year;
+    const alive=(D.people||[]).filter(p=>(p.birth!=null||p.death!=null)&&(p.birth==null||p.birth<=y)&&(p.death==null||p.death>=y));
+    const pow=(D.polities||[]).filter(p=>y>=(p.from??9e9)&&y<=(p.to??-9e9));
+    const live=(D.places||[]).filter(p=>y>=(p.from??-9e9)&&y<=(p.to??9e9));
+    let h='<h2 class="phead">'+(isAr()?y+' '+T('ce'):y+' CE')+'</h2>'
+      +'<p class="psub">'+(isAr()
+         ? 'كلّ الطبقات ظاهرة على الخريطة. اختر تبويبًا آخر لقصر العرض على نوعٍ واحد.'
+         : 'Everything is on the map. Pick another tab to show just one kind.')+'</p>';
+    h+='<div class="chips">'
+      +'<span class="chip" data-go="events">'+ico('event','ic-event')+exact.length+' '+esc(T('tabEvents'))+'</span>'
+      +'<span class="chip" data-go="people">'+ico('person','ic-person')+alive.length+' '+esc(T('tabPeople'))+'</span>'
+      +'<span class="chip" data-go="places">'+ico('city','ic-place')+live.length+' '+esc(T('tabPlaces'))+'</span>'
+      +'<span class="chip" data-go="tribes">'+ico('tribe','ic-tribe')+(D.tribes||[]).length+' '+esc(T('tabTribes'))+'</span>'
+      +'</div>';
+    if(pow.length) h+='<div class="sect">'+esc(T('powers'))+'</div><div class="chips">'
+      +pow.map(x=>chip('polity',x)).join('')+'</div>';
+    if(exact.length){ h+='<div class="sect">'+esc(T('eventsThisYear'))+'</div>'+exact.map(evCard).join(''); }
+    else {
+      const near=vis.filter(e=>e.year!==st.year).slice(0,4);
+      h+='<div class="sect">'+esc(T('aroundThisYear'))+'</div>'
+        +(near.length?near.map(evCard).join(''):'<p class="none">'+esc(T('nothingThisYear'))+'</p>');
+    }
+    if(alive.length) h+='<div class="sect">'+esc(T('aliveIn'))+' '+y+'</div><div class="chips">'
+      +alive.slice(0,24).map(x=>chip('person',x)).join('')+'</div>';
+    pbody.innerHTML=h;
+  } else if(st.tab==='events'){
+    const vis=visibleEvents();
+    const exact=vis.filter(e=>e.year===st.year), near=vis.filter(e=>e.year!==st.year);
+    let h='<h2 class="phead">'+(isAr()?st.year+' '+T('ce'):st.year+' CE')+'</h2><p class="psub">'+
+      (exact.length? exact.length+' '+(isAr()?T('eventsThisYear'):'event'+(exact.length>1?'s':'')+' dated to this year')
+                   : T('nothingThisYear'))+
+      (st.win?' · '+near.length+' '+(st.win>900?(isAr()?'في المدى كلّه':'in the whole range')
+                                               :(isAr()?('ضمن ±'+st.win+' سنة'):'within ±'+st.win+' years')):'')+'</p>';
+    h+= exact.length?exact.map(evCard).join('')
+        :'<p class="none">'+(isAr()?'حرّك المِزلاق أو وسّع المدى.':'Move the slider, or widen the window.')+'</p>';
+    if(near.length){h+='<div class="sect">'+esc(T('aroundThisYear'))+'</div>'+near.map(evCard).join('');}
+    pbody.innerHTML=h;
+  } else if(st.tab==='people'){
+    const y=st.year;
+    const dated=(D.people||[]).filter(p=>p.birth!=null||p.death!=null);
+    const undated=(D.people||[]).filter(p=>p.birth==null&&p.death==null);
+    const alive=dated.filter(p=>(p.birth==null||p.birth<=y)&&(p.death==null||p.death>=y))
+      .sort((a,b)=>(a.birth??Y0)-(b.birth??Y0));
+    let h='<h2 class="phead">'+esc(T('aliveIn'))+' '+y+'</h2><p class="psub">'
+      +(isAr()? (alive.length+' من '+dated.length+' شخصية مؤرَّخة. الأشرطة تعرض العمر كما تعطيه الرواية، واللون يدلّ على ثبات التأريخ، والطرف الباهت يعني أنّ ذلك الطرف مجهول.')
+              : (alive.length+' of '+dated.length+' dated figures. Bars show the lifespan as the tradition gives it — the colour says how firm that is, and a faded end means that end is unknown.'))
+      +'</p><div class="lifeline">';
+    h+=alive.map(p=>{
+      const b=p.birth??Y0, d=p.death??Y1;
+      const l=(b-Y0)/(Y1-Y0)*100, w=Math.max(1.5,(d-b)/(Y1-Y0)*100), m=(y-Y0)/(Y1-Y0)*100;
+      const firm=p.lifeCertainty==='fixed'?'var(--epi)':p.lifeCertainty==='approximate'?'var(--accent2)'
+        :p.lifeCertainty==='contested'?'var(--trad)':'var(--recon)';
+      const fadeL=p.birth==null?'mask-image:linear-gradient(90deg,transparent,#000 35%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);':'';
+      const fadeR=p.death==null?'mask-image:linear-gradient(270deg,transparent,#000 35%);-webkit-mask-image:linear-gradient(270deg,transparent,#000 35%);':'';
+      return '<div class="lf" data-person="'+esc(p.id)+'" title="'+esc(p.name)+' — '+esc(p.lifeCertainty||'')+'">'
+      +'<span class="lf-n">'+esc(p.name)+'</span>'
+      +'<span class="lf-bar"><i style="left:'+l+'%;width:'+w+'%;background:'+firm+';'+fadeL+fadeR+'"></i>'
+      +'<u style="left:'+m+'%"></u></span></div>';
+    }).join('')+'</div>';
+    h+='<div class="sect">'+(isAr()?'دلالة لون الشريط':'Lifespan colour')+'</div><div class="leg">'
+      +[['var(--epi)','fixed'],['var(--accent2)','approximate'],['var(--trad)','contested'],['var(--recon)','legendary']]
+        .map(([c,l])=>'<div><span style="display:inline-block;width:22px;height:7px;border-radius:4px;background:'+c+'"></span><span>'+esc(Tg('certainty',l))+'</span></div>').join('')
+      +'</div>';
+    const gone=dated.filter(p=>!alive.includes(p));
+    if(gone.length) h+='<div class="sect">'+esc(T('notAliveIn'))+'</div><div class="chips">'
+      +gone.map(x=>chip('person',x)).join('')+'</div>';
+    if(undated.length) h+='<div class="sect">'+esc(T('noDates'))+' ('+undated.length+')</div><div class="chips">'
+      +undated.map(x=>chip('person',x)).join('')+'</div>';
+    pbody.innerHTML=h;
+  } else if(st.tab==='places'){
+    const y=st.year;
+    const live=(D.places||[]).filter(p=>y>=(p.from??-9e9)&&y<=(p.to??9e9));
+    const byKind={};
+    live.forEach(p=>{(byKind[p.kind||'other']=byKind[p.kind||'other']||[]).push(p);});
+    let h='<h2 class="phead">'+esc(T('tabPlaces'))+' · '+y+'</h2><p class="psub">'
+      +(isAr()? (live.length+' موضعًا على الخريطة. الحلقة المنقّطة تعني أنّ الموضع تخمين.')
+              : (live.length+' on the map. A dashed ring means the location is a guess.'))+'</p>';
+    Object.keys(byKind).sort().forEach(k=>{
+      h+='<div class="sect">'+esc(Tg('placeKind',k))+'</div><div class="chips">'
+       +byKind[k].sort((a,b)=>a.name.localeCompare(b.name))
+         .map(x=>chip('place',x)).join('')+'</div>';
+    });
+    pbody.innerHTML=h;
+  } else if(st.tab==='tribes'){
+    const y=st.year;
+    const rows=(D.tribes||[]).map(t=>{
+      const evs=tribeEvents.get(t.id)||[];
+      return {t, all:evs.length, now:evs.filter(e=>Math.abs((e.year??0)-y)<=st.win).length,
+              mem:(tribeMembers.get(t.id)||[]).length};
+    }).sort((a,b)=>b.now-a.now||b.all-a.all);
+    const active=rows.filter(r=>r.now>0), quiet=rows.filter(r=>!r.now);
+    let h='<h2 class="phead">'+(D.tribes||[]).length+' '+esc(T('tabTribes'))+'</h2>'
+      +'<p class="psub">'+(isAr()? 'المدى مركزٌ ونصفُ قطرِ نفوذٍ ليّن، لا إقليمٌ محدود. شغّل الطبقة لتراها على الخريطة.'
+                                 : 'Ranges are a centre and a radius of soft influence, not a territory. Turn the layer on to see them on the map.')+'</p>'
+      +'<label style="display:flex;gap:7px;align-items:center;font-size:12.5px;margin-bottom:12px;cursor:pointer">'
+      +'<input type="checkbox" data-layer="tribes"'+(st.show.tribes?' checked':'')+' style="accent-color:var(--accent)"> '
+      +(isAr()?'إظهار مدَيات القبائل على الخريطة':'Show tribal ranges on the map')+'</label>';
+    const card=r=>'<div class="ev" data-tribe="'+esc(r.t.id)+'">'
+      +'<div class="r1"><span class="ti">'+ico('tribe','ic-tribe')+esc(NAME('tribes',r.t))+'</span></div>'
+      +'<div class="meta"><span class="cert">'+r.all+' '+(isAr()?'حدثًا':'event'+(r.all===1?'':'s'))
+      +(r.mem?' · '+r.mem+' '+(isAr()?'شخصية':'figure'+(r.mem===1?'':'s')):'')+'</span>'
+      +(r.now?'<span class="tag t-EXT">'+r.now+' '+(isAr()?'في المدى':'in view')+'</span>':'')+'</div></div>';
+    if(active.length) h+='<div class="sect">'+(isAr()?('نشطة حول '+y):('Active around '+y))+'</div>'+active.map(card).join('');
+    h+='<div class="sect">'+(isAr()?(active.length?'البقيّة':'كلّ القبائل'):(active.length?'The rest':'All tribes'))+'</div>'+quiet.map(card).join('');
+    h+='<div class="foot">A tribe is linked to an event when its name appears in the event text, or when a '
+      +'figure of that tribe is named in it. That is a reading aid, not a claim in the sources.</div>';
+    pbody.innerHTML=h;
+  } else if(st.tab==='legend'){
+    let h='<h2 class="phead">How to read this map</h2>'
+     +'<p class="psub">Four grades of evidence, after the chronology this atlas is built on.</p><div class="leg">';
+    for(const k in EV) h+='<div><span class="tag t-'+k+'">'+k+'</span><span>'+EV[k]+'</span></div>';
+    h+='</div>';
+    h+='<div class="sect">How sure is the date?</div><div class="leg">'
+     +'<div><span class="cert">fixed</span><span>An inscription or a dated outside source pins it.</span></div>'
+     +'<div><span class="cert">approximate</span><span>Roughly placed, within a decade or so.</span></div>'
+     +'<div><span class="cert contested">contested</span><span>Scholars disagree. The card shows the spread.</span></div>'
+     +'<div><span class="cert legendary">legendary</span><span>A story with a traditional date, not a record.</span></div>'
+     +'<div><span class="cert">'+(isAr()?'نحو ٥٧٠':'c. 570')+'</span><span>A <b>c.</b> in front of a year means the number is a convention or a midpoint, not a transmitted date. '
+     +'The card gives the real spread, and says what the date rests on.</span></div>'
+     +'</div>';
+    const sym=(inner,extra)=>'<svg viewBox="0 0 24 20" fill="none" aria-hidden="true">'+inner+'</svg>';
+    h+='<div class="sect">What the symbols mean</div><div class="symkey">'
+     +sym('<circle cx="12" cy="10" r="5" fill="var(--mapfg)"/><circle cx="12" cy="10" r="2.1" fill="var(--panel)"/>')+'<span>Capital</span>'
+     +sym('<circle cx="12" cy="10" r="4.4" fill="var(--mapfg)"/>')+'<span>City, town, oasis or other settlement</span>'
+     +sym('<rect x="8" y="6" width="8" height="8" fill="var(--mapfg)"/>')+'<span>Shrine or sanctuary</span>'
+     +sym('<path d="M12 4.5 18 15H6Z" fill="var(--mapfg)"/>')+'<span>Fair or market</span>'
+     +sym('<path d="M7 5l10 10M17 5 7 15" stroke="var(--mapfg)" stroke-width="2.2" stroke-linecap="round"/>')+'<span>Battlefield — shown only while its event is in the window</span>'
+     +sym('<path d="M12 4 18 10 12 16 6 10Z" fill="var(--accent)"/>')+'<span>Event, coloured by evidence grade</span>'
+     +sym('<path d="M12 16C9 12 9.6 8 12 7.2c2.4.8 3 4.8 0 8.8Z" fill="var(--accent)"/>')+'<span>A figure, standing where they were that year</span>'
+     +sym('<circle cx="12" cy="10" r="7" fill="var(--accent2)" opacity=".22"/>')+'<span>Tribal range, or a power\u2019s sphere of influence</span>'
+     +'</div>';
+    h+='<div class="sect">How sure is the place?</div><div class="leg">'
+     +'<div><span>●</span><span><b>Solid dot</b> — the site is identified.</span></div>'
+     +'<div><span>◎</span><span><b>Faint ring</b> — approximate, right area.</span></div>'
+     +'<div><span>⊙</span><span><b>Dashed ring</b> — a guess. The sources name a well or a hill and nothing more.</span></div>'
+     +'</div>';
+    const tot=events.length, disp=events.filter(e=>e.dispute).length;
+    h+='<div class="sect">What is in here</div><div class="leg">'
+     +'<div><span class="cert">'+tot+'</span><span>events, of which <b>'+disp+'</b> carry a recorded scholarly dispute</span></div>'
+     +'<div><span class="cert">'+(D.people||[]).length+'</span><span>figures, historical and legendary</span></div>'
+     +'<div><span class="cert">'+(D.places||[]).length+'</span><span>places</span></div>'
+     +'<div><span class="cert">'+(D.polities||[]).length+'</span><span>powers, drawn as spheres of influence</span></div>'
+     +'</div>';
+    h+='<div class="foot">Spheres of influence are soft blobs on purpose: these powers had reach and clients, not borders. '
+      +'Coastlines are modern — the head of the Gulf and the Tihāma shore both sat differently in late antiquity. '
+      +'Battlefield pins appear only while an event there falls inside the timeline window. '
+      +(D.meta&&D.meta.note?esc(D.meta.note):'')+'</div>';
+    pbody.innerHTML=h;
+  } else {
+    const LN={sands:'Sand seas',ranges:'Mountains & harra',rivers:'Rivers',regions:'Region names',
+      polities:'Spheres of influence',tribes:'Tribal ranges',places:'Settlements',events:'Events',people:'Figures'};
+    let h='<h2 class="phead">Display</h2><p class="psub">Reading comfort, map layers and what the timeline shows.</p>';
+    h+='<div class="sect">Reading</div>';
+    h+='<div class="row"><span class="ctl-label">Interface text</span><span class="seg" data-seg="us">'
+      +[['0.9','A−'],['1','A'],['1.2','A+'],['1.45','A++']].map(([v,l])=>
+        '<button data-v="'+v+'" aria-pressed="'+(String(st.us)===v)+'">'+l+'</button>').join('')+'</span></div>';
+    h+='<div class="row"><span class="ctl-label">Map label size</span><span class="seg" data-seg="ms">'
+      +[['0.85','Small'],['1','Normal'],['1.25','Large'],['1.6','Largest']].map(([v,l])=>
+        '<button data-v="'+v+'" aria-pressed="'+(String(st.ms)===v)+'">'+l+'</button>').join('')+'</span></div>';
+    h+='<div class="row"><span class="ctl-label">Map labels</span><span class="seg" data-seg="script">'
+      +[['both','Both'],['latin','Latin'],['arabic','العربية']].map(([v,l])=>
+        '<button data-v="'+v+'" aria-pressed="'+(st.script===v)+'">'+l+'</button>').join('')+'</span></div>';
+    h+='<div class="row"><span class="ctl-label">Contrast</span><span class="seg" data-seg="contrast">'
+      +[['normal','Normal'],['high','High']].map(([v,l])=>
+        '<button data-v="'+v+'" aria-pressed="'+(st.contrast===v)+'">'+l+'</button>').join('')+'</span></div>';
+    h+='<div class="row"><span class="ctl-label">Pulsing markers</span><span class="seg" data-seg="motion">'
+      +[['on','On'],['off','Off']].map(([v,l])=>
+        '<button data-v="'+v+'" aria-pressed="'+(st.motion===v)+'">'+l+'</button>').join('')+'</span></div>';
+    h+='<div class="row"><span class="ctl-label">Scroll wheel</span><span class="seg" data-seg="wheel">'
+      +[['auto','Auto'],['pan','Pan'],['zoom','Zoom']].map(([v,l])=>
+        '<button data-v="'+v+'" aria-pressed="'+(st.wheel===v)+'">'+l+'</button>').join('')+'</span></div>'
+      +'<p class="psub" style="margin:-4px 0 10px">Auto pans on a trackpad two-finger drag and zooms on a mouse wheel. '
+      +'Pinch always zooms.</p>';
+    h+='<div class="sect">Map layers</div><div class="filters">';
+    for(const k in LN) h+='<label><input type="checkbox" id="layer-'+k+'" data-layer="'+k+'"'+(st.show[k]?' checked':'')+'> '+LN[k]+'</label>';
+    h+='</div><div class="sect">Show events by evidence</div><div class="filters">';
+    for(const k in EV) h+='<label><input type="checkbox" id="evid-'+k+'" data-evid="'+k+'"'+(st.evid.has(k)?' checked':'')+'> <span class="tag t-'+k+'">'+k+'</span> '+EV[k]+'</label>';
+    h+='</div><div class="sect">Show events by kind</div><div class="filters">';
+    CATS.forEach(c=>h+='<label><input type="checkbox" id="cat-'+esc(c)+'" data-cat="'+esc(c)+'"'+(st.cats.has(c)?' checked':'')+'> '+esc(c)+'</label>');
+    h+='</div>';
+    h+='<div class="foot"><b>Moving around:</b> drag to pan, scroll or pinch to zoom, double-click to zoom in '
+      +'(shift double-click to zoom out). Click the map then use the arrow keys to pan, + and − to zoom, 0 to reset. '
+      +'Left and right arrows move the year anywhere else on the page; hold shift for ten-year jumps.</div>';
+    pbody.innerHTML=h;
+  }
+  if(noScroll) pbody.scrollTop=keep;
+}
+
+pbody.addEventListener('click',e=>{
+  const back=e.target.closest('[data-back]'); if(back){st.sel=null;drawDynamic();renderPanel();return;}
+  const go=e.target.closest('[data-go]');
+  if(go){st.tab=go.dataset.go;st.sel=null;syncTabs();drawDynamic();renderPanel();return;}
+  const ev=e.target.closest('[data-ev]');
+  if(ev){const o=events.find(x=>x.id===ev.dataset.ev); if(o) reveal({kind:'event',o}); return;}
+  const pe=e.target.closest('[data-person]');
+  if(pe){const o=personById.get(pe.dataset.person); if(o) reveal({kind:'person',o}); return;}
+  const plc=e.target.closest('[data-place]');
+  if(plc){const o=placeById.get(plc.dataset.place); if(o) reveal({kind:'place',o}); return;}
+  const po=e.target.closest('[data-polity]');
+  if(po){const o=polityById.get(po.dataset.polity); if(o) reveal({kind:'polity',o}); return;}
+  const tr=e.target.closest('[data-tribe]');
+  if(tr){const o=(D.tribes||[]).find(t=>t.id===tr.dataset.tribe); if(o) reveal({kind:'tribe',o}); return;}
+  const yr=e.target.closest('[data-year]');
+  if(yr){st.sel=null;setYear(+yr.dataset.year);return;}
+});
+function applyLang(){
+  const r=document.documentElement;
+  r.setAttribute('data-lang',st.lang);
+  r.setAttribute('lang',st.lang==='ar'?'ar':'en');
+  document.querySelector('.brand').innerHTML = st.lang==='ar'
+    ? '<span>'+esc(T('brand'))+'</span>' : 'Jāhiliyya <span>Atlas</span>';
+  document.querySelector('.yearce').textContent=T('ce');
+  document.getElementById('search').placeholder=T('search');
+  const names={events:'tabEvents',people:'tabPeople',places:'tabPlaces',tribes:'tabTribes',
+               legend:'tabLegend',display:'tabDisplay'};
+  const allLbl=isAr()?'الكلّ':'All';
+  document.querySelectorAll('.ptabs button').forEach(b=>{
+    b.textContent = b.dataset.tab==='all'? allLbl : T(names[b.dataset.tab]);});
+  const pl=document.getElementById('play');
+  pl.textContent=(st.playing?'❚❚ ':'▶ ')+(st.playing?T('pause'):T('play'));
+  document.querySelector('#win').previousElementSibling.textContent=T('window');
+  const wb=document.querySelectorAll('#win button');
+  if(wb[0]) wb[0].textContent=T('exact');
+  if(wb[3]) wb[3].textContent=T('all');
+  const en=document.getElementById('eraName'); if(en) en.textContent=currentEra();
+  const lb=document.getElementById('langBtn');
+  if(lb){ lb.textContent = st.lang==='ar'?'EN':'ع';
+          lb.title = st.lang==='ar'?'Switch to English':'التبديل إلى العربية'; }
+}
+function applyPrefs(){
+  const r=document.documentElement;
+  r.style.setProperty('--us',st.us); r.style.setProperty('--ms',st.ms);
+  r.setAttribute('data-contrast',st.contrast); r.setAttribute('data-motion',st.motion);
+  applyLang();
+  try{localStorage.setItem('ja-prefs',JSON.stringify({us:st.us,ms:st.ms,script:st.script,contrast:st.contrast,motion:st.motion,wheel:st.wheel,lang:st.lang}));}catch(_){}
+}
+pbody.addEventListener('click',e=>{
+  const b=e.target.closest('[data-seg] button'); if(!b) return;
+  const seg=b.closest('[data-seg]').dataset.seg, v=b.dataset.v;
+  if(seg==='us'||seg==='ms') st[seg]=parseFloat(v); else st[seg]=v;
+  if(seg==='script') st.scriptLocked=true;
+  applyPrefs(); requestAnimationFrame(()=>{relayout();drawDynamic();}); renderPanel(true);
+});
+pbody.addEventListener('change',e=>{
+  const l=e.target.dataset.layer, v=e.target.dataset.evid, c=e.target.dataset.cat;
+  if(l){st.show[l]=e.target.checked;drawDynamic();}
+  if(v){e.target.checked?st.evid.add(v):st.evid.delete(v);drawDynamic();}
+  if(c){e.target.checked?st.cats.add(c):st.cats.delete(c);drawDynamic();}
+});
+
+document.querySelectorAll('#win button').forEach(b=>{
+  b.onclick=()=>{st.win=+b.dataset.w;
+    document.querySelectorAll('#win button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    drawDynamic();renderPanel();};
+});
+
+/* ---------- search ---------- */
+const search=document.getElementById('search'), sgBox=document.getElementById('sg');
+const SIDX=[];
+(D.places||[]).forEach(o=>SIDX.push({t:'place',o,label:o.name,ar:o.ar,sub:o.kind||'place'}));
+(D.people||[]).forEach(o=>SIDX.push({t:'person',o,label:o.name,ar:o.ar,
+  sub:[o.role,o.tribe].filter(Boolean).join(' · ')||'figure'}));
+(D.tribes||[]).forEach(o=>SIDX.push({t:'tribe',o,label:o.name,ar:o.ar,
+  sub:(tribeEvents.get(o.id)||[]).length+' events'}));
+(D.polities||[]).forEach(o=>SIDX.push({t:'polity',o,label:o.name,ar:o.ar,
+  sub:(o.from??'?')+'–'+(o.to??'?')+' CE'}));
+events.forEach(o=>SIDX.push({t:'event',o,label:o.title,ar:o.ar,
+  sub:(o.year??'?')+' CE · '+(o.category||'event')}));
+SIDX.forEach(r=>{r.n=norm(r.label); r.a=r.ar||'';});
+
+const RANK={place:0,person:1,tribe:2,polity:3,event:4};
+function suggest(q){
+  const nq=norm(q), aq=q.trim();
+  if(!nq && !aq) return [];
+  const out=[];
+  for(const r of SIDX){
+    let sc=-1;
+    if(nq){
+      if(r.n===nq) sc=0;
+      else if(r.n.startsWith(nq)) sc=1;
+      else if(new RegExp('(^| )'+nq.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).test(r.n)) sc=2;
+      else if(r.n.includes(nq)) sc=3;
+    }
+    if(sc<0 && aq && r.a && r.a.includes(aq)) sc=2;
+    if(sc>=0) out.push({r,sc});
+  }
+  out.sort((a,b)=>a.sc-b.sc || RANK[a.r.t]-RANK[b.r.t] || a.r.label.length-b.r.label.length);
+  return out.slice(0,12).map(x=>x.r);
+}
+let sgList=[], sgAt=-1;
+function renderSg(){
+  if(!sgList.length){
+    sgBox.innerHTML='<div class="sgnone">'+esc(T('nothingMatches'))+'</div>';
+    sgBox.hidden=false; search.setAttribute('aria-expanded','true'); return;
+  }
+  sgBox.innerHTML=sgList.map((r,i)=>
+    '<div class="sgrow" role="option" id="sg'+i+'" data-i="'+i+'" aria-selected="'+(i===sgAt)+'">'
+    +typeIco(r.t,r.o)
+    +'<span class="nm"><b>'+esc(NAME({person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events'}[r.t],r.o))+'</b><span>'+esc(TYPE2(r.t))+' · '+esc(r.sub||'')+'</span></span>'
+    +(r.ar?'<span class="arx">'+esc(r.ar)+'</span>':'<span></span>')
+    +'</div>').join('');
+  sgBox.hidden=false; search.setAttribute('aria-expanded','true');
+}
+function closeSg(){sgBox.hidden=true;sgAt=-1;search.setAttribute('aria-expanded','false');search.removeAttribute('aria-activedescendant');}
+function pick(r){
+  if(!r) return;
+  closeSg(); search.blur();
+  const kind={person:'person',place:'place',tribe:'tribe',polity:'polity',event:'event'}[r.t];
+  if(r.t==='person' && r.o.birth!=null) setYear(r.o.birth,true);
+  if(r.t==='polity' && r.o.from!=null && (st.year<r.o.from||st.year>(r.o.to??9999))) setYear(r.o.from,true);
+  reveal({kind,o:r.o});
+}
+search.addEventListener('input',()=>{
+  const q=search.value;
+  if(!q.trim()){closeSg();return;}
+  sgList=suggest(q); sgAt=sgList.length?0:-1; renderSg();
+  if(sgAt>=0) search.setAttribute('aria-activedescendant','sg0');
+});
+search.addEventListener('focus',()=>{if(search.value.trim()){sgList=suggest(search.value);sgAt=sgList.length?0:-1;renderSg();}});
+search.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeSg();return;}
+  if(sgBox.hidden&&(e.key==='ArrowDown')&&search.value.trim()){sgList=suggest(search.value);sgAt=0;renderSg();e.preventDefault();return;}
+  if(sgBox.hidden) return;
+  if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+    e.preventDefault();
+    if(!sgList.length) return;
+    sgAt=(sgAt+(e.key==='ArrowDown'?1:-1)+sgList.length)%sgList.length;
+    renderSg();
+    search.setAttribute('aria-activedescendant','sg'+sgAt);
+    const row=sgBox.querySelector('[data-i="'+sgAt+'"]'); if(row) row.scrollIntoView({block:'nearest'});
+  }
+  if(e.key==='Enter'){e.preventDefault();pick(sgList[sgAt<0?0:sgAt]);}
+});
+sgBox.addEventListener('mousedown',e=>{
+  const row=e.target.closest('[data-i]'); if(!row) return;
+  e.preventDefault(); pick(sgList[+row.dataset.i]);
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('.sgwrap')) closeSg(); });
+
+/* ---------- mobile sheet ---------- */
+const panel=document.getElementById('panel'), grip=document.getElementById('grip');
+const SNAPS=[0.84,0.45,0.04];   // peek, half, full — fraction of the panel height it is pushed down by
+function isMobile(){return window.matchMedia('(max-width:860px)').matches;}
+function setSheet(i,animate){
+  st.sheet=Math.max(0,Math.min(SNAPS.length-1,i));
+  panel.classList.toggle('dragging',!animate);
+  panel.style.setProperty('--sheet-y',(SNAPS[st.sheet]*100)+'%');
+  if(animate) requestAnimationFrame(()=>panel.classList.remove('dragging'));
+  pbody.style.overflowY = st.sheet===0 ? 'hidden' : 'auto';
+  grip.setAttribute('aria-expanded', st.sheet>0);
+  const c=coverPx();
+  if(Math.abs(c-lastCover)>1){ st.view.ty -= (c-lastCover)/2; lastCover=c; applyView(); drawDynamic(); }
+}
+function raiseSheet(){ if(isMobile() && st.sheet===0) setSheet(1,true); }
+function updatePeek(){
+  const n=visibleEvents().filter(e=>e.year===st.year).length;
+  const py=document.getElementById('peekYear'), pt=document.getElementById('peekText');
+  if(py) py.textContent=st.year;
+  if(pt) pt.textContent = n? (n+' event'+(n>1?'s':'')+' · drag up for detail')
+                           : 'nothing dated here · drag up';
+}
+(function(){
+  let d=null;
+  const H=()=>panel.getBoundingClientRect().height||1;
+  grip.addEventListener('pointerdown',e=>{
+    if(!isMobile()) return;
+    d={y:e.clientY,start:SNAPS[st.sheet],t:Date.now()};
+    grip.setPointerCapture(e.pointerId); panel.classList.add('dragging');
+  });
+  grip.addEventListener('pointermove',e=>{
+    if(!d) return;
+    const frac=Math.max(0.02,Math.min(0.92,d.start+(e.clientY-d.y)/H()));
+    panel.style.setProperty('--sheet-y',(frac*100)+'%');
+  });
+  function release(e){
+    if(!d) return;
+    const dy=e.clientY-d.y, dt=Date.now()-d.t, v=dy/Math.max(dt,1);
+    let frac=d.start+dy/H();
+    let i;
+    // a flick steps one snap in its direction; a slow drag settles on the nearest
+    if(Math.abs(v)>0.6) i = v<0 ? Math.min(SNAPS.length-1,st.sheet+1) : Math.max(0,st.sheet-1);
+    else { i=0; let best=9; SNAPS.forEach((sn,k)=>{const q=Math.abs(sn-frac); if(q<best){best=q;i=k;}}); }
+    d=null; setSheet(i,true);
+  }
+  grip.addEventListener('pointerup',release);
+  grip.addEventListener('pointercancel',()=>{d=null;setSheet(st.sheet,true);});
+  grip.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();setSheet(st.sheet===SNAPS.length-1?0:st.sheet+1,true);}
+    if(e.key==='ArrowUp'){e.preventDefault();setSheet(st.sheet+1,true);}
+    if(e.key==='ArrowDown'){e.preventDefault();setSheet(st.sheet-1,true);}
+  });
+})();
+document.getElementById('focuspill').onclick=()=>{
+  st.tab='all'; st.sel=null; syncTabs(); drawDynamic(); renderPanel();
+};
+document.getElementById('langBtn').onclick=()=>{
+  st.lang = st.lang==='ar'?'en':'ar';
+  if(!st.scriptLocked) st.script = st.lang==='ar'?'arabic':'both';
+  applyPrefs(); buildRail(); drawDynamic(); renderPanel(); updatePeek();
+};
+document.getElementById('moreBtn').onclick=function(){
+  const c=document.querySelector('.controls');
+  const folded=c.classList.toggle('folded');
+  this.setAttribute('aria-expanded',!folded);
+};
+
+/* ---------- theme ---------- */
+function applyTheme(){
+  const r=document.documentElement;
+  if(st.theme==='auto') r.removeAttribute('data-theme');
+  else r.setAttribute('data-theme',st.theme);
+  const b=document.getElementById('themeBtn');
+  if(b){ b.textContent = st.theme==='auto'?'◐':st.theme==='dark'?'☾':'☀';
+         b.title = 'Theme: '+st.theme+' — click to change'; }
+  try{localStorage.setItem('ja-theme',st.theme);}catch(_){}
+}
+document.getElementById('themeBtn').onclick=()=>{
+  st.theme = st.theme==='auto'?'light' : st.theme==='light'?'dark' : 'auto';
+  applyTheme(); if(st.tab==='display') renderPanel(true);
+};
+try{
+  const t=localStorage.getItem('ja-theme');
+  if(t==='light'||t==='dark'||t==='auto') st.theme=t;
+  const pf=JSON.parse(localStorage.getItem('ja-prefs')||'null'); if(pf) Object.assign(st,pf);
+}catch(_){}
+applyTheme(); applyPrefs();
+
+/* ---------- boot ---------- */
+buildStatic(); buildRail();
+function relayout(){ const r=map.getBoundingClientRect(); map.setAttribute('viewBox',`0 0 ${r.width} ${r.height}`); applyView(); }
+window.addEventListener('resize',()=>{relayout();});
+function layoutMode(){
+  const m=isMobile();
+  document.querySelector('.controls').classList.toggle('folded',m);
+  document.getElementById('moreBtn').setAttribute('aria-expanded',!m);
+  if(m) setSheet(st.sheet,false); else panel.style.removeProperty('--sheet-y');
+  pbody.style.overflowY = (m&&st.sheet===0)?'hidden':'auto';
+}
+layoutMode();
+window.addEventListener('resize',layoutMode);
+fit(HOME);
+setYear(554);
+updatePeek();
+})();
+</script>

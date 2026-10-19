@@ -8,10 +8,11 @@ are in view, and the side panel lists what happened that year. It was built as
 research scaffolding for a visual novel set in the period, and it is meant to
 be honest about how little of this chronology is actually fixed.
 
-To publish it: push this repo, then in **Settings → Pages** set the source to
-the `main` branch, root folder. `index.html` is already built and committed, so
-the atlas goes live at `https://<your-username>.github.io/jahiliyya-atlas/`
-with nothing else to configure. Put that link here.
+**Live: <https://cnblackxp.github.io/jahiliyya-atlas/>**
+
+It is served by GitHub Pages from the `main` branch, root folder. `index.html`
+is built and committed, so pushing a rebuilt `index.html` to `main` is all a
+deploy takes.
 
 ---
 

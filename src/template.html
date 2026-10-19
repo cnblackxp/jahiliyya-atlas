@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Jāhiliyya Atlas</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,7 +78,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:4px 9px;font-size:12px;color:var(--fg);display:inline-flex;align-items:center;gap:5px}
 .btn:hover{border-color:var(--line2)}
 .btn[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
-.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg{display:inline-flex;flex-wrap:wrap;max-width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .seg button{background:var(--panel2);border:0;padding:4px 8px;font-size:11.5px;border-right:1px solid var(--line)}
 .seg button:last-child{border-right:0}
 .seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
@@ -269,7 +270,16 @@ a.src-t:hover{color:var(--accent);text-decoration:underline}
   .ptabs button{min-width:62px;font-size:11.5px;padding:9px 7px}
 }
 @media (min-width:861px){ #grip{display:none} .btn-more{display:none} }
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media (prefers-reduced-motion:reduce){:root:not([data-reduce="off"]) *{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+/* reading settings from the Display tab */
+:root[data-reduce="on"] *{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+:root[data-lh="relaxed"] #pbody :is(p,.disp,.psub,.foot,.src-n,.where,.leg,.kv,.ev .ti,.ev .ar){line-height:1.8}
+:root[data-lh="loose"] #pbody :is(p,.disp,.psub,.foot,.src-n,.where,.leg,.kv,.ev .ti,.ev .ar){line-height:2.15}
+/* letter-spacing breaks the joins of Arabic script, so Arabic only gets the word spacing */
+:root[data-spacing="wide"] #pbody,:root[data-spacing="wide"] #tip{word-spacing:.16em}
+:root[data-spacing="wide"]:not([data-lang="ar"]) #pbody,:root[data-spacing="wide"]:not([data-lang="ar"]) #tip{letter-spacing:.035em}
+:root[data-links="underline"] a{text-decoration:underline!important;text-underline-offset:2px}
+:root[data-focus="strong"] :focus-visible{outline:3px solid var(--accent)!important;outline-offset:2px!important}
 
 :root[data-contrast="high"]{
   --fg:#000; --muted:#333; --faint:#444; --line:#8c8577; --line2:#6d6658;
@@ -305,6 +315,9 @@ a.src-t:hover{color:var(--accent);text-decoration:underline}
 #scalebar .bar{height:5px;border:1px solid var(--mapfg);border-top:0;margin-bottom:2px}
 #zoomlvl{position:absolute;right:50px;bottom:14px;z-index:3;font-family:var(--f-mono);font-size:10px;
   color:var(--mapfg);opacity:.65;pointer-events:none;zoom:var(--us,1)}
+/* On a phone the reading panel takes the full text size, but the header and the map
+   overlays stop at 1.25x — past that they crowd the map and run into each other. */
+@media (max-width:860px){ #rail,#focuspill,#scalebar,#zoomlvl{zoom:min(var(--us,1),1.25)} }
 .row{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
 .row>.ctl-label{width:100%;margin-bottom:2px}
 </style>
@@ -570,7 +583,8 @@ const st = {
   cats:new Set(CATS), evid:new Set(['EPI','EXT','TRAD','RECON']),
   view:{s:1,tx:0,ty:0,home:1},
   tab:'all',
-  script:'both', us:1, ms:1, contrast:'normal', motion:'on', wheel:'auto', theme:'auto', lang:'en',
+  script:'arabic', scriptLocked:false, chosenLang:'', us:1, ms:1, contrast:'normal', motion:'on', wheel:'auto', theme:'auto', lang:'ar',
+  lh:'normal', spacing:'normal', reduce:'auto', links:'normal', focus:'normal',
   sheet:1
 };
 
@@ -792,7 +806,7 @@ function drawDynamic(){
       const q=px(pl.lon,pl.lat), exact=e.year===y;
       marks.push({L:'events', ref:{kind:'event',o:e}, o:e, x0:q[0], y0:q[1], x:q[0], y:q[1],
         glyph: DT.shapes?'event':null, size: exact?18:15, fill:evColor(e),
-        dim: exact?1:0.55, pulse: exact && st.motion!=='off', label:null, pri:1});
+        dim: exact?1:0.55, pulse: exact && pulsing(), label:null, pri:1});
     });
   }
   if(layerOn('people')){
@@ -898,7 +912,7 @@ function drawMark(m,U){
   g.appendChild(el('circle',{cx:m.x,cy:m.y,r:Math.max(r+2.5*U,11.5*U),fill:'transparent'}));
   if(isSel){
     g.appendChild(el('circle',{cx:m.x,cy:m.y,r:r+6*U,fill:'none',stroke:'var(--accent)','stroke-width':1.8*U}));
-    if(st.motion!=='off'){
+    if(pulsing()){
       const halo=el('circle',{cx:m.x,cy:m.y,r:r+6*U,fill:'none',stroke:'var(--accent)','stroke-width':1.2*U});
       halo.appendChild(el('animate',{attributeName:'r',values:(r+6*U)+';'+(r+15*U)+';'+(r+6*U),dur:'2s',repeatCount:'indefinite'}));
       halo.appendChild(el('animate',{attributeName:'opacity',values:'.85;0;.85',dur:'2s',repeatCount:'indefinite'}));
@@ -1669,15 +1683,22 @@ function renderPanel(noScroll){
       +(A?'راحة القراءة، وطبقات الخريطة، وما يعرضه الخط الزمني.':'Reading comfort, map layers and what the timeline shows.')+'</p>';
     h+='<div class="sect">'+esc(T('reading'))+'</div>';
     h+='<div class="row"><span class="ctl-label">'+esc(T('interfaceText'))+'</span><span class="seg" data-seg="us">'
-      +[['0.9','A−'],['1','A'],['1.2','A+'],['1.45','A++']].map(([v,l])=>
-        '<button data-v="'+v+'" aria-pressed="'+(String(st.us)===v)+'">'+l+'</button>').join('')+'</span></div>';
+      +[['0.8','A−−'],['0.9','A−'],['1','A'],['1.2','A+'],['1.45','A++'],['1.75','A+++']].map(([v,l])=>
+        '<button data-v="'+v+'" dir="ltr" aria-label="'+Math.round(v*100)+'%" aria-pressed="'+(String(st.us)===v)+'">'+l+'</button>').join('')+'</span></div>';
     h+='<div class="row"><span class="ctl-label">'+esc(T('mapLabelSize'))+'</span><span class="seg" data-seg="ms">'
-      +(A?[['0.85','صغير'],['1',T('normal')],['1.25','كبير'],['1.6','أكبر']]
-         :[['0.85','Small'],['1','Normal'],['1.25','Large'],['1.6','Largest']]).map(([v,l])=>
+      +(A?[['0.7','أصغر'],['0.85','صغير'],['1',T('normal')],['1.25','كبير'],['1.6','أكبر'],['2','الأكبر']]
+         :[['0.7','Smallest'],['0.85','Small'],['1','Normal'],['1.25','Large'],['1.6','Larger'],['2','Largest']]).map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(String(st.ms)===v)+'">'+l+'</button>').join('')+'</span></div>';
     h+='<div class="row"><span class="ctl-label">'+esc(T('mapLabels'))+'</span><span class="seg" data-seg="script">'
       +[['both',A?'كلاهما':'Both'],['latin',A?'اللاتينية':'Latin'],['arabic','العربية']].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(st.script===v)+'">'+l+'</button>').join('')+'</span></div>';
+    const seg=(key,label,opts)=>'<div class="row"><span class="ctl-label">'+esc(label)+'</span><span class="seg" data-seg="'+key+'">'
+      +opts.map(([v,l])=>'<button data-v="'+v+'" aria-pressed="'+(st[key]===v)+'">'+esc(l)+'</button>').join('')+'</span></div>';
+    h+=seg('lh',A?'تباعد الأسطر':'Line spacing',[['normal',T('normal')],['relaxed',A?'واسع':'Relaxed'],['loose',A?'أوسع':'Loose']]);
+    h+=seg('spacing',A?'تباعد الكلمات':'Letter and word spacing',[['normal',T('normal')],['wide',A?'واسع':'Wide']]);
+    h+=seg('links',A?'الروابط':'Links',[['normal',A?'بلا خطّ':'Plain'],['underline',A?'مسطَّرة':'Underlined']]);
+    h+=seg('focus',A?'إطار التركيز':'Keyboard focus',[['normal',T('normal')],['strong',A?'بارز':'Strong']]);
+    h+=seg('reduce',A?'تقليل الحركة':'Reduce motion',[['auto',A?'كإعداد الجهاز':'As system'],['on',T('on')],['off',T('off')]]);
     h+='<div class="row"><span class="ctl-label">'+esc(T('contrast'))+'</span><span class="seg" data-seg="contrast">'
       +[['normal',T('normal')],['high',T('high')]].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(st.contrast===v)+'">'+l+'</button>').join('')+'</span></div>';
@@ -1689,7 +1710,8 @@ function renderPanel(noScroll){
         '<button data-v="'+v+'" aria-pressed="'+(st.wheel===v)+'">'+l+'</button>').join('')+'</span></div>'
       +'<p class="psub" style="margin:-4px 0 10px">'+(A
         ?'في الوضع التلقائي يحرّك السحبُ بإصبعين على لوحة اللمس الخريطةَ، وتكبّرها عجلةُ الفأرة. والقرصُ يكبّر دائمًا.'
-        :'Auto pans on a trackpad two-finger drag and zooms on a mouse wheel. Pinch always zooms.')+'</p>';
+        :'Auto pans on a trackpad two-finger drag and zooms on a mouse wheel. Pinch always zooms.')+'</p>'
+      +'<div class="row"><button class="btn" data-reset-prefs>'+(A?'إعادة إعدادات القراءة إلى الافتراضي':'Reset reading settings')+'</button></div>';
     h+='<div class="sect">'+esc(T('layers'))+'</div><div class="filters">';
     for(const k in LN) h+='<label><input type="checkbox" id="layer-'+k+'" data-layer="'+k+'"'+(st.show[k]?' checked':'')+'> '+LN[k]+'</label>';
     h+='</div><div class="sect">'+(A?'عرض الأحداث بحسب الإسناد':'Show events by evidence')+'</div><div class="filters">';
@@ -1707,6 +1729,7 @@ function renderPanel(noScroll){
     pbody.innerHTML=h;
   }
   if(noScroll) pbody.scrollTop=keep;
+  writeURLSoon();
 }
 
 pbody.addEventListener('click',e=>{
@@ -1750,18 +1773,33 @@ function applyLang(){
   if(lb){ lb.textContent = st.lang==='ar'?'EN':'ع';
           lb.title = st.lang==='ar'?'Switch to English':'التبديل إلى العربية'; }
 }
+// Everything the reader can set is saved under one key; the URL can override the language.
+// Not 'lang': older versions saved it on every visit whether or not it was chosen. The
+// language shown is ?lang= if the link has one, else the reader's own choice, else Arabic.
+const PREF_KEYS=['us','ms','script','scriptLocked','contrast','motion','wheel','chosenLang','lh','spacing','reduce','links','focus'];
+const PREF_DEFAULTS={us:1,ms:1,contrast:'normal',motion:'on',wheel:'auto',lh:'normal',spacing:'normal',reduce:'auto',links:'normal',focus:'normal'};
+function reducedMotion(){ return st.reduce==='on' || (st.reduce==='auto' && !!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)); }
+function pulsing(){ return st.motion!=='off' && !reducedMotion(); }
 function applyPrefs(){
   const r=document.documentElement;
   r.style.setProperty('--us',st.us); r.style.setProperty('--ms',st.ms);
   r.setAttribute('data-contrast',st.contrast); r.setAttribute('data-motion',st.motion);
+  r.setAttribute('data-lh',st.lh); r.setAttribute('data-spacing',st.spacing); r.setAttribute('data-reduce',st.reduce);
+  r.setAttribute('data-links',st.links); r.setAttribute('data-focus',st.focus);
   applyLang();
-  try{localStorage.setItem('ja-prefs',JSON.stringify({us:st.us,ms:st.ms,script:st.script,contrast:st.contrast,motion:st.motion,wheel:st.wheel,lang:st.lang}));}catch(_){}
+  const save={}; PREF_KEYS.forEach(k=>save[k]=st[k]);
+  try{localStorage.setItem('ja-prefs',JSON.stringify(save));}catch(_){}
 }
 pbody.addEventListener('click',e=>{
   const b=e.target.closest('[data-seg] button'); if(!b) return;
   const seg=b.closest('[data-seg]').dataset.seg, v=b.dataset.v;
   if(seg==='us'||seg==='ms') st[seg]=parseFloat(v); else st[seg]=v;
   if(seg==='script') st.scriptLocked=true;
+  applyPrefs(); requestAnimationFrame(()=>{relayout();drawDynamic();}); renderPanel(true);
+});
+pbody.addEventListener('click',e=>{
+  if(!e.target.closest('[data-reset-prefs]')) return;
+  Object.assign(st,PREF_DEFAULTS);   // language, label script and theme are left as chosen
   applyPrefs(); requestAnimationFrame(()=>{relayout();drawDynamic();}); renderPanel(true);
 });
 pbody.addEventListener('change',e=>{
@@ -1919,7 +1957,7 @@ document.getElementById('focuspill').onclick=()=>{
   st.tab='all'; st.sel=null; syncTabs(); drawDynamic(); renderPanel();
 };
 document.getElementById('langBtn').onclick=()=>{
-  st.lang = st.lang==='ar'?'en':'ar';
+  st.lang = st.lang==='ar'?'en':'ar'; st.chosenLang=st.lang;
   if(!st.scriptLocked) st.script = st.lang==='ar'?'arabic':'both';
   applyPrefs(); buildRail(); drawDynamic(); updateScale(); renderPanel(); updatePeek();
 };
@@ -1928,6 +1966,42 @@ document.getElementById('moreBtn').onclick=function(){
   const folded=c.classList.toggle('folded');
   this.setAttribute('aria-expanded',!folded);
 };
+
+/* ---------- URL ----------
+   The address carries the view: ?lang=ar|en, ?year=, and either the open record
+   (?event= ?person= ?place= ?tribe= ?power=) or the tab (?tab=). Opening such a
+   link restores it; the app rewrites it in place as the view changes, so the
+   address bar can always be copied. Anything unrecognised is ignored. */
+const URL_KIND={event:'event',person:'person',place:'place',tribe:'tribe',power:'polity'};
+const TABS=['all','events','people','places','tribes','legend','display'];
+function readURL(){
+  const out={};
+  let p; try{ p=new URLSearchParams(location.search); }catch(_){ return out; }
+  const l=p.get('lang'); if(l==='ar'||l==='en') out.lang=l;
+  const y=p.get('year'); if(y!==null && /^-?\d+$/.test(y.trim())) out.year=+y;
+  const t=p.get('tab'); if(TABS.includes(t)) out.tab=t;
+  for(const k in URL_KIND){ const id=p.get(k); if(id){ out.kind=URL_KIND[k]; out.id=id; break; } }
+  return out;
+}
+function findRecord(kind,id){
+  const o = kind==='event'? events.find(e=>e.id===id) : kind==='person'? personById.get(id)
+        : kind==='place'? placeById.get(id) : kind==='polity'? polityById.get(id)
+        : (D.tribes||[]).find(t=>t.id===id);
+  return o? {kind,o} : null;
+}
+let urlT=null;
+function writeURL(){
+  let p; try{ p=new URLSearchParams(location.search); }catch(_){ p=new URLSearchParams(); }
+  ['lang','year','tab',...Object.keys(URL_KIND)].forEach(k=>p.delete(k));   // anything else a host put there stays
+  p.set('lang',st.lang); p.set('year',st.year);
+  if(st.sel){ const k=Object.keys(URL_KIND).find(k=>URL_KIND[k]===st.sel.kind); p.set(k,st.sel.o.id); }
+  else if(st.tab!=='all') p.set('tab',st.tab);
+  const q='?'+p.toString();
+  if(q===location.search) return;
+  try{ history.replaceState(history.state,'',location.pathname+q+location.hash); }catch(_){}   // some hosts forbid it
+}
+// debounced: playing the timeline or dragging the slider would otherwise rewrite it every frame
+function writeURLSoon(){ clearTimeout(urlT); urlT=setTimeout(writeURL,250); }
 
 /* ---------- theme ---------- */
 function applyTheme(){
@@ -1946,8 +2020,12 @@ document.getElementById('themeBtn').onclick=()=>{
 try{
   const t=localStorage.getItem('ja-theme');
   if(t==='light'||t==='dark'||t==='auto') st.theme=t;
-  const pf=JSON.parse(localStorage.getItem('ja-prefs')||'null'); if(pf) Object.assign(st,pf);
+  const pf=JSON.parse(localStorage.getItem('ja-prefs')||'null');
+  if(pf) PREF_KEYS.forEach(k=>{ if(pf[k]!==undefined && typeof pf[k]===typeof st[k]) st[k]=pf[k]; });
 }catch(_){}
+const URLQ=readURL();
+st.lang = URLQ.lang || (st.chosenLang==='en'||st.chosenLang==='ar'? st.chosenLang : 'ar');
+if(!st.scriptLocked) st.script = st.lang==='ar'?'arabic':'both';
 applyTheme(); applyPrefs();
 
 /* ---------- boot ---------- */
@@ -1964,7 +2042,13 @@ function layoutMode(){
 layoutMode();
 window.addEventListener('resize',layoutMode);
 fit(HOME);
-setYear(554);
+setYear(URLQ.year!=null? URLQ.year : 554);
+const linked=URLQ.kind && findRecord(URLQ.kind,URLQ.id);
+if(linked) reveal(linked);   // an event moves to its own year; anything else keeps the linked one
+else if(URLQ.tab && URLQ.tab!=='all'){
+  st.tab=URLQ.tab; if(st.tab==='tribes') st.show.tribes=true;
+  syncTabs(); drawDynamic(); renderPanel();
+}
 updatePeek();
 })();
 </script>

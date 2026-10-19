@@ -51,7 +51,7 @@ async def main():
         b=await pw.chromium.launch()
         pg=await b.new_page(viewport={'width':1280,'height':860})
         e=[]; pg.on('pageerror',lambda x:e.append(str(x)))
-        await pg.goto('file://'+os.path.abspath('_wrap.html')); await pg.wait_for_timeout(1500)
+        await pg.goto('file://'+os.path.abspath('_wrap.html')+'?lang=en'); await pg.wait_for_timeout(1500)
         await pg.click('#langBtn'); await pg.wait_for_timeout(500)
 
         # readouts that were only refreshed on the next pan or zoom
@@ -105,10 +105,13 @@ async def main():
         await raw.goto(f'http://127.0.0.1:{srv.server_address[1]}/atlas.html'); await raw.wait_for_timeout(800)
         cs=await raw.evaluate("()=>[document.characterSet,document.title]")
         ck('the bare file declares UTF-8 itself', cs[0]=='UTF-8' and cs[1]=='Jāhiliyya Atlas', cs)
+        # and its own viewport, or a phone lays it out at 980px and never sees the phone layout
+        vw=await raw.evaluate("()=>document.querySelector('meta[name=viewport]')?.content||''")
+        ck('the bare file declares a device-width viewport', 'width=device-width' in vw, vw)
         await raw.close(); srv.shutdown()
 
         ph=await b.new_page(viewport={'width':390,'height':844})
-        await ph.goto('file://'+os.path.abspath('_wrap.html')); await ph.wait_for_timeout(1500)
+        await ph.goto('file://'+os.path.abspath('_wrap.html')+'?lang=en'); await ph.wait_for_timeout(1500)
         await ph.click('#langBtn'); await ph.wait_for_timeout(500)
         pk=await ph.inner_text('#peekText')
         ck('phone sheet peek is Arabic', not any(w in pk for w in ['event','drag','nothing']), pk)

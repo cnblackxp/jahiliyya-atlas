@@ -123,7 +123,7 @@ cd build && for t in ../tests/test_*.py; do python3 -I "$t"; done
 Regenerating the basemap is optional and needs `shapely`. The committed geo
 JSON is the output of those two scripts.
 
-**Always run all seven test files before publishing.** They exist because this
+**Always run all eight test files before publishing.** They exist because this
 project kept shipping bugs that looked fine in a screenshot: a focus pill
 rendered off-screen behind the bottom sheet, pointer capture silently killing
 every marker click, two-finger pan computing a distance ratio that is 1 when
@@ -160,6 +160,24 @@ Things that are easy to get wrong:
   differently in late antiquity.
 
 ## Interface conventions
+
+- **Arabic is the default language.** The language shown is `?lang=` if the
+  link has one, else the reader's own choice (saved only when they press the
+  language button), else Arabic. A link never overwrites the reader's choice.
+- **The URL carries the view**: `?lang=ar|en&year=` plus either the open
+  record (`event=`, `person=`, `place=`, `tribe=`, `power=` with its id) or
+  `tab=`. Opening the link restores it; the app rewrites it in place, debounced,
+  from `renderPanel`, so anything that changes the view must end there.
+  Unknown parameters are left alone. Ids are in URLs now — one more reason
+  never to rename one.
+- Reading settings live in the Display tab and are saved in `localStorage`
+  (`ja-prefs`; theme in `ja-theme`): text size (80–175%), map label size,
+  label script, line spacing, word/letter spacing (word spacing only in Arabic,
+  since letter-spacing breaks the joins), underlined links, a strong focus
+  ring, reduce motion (follows the system by default; also stops the SVG
+  pulses, which CSS cannot reach), contrast, pulsing markers and scroll wheel.
+  On a phone the header and map overlays stop growing at 125% so the map keeps
+  its room; the reading panel takes the full size.
 
 - The map draws filled pictographic glyphs at constant screen size, following
   Maki's conventions — 15px grid, solid paths, no outlines, because outlines

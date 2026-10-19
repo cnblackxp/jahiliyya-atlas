@@ -14,7 +14,7 @@ async def main():
         errs=[]
         pg.on('pageerror', lambda e: errs.append(str(e)))
         pg.on('console', lambda m: errs.append(m.text) if m.type=='error' and 'TUNNEL' not in m.text and 'ERR_' not in m.text else None)
-        await pg.goto('file://'+os.path.abspath('_wrap.html')); await pg.wait_for_timeout(1500)
+        await pg.goto('file://'+os.path.abspath('_wrap.html')+'?lang=en'); await pg.wait_for_timeout(1500)
 
         # --- autocomplete ---
         await pg.fill('#search','antar'); await pg.wait_for_timeout(350)

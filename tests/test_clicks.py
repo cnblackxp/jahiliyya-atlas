@@ -21,7 +21,7 @@ async def run(pw,w,h,mobile):
     b=await pw.chromium.launch()
     pg=await b.new_page(viewport={'width':w,'height':h},has_touch=mobile,is_mobile=mobile)
     e=[]; pg.on('pageerror',lambda x:e.append(str(x)))
-    await pg.goto('file://'+os.path.abspath('_wrap.html')); await pg.wait_for_timeout(1700)
+    await pg.goto('file://'+os.path.abspath('_wrap.html')+'?lang=en'); await pg.wait_for_timeout(1700)
     tag=f'[{w}x{h}] '
     await pg.click('[data-tab="tribes"]'); await pg.wait_for_timeout(400)
     for lay,tab in [('.L-places','places'),('.L-events','events'),('.L-people','people'),('.L-tribes','tribes')]:

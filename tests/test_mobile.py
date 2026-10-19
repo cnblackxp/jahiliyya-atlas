@@ -9,12 +9,12 @@ def ck(n,c,d=''):
 
 DEVICES=[('Android 412x915',412,915),('iPhone 390x844',390,844),('small 360x740',360,740)]
 
-async def run(pw,name,w,h,scheme):
+async def run(pw,name,w,h,scheme,lang):
     b=await pw.chromium.launch()
     pg=await b.new_page(viewport={'width':w,'height':h},has_touch=True,is_mobile=True,color_scheme=scheme)
     errs=[]; pg.on('pageerror',lambda e:errs.append(str(e)))
-    await pg.goto('file://'+os.path.abspath('_wrap.html')); await pg.wait_for_timeout(1700)
-    tag=f'[{name} {scheme}] '
+    await pg.goto('file://'+os.path.abspath('_wrap.html')+'?lang='+lang); await pg.wait_for_timeout(1700)
+    tag=f'[{name} {scheme} {lang}] '
     for tab in ['events','people','places','tribes']:
         await pg.click(f'[data-tab="{tab}"]'); await pg.wait_for_timeout(500)
         box=await pg.evaluate("""()=>{const p=document.getElementById('focuspill');
@@ -35,7 +35,7 @@ async def run(pw,name,w,h,scheme):
     sw=await pg.evaluate("()=>document.documentElement.scrollWidth")
     ck(tag+'no horizontal scroll', sw<=w, f'{sw} vs {w}')
     ck(tag+'no errors', not errs, errs[:2])
-    if name.startswith('Android') and scheme=='dark':
+    if name.startswith('Android') and scheme=='dark' and lang=='en':
         await pg.screenshot(path='m_fixed.png')
     await b.close()
 
@@ -43,7 +43,8 @@ async def main():
     async with async_playwright() as pw:
         for n,w,h in DEVICES:
             for sc in ['dark','light']:
-                await run(pw,n,w,h,sc)
+                for lang in ['ar','en']:   # the panel flips to RTL in Arabic; the overlays must still clear each other
+                    await run(pw,n,w,h,sc,lang)
 asyncio.run(main())
 print(); print('FAILURES:', F if F else 'none')
 sys.exit(1 if F else 0)

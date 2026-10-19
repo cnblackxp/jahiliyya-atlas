@@ -11,7 +11,7 @@ async def main():
     async with async_playwright() as pw:
         b=await pw.chromium.launch(); pg=await b.new_page(viewport={'width':1180,'height':840})
         e=[];pg.on('pageerror',lambda x:e.append(str(x)))
-        await pg.goto('file://'+os.path.abspath('_wrap.html')); await pg.wait_for_timeout(1700)
+        await pg.goto('file://'+os.path.abspath('_wrap.html')+'?lang=en'); await pg.wait_for_timeout(1700)
         home=(await pg.evaluate(VIEW))['s']
 
         # --- the reported bug: tribe card ---

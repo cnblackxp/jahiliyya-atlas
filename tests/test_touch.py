@@ -21,7 +21,7 @@ async def main():
         b=await pw.chromium.launch()
         pg=await b.new_page(viewport={'width':412,'height':915},has_touch=True,is_mobile=True)
         e=[];pg.on('pageerror',lambda x:e.append(str(x)))
-        await pg.goto('file://'+os.path.abspath('_wrap.html')); await pg.wait_for_timeout(1800)
+        await pg.goto('file://'+os.path.abspath('_wrap.html')+'?lang=en'); await pg.wait_for_timeout(1800)
 
         # ---- two-finger pan: fingers move together, distance constant ----
         await pg.click('#zfit'); await pg.wait_for_timeout(500)

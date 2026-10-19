@@ -28,8 +28,8 @@ navigation), the detail panels and their cross-links, the evidence and date
 flags, the zoom detail tiers, theme cycling, the Tribes tab, and the phone
 layout's lack of horizontal scroll.
 
-**test_mobile.py** — overlay geometry across three phone sizes in both colour
-schemes. For each filter tab it asserts the focus pill is fully on screen,
+**test_mobile.py** — overlay geometry across three phone sizes, in both colour
+schemes and both languages. For each filter tab it asserts the focus pill is fully on screen,
 above the sheet, clear of the zoom buttons and clear of the scale bar. Written
 after a pill rendered off-screen behind the bottom sheet: `is_visible()` passes
 for an element that is visible in the wrong place, so these assert positions.
@@ -56,6 +56,16 @@ in every collection has a list, no record keeps the old `source` field, every
 source has a title and a link or a printed work. In the panel: the section has
 its own heading with a count, the address is visible as text, a printed work
 is not drawn as a link, notes show, and a record with none says so.
+
+**test_url.py** — the view in the address bar, and the reading settings.
+Arabic by default; `?lang`, `?year`, and each record kind open what they name,
+on the right year and tab; bad parameters fall back; the URL follows the
+slider, tabs, records and language, and reloading it reproduces the view; a
+language saved by an older version does not override the default, a chosen
+one is remembered and a link does not overwrite it; other parameters survive.
+Every reading setting applies, survives a reload and resets. On a phone, in
+both languages, the largest text has no sideways scroll, the pill overlaps
+nothing and the map keeps its room.
 
 **test_arabic.py** — the Arabic interface, desktop and phone. Walks every tab
 and a detail card of each kind and fails on any visible text that is Latin with

@@ -396,3 +396,61 @@ al-Aʿlam al-Shantamarī, and Shamela's page numbers there do not match the prin
 facts are in the notes. Britannica was wanted and could not be read (it refuses automated
 access), so it is not cited. *Kitāb al-Aghānī*, the main classical source for every one of
 these episodes, was not reachable online in a citable form and is the obvious next addition.
+
+---
+
+## 7. Epics — schema, the War of al-Basūs, and the filter (2026-10-19)
+
+No event's date, grade, range or dispute changed. Research is in
+`research/notes/basus_war.md`.
+
+### 7.1 Schema
+
+`arabia.json` has a sixth collection, `epics`: runs of events the tradition tells as one
+story.
+
+| field | meaning |
+|---|---|
+| `id`, `kind`, `name` | `kind` is free text; `war` for now |
+| `members` | `[{eventId, role}]`, role `prelude` / `core` / `aftermath`; an event can belong to several epics |
+| `peopleIds`, `tribeIds` | the figures and tribes the story is about |
+| `summary`, `dateNote`, `dispute` | as on events |
+| `folk` | `{summary, sources}` — a later popular layer (*sīra shaʿbiyya*), shown apart from the akhbār and never turned into dated events |
+| `sources` | as everywhere |
+
+An epic has no year of its own: its span is the union of its `core` events' `dateRange`s, so
+it can never look more certain than its parts. Arabic is in `arabia.ar.json` under
+`epics.<id>` (`name`, `summary`, `dateNote`, `dispute`, `folk`).
+
+### 7.2 The War of al-Basūs (`basus-war`)
+
+Thirteen members: `khazaz-day` as prelude, then the killing of Kulayb, the nine named days,
+Ḥujras's killing of Jassās and al-Muhalhil's death. Four sources (en/ar Wikipedia, al-Kāmil
+i 472–484, the 2023 Ḥarb al-Basūs Seminar), and a `folk` layer for *Qiṣṣat al-Zīr Sālim* —
+Tubbaʿ Ḥassān al-Yamānī, the bridal chests of al-Jalīla — with three sources of its own.
+
+Sources added on the way: `kulayb`, `jassas`, `jalila` and `al-muhalhil` get two each (the
+first people in the atlas with sources); `khazaz-day` gets ar Wikipedia *يوم خزاز*;
+`basus-war-begins` gets ar Wikipedia *حرب البسوس* and al-Kāmil i 472.
+
+### 7.3 Disagreements recorded, not settled
+
+- `khazaz-day` is 400 (300–500) here; ar Wikipedia puts Khazāz in the sixth century, after
+  531, and records three different leaders of Maʿadd and al-Aṣmaʿī's reversed version.
+- `al-muhalhil` dies 540 here; both Wikipedias give 531.
+- `jassas` dies 535 here; both Wikipedias give c. 534.
+- `jalila` has no death year here; ar Wikipedia gives c. 540.
+- The war itself: forty years from 494, or twenty-odd; Hussein puts its last battles c. 532,
+  Webb puts Kulayb in the mid-sixth century.
+
+Each is in the `note` of the source that says it. Whether `khazaz-day` should move is the
+owner's call — it would carry `basus-war`'s prelude with it.
+
+### 7.4 The filter
+
+Opening an epic filters the map's event layer, the event lists and the phone sheet's count to
+its events, and draws each of them on the top timeline as its full `dateRange` (faint) with a
+tick at its `year`. A figure can filter the same way from their own page; an event in an
+epic says so ("Part of") and can switch the filter on and off. The pill on the map and a bar
+above the lists name the filter and clear it. In the URL: `epic=<id>`, and `filter=` only
+when it differs from the default (`filter=person:<id>`, `filter=epic:<id>`, `filter=none`).

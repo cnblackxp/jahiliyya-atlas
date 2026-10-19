@@ -10,7 +10,7 @@ def ck(n,c,d=''):
 
 # --- the data: every record carries a sources list, and every source can be found again ---
 D=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','data','arabia.json'),encoding='utf-8'))
-KINDS=('events','people','places','tribes','polities')
+KINDS=('events','people','places','tribes','polities','epics')
 missing=[f'{k}/{r["id"]}' for k in KINDS for r in D[k] if not isinstance(r.get('sources'),list)]
 ck('every record in every collection has a sources list', not missing, missing[:6])
 ck('no record still uses the old single source field', not [r['id'] for k in KINDS for r in D[k] if 'source' in r])

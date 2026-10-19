@@ -200,6 +200,18 @@ button{font:inherit;color:inherit;cursor:pointer}
 a{color:var(--accent)}
 .foot{margin-top:20px;font-size:11px;color:var(--faint);line-height:1.5;border-top:1px solid var(--line);padding-top:10px}
 .srcs{display:grid;gap:8px;margin-bottom:12px}
+/* the popular-epic layer is kept visibly apart from the akhbār */
+.detail .disp.folk{background:color-mix(in srgb,var(--recon) 10%,transparent);border-left-color:var(--recon)}
+.detail .disp.folk b{color:var(--recon)}
+:root[data-lang="ar"] .detail .disp{border-left:0;border-right:2px solid var(--trad);border-radius:6px 0 0 6px}
+:root[data-lang="ar"] .detail .disp.basis{border-right-color:var(--accent2)}
+:root[data-lang="ar"] .detail .disp.folk{border-right-color:var(--recon)}
+.role{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:10px 0 5px}
+:root[data-lang="ar"] .role{letter-spacing:0;text-transform:none;font-size:11px}
+.fbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:0 0 12px;padding:6px 9px;border:1px dashed var(--accent);border-radius:6px}
+.fbar b{color:var(--fg);font-weight:500}
+.fbar button{margin-inline-start:auto}
+.ic-epic{color:var(--accent)}
 .src{border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:var(--panel2);display:grid;gap:3px;border-left-width:3px;border-left-color:var(--line2)}
 .src-t{font-family:var(--f-display);font-size:14.5px;line-height:1.25;color:var(--fg);text-decoration:none}
 a.src-t:hover{color:var(--accent);text-decoration:underline}
@@ -380,6 +392,7 @@ a.src-t:hover{color:var(--accent);text-decoration:underline}
         <button role="tab" aria-selected="false" data-tab="people">People</button>
         <button role="tab" aria-selected="false" data-tab="places">Places</button>
         <button role="tab" aria-selected="false" data-tab="tribes">Tribes</button>
+        <button role="tab" aria-selected="false" data-tab="epics">Epics</button>
         <button role="tab" aria-selected="false" data-tab="legend">Legend</button>
         <button role="tab" aria-selected="false" data-tab="display">Display</button>
       </div>
@@ -434,7 +447,11 @@ const UIEN={ui:{
  proposedRange:'Could be anywhere in', kind:'Kind', coordinates:'Coordinates', span:'Span',
  seat:'Seat', role:'Role', tribe:'Tribe', dates:'Dates', dating:'Dating',
  rangeCentre:'Range centre', nothingMatches:'Nothing matches that.', events:'events', zones:'Zones',
- event:'Event', figure:'Figure', power:'Power', sources:'Sources'},
+ event:'Event', figure:'Figure', power:'Power', sources:'Sources',
+ tabEpics:'Epics', epic:'Epic', partOf:'Part of', showOnly:'Show only this on the map and timeline',
+ showOnlyFigure:'Show only this figure\u2019s events', filtering:'Showing only', clearFilter:'Clear',
+ eventsInOrder:'Events in order', prelude:'Prelude', core:'The war', aftermath:'Aftermath',
+ folkHead:'In the popular epic, not the akhb\u0101r'},
  evidence:{EPI:'Inscription-fixed',EXT:'External source',TRAD:'Later Arabic tradition',RECON:'Modern reconstruction'},
  certainty:{fixed:'fixed',approximate:'approximate',contested:'contested',legendary:'legendary',estimated:'estimated'},
  coord:{exact:'exact',approximate:'approximate',guessed:'guessed'},
@@ -476,12 +493,13 @@ const ICON={
  battle:'<path d="M2.6 3.9 3.9 2.6l9.5 9.5-1.3 1.3Z"/><path d="M12.1 2.6l1.3 1.3-9.5 9.5-1.3-1.3Z"/>',
  site:'<path d="M3 3h10v10H3Z"/>',
  region:'<path d="M1.6 4.2 6 2.6l4 1.6 4.4-1.6v9.2L10 13.4l-4-1.6-4.4 1.6Z"/>',
+ epic:'<path d="M5.6 1.8 9.8 6 5.6 10.2 1.4 6Z"/><path d="M10.4 5.8 14.6 10 10.4 14.2 6.2 10Z" opacity=".55"/>',
  year:'<path d="M8 1.6A6.4 6.4 0 1 0 8 14.4 6.4 6.4 0 0 0 8 1.6Zm.75 3.1v3.6l2.6 1.5-.75 1.3-3.35-1.95V4.7Z"/>'
 };
 const PKIND={capital:'capital',city:'city',town:'city',oasis:'oasis',shrine:'shrine',fair:'fair',
              battlefield:'battle',site:'site',region:'region'};
-const TYPE={event:'Event',person:'Figure',place:'Place',tribe:'Tribe',polity:'Power'};
-const TYPEK={event:'event',person:'figure',place:'place',tribe:'tribe',polity:'power'};
+const TYPE={event:'Event',person:'Figure',place:'Place',tribe:'Tribe',polity:'Power',epic:'Epic'};
+const TYPEK={event:'event',person:'figure',place:'place',tribe:'tribe',polity:'power',epic:'epic'};
 function TYPE2(k){ return isAr()? (dict().ui[TYPEK[k]]||TYPE[k]) : TYPE[k]; }
 function altOf(kind,o){ const n=NAME(kind,o); const en=o.name||o.title; return isAr()? (n!==en?en:null) : (o.ar||null); }
 function iconName(kind,o){
@@ -496,12 +514,12 @@ function typeIco(kind,o){ return ico(iconName(kind,o),'ic-'+kind); }
 // Sources as their own section: every source shows its title and its full address, and says
 // what it backs when that is recorded. A record with none says so rather than showing nothing.
 const SUPPORTS={date:['the date','التاريخ'],place:['the place','الموضع'],people:['the people','الأعلام'],narrative:['the account','الخبر']};
-function srcSection(rec,kind){
+function srcSection(rec,kind,heading){
   const list=(rec.sources||[]).filter(x=>x&&(x.url||x.title));
   const A=isAr();
-  let h='<div class="sect">'+esc(T('sources'))+(list.length?' · '+list.length:'')+'</div>';
-  if(!list.length) return h+'<p class="none">'+(A?'لم يُسجَّل مصدرٌ ل'+({event:'هذا الحدث',person:'هذه الشخصية',place:'هذا الموضع',tribe:'هذه القبيلة',polity:'هذه الدولة'}[kind])+' بعد.'
-    :'No source recorded for this '+({event:'event',person:'figure',place:'place',tribe:'tribe',polity:'power'}[kind])+' yet.')+'</p>';
+  let h='<div class="sect">'+esc(heading||T('sources'))+(list.length?' · '+list.length:'')+'</div>';
+  if(!list.length) return h+'<p class="none">'+(A?'لم يُسجَّل مصدرٌ ل'+({event:'هذا الحدث',person:'هذه الشخصية',place:'هذا الموضع',tribe:'هذه القبيلة',polity:'هذه الدولة',epic:'هذه الملحمة'}[kind])+' بعد.'
+    :'No source recorded for this '+({event:'event',person:'figure',place:'place',tribe:'tribe',polity:'power',epic:'epic'}[kind])+' yet.')+'</p>';
   return h+'<div class="srcs">'+list.map(x=>{
     let u='';try{u=x.url?decodeURI(x.url):'';}catch(_){u=x.url||'';}
     const t=x.url?'<a class="src-t" dir="auto" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title||u)+'</a>'
@@ -547,6 +565,30 @@ function tribeOfPerson(p){
   const n=norm(p.tribe);
   return (D.tribes||[]).find(t=>hasKey(n,tribeKeys.get(t.id))||hasKey(norm(t.name),[n]))||null;
 }
+/* ---------- epics ----------
+   An epic is a run of events the tradition tells as one story. Opening one filters the
+   map, the lists and the timeline to its events; a figure can filter the same way. */
+const EPICS=(D.epics||[]);
+const epicById=new Map(EPICS.map(x=>[x.id,x]));
+const eventById=new Map((D.events||[]).map(e=>[e.id,e]));
+function epicEvents(x){ return (x.members||[]).map(m=>eventById.get(m.eventId)).filter(Boolean); }
+function epicsOfEvent(e){ return EPICS.filter(x=>(x.members||[]).some(m=>m.eventId===e.id)); }
+function epicsOfPerson(p){ return EPICS.filter(x=>(x.peopleIds||[]).includes(p.id)||epicEvents(x).some(e=>(e.peopleIds||[]).includes(p.id))); }
+// the span is the union of the ranges of its own events (not the prelude), never narrower
+function epicSpan(x){ const core=(x.members||[]).filter(m=>(m.role||'core')!=='prelude').map(m=>eventById.get(m.eventId)).filter(Boolean);
+  const ev=core.length?core:epicEvents(x); if(!ev.length) return null;
+  return [Math.min(...ev.map(e=>(e.dateRange||[e.year])[0])), Math.max(...ev.map(e=>{const r=e.dateRange||[e.year];return r[r.length-1];}))]; }
+function filterTarget(f){ return !f? null : f.kind==='epic'? epicById.get(f.id) : f.kind==='person'? personById.get(f.id) : null; }
+function filterIds(f){
+  const o=filterTarget(f); if(!o) return null;
+  const ev = f.kind==='epic'? epicEvents(o) : events.filter(e=>(e.peopleIds||[]).includes(o.id));
+  return new Set(ev.map(e=>e.id));
+}
+function setFilter(f){
+  st.filter = f && filterTarget(f) ? {kind:f.kind,id:f.id} : null;
+  st.filterIds = filterIds(st.filter);
+  buildRail();
+}
 const tribeMembers=new Map(), tribeEvents=new Map();
 (D.tribes||[]).forEach(t=>{tribeMembers.set(t.id,[]);tribeEvents.set(t.id,[]);});
 (D.people||[]).forEach(p=>{const t=tribeOfPerson(p); if(t) tribeMembers.get(t.id).push(p); p._tribe=t;});
@@ -582,7 +624,7 @@ const st = {
   show:{sands:true,ranges:true,rivers:true,polities:true,tribes:false,places:true,events:true,people:true,regions:true},
   cats:new Set(CATS), evid:new Set(['EPI','EXT','TRAD','RECON']),
   view:{s:1,tx:0,ty:0,home:1},
-  tab:'all',
+  tab:'all', filter:null, filterIds:null,
   script:'arabic', scriptLocked:false, chosenLang:'', us:1, ms:1, contrast:'normal', motion:'on', wheel:'auto', theme:'auto', lang:'ar',
   lh:'normal', spacing:'normal', reduce:'auto', links:'normal', focus:'normal',
   sheet:1
@@ -830,7 +872,11 @@ function drawDynamic(){
 
   const fk=focusKind(), fp=document.getElementById('focuspill');
   if(fp){
-    if(fk){
+    if(st.filter){
+      const o=filterTarget(st.filter);
+      fp.innerHTML=ico(st.filter.kind==='epic'?'epic':'person')+'<b>'+esc(NAME(st.filter.kind==='epic'?'epics':'people',o))+'</b><span>'+esc(T('clearFilter'))+'</span>';
+      fp.hidden=false;
+    } else if(fk){
       const nm={events:T('tabEvents'),people:T('tabPeople'),places:T('tabPlaces'),tribes:T('tabTribes')}[fk];
       const ik={events:'event',people:'person',places:'place',tribes:'tribe'}[fk];
       fp.innerHTML=typeIco(ik,{})+'<b>'+esc(nm)+'</b><span>'+esc(isAr()?'عرض الكلّ':'show all')+'</span>';
@@ -944,7 +990,8 @@ function visibleEvents(){
   const y=st.year,w=st.win;
   return events.filter(e=>
     Math.abs((e.year??0)-y)<=w &&
-    st.cats.has(e.category) && st.evid.has(e.evidence||'TRAD'));
+    st.cats.has(e.category) && st.evid.has(e.evidence||'TRAD') &&
+    (!st.filterIds || st.filterIds.has(e.id)));
 }
 
 /* ---------- tooltip & selection ---------- */
@@ -990,9 +1037,16 @@ function reveal(ref,opts){
   st.sel=ref;
   const k=ref.kind, o=ref.o;
   if(k==='event'&&o.year!=null) setYear(o.year,true);
+  if(k==='epic'){
+    setFilter({kind:'epic',id:o.id});
+    const core=(o.members||[]).filter(m=>(m.role||'core')==='core').map(m=>eventById.get(m.eventId)).filter(e=>e&&e.year!=null);
+    const first=(core.length?core:epicEvents(o)).slice().sort((a,b)=>a.year-b.year)[0];
+    // keep the year if one of its events is already in view, else go to the first of the war itself
+    if(first && !visibleEvents().length) setYear(first.year,true);
+  }
   if(opts.tab!==false)
     st.tab = k==='event'?'events' : k==='person'?'people' : k==='tribe'?'tribes'
-           : k==='polity'?'all' : 'places';
+           : k==='polity'?'all' : k==='epic'?'epics' : 'places';
   if(k==='tribe')  st.show.tribes=true;
   if(k==='person') st.show.people=true;
   if(k==='place')  st.show.places=true;
@@ -1005,6 +1059,13 @@ function reveal(ref,opts){
 function moveTo(ref){
   const k=ref.kind, o=ref.o;
   if(k==='tribe'){ flyToArea(o.lon,o.lat,o.r||180); return; }
+  if(k==='epic'){
+    const pls=epicEvents(o).map(e=>e.placeId&&placeById.get(e.placeId)).filter(Boolean);
+    if(!pls.length){ drawDynamic(); return; }
+    const lo=Math.min(...pls.map(p=>p.lon)), hi=Math.max(...pls.map(p=>p.lon)), la=Math.min(...pls.map(p=>p.lat)), lb=Math.max(...pls.map(p=>p.lat));
+    const km=Math.max(180, Math.max(hi-lo,lb-la)*111/2);
+    flyToArea((lo+hi)/2,(la+lb)/2,km); return;
+  }
   if(k==='polity'){
     const z=(o.zones||[]).find(z=>st.year>=(z.from??-9e9)&&st.year<=(z.to??9e9))||(o.zones||[])[0];
     const c=z&&(z.centers||[])[0];
@@ -1262,12 +1323,23 @@ function buildRail(){
   const B=5, nb=Math.ceil((Y1-Y0)/B), buckets=new Array(nb).fill(0);
   events.forEach(e=>{const i=Math.floor(((e.year??Y0)-Y0)/B); if(i>=0&&i<nb) buckets[i]++;});
   const mx=Math.max(1,...buckets);
+  const fl=st.filterIds;
   buckets.forEach((v,i)=>{
     if(!v) return;
     const h=3+ (v/mx)*15, w=1000/nb;
     svg.appendChild(el('rect',{x:i*w+.4,y:19-h,width:Math.max(1.1,w-.8),height:h,
-      fill:'var(--accent)',opacity:.30,rx:.6}));
+      fill:'var(--accent)',opacity:fl?.1:.30,rx:.6}));
   });
+  // a filter draws each of its events as its whole date range, faint, with a tick at the
+  // central year - the range is the claim, the tick only where the atlas puts it
+  if(fl){
+    const X=y=>(Math.max(Y0,Math.min(Y1,y))-Y0)/(Y1-Y0)*1000;
+    events.filter(e=>fl.has(e.id)&&e.year!=null).forEach(e=>{
+      const r=e.dateRange||[e.year,e.year];
+      svg.appendChild(el('rect',{class:'fr',x:X(r[0]),y:0,width:Math.max(2,X(r[1])-X(r[0])),height:4,rx:1,fill:'var(--accent2)',opacity:.35}));
+      svg.appendChild(el('rect',{class:'ft','data-ev':e.id,x:X(e.year)-1.6,y:4.5,width:3.2,height:14.5,rx:1,fill:'var(--accent)',opacity:.95}));
+    });
+  }
   // era bands from polities
   const esvg=document.getElementById('eras'); esvg.textContent='';
   const bands=(D.polities||[]).filter(p=>p.from!=null&&p.to!=null)
@@ -1361,8 +1433,8 @@ function syncTabs(){
 }
 
 function chip(kind,o,label){
-  const attr={person:'data-person',place:'data-place',tribe:'data-tribe',polity:'data-polity',event:'data-ev'}[kind];
-  const kk={person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events'}[kind];
+  const attr={person:'data-person',place:'data-place',tribe:'data-tribe',polity:'data-polity',event:'data-ev',epic:'data-epic'}[kind];
+  const kk={person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events',epic:'epics'}[kind];
   return '<span class="chip" '+attr+'="'+esc(o.id)+'">'+typeIco(kind,o)+esc(label||NAME(kk,o))+'</span>';
 }
 function evCard(e){
@@ -1377,6 +1449,45 @@ function evCard(e){
       +(rng?' · '+rng:'')+'</span>'
     +(pl?'<span class="where">· '+esc(NAME('places',pl))+'</span>':'')
     +'</div></div>';
+}
+// the filter control used by epics and figures: says what it does, and shows when it is on
+function filterBtn(kind,id,label){
+  const on=!!(st.filter&&st.filter.kind===kind&&st.filter.id===id);
+  return '<p><button class="btn" data-filter="'+kind+':'+esc(id)+'" aria-pressed="'+on+'">'+ico(kind==='epic'?'epic':'person')+esc(label)+'</button></p>';
+}
+function partOf(list){
+  if(!list.length) return '';
+  return '<div class="sect">'+esc(T('partOf'))+'</div><div class="chips">'+list.map(x=>chip('epic',x)).join('')+'</div>';
+}
+function epicDetail(x){
+  const A=isAr(), sp=epicSpan(x);
+  const ev=epicEvents(x), byRole={};
+  (x.members||[]).forEach(m=>{const e=eventById.get(m.eventId); if(e)(byRole[m.role||'core']=byRole[m.role||'core']||[]).push(e);});
+  const ppl=(x.peopleIds||[]).map(i=>personById.get(i)).filter(Boolean);
+  const trb=(x.tribeIds||[]).map(i=>(D.tribes||[]).find(t=>t.id===i)).filter(Boolean);
+  let h=backBtn()+'<div class="detail">'
+   +'<div class="dhead">'+ico('epic','ic-event')+'<span>'+esc(TYPE2('epic'))+(x.kind==='war'?' · '+(A?'حرب':'war'):'')+'</span></div>'
+   +'<h3>'+esc(NAME('epics',x))+'</h3>'+(altOf('epics',x)?'<div class="arbig">'+esc(altOf('epics',x))+'</div>':'')
+   +'<p>'+esc(LOC('epics',x,'summary')||'')+'</p>'
+   +filterBtn('epic',x.id,T('showOnly'));
+  const dn=LOC('epics',x,'dateNote');
+  if(dn) h+='<div class="disp basis"><b>'+esc(A?'على أيّ شيء يقوم التأريخ':'What the dates rest on')+'</b>'+esc(dn)+'</div>';
+  const dp=LOC('epics',x,'dispute');
+  if(dp) h+='<div class="disp"><b>'+esc(T('disagree'))+'</b>'+esc(dp)+'</div>';
+  h+='<dl class="kv"><dt>'+esc(T('span'))+'</dt><dd>'+(sp?(A?'نحو ':'c. ')+sp[0]+'–'+sp[1]+' '+esc(T('ce')):'—')+'</dd>'
+    +'<dt>'+esc(T('events'))+'</dt><dd>'+ev.length+'</dd></dl>';
+  h+='<div class="sect">'+esc(T('eventsInOrder'))+'</div>';
+  ['prelude','core','aftermath'].forEach(r=>{ const l=byRole[r]; if(!l||!l.length) return;
+    h+='<div class="role">'+esc(T(r))+'</div>'+l.slice().sort((a,b)=>(a.year??0)-(b.year??0)).map(evCard).join(''); });
+  if(ppl.length) h+='<div class="sect">'+esc(T('figures'))+'</div><div class="chips">'+ppl.map(p=>chip('person',p)).join('')+'</div>';
+  if(trb.length) h+='<div class="sect">'+esc(T('tribes'))+'</div><div class="chips">'+trb.map(t=>chip('tribe',t)).join('')+'</div>';
+  if(x.folk){
+    const ft=A?((DAR&&DAR.epics&&DAR.epics[x.id]&&DAR.epics[x.id].folk)||x.folk.summary):x.folk.summary;
+    h+='<div class="disp folk"><b>'+esc(T('folkHead'))+'</b>'+esc(ft)+'</div>';
+    h+=srcSection({sources:x.folk.sources||[]},'epic',A?'مصادر السيرة الشعبية':'Sources for the popular epic');
+  }
+  h+=srcSection(x,'epic');
+  return h+'</div>';
 }
 function evDetail(e){
   const pl=e.placeId&&placeById.get(e.placeId);
@@ -1408,6 +1519,8 @@ function evDetail(e){
   if(trb.length) h+='<div class="sect">'+esc(T('tribes'))+'</div><div class="chips">'+trb.map(x=>chip('tribe',x)).join('')+'</div>';
   if(pol.length) h+='<div class="sect">'+esc(T('powers'))+'</div><div class="chips">'+pol.map(x=>chip('polity',x)).join('')+'</div>';
   if(pl) h+='<div class="sect">'+esc(T('place'))+'</div><div class="chips">'+chip('place',pl)+'</div>';
+  const eps=epicsOfEvent(e);
+  h+=partOf(eps)+eps.map(x=>filterBtn('epic',x.id,T('showOnly')+' — '+NAME('epics',x))).join('');
   h+=srcSection(e,'event');
   return h+'</div>';
 }
@@ -1416,7 +1529,9 @@ function personDetail(p){
   let h=backBtn()+'<div class="detail">'
    +'<div class="dhead">'+typeIco('person',p)+'<span>'+esc(TYPE2('person'))+(p.role?' · '+esc(Tg('role',p.role)):'')+'</span></div>'
    +'<h3>'+esc(NAME('people',p))+'</h3>'+(altOf('people',p)?'<div class="arbig">'+esc(altOf('people',p))+'</div>':'')
-   +'<p>'+esc(LOC('people',p,'blurb')||'')+'</p><dl class="kv">'
+   +'<p>'+esc(LOC('people',p,'blurb')||'')+'</p>'
+   +(evs.length?filterBtn('person',p.id,T('showOnlyFigure')):'')
+   +'<dl class="kv">'
    +'<dt>'+esc(T('role'))+'</dt><dd>'+esc(Tg('role',p.role||'')||'—')+'</dd>'
    +(p.tribe?'<dt>'+esc(T('tribe'))+'</dt><dd>'+(isAr()&&p._tribe
       ? esc(NAME('tribes',p._tribe))+(p.tribe!==p._tribe.name?' · '+latn(p.tribe):'')
@@ -1443,6 +1558,7 @@ function personDetail(p){
       +myPlaces.map(x=>chip('place',x)).join('')
       +withPeople.slice(0,12).map(x=>chip('person',x)).join('')+'</div>';
   }
+  h+=partOf(epicsOfPerson(p));
   if(evs.length){ h+='<div class="sect">'+esc(T('appearsIn'))+' · '+evs.length+'</div>'+evs.map(evCard).join(''); }
   h+=srcSection(p,'person');
   return h+'</div>';
@@ -1512,7 +1628,7 @@ function renderPanel(noScroll){
   const keep=noScroll?pbody.scrollTop:0;
   if(st.sel){
     const r=st.sel;
-    pbody.innerHTML = r.kind==='event'?evDetail(r.o): r.kind==='person'?personDetail(r.o)
+    pbody.innerHTML = r.kind==='event'?evDetail(r.o): r.kind==='person'?personDetail(r.o): r.kind==='epic'?epicDetail(r.o)
       : r.kind==='tribe'?tribeDetail(r.o): r.kind==='polity'?polityDetail(r.o) : placeDetail(r.o);
   } else if(st.tab==='all'){
     const vis=visibleEvents(), exact=vis.filter(e=>e.year===st.year);
@@ -1540,6 +1656,18 @@ function renderPanel(noScroll){
     }
     if(alive.length) h+='<div class="sect">'+esc(T('aliveIn'))+' '+y+'</div><div class="chips">'
       +alive.slice(0,24).map(x=>chip('person',x)).join('')+'</div>';
+    pbody.innerHTML=h;
+  } else if(st.tab==='epics'){
+    const A=isAr();
+    let h='<h2 class="phead">'+esc(T('tabEpics'))+'</h2><p class="psub">'+(A
+      ?'أحداثٌ تَرويها الأخبار قصةً واحدة. افتح واحدةً لتقصر الخريطةَ والقوائمَ والخطَّ الزمنيَّ على أحداثها.'
+      :'Runs of events the tradition tells as one story. Open one to narrow the map, the lists and the timeline to its events.')+'</p>';
+    h+=EPICS.map(x=>{ const sp=epicSpan(x), n=epicEvents(x).length;
+      return '<div class="ev" data-epic="'+esc(x.id)+'"><div class="r1">'+(sp?'<span class="yr">'+(A?'نحو ':'c. ')+sp[0]+'–'+sp[1]+'</span>':'')
+        +'<span class="ti">'+ico('epic','ic-event')+esc(NAME('epics',x))+'</span></div>'
+        +(altOf('epics',x)?'<div class="ar">'+esc(altOf('epics',x))+'</div>':'')
+        +'<div class="meta"><span class="cert">'+nEvents(n)+((x.peopleIds||[]).length?' · '+(x.peopleIds||[]).length+' '+(A?'شخصية':'figures'):'')+'</span></div></div>'; }).join('')
+      || '<p class="none">'+(A?'لا ملاحم بعد.':'No epics yet.')+'</p>';
     pbody.innerHTML=h;
   } else if(st.tab==='events'){
     const vis=visibleEvents();
@@ -1728,6 +1856,11 @@ function renderPanel(noScroll){
       +'Left and right arrows move the year anywhere else on the page; hold shift for ten-year jumps.')+'</div>';
     pbody.innerHTML=h;
   }
+  if(st.filter && !st.sel && (st.tab==='all'||st.tab==='events')){
+    const o=filterTarget(st.filter);
+    pbody.insertAdjacentHTML('afterbegin','<div class="fbar">'+ico(st.filter.kind==='epic'?'epic':'person')+'<span>'+esc(T('filtering'))+': <b>'
+      +esc(NAME(st.filter.kind==='epic'?'epics':'people',o))+'</b></span><button class="btn" data-filter="off">'+esc(T('clearFilter'))+'</button></div>');
+  }
   if(noScroll) pbody.scrollTop=keep;
   writeURLSoon();
 }
@@ -1744,6 +1877,13 @@ pbody.addEventListener('click',e=>{
   if(plc){const o=placeById.get(plc.dataset.place); if(o) reveal({kind:'place',o}); return;}
   const po=e.target.closest('[data-polity]');
   if(po){const o=polityById.get(po.dataset.polity); if(o) reveal({kind:'polity',o}); return;}
+  const fb=e.target.closest('[data-filter]');
+  if(fb){ const v=fb.dataset.filter;
+    if(v==='off'||fb.getAttribute('aria-pressed')==='true') setFilter(null);
+    else { const i=v.indexOf(':'); setFilter({kind:v.slice(0,i),id:v.slice(i+1)}); }
+    drawDynamic(); renderPanel(true); return; }
+  const ep=e.target.closest('[data-epic]');
+  if(ep){const o=epicById.get(ep.dataset.epic); if(o) reveal({kind:'epic',o}); return;}
   const tr=e.target.closest('[data-tribe]');
   if(tr){const o=(D.tribes||[]).find(t=>t.id===tr.dataset.tribe); if(o) reveal({kind:'tribe',o}); return;}
   const yr=e.target.closest('[data-year]');
@@ -1758,7 +1898,7 @@ function applyLang(){
   document.querySelector('.yearce').textContent=T('ce');
   document.getElementById('search').placeholder=T('search');
   const names={events:'tabEvents',people:'tabPeople',places:'tabPlaces',tribes:'tabTribes',
-               legend:'tabLegend',display:'tabDisplay'};
+               epics:'tabEpics',legend:'tabLegend',display:'tabDisplay'};
   const allLbl=isAr()?'الكلّ':'All';
   document.querySelectorAll('.ptabs button').forEach(b=>{
     b.textContent = b.dataset.tab==='all'? allLbl : T(names[b.dataset.tab]);});
@@ -1954,6 +2094,7 @@ function updatePeek(){
   });
 })();
 document.getElementById('focuspill').onclick=()=>{
+  if(st.filter){ setFilter(null); drawDynamic(); renderPanel(true); return; }
   st.tab='all'; st.sel=null; syncTabs(); drawDynamic(); renderPanel();
 };
 document.getElementById('langBtn').onclick=()=>{
@@ -1972,8 +2113,8 @@ document.getElementById('moreBtn').onclick=function(){
    (?event= ?person= ?place= ?tribe= ?power=) or the tab (?tab=). Opening such a
    link restores it; the app rewrites it in place as the view changes, so the
    address bar can always be copied. Anything unrecognised is ignored. */
-const URL_KIND={event:'event',person:'person',place:'place',tribe:'tribe',power:'polity'};
-const TABS=['all','events','people','places','tribes','legend','display'];
+const URL_KIND={event:'event',person:'person',place:'place',tribe:'tribe',power:'polity',epic:'epic'};
+const TABS=['all','events','people','places','tribes','epics','legend','display'];
 function readURL(){
   const out={};
   let p; try{ p=new URLSearchParams(location.search); }catch(_){ return out; }
@@ -1981,21 +2122,27 @@ function readURL(){
   const y=p.get('year'); if(y!==null && /^-?\d+$/.test(y.trim())) out.year=+y;
   const t=p.get('tab'); if(TABS.includes(t)) out.tab=t;
   for(const k in URL_KIND){ const id=p.get(k); if(id){ out.kind=URL_KIND[k]; out.id=id; break; } }
+  const f=p.get('filter'), m=f&&/^(epic|person):(.+)$/.exec(f);
+  if(m) out.filter={kind:m[1],id:m[2]}; else if(f==='none') out.filter='none';
   return out;
 }
 function findRecord(kind,id){
   const o = kind==='event'? events.find(e=>e.id===id) : kind==='person'? personById.get(id)
         : kind==='place'? placeById.get(id) : kind==='polity'? polityById.get(id)
-        : (D.tribes||[]).find(t=>t.id===id);
+        : kind==='epic'? epicById.get(id) : (D.tribes||[]).find(t=>t.id===id);
   return o? {kind,o} : null;
 }
 let urlT=null;
 function writeURL(){
   let p; try{ p=new URLSearchParams(location.search); }catch(_){ p=new URLSearchParams(); }
-  ['lang','year','tab',...Object.keys(URL_KIND)].forEach(k=>p.delete(k));   // anything else a host put there stays
+  ['lang','year','tab','filter',...Object.keys(URL_KIND)].forEach(k=>p.delete(k));   // anything else a host put there stays
   p.set('lang',st.lang); p.set('year',st.year);
   if(st.sel){ const k=Object.keys(URL_KIND).find(k=>URL_KIND[k]===st.sel.kind); p.set(k,st.sel.o.id); }
   else if(st.tab!=='all') p.set('tab',st.tab);
+  // an open epic filters to itself by default, so only a difference from that is written
+  const dflt = st.sel&&st.sel.kind==='epic' ? 'epic:'+st.sel.o.id : '';
+  const cur = st.filter ? st.filter.kind+':'+st.filter.id : '';
+  if(cur!==dflt) p.set('filter', cur||'none');
   const q='?'+p.toString();
   if(q===location.search) return;
   try{ history.replaceState(history.state,'',location.pathname+q+location.hash); }catch(_){}   // some hosts forbid it
@@ -2049,6 +2196,8 @@ else if(URLQ.tab && URLQ.tab!=='all'){
   st.tab=URLQ.tab; if(st.tab==='tribes') st.show.tribes=true;
   syncTabs(); drawDynamic(); renderPanel();
 }
+// filter=epic:… / person:… sets it, filter=none clears what an opened epic set by default
+if(URLQ.filter){ setFilter(URLQ.filter==='none'?null:URLQ.filter); drawDynamic(); renderPanel(true); }
 updatePeek();
 })();
 </script>

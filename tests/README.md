@@ -57,6 +57,14 @@ source has a title and a link or a printed work. In the panel: the section has
 its own heading with a count, the address is visible as text, a printed work
 is not drawn as a link, notes show, and a record with none says so.
 
+**test_epics.py** — the `epics` data (every member, figure and tribe exists;
+Arabic present; sources in both languages, folk layer included) and the
+feature: the Epics tab, opening an epic (lands on its first event, ticks on the
+timeline for every member with its range, the folk layer shown apart), the
+filter narrowing and announcing itself on the lists, an event's "part of" and
+its filter toggle, a figure's filter, the pill and Clear, URL restore with
+`filter=none` and `filter=person:…`, and the phone in both languages.
+
 **test_url.py** — the view in the address bar, and the reading settings.
 Arabic by default; `?lang`, `?year`, and each record kind open what they name,
 on the right year and tab; bad parameters fall back; the URL follows the

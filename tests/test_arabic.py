@@ -31,13 +31,17 @@ async def sweep(pg,label):
         if l: leaks[where]=l
     await grab('all')
     for tab,item in [('events','#pbody .ev[data-ev]'),('people','#pbody .lf[data-person]'),
-                     ('places','#pbody [data-place]'),('tribes','#pbody .ev[data-tribe]'),
+                     ('places','#pbody [data-place]'),('tribes','#pbody .ev[data-tribe]'),('epics','#pbody .ev[data-epic]'),
                      ('legend',None),('display',None)]:
         await pg.click(f'[data-tab="{tab}"]'); await pg.wait_for_timeout(400)
         await grab(tab)
         if item and await pg.locator(item).count():
             await pg.locator(item).first.click(); await pg.wait_for_timeout(500)
             await grab(tab+' detail','#panel')
+            # opening an epic filters to it and moves to its year; undo both so the rest of the sweep starts where it did
+            await pg.evaluate("""()=>{const b=document.querySelector('#pbody [data-filter][aria-pressed="true"]');if(b)b.click();
+              const r=document.getElementById('range');r.value=554;r.dispatchEvent(new Event('input',{bubbles:true}));}""")
+            await pg.wait_for_timeout(200)
     # a power's detail, reached from an event that names one
     await pg.click('[data-tab="events"]'); await pg.wait_for_timeout(300)
     await pg.locator('#pbody .ev[data-ev]').first.click(); await pg.wait_for_timeout(400)

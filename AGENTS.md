@@ -107,7 +107,7 @@ data/
 research/
   report.md             the English research report
   report.ar.md          the Arabic report, written from Arabic sources
-  notes/                eight source-by-source research files
+  notes/                source-by-source research files, and one note per epic
 tests/                  Playwright browser tests — see tests/README.md
 KNOWN_ISSUES.md         open bugs with reproduction steps
 ```
@@ -123,7 +123,7 @@ cd build && for t in ../tests/test_*.py; do python3 -I "$t"; done
 Regenerating the basemap is optional and needs `shapely`. The committed geo
 JSON is the output of those two scripts.
 
-**Always run all eight test files before publishing.** They exist because this
+**Always run all nine test files before publishing.** They exist because this
 project kept shipping bugs that looked fine in a screenshot: a focus pill
 rendered off-screen behind the bottom sheet, pointer capture silently killing
 every marker click, two-finger pan computing a distance ratio that is 1 when
@@ -131,8 +131,12 @@ fingers move together. Each of those produced a test file. Add to them.
 
 ## Data model
 
-Five collections in `arabia.json`: `places`, `events`, `people`, `polities`,
-`tribes`. Ids are stable and referenced across files — **never rename or delete
+Six collections in `arabia.json`: `places`, `events`, `people`, `polities`,
+`tribes`, and `epics` — runs of events told as one story (schema in
+`data/REVISION.md` §7). An epic has no date of its own; its span is the union of
+its core events' ranges. A later popular layer such as *Sīrat al-Zīr Sālim* goes
+in the epic's `folk` field, shown apart from the akhbār and never turned into
+dated events. Ids are stable and referenced across files — **never rename or delete
 one.** `arabia.ar.json` is a parallel map from the same ids to Arabic fields
 only; if you add a record, add its Arabic too.
 
@@ -186,8 +190,13 @@ Things that are easy to get wrong:
 - Detail is tiered by zoom: anchors only when far out, then cities, then
   shape-coded symbols, then every label. A small map pane raises every
   threshold.
-- Content tabs filter the map to their own kind; All, Legend and Display leave
-  it alone. A pill on the map names the active filter and clears it.
+- Content tabs filter the map to their own kind; All, Epics, Legend and Display
+  leave it alone. A pill on the map names the active filter and clears it.
+- **The filter**: opening an epic, or "show only" on a figure or on an event's
+  epic, narrows the event layer, the event lists and the sheet count to those
+  events and draws them on the top timeline as their full date ranges with a
+  tick at each year. One filter at a time; the pill and a bar above the lists
+  clear it.
 - Touch and mouse have **separate** handlers. One finger pans; two fingers pan
   and zoom together about their midpoint. Mouse drag pans, with pointer capture
   deferred until movement so a click stays a click. Do not merge these paths.

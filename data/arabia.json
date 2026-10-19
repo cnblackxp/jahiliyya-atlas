@@ -1747,6 +1747,17 @@
      "title": "ج6 - ص97 - كتاب العقد الفريد - يوم خزاز",
      "lang": "ar",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/يوم_خزاز",
+     "title": "يوم خزاز",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Records the narrators' disagreement over who led Maʿadd, which Yemeni king, and when; al-Aṣmaʿī makes it al-Mundhir's day with Taghlib against Kinda and Bakr. Dates it to the sixth century, after al-Ḥārith ibn ʿAmr's death in 531 — not this entry's 300–500.",
+     "noteAr": "يذكر اختلاف الإخباريين في قائد معدّ وملك اليمن وزمن اليوم، ويجعله الأصمعيّ للمنذر وتغلب على كندة وبكر. ويضعه في القرن السادس بعد موت الحارث بن عمرو سنة 531 — لا في مدى هذا المدخل (300–500)."
     }
    ]
   },
@@ -2161,6 +2172,31 @@
      "title": "حرب البسوس",
      "lang": "ar",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/حرب_البسوس",
+     "title": "حرب البسوس",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "The she-camel, Jassās and the killing of Kulayb; the war counted from 494.",
+     "noteAr": "الناقة وجسّاس ومقتل كليب؛ والحرب تُعدّ من سنة 494م."
+    },
+    {
+     "url": "https://shamela.ws/book/21712/468",
+     "title": "ذكر مقتل كليب والأيام بين بكر وتغلب",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "472",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
     }
    ]
   },
@@ -7934,7 +7970,32 @@
      "what": "Dies of thirst in captivity near Hajar"
     }
    ],
-   "sources": []
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Muhalhil",
+     "title": "Al-Muhalhil",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "Gives him c. 443–531, against a death of 540 here; leader of Taghlib in the war.",
+     "noteAr": "يجعله نحو 443–531، والوفاة هنا 540؛ قائد تغلب في الحرب."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/عدي_بن_ربيعة",
+     "title": "عدي بن ربيعة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "Died 94 BH / 531 CE; the two accounts of his death.",
+     "noteAr": "توفي 94 ق.هـ / 531م؛ ويذكر الروايتين في موته."
+    }
+   ]
   },
   {
    "id": "adi-ibn-zayd",
@@ -8860,7 +8921,31 @@
    "tribe": "Taghlib",
    "blurb": "Really named Wāʾil, and called 'little dog' because he staked a puppy at the pastures he reserved for himself and killed anything that came near. He enforced his pasture and water so violently that other tribes came to loathe him. He shot a she-camel that had strayed among his brother-in-law's herd and was speared for it, and forty years of war followed.",
    "path": [],
-   "sources": []
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Kulaib_ibn_Rabiah",
+     "title": "Kulaib ibn Rabiah",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "Killed by Jassās in 494, which \"sparked the Basus War\"; credits him with defeating Ḥimyar and Madhḥij.",
+     "noteAr": "قتله جسّاس سنة 494 فاندلعت حرب البسوس؛ وينسب إليه هزيمة حمير ومذحج."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/كليب_بن_ربيعة",
+     "title": "كليب بن ربيعة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "His rise after Khazāz, his marriage to Jalīla, and his killing.",
+     "noteAr": "سيادته بعد خزاز، وزواجه بالجليلة، ومقتله."
+    }
+   ]
   },
   {
    "id": "jassas",
@@ -8874,7 +8959,32 @@
    "tribe": "Shaybān of Bakr",
    "blurb": "He speared Kulayb over a camel and his father refused to hand him over, which is the formal start of the war. He raised Kulayb's son himself, and the boy killed him when he found out who his father's killer was.",
    "path": [],
-   "sources": []
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Jassas_ibn_Murrah",
+     "title": "Jassas ibn Murrah",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "Gives his death as 534 (after Munīr al-Baʿlabakkī), against 535 here, and the conflicting reports of how he died.",
+     "noteAr": "يجعل وفاته سنة 534 (عن منير البعلبكي)، وهي هنا 535، ويذكر اختلاف الروايات في كيفية موته."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/جساس_بن_مرة",
+     "title": "جساس بن مرة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "Born 464, died c. 534; \"the last to be killed in this war\".",
+     "noteAr": "وُلد 464 وتوفي نحو 534؛ «وكان جساس آخر من قُتل في هذه الحرب»."
+    }
+   ]
   },
   {
    "id": "al-basus",
@@ -8902,7 +9012,31 @@
    "tribe": "Shaybān of Bakr",
    "blurb": "Jassās's sister and Kulayb's wife, caught exactly between brother and husband. She had been boasting about her two brothers, which is given as part of why Kulayb was already angry. At the funeral Kulayb's sister reviled her in front of everyone. She went back to her father's house, and the son she bore Kulayb grew up to kill her brother.",
    "path": [],
-   "sources": []
+   "sources": [
+    {
+     "url": "https://ar.wikipedia.org/wiki/الجليلة_بنت_مرة",
+     "title": "الجليلة بنت مرة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "A poet; Jassās's sister and Kulayb's wife; died c. 540 (80 BH).",
+     "noteAr": "شاعرة؛ أخت جساس وزوجة كليب؛ توفيت نحو 540م (80 ق.هـ)."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Jassas_ibn_Murrah",
+     "title": "Jassas ibn Murrah",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "people"
+     ],
+     "note": "Names her as Jassās's sister, married to Kulayb, mother of al-Jarw.",
+     "noteAr": "يذكرها أختًا لجساس وزوجةً لكليب وأمًّا للجرو."
+    }
+   ]
   },
   {
    "id": "hammam",
@@ -10559,6 +10693,178 @@
    "r": 220,
    "blurb": "Bakr's hardest branch: Jassās's clan, the Basūs war's engine, and the core of the force that beat the Persians at Dhū Qār.",
    "sources": []
+  }
+ ],
+ "epics": [
+  {
+   "id": "basus-war",
+   "kind": "war",
+   "name": "The War of al-Basūs",
+   "members": [
+    {
+     "eventId": "khazaz-day",
+     "role": "prelude"
+    },
+    {
+     "eventId": "basus-war-begins",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-unayza",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-nahy",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-dhanaib",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-waridat",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-hanw",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-qusaybat",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-quda",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-naqiyya",
+     "role": "core"
+    },
+    {
+     "eventId": "basus-fusayl",
+     "role": "core"
+    },
+    {
+     "eventId": "hujras-kills-jassas",
+     "role": "core"
+    },
+    {
+     "eventId": "muhalhil-dies",
+     "role": "core"
+    }
+   ],
+   "peopleIds": [
+    "kulayb",
+    "jassas",
+    "jalila",
+    "al-basus",
+    "al-muhalhil",
+    "hammam",
+    "al-harith-ibn-ubad",
+    "bujayr"
+   ],
+   "tribeIds": [
+    "taghlib",
+    "bakr"
+   ],
+   "summary": "The forty-year feud of the ayyām between Taghlib and Bakr, the two branches of Wāʾil. Kulayb of Taghlib, master of Maʿadd after Khazāz, shot the she-camel of a guest of al-Basūs; her nephew Jassās of Shaybān killed him. Kulayb's brother al-Muhalhil led Taghlib through a run of named days until the killing of Bujayr brought al-Ḥārith ibn ʿUbād and the rest of Bakr into the war, and the tide turned at Taḥlāq al-Limam.",
+   "dateNote": "No day of the war is dated in any source. The span shown is the union of its events' ranges; the familiar \"494 to 534, forty years\" is a back-calculation, and some narrators give \"some twenty years\".",
+   "dispute": "The tradition counts forty years from 494; others give twenty-odd. Ali Hussein (2023) places the last battles around 532, while Peter Webb (2023) puts Kulayb in the mid-sixth century, which would move the whole war decades later than this atlas has it. Al-Muhalhil's death is given as 531 in both Wikipedias against 540 here. Modern scholarship treats the war as a composite narrative that grew from a smaller conflict through poetry and adab.",
+   "folk": {
+    "summary": "In the popular epic Qiṣṣat (Sīrat) al-Zīr Sālim — a sīra shaʿbiyya written down and performed centuries later, some of its verse composed in the Ottoman period — the story begins earlier. The Yemeni king Tubbaʿ Ḥassān kills Rabīʿa, father of Kulayb and of al-Zīr; Kulayb kills the Tubbaʿ in his own palace by hiding warriors in the bridal chests of al-Jalīla, and al-Zīr Sālim — al-Muhalhil — becomes the hero of the vengeance. None of this is in the ayyām akhbār; the nearest thing there is Kulayb leading Maʿadd against Yemen at Khazāz.",
+    "sources": [
+     {
+      "url": "https://en.wikipedia.org/wiki/Sīra_shaʿbiyya",
+      "title": "Sīra shaʿbiyya",
+      "lang": "en",
+      "accessed": "2026-10-19",
+      "supports": [
+       "narrative"
+      ],
+      "note": "Lists Qiṣṣat al-Zīr Sālim as a popular epic \"based on the War of Basūs\"; the genre term itself was coined by folklorists in the 1950s.",
+      "noteAr": "يَعُدّ «قصة الزير سالم» سيرةً شعبية مبنيّة على حرب البسوس؛ ومصطلح «السيرة الشعبية» نفسه وضعه دارسو الفولكلور في الخمسينيات."
+     },
+     {
+      "url": "https://www.aljarida.com/articles/1462335558828800200",
+      "title": "الزير سالم (2 - 5) كليب يقتل تبع اليماني والجليلة تحرِّض على المهلهل",
+      "lang": "ar",
+      "work": "al-Jarīda (Kuwait)",
+      "author": "Maḥmūd Khayrallāh",
+      "year": 2014,
+      "accessed": "2026-10-19",
+      "supports": [
+       "narrative"
+      ],
+      "note": "A retelling of the sīra: Tubbaʿ Ḥassān, the hundred chests, Kulayb entering disguised as the jester Qashmar.",
+      "noteAr": "إعادةُ روايةٍ للسيرة: تبّع حسّان، والصناديق المئة، ودخول كليب متنكّرًا في هيئة المهرّج «قشمر»."
+     },
+     {
+      "url": "https://ar.wikipedia.org/wiki/عدي_بن_ربيعة",
+      "title": "عدي بن ربيعة",
+      "lang": "ar",
+      "accessed": "2026-10-19",
+      "supports": [
+       "narrative"
+      ],
+      "note": "Says the best-known \"al-Zīr\" poem is a popular composition of the Ottoman period, not al-Muhalhil's.",
+      "noteAr": "يذكر أنّ القصيدة الأشهر المنسوبة إلى «الزير» من الروايات الشعبية التي أُلّفت في العصر العثماني، لا من شعر المهلهل."
+     }
+    ]
+   },
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Basus_War",
+     "title": "Basus War",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Treats the war as a composite narrative, progressively elaborated; says it had ended by the 530s.",
+     "noteAr": "يعدّ الحرب روايةً مركّبة تضخّمت تدريجيًّا، ويقول إنها انتهت بحلول ثلاثينيات القرن السادس."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/حرب_البسوس",
+     "title": "حرب البسوس",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "Forty years from 494 by the fuller narrators, \"some twenty\" by others; lists the days in order.",
+     "noteAr": "أربعون عامًا من سنة 494م عند المكثرين، وبضعٌ وعشرون عند المقلّين؛ ويسرد الأيام بترتيبها."
+    },
+    {
+     "url": "https://shamela.ws/book/21712/468",
+     "title": "ذكر مقتل كليب والأيام بين بكر وتغلب",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "472–484",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Ibn al-Athīr's account, from the killing of Kulayb through the five great days and the lesser ones.",
+     "noteAr": "رواية ابن الأثير، من مقتل كليب إلى الأيام الخمسة الكبرى وما دونها."
+    },
+    {
+     "url": "https://www.usna.edu/Harb-al-Basus-Seminar/abstracts.php",
+     "title": "Ḥarb al-Basūs Seminar — abstracts",
+     "lang": "en",
+     "work": "Ḥarb al-Basūs Seminar, U.S. Naval Academy (online), 17–19 February 2023",
+     "year": 2023,
+     "accessed": "2026-10-19",
+     "supports": [
+      "date"
+     ],
+     "note": "Ali Hussein: the last battles \"around the year 532 A.D.\"; Peter Webb: Kulayb a figure of the mid-sixth century.",
+     "noteAr": "علي حسين: آخر المعارك «نحو سنة 532م»؛ وبيتر وِب: كليب من رجال منتصف القرن السادس."
+    }
+   ]
   }
  ]
 }

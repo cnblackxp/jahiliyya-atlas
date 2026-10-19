@@ -49,6 +49,24 @@ on the first year the figure is locatable; fall back to birth only when they
 are never placed; and when a selected person has no position at the current
 year, say so in the panel rather than leaving an empty map to be interpreted.
 
+## 5. Epics and filters — the next steps
+
+The schema, the Epics tab, the filter and the first epic (`basus-war`) are in
+(`data/REVISION.md` §7; research in `research/notes/basus_war.md`).
+
+- [ ] **More epics.** Dāḥis wa-l-Ghabrāʾ (`dahis-*`), the Fijār wars, Imruʾ al-Qays's
+  vengeance and embassy, the Ḥimyar–Aksum war of 518–531. Each needs its own research note
+  and sources in both languages before it goes in.
+- [ ] **Basūs, deeper.** *al-Aghānī* on al-Muhalhil; the Basūs section of *al-ʿIqd*; the end
+  of the war (the tradition's peace is not an event yet); a printed *Qiṣṣat al-Zīr Sālim*
+  and scholarship on it for the folk layer; Ali Hussein (JIS 2025).
+- [ ] **Khazāz's date.** Arabic Wikipedia puts it after 531, the atlas at 300–500. Moving it
+  moves the epic's prelude; it is the owner's call and should be logged if made.
+- [ ] **Sources for the other Basūs figures** — al-Basūs, Hammām, al-Ḥārith ibn ʿUbād,
+  Bujayr have none yet.
+- [ ] **Filter by tribe.** The same filter would work for a tribe; tribe-to-event links are
+  derived at runtime, so it must keep the "reading aid" label.
+
 ## 2. Figure movement is thin, and interpolating it would lie
 
 Pins already jump between `path` steps as the year changes, but only 41 of 106

@@ -40,6 +40,8 @@ async def main():
 
         # --- zoom limits are relative to the home framing ---
         await pg.click('#zfit'); await pg.wait_for_timeout(400)
+        # re-read: a web font arriving after load can resize the map pane and so the home framing
+        home=(await pg.evaluate(VIEW))['s']
         for _ in range(14): await pg.click('#zout'); await pg.wait_for_timeout(60)
         await pg.wait_for_timeout(300); lo=(await pg.evaluate(VIEW))['s']
         ck('cannot zoom out past the whole region', lo>=home*0.69, f'{lo:.2f} vs home {home:.2f}')

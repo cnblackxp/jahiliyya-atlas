@@ -123,7 +123,7 @@ cd build && for t in ../tests/test_*.py; do python3 -I "$t"; done
 Regenerating the basemap is optional and needs `shapely`. The committed geo
 JSON is the output of those two scripts.
 
-**Always run all five test files before publishing.** They exist because this
+**Always run all six test files before publishing.** They exist because this
 project kept shipping bugs that looked fine in a screenshot: a focus pill
 rendered off-screen behind the bottom sheet, pointer capture silently killing
 every marker click, two-finger pan computing a distance ratio that is 1 when

@@ -51,9 +51,21 @@ pans without opening it. Written after two-finger pan turned out to compute
 only a distance ratio, which is 1 when fingers move together — so it jittered
 the zoom and never panned.
 
+**test_arabic.py** — the Arabic interface, desktop and phone. Walks every tab
+and a detail card of each kind and fails on any visible text that is Latin with
+no Arabic in it, apart from the transliterated second name, the evidence codes
+and anything marked `lang="ar-Latn"`. Also checks the scale bar, zoom readout
+and sheet peek switch language at once, map names follow the Arabic label
+setting, and search rows name their kind in Arabic. Written after a pass in
+Arabic found the Legend, Display and every detail card still in English.
+
+On Windows, run each file as `python -X utf8 -I` — `-I` ignores
+`PYTHONIOENCODING`, and the default console codepage can't print the results.
+
 ## Known gaps
 
-No test covers the Arabic content rendering beyond the interface strings, the
-timeline density bars, or the Legend tab's contents. The three selection bugs
+No test covers the timeline density bars or the Legend tab's contents. Path
+notes on a figure's "where they were" list (`people[].path[].what`) have no
+Arabic in the data yet and still show in English. The three selection bugs
 recorded at the end of `../data/NOTES.md` have reproduction steps but no test
 yet.

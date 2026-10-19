@@ -409,7 +409,8 @@ const UIEN={ui:{
  language:'Language', back:'Back', source:'Source', disagree:'Where scholars disagree',
  proposedRange:'Could be anywhere in', kind:'Kind', coordinates:'Coordinates', span:'Span',
  seat:'Seat', role:'Role', tribe:'Tribe', dates:'Dates', dating:'Dating',
- rangeCentre:'Range centre', nothingMatches:'Nothing matches that.', events:'events', zones:'Zones'},
+ rangeCentre:'Range centre', nothingMatches:'Nothing matches that.', events:'events', zones:'Zones',
+ event:'Event', figure:'Figure', power:'Power'},
  evidence:{EPI:'Inscription-fixed',EXT:'External source',TRAD:'Later Arabic tradition',RECON:'Modern reconstruction'},
  certainty:{fixed:'fixed',approximate:'approximate',contested:'contested',legendary:'legendary',estimated:'estimated'},
  coord:{exact:'exact',approximate:'approximate',guessed:'guessed'},
@@ -456,7 +457,7 @@ const ICON={
 const PKIND={capital:'capital',city:'city',town:'city',oasis:'oasis',shrine:'shrine',fair:'fair',
              battlefield:'battle',site:'site',region:'region'};
 const TYPE={event:'Event',person:'Figure',place:'Place',tribe:'Tribe',polity:'Power'};
-const TYPEK={event:'tabEvents',person:'tabPeople',place:'place',tribe:'tribe',polity:'powers'};
+const TYPEK={event:'event',person:'figure',place:'place',tribe:'tribe',polity:'power'};
 function TYPE2(k){ return isAr()? (dict().ui[TYPEK[k]]||TYPE[k]) : TYPE[k]; }
 function altOf(kind,o){ const n=NAME(kind,o); const en=o.name||o.title; return isAr()? (n!==en?en:null) : (o.ar||null); }
 function iconName(kind,o){
@@ -467,6 +468,11 @@ function ico(name,cls){
   return '<svg class="ic '+(cls||'')+'" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">'+(ICON[name]||ICON.site)+'</svg>';
 }
 function typeIco(kind,o){ return ico(iconName(kind,o),'ic-'+kind); }
+// a Latin-script name inside Arabic text, marked as a transliteration
+function latn(t){ return '<span lang="ar-Latn" dir="ltr">'+esc(t)+'</span>'; }
+// N events, phrased so the Arabic needs no number agreement
+function nEvents(n,here){ return isAr()? ((here?'ما وقع هنا':T('events'))+' · '+n) : (n+' event'+(n===1?'':'s')+(here?' here':'')); }
+const TRIBE_RULE_AR='تُربط القبيلة بالحدث إذا ورد اسمها في نصّ الحدث، أو ورد فيه علَمٌ من أعلامها. فهذه الروابط عونٌ على القراءة لا دعوى في المصادر.';
 
 /* ---------- name matching for cross-links ---------- */
 function norm(x){return (x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')
@@ -588,7 +594,7 @@ function drawLabels(){
     if(DZ<1.6) return;
     const t=el('text',{x:q[0],y:q[1]-2.2*U,class:'lbl lbl-ridge','text-anchor':'middle',
       transform:`rotate(${rot.toFixed(1)} ${q[0]} ${q[1]})`});
-    t.textContent=r.name; L.appendChild(t);
+    t.textContent=(st.script==='arabic'&&r.ar)?r.ar:r.name; L.appendChild(t);
   });
   // region + sand-sea names
   const named=[];
@@ -604,9 +610,9 @@ function drawLabels(){
   GEO.terrain.seas.forEach(([n,ar,lon,lat,rot])=>{
     const q=px(lon,lat);
     const g=el('g',{transform:`rotate(${rot} ${q[0]} ${q[1]})`});
-    const t=el('text',{x:q[0],y:q[1],class:'lbl lbl-sea','text-anchor':'middle'});t.textContent=n;
-    g.appendChild(t);
-    if(ar&&st.script!=='latin'&&DD.sub){const a=el('text',{x:q[0],y:q[1]+6.4*U,class:'lbl lbl-sea-ar','text-anchor':'middle'});a.textContent=ar;g.appendChild(a);}
+    if(st.script!=='arabic'||!ar){const t=el('text',{x:q[0],y:q[1],class:'lbl lbl-sea','text-anchor':'middle'});t.textContent=n;g.appendChild(t);}
+    if(ar&&st.script==='arabic'){const a=el('text',{x:q[0],y:q[1],class:'lbl lbl-sea-ar','text-anchor':'middle'});a.textContent=ar;g.appendChild(a);}
+    else if(ar&&st.script!=='latin'&&DD.sub){const a=el('text',{x:q[0],y:q[1]+6.4*U,class:'lbl lbl-sea-ar','text-anchor':'middle'});a.textContent=ar;g.appendChild(a);}
     L.appendChild(g);
   });
 
@@ -897,7 +903,7 @@ function bind(g,ref){
 function typeLine(kind,o){
   let sub=TYPE2(kind);
   if(kind==='place'&&o.kind) sub+=' · '+Tg('placeKind',o.kind);
-  if(kind==='event'&&o.year!=null) sub+=' · '+o.year+' CE';
+  if(kind==='event'&&o.year!=null) sub+=' · '+o.year+' '+T('ce');
   if(kind==='person'&&o.role) sub+=' · '+Tg('role',o.role);
   return sub;
 }
@@ -911,8 +917,8 @@ function showTip(ev,ref){
   if(txt) h+='<p>'+esc(txt.length>150?txt.slice(0,147)+'…':txt)+'</p>';
   if(k==='person'&&ref.at&&ref.at.what) h+='<p>'+esc(ref.at.what)+'</p>';
   if(k==='place'&&o.coordConfidence&&o.coordConfidence!=='exact')
-    h+='<p style="color:var(--trad)">'+esc(o.coordConfidence)+' location</p>';
-  if(k==='event'&&o.dispute) h+='<p style="color:var(--trad)">Scholars disagree — click for the detail.</p>';
+    h+='<p style="color:var(--trad)">'+esc(isAr()?('موضعٌ '+Tg('coord',o.coordConfidence)):(o.coordConfidence+' location'))+'</p>';
+  if(k==='event'&&o.dispute) h+='<p style="color:var(--trad)">'+(isAr()?'اختلف فيه الباحثون — انقر للتفصيل.':'Scholars disagree — click for the detail.')+'</p>';
   tip.innerHTML=h; tip.classList.add('on'); moveTip(ev);
 }
 function moveTip(ev){
@@ -1338,7 +1344,7 @@ function evDetail(e){
   const rs=rangeStr(e);
   if(rs) h+='<dt>'+esc(T('proposedRange'))+'</dt><dd>'+esc(rs)+'</dd>';
   if(pl) h+='<dt>'+esc(T('place'))+'</dt><dd>'+esc(NAME('places',pl))
-    +(altOf('places',pl)?' · <span style="font-family:var(--f-display)">'+esc(altOf('places',pl))+'</span>':'')
+    +(altOf('places',pl)?' · '+(isAr()?latn(altOf('places',pl)):'<span style="font-family:var(--f-display)">'+esc(altOf('places',pl))+'</span>'):'')
     +'<br><span class="cert">'+esc(isAr()?('موضعٌ '+Tg('coord',pl.coordConfidence||'')):((pl.coordConfidence||'')+' location'))+'</span></dd>';
   if(e.category) h+='<dt>'+esc(T('kind'))+'</dt><dd>'+esc(Tg('category',e.category))+'</dd>';
   h+='</dl>';
@@ -1353,13 +1359,15 @@ function evDetail(e){
 function personDetail(p){
   const evs=events.filter(e=>(e.peopleIds||[]).includes(p.id));
   let h=backBtn()+'<div class="detail">'
-   +'<div class="dhead">'+typeIco('person',p)+'<span>Figure'+(p.role?' · '+esc(p.role):'')+'</span></div>'
+   +'<div class="dhead">'+typeIco('person',p)+'<span>'+esc(TYPE2('person'))+(p.role?' · '+esc(Tg('role',p.role)):'')+'</span></div>'
    +'<h3>'+esc(NAME('people',p))+'</h3>'+(altOf('people',p)?'<div class="arbig">'+esc(altOf('people',p))+'</div>':'')
    +'<p>'+esc(LOC('people',p,'blurb')||'')+'</p><dl class="kv">'
    +'<dt>'+esc(T('role'))+'</dt><dd>'+esc(Tg('role',p.role||'')||'—')+'</dd>'
-   +(p.tribe?'<dt>Tribe</dt><dd>'+esc(p.tribe)+'</dd>':'')
+   +(p.tribe?'<dt>'+esc(T('tribe'))+'</dt><dd>'+(isAr()&&p._tribe
+      ? esc(NAME('tribes',p._tribe))+(p.tribe!==p._tribe.name?' · '+latn(p.tribe):'')
+      : isAr()? latn(p.tribe) : esc(p.tribe))+'</dd>':'')
    +'<dt>'+esc(T('dates'))+'</dt><dd>'+(p.lifeCertainty&&p.lifeCertainty!=='fixed'?(isAr()?'نحو ':'c. '):'')+(p.birth??'?')+' – '+(p.death??'?')
-   +' <span class="cert '+esc(p.lifeCertainty||'')+'">'+esc(p.lifeCertainty||'')+'</span></dd>'
+   +' <span class="cert '+esc(p.lifeCertainty||'')+'">'+esc(p.lifeCertainty?Tg('certainty',p.lifeCertainty):'')+'</span></dd>'
    +'</dl>';
   const ln=LOC('people',p,'lifeNote');
   if(ln) h+='<div class="disp"><b>'+esc(T('dating'))+'</b>'+esc(ln)+'</div>';
@@ -1367,7 +1375,7 @@ function personDetail(p){
     h+='<div class="sect">'+esc(T('whereTheyWere'))+'</div>';
     h+=p.path.map(s=>{const pl=placeById.get(s.placeId);
       return '<div class="ev" data-year="'+s.year+'"'+(pl?' data-place="'+esc(pl.id)+'"':'')+'>'
-        +'<div class="r1"><span class="yr">'+s.year+'</span><span class="ti" style="font-size:13.5px">'+esc(pl?pl.name:s.placeId)+'</span></div>'
+        +'<div class="r1"><span class="yr">'+s.year+'</span><span class="ti" style="font-size:13.5px">'+esc(pl?NAME('places',pl):s.placeId)+'</span></div>'
         +'<div class="where">'+esc(s.what||'')+'</div></div>';}).join('');
   }
   const myTribe=p._tribe;
@@ -1386,12 +1394,12 @@ function personDetail(p){
 function placeDetail(p){
   const evs=events.filter(e=>e.placeId===p.id);
   let h=backBtn()+'<div class="detail">'
-   +'<div class="dhead">'+typeIco('place',p)+'<span>Place'+(p.kind?' · '+esc(p.kind):'')+'</span></div>'
+   +'<div class="dhead">'+typeIco('place',p)+'<span>'+esc(TYPE2('place'))+(p.kind?' · '+esc(Tg('placeKind',p.kind)):'')+'</span></div>'
    +'<h3>'+esc(NAME('places',p))+'</h3>'+(altOf('places',p)?'<div class="arbig">'+esc(altOf('places',p))+'</div>':'')
    +'<p>'+esc(LOC('places',p,'blurb')||'')+'</p><dl class="kv">'
    +'<dt>'+esc(T('kind'))+'</dt><dd>'+esc(Tg('placeKind',p.kind||'')||'—')+'</dd>'
    +'<dt>'+esc(T('coordinates'))+'</dt><dd style="font-family:var(--f-mono);font-size:11.5px">'+p.lat.toFixed(2)+', '+p.lon.toFixed(2)
-   +'<br><span class="cert">'+esc(p.coordConfidence||'')+'</span></dd></dl>';
+   +'<br><span class="cert">'+esc(p.coordConfidence?Tg('coord',p.coordConfidence):'')+'</span></dd></dl>';
   const here=[...new Set(evs.flatMap(e=>e.peopleIds||[]))].map(i=>personById.get(i)).filter(Boolean);
   const visitors=(D.people||[]).filter(pp=>(pp.path||[]).some(x=>x.placeId===p.id));
   const trb=(D.tribes||[]).filter(t=>(tribeEvents.get(t.id)||[]).some(e=>e.placeId===p.id));
@@ -1403,40 +1411,41 @@ function placeDetail(p){
       +trb.map(x=>chip('tribe',x)).join('')
       +conn.slice(0,16).map(x=>chip('person',x)).join('')+'</div>';
   }
-  if(evs.length) h+='<div class="sect">'+evs.length+' event'+(evs.length>1?'s':'')+' here</div>'+evs.map(evCard).join('');
+  if(evs.length) h+='<div class="sect">'+nEvents(evs.length,true)+'</div>'+evs.map(evCard).join('');
   return h+'</div>';
 }
 function tribeDetail(t){
   const mem=tribeMembers.get(t.id)||[], evs=(tribeEvents.get(t.id)||[]).slice().sort((a,b)=>(a.year||0)-(b.year||0));
   const pls=[...new Set(evs.map(e=>e.placeId).filter(Boolean))].map(i=>placeById.get(i)).filter(Boolean);
   let h=backBtn()+'<div class="detail">'
-   +'<div class="dhead">'+typeIco('tribe',t)+'<span>Tribe · range</span></div>'
+   +'<div class="dhead">'+typeIco('tribe',t)+'<span>'+esc(TYPE2('tribe'))+' · '+(isAr()?'النطاق':'range')+'</span></div>'
    +'<h3>'+esc(NAME('tribes',t))+'</h3>'+(altOf('tribes',t)?'<div class="arbig">'+esc(altOf('tribes',t))+'</div>':'')
    +'<p>'+esc(LOC('tribes',t,'blurb')||'')+'</p>'
-   +'<dl class="kv"><dt>Range centre</dt><dd style="font-family:var(--f-mono);font-size:11.5px">'
-   +t.lat.toFixed(2)+', '+t.lon.toFixed(2)+'<br><span class="cert">~'+(t.r||180)+' km of soft influence</span></dd></dl>';
+   +'<dl class="kv"><dt>'+esc(T('rangeCentre'))+'</dt><dd style="font-family:var(--f-mono);font-size:11.5px">'
+   +t.lat.toFixed(2)+', '+t.lon.toFixed(2)+'<br><span class="cert">'
+   +(isAr()?'نحو '+(t.r||180)+' كم من النفوذ الليّن':'~'+(t.r||180)+' km of soft influence')+'</span></dd></dl>';
   if(mem.length) h+='<div class="sect">'+(isAr()?'شخصيات القبيلة':'Figures of this tribe')+'</div><div class="chips">'+mem.map(x=>chip('person',x)).join('')+'</div>';
   if(pls.length) h+='<div class="sect">'+esc(T('whereTheyTurnUp'))+'</div><div class="chips">'+pls.map(x=>chip('place',x)).join('')+'</div>';
-  if(evs.length) h+='<div class="sect">'+evs.length+' event'+(evs.length>1?'s':'')+'</div>'+evs.map(evCard).join('');
-  else h+='<p class="none">No events in the dataset name this tribe.</p>';
-  h+='<div class="foot">Tribe links are matched on names in the event text and on each figure\u2019s stated tribe, '
-   +'so they are a reading aid rather than a claim in the sources.</div>';
+  if(evs.length) h+='<div class="sect">'+nEvents(evs.length)+'</div>'+evs.map(evCard).join('');
+  else h+='<p class="none">'+(isAr()?'لا يذكر هذه القبيلةَ أيُّ حدثٍ في البيانات.':'No events in the dataset name this tribe.')+'</p>';
+  h+='<div class="foot">'+(isAr()?TRIBE_RULE_AR:'Tribe links are matched on names in the event text and on each figure\u2019s stated tribe, '
+   +'so they are a reading aid rather than a claim in the sources.')+'</div>';
   return h+'</div>';
 }
 function polityDetail(p){
   const evs=events.filter(e=>(e.politiesIds||[]).includes(p.id));
   const cap=p.capitalId&&placeById.get(p.capitalId);
   let h=backBtn()+'<div class="detail">'
-   +'<div class="dhead">'+typeIco('polity',p)+'<span>Power'+(p.kind?' · '+esc(p.kind):'')+'</span></div>'
+   +'<div class="dhead">'+typeIco('polity',p)+'<span>'+esc(TYPE2('polity'))+(p.kind?' · '+esc(Tg('polityKind',p.kind)):'')+'</span></div>'
    +'<h3>'+esc(NAME('polities',p))+'</h3>'+(altOf('polities',p)?'<div class="arbig">'+esc(altOf('polities',p))+'</div>':'')
    +'<p>'+esc(LOC('polities',p,'blurb')||'')+'</p><dl class="kv">'
-   +'<dt>'+esc(T('span'))+'</dt><dd>'+(p.from??'?')+' – '+(p.to??'?')+' CE</dd>'
+   +'<dt>'+esc(T('span'))+'</dt><dd>'+(p.from??'?')+' – '+(p.to??'?')+' '+esc(T('ce'))+'</dd>'
    +(cap?'<dt>'+esc(T('seat'))+'</dt><dd>'+esc(NAME('places',cap))+'</dd>':'')
    +'<dt>'+esc(T('zones'))+'</dt><dd>'+((p.zones||[]).length)+' '
    +esc(isAr()?'طورًا من أطوار الامتداد':('phase'+(((p.zones||[]).length)===1?'':'s')+' of extent'))+'</dd>'
    +'</dl>';
-  if(cap) h+='<div class="sect">Connections</div><div class="chips">'+chip('place',cap)+'</div>';
-  if(evs.length) h+='<div class="sect">'+evs.length+' event'+(evs.length>1?'s':'')+'</div>'+evs.map(evCard).join('');
+  if(cap) h+='<div class="sect">'+esc(T('connections'))+'</div><div class="chips">'+chip('place',cap)+'</div>';
+  if(evs.length) h+='<div class="sect">'+nEvents(evs.length)+'</div>'+evs.map(evCard).join('');
   return h+'</div>';
 }
 
@@ -1502,8 +1511,8 @@ function renderPanel(noScroll){
         :p.lifeCertainty==='contested'?'var(--trad)':'var(--recon)';
       const fadeL=p.birth==null?'mask-image:linear-gradient(90deg,transparent,#000 35%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%);':'';
       const fadeR=p.death==null?'mask-image:linear-gradient(270deg,transparent,#000 35%);-webkit-mask-image:linear-gradient(270deg,transparent,#000 35%);':'';
-      return '<div class="lf" data-person="'+esc(p.id)+'" title="'+esc(p.name)+' — '+esc(p.lifeCertainty||'')+'">'
-      +'<span class="lf-n">'+esc(p.name)+'</span>'
+      return '<div class="lf" data-person="'+esc(p.id)+'" title="'+esc(NAME('people',p))+' — '+esc(p.lifeCertainty?Tg('certainty',p.lifeCertainty):'')+'">'
+      +'<span class="lf-n">'+esc(NAME('people',p))+'</span>'
       +'<span class="lf-bar"><i style="left:'+l+'%;width:'+w+'%;background:'+firm+';'+fadeL+fadeR+'"></i>'
       +'<u style="left:'+m+'%"></u></span></div>';
     }).join('')+'</div>';
@@ -1552,85 +1561,104 @@ function renderPanel(noScroll){
       +(r.now?'<span class="tag t-EXT">'+r.now+' '+(isAr()?'في المدى':'in view')+'</span>':'')+'</div></div>';
     if(active.length) h+='<div class="sect">'+(isAr()?('نشطة حول '+y):('Active around '+y))+'</div>'+active.map(card).join('');
     h+='<div class="sect">'+(isAr()?(active.length?'البقيّة':'كلّ القبائل'):(active.length?'The rest':'All tribes'))+'</div>'+quiet.map(card).join('');
-    h+='<div class="foot">A tribe is linked to an event when its name appears in the event text, or when a '
-      +'figure of that tribe is named in it. That is a reading aid, not a claim in the sources.</div>';
+    h+='<div class="foot">'+(isAr()?TRIBE_RULE_AR:'A tribe is linked to an event when its name appears in the event text, or when a '
+      +'figure of that tribe is named in it. That is a reading aid, not a claim in the sources.')+'</div>';
     pbody.innerHTML=h;
   } else if(st.tab==='legend'){
-    let h='<h2 class="phead">How to read this map</h2>'
-     +'<p class="psub">Four grades of evidence, after the chronology this atlas is built on.</p><div class="leg">';
-    for(const k in EV) h+='<div><span class="tag t-'+k+'">'+k+'</span><span>'+EV[k]+'</span></div>';
+    const A=isAr();
+    let h='<h2 class="phead">'+esc(T('howToRead'))+'</h2>'
+     +'<p class="psub">'+(A?'أربع درجات للإسناد، على ما في التسلسل الزمني الذي بُني عليه هذا الأطلس.'
+                           :'Four grades of evidence, after the chronology this atlas is built on.')+'</p><div class="leg">';
+    for(const k in EV) h+='<div><span class="tag t-'+k+'">'+k+'</span><span>'+esc(Tg('evidence',k))+'</span></div>';
     h+='</div>';
-    h+='<div class="sect">How sure is the date?</div><div class="leg">'
-     +'<div><span class="cert">fixed</span><span>An inscription or a dated outside source pins it.</span></div>'
-     +'<div><span class="cert">approximate</span><span>Roughly placed, within a decade or so.</span></div>'
-     +'<div><span class="cert contested">contested</span><span>Scholars disagree. The card shows the spread.</span></div>'
-     +'<div><span class="cert legendary">legendary</span><span>A story with a traditional date, not a record.</span></div>'
-     +'<div><span class="cert">'+(isAr()?'نحو ٥٧٠':'c. 570')+'</span><span>A <b>c.</b> in front of a year means the number is a convention or a midpoint, not a transmitted date. '
-     +'The card gives the real spread, and says what the date rests on.</span></div>'
+    const certRow=(k,en,ar)=>'<div><span class="cert '+k+'">'+esc(Tg('certainty',k))+'</span><span>'+(A?ar:en)+'</span></div>';
+    h+='<div class="sect">'+esc(T('dateCertainty'))+'</div><div class="leg">'
+     +certRow('fixed','An inscription or a dated outside source pins it.','يثبّته نقشٌ أو مصدرٌ خارجيّ مؤرَّخ.')
+     +certRow('approximate','Roughly placed, within a decade or so.','موضعه من الزمن تقريبيّ، في حدود عقدٍ أو نحوه.')
+     +certRow('contested','Scholars disagree. The card shows the spread.','اختلف فيه الباحثون، والبطاقة تعرض المدى كلّه.')
+     +certRow('legendary','A story with a traditional date, not a record.','خبرٌ له تاريخٌ في الرواية، لا سجلٌّ موثَّق.')
+     +'<div><span class="cert">'+(A?'نحو ٥٧٠':'c. 570')+'</span><span>'+(A
+       ?'كلمة <b>نحو</b> قبل السنة تعني أنّ الرقم اصطلاحٌ أو منتصفُ مدى، لا تاريخٌ منقول. والبطاقة تعطي المدى الحقيقي، وتذكر على أيّ شيءٍ يقوم التأريخ.'
+       :'A <b>c.</b> in front of a year means the number is a convention or a midpoint, not a transmitted date. '
+        +'The card gives the real spread, and says what the date rests on.')+'</span></div>'
      +'</div>';
     const sym=(inner,extra)=>'<svg viewBox="0 0 24 20" fill="none" aria-hidden="true">'+inner+'</svg>';
-    h+='<div class="sect">What the symbols mean</div><div class="symkey">'
-     +sym('<circle cx="12" cy="10" r="5" fill="var(--mapfg)"/><circle cx="12" cy="10" r="2.1" fill="var(--panel)"/>')+'<span>Capital</span>'
-     +sym('<circle cx="12" cy="10" r="4.4" fill="var(--mapfg)"/>')+'<span>City, town, oasis or other settlement</span>'
-     +sym('<rect x="8" y="6" width="8" height="8" fill="var(--mapfg)"/>')+'<span>Shrine or sanctuary</span>'
-     +sym('<path d="M12 4.5 18 15H6Z" fill="var(--mapfg)"/>')+'<span>Fair or market</span>'
-     +sym('<path d="M7 5l10 10M17 5 7 15" stroke="var(--mapfg)" stroke-width="2.2" stroke-linecap="round"/>')+'<span>Battlefield — shown only while its event is in the window</span>'
-     +sym('<path d="M12 4 18 10 12 16 6 10Z" fill="var(--accent)"/>')+'<span>Event, coloured by evidence grade</span>'
-     +sym('<path d="M12 16C9 12 9.6 8 12 7.2c2.4.8 3 4.8 0 8.8Z" fill="var(--accent)"/>')+'<span>A figure, standing where they were that year</span>'
-     +sym('<circle cx="12" cy="10" r="7" fill="var(--accent2)" opacity=".22"/>')+'<span>Tribal range, or a power\u2019s sphere of influence</span>'
+    const L2=(en,ar)=>'<span>'+(A?ar:en)+'</span>';
+    h+='<div class="sect">'+esc(T('symbols'))+'</div><div class="symkey">'
+     +sym('<circle cx="12" cy="10" r="5" fill="var(--mapfg)"/><circle cx="12" cy="10" r="2.1" fill="var(--panel)"/>')+L2('Capital','عاصمة')
+     +sym('<circle cx="12" cy="10" r="4.4" fill="var(--mapfg)"/>')+L2('City, town, oasis or other settlement','مدينة أو بلدة أو واحة أو موضعُ استيطانٍ آخر')
+     +sym('<rect x="8" y="6" width="8" height="8" fill="var(--mapfg)"/>')+L2('Shrine or sanctuary','معبدٌ أو حَرَم')
+     +sym('<path d="M12 4.5 18 15H6Z" fill="var(--mapfg)"/>')+L2('Fair or market','سوقٌ أو موسم')
+     +sym('<path d="M7 5l10 10M17 5 7 15" stroke="var(--mapfg)" stroke-width="2.2" stroke-linecap="round"/>')+L2('Battlefield — shown only while its event is in the window','ساحة وقعة — لا تظهر إلا ما دام حدثُها داخل المدى')
+     +sym('<path d="M12 4 18 10 12 16 6 10Z" fill="var(--accent)"/>')+L2('Event, coloured by evidence grade','حدثٌ، ملوَّنٌ بحسب درجة إسناده')
+     +sym('<path d="M12 16C9 12 9.6 8 12 7.2c2.4.8 3 4.8 0 8.8Z" fill="var(--accent)"/>')+L2('A figure, standing where they were that year','شخصيةٌ، في الموضع الذي كانت فيه تلك السنة')
+     +sym('<circle cx="12" cy="10" r="7" fill="var(--accent2)" opacity=".22"/>')+L2('Tribal range, or a power’s sphere of influence','نطاقُ قبيلة، أو دائرةُ نفوذ دولة')
      +'</div>';
-    h+='<div class="sect">How sure is the place?</div><div class="leg">'
-     +'<div><span>●</span><span><b>Solid dot</b> — the site is identified.</span></div>'
-     +'<div><span>◎</span><span><b>Faint ring</b> — approximate, right area.</span></div>'
-     +'<div><span>⊙</span><span><b>Dashed ring</b> — a guess. The sources name a well or a hill and nothing more.</span></div>'
+    h+='<div class="sect">'+esc(T('placeCertainty'))+'</div><div class="leg">'
+     +'<div><span>●</span><span>'+(A?'<b>نقطة مُصمَتة</b> — الموضع مُعيَّن.':'<b>Solid dot</b> — the site is identified.')+'</span></div>'
+     +'<div><span>◎</span><span>'+(A?'<b>حلقة باهتة</b> — تقريبي، في الناحية الصحيحة.':'<b>Faint ring</b> — approximate, right area.')+'</span></div>'
+     +'<div><span>⊙</span><span>'+(A?'<b>حلقة منقّطة</b> — تخمين؛ تسمّي المصادر بئرًا أو جبلًا ولا تزيد.':'<b>Dashed ring</b> — a guess. The sources name a well or a hill and nothing more.')+'</span></div>'
      +'</div>';
     const tot=events.length, disp=events.filter(e=>e.dispute).length;
-    h+='<div class="sect">What is in here</div><div class="leg">'
-     +'<div><span class="cert">'+tot+'</span><span>events, of which <b>'+disp+'</b> carry a recorded scholarly dispute</span></div>'
-     +'<div><span class="cert">'+(D.people||[]).length+'</span><span>figures, historical and legendary</span></div>'
-     +'<div><span class="cert">'+(D.places||[]).length+'</span><span>places</span></div>'
-     +'<div><span class="cert">'+(D.polities||[]).length+'</span><span>powers, drawn as spheres of influence</span></div>'
+    h+='<div class="sect">'+esc(T('whatIsInHere'))+'</div><div class="leg">'
+     +'<div><span class="cert">'+tot+'</span><span>'+(A?'حدثًا، منها <b>'+disp+'</b> عليها خلافٌ مسجَّلٌ بين الباحثين':'events, of which <b>'+disp+'</b> carry a recorded scholarly dispute')+'</span></div>'
+     +'<div><span class="cert">'+(D.people||[]).length+'</span><span>'+(A?'شخصيةً، تاريخيةً وأسطورية':'figures, historical and legendary')+'</span></div>'
+     +'<div><span class="cert">'+(D.places||[]).length+'</span><span>'+(A?'موضعًا':'places')+'</span></div>'
+     +'<div><span class="cert">'+(D.polities||[]).length+'</span><span>'+(A?'دولةً، مرسومةً دوائرَ نفوذ':'powers, drawn as spheres of influence')+'</span></div>'
      +'</div>';
-    h+='<div class="foot">Spheres of influence are soft blobs on purpose: these powers had reach and clients, not borders. '
-      +'Coastlines are modern — the head of the Gulf and the Tihāma shore both sat differently in late antiquity. '
-      +'Battlefield pins appear only while an event there falls inside the timeline window. '
-      +(D.meta&&D.meta.note?esc(D.meta.note):'')+'</div>';
+    // the data file's own note is English-only, so the Arabic foot leaves it out
+    h+='<div class="foot">'+(A
+       ? esc(Tg('notes','blobs'))+' '+esc(Tg('notes','coastlines'))+' ولا تظهر علامات ساحات الوقائع إلا ما دام حدثٌ فيها داخل مدى الخط الزمني.'
+       : 'Spheres of influence are soft blobs on purpose: these powers had reach and clients, not borders. '
+        +'Coastlines are modern — the head of the Gulf and the Tihāma shore both sat differently in late antiquity. '
+        +'Battlefield pins appear only while an event there falls inside the timeline window. '
+        +(D.meta&&D.meta.note?esc(D.meta.note):''))+'</div>';
     pbody.innerHTML=h;
   } else {
-    const LN={sands:'Sand seas',ranges:'Mountains & harra',rivers:'Rivers',regions:'Region names',
+    const A=isAr();
+    const LN=A?{sands:'بحار الرمال',ranges:'الجبال والحِرار',rivers:'الأنهار',regions:'أسماء الأقاليم',
+      polities:'دوائر النفوذ',tribes:'نطاقات القبائل',places:'المواضع',events:'الأحداث',people:'الأعلام'}
+      :{sands:'Sand seas',ranges:'Mountains & harra',rivers:'Rivers',regions:'Region names',
       polities:'Spheres of influence',tribes:'Tribal ranges',places:'Settlements',events:'Events',people:'Figures'};
-    let h='<h2 class="phead">Display</h2><p class="psub">Reading comfort, map layers and what the timeline shows.</p>';
-    h+='<div class="sect">Reading</div>';
-    h+='<div class="row"><span class="ctl-label">Interface text</span><span class="seg" data-seg="us">'
+    let h='<h2 class="phead">'+esc(T('tabDisplay'))+'</h2><p class="psub">'
+      +(A?'راحة القراءة، وطبقات الخريطة، وما يعرضه الخط الزمني.':'Reading comfort, map layers and what the timeline shows.')+'</p>';
+    h+='<div class="sect">'+esc(T('reading'))+'</div>';
+    h+='<div class="row"><span class="ctl-label">'+esc(T('interfaceText'))+'</span><span class="seg" data-seg="us">'
       +[['0.9','A−'],['1','A'],['1.2','A+'],['1.45','A++']].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(String(st.us)===v)+'">'+l+'</button>').join('')+'</span></div>';
-    h+='<div class="row"><span class="ctl-label">Map label size</span><span class="seg" data-seg="ms">'
-      +[['0.85','Small'],['1','Normal'],['1.25','Large'],['1.6','Largest']].map(([v,l])=>
+    h+='<div class="row"><span class="ctl-label">'+esc(T('mapLabelSize'))+'</span><span class="seg" data-seg="ms">'
+      +(A?[['0.85','صغير'],['1',T('normal')],['1.25','كبير'],['1.6','أكبر']]
+         :[['0.85','Small'],['1','Normal'],['1.25','Large'],['1.6','Largest']]).map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(String(st.ms)===v)+'">'+l+'</button>').join('')+'</span></div>';
-    h+='<div class="row"><span class="ctl-label">Map labels</span><span class="seg" data-seg="script">'
-      +[['both','Both'],['latin','Latin'],['arabic','العربية']].map(([v,l])=>
+    h+='<div class="row"><span class="ctl-label">'+esc(T('mapLabels'))+'</span><span class="seg" data-seg="script">'
+      +[['both',A?'كلاهما':'Both'],['latin',A?'اللاتينية':'Latin'],['arabic','العربية']].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(st.script===v)+'">'+l+'</button>').join('')+'</span></div>';
-    h+='<div class="row"><span class="ctl-label">Contrast</span><span class="seg" data-seg="contrast">'
-      +[['normal','Normal'],['high','High']].map(([v,l])=>
+    h+='<div class="row"><span class="ctl-label">'+esc(T('contrast'))+'</span><span class="seg" data-seg="contrast">'
+      +[['normal',T('normal')],['high',T('high')]].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(st.contrast===v)+'">'+l+'</button>').join('')+'</span></div>';
-    h+='<div class="row"><span class="ctl-label">Pulsing markers</span><span class="seg" data-seg="motion">'
-      +[['on','On'],['off','Off']].map(([v,l])=>
+    h+='<div class="row"><span class="ctl-label">'+esc(T('pulsingMarkers'))+'</span><span class="seg" data-seg="motion">'
+      +[['on',T('on')],['off',T('off')]].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(st.motion===v)+'">'+l+'</button>').join('')+'</span></div>';
-    h+='<div class="row"><span class="ctl-label">Scroll wheel</span><span class="seg" data-seg="wheel">'
-      +[['auto','Auto'],['pan','Pan'],['zoom','Zoom']].map(([v,l])=>
+    h+='<div class="row"><span class="ctl-label">'+esc(T('scrollWheel'))+'</span><span class="seg" data-seg="wheel">'
+      +[['auto',T('auto')],['pan',T('pan')],['zoom',T('zoom')]].map(([v,l])=>
         '<button data-v="'+v+'" aria-pressed="'+(st.wheel===v)+'">'+l+'</button>').join('')+'</span></div>'
-      +'<p class="psub" style="margin:-4px 0 10px">Auto pans on a trackpad two-finger drag and zooms on a mouse wheel. '
-      +'Pinch always zooms.</p>';
-    h+='<div class="sect">Map layers</div><div class="filters">';
+      +'<p class="psub" style="margin:-4px 0 10px">'+(A
+        ?'في الوضع التلقائي يحرّك السحبُ بإصبعين على لوحة اللمس الخريطةَ، وتكبّرها عجلةُ الفأرة. والقرصُ يكبّر دائمًا.'
+        :'Auto pans on a trackpad two-finger drag and zooms on a mouse wheel. Pinch always zooms.')+'</p>';
+    h+='<div class="sect">'+esc(T('layers'))+'</div><div class="filters">';
     for(const k in LN) h+='<label><input type="checkbox" id="layer-'+k+'" data-layer="'+k+'"'+(st.show[k]?' checked':'')+'> '+LN[k]+'</label>';
-    h+='</div><div class="sect">Show events by evidence</div><div class="filters">';
-    for(const k in EV) h+='<label><input type="checkbox" id="evid-'+k+'" data-evid="'+k+'"'+(st.evid.has(k)?' checked':'')+'> <span class="tag t-'+k+'">'+k+'</span> '+EV[k]+'</label>';
-    h+='</div><div class="sect">Show events by kind</div><div class="filters">';
-    CATS.forEach(c=>h+='<label><input type="checkbox" id="cat-'+esc(c)+'" data-cat="'+esc(c)+'"'+(st.cats.has(c)?' checked':'')+'> '+esc(c)+'</label>');
+    h+='</div><div class="sect">'+(A?'عرض الأحداث بحسب الإسناد':'Show events by evidence')+'</div><div class="filters">';
+    for(const k in EV) h+='<label><input type="checkbox" id="evid-'+k+'" data-evid="'+k+'"'+(st.evid.has(k)?' checked':'')+'> <span class="tag t-'+k+'">'+k+'</span> '+esc(Tg('evidence',k))+'</label>';
+    h+='</div><div class="sect">'+(A?'عرض الأحداث بحسب النوع':'Show events by kind')+'</div><div class="filters">';
+    CATS.forEach(c=>h+='<label><input type="checkbox" id="cat-'+esc(c)+'" data-cat="'+esc(c)+'"'+(st.cats.has(c)?' checked':'')+'> '+esc(Tg('category',c))+'</label>');
     h+='</div>';
-    h+='<div class="foot"><b>Moving around:</b> drag to pan, scroll or pinch to zoom, double-click to zoom in '
+    h+='<div class="foot">'+(A
+      ?'<b>التنقّل:</b> اسحب لتحريك الخريطة، ومرِّر أو اقرص للتكبير، وانقر نقرتين للتكبير (ومع Shift للتصغير). '
+       +'انقر الخريطة ثم استعمل الأسهم للتحريك، و+ و− للتكبير والتصغير، و0 للعودة. '
+       +'وفي سائر الصفحة يحرّك السهمان الأيمن والأيسر السنة؛ ومع Shift يقفزان عشر سنين.'
+      :'<b>Moving around:</b> drag to pan, scroll or pinch to zoom, double-click to zoom in '
       +'(shift double-click to zoom out). Click the map then use the arrow keys to pan, + and − to zoom, 0 to reset. '
-      +'Left and right arrows move the year anywhere else on the page; hold shift for ten-year jumps.</div>';
+      +'Left and right arrows move the year anywhere else on the page; hold shift for ten-year jumps.')+'</div>';
     pbody.innerHTML=h;
   }
   if(noScroll) pbody.scrollTop=keep;
@@ -1707,15 +1735,16 @@ document.querySelectorAll('#win button').forEach(b=>{
 /* ---------- search ---------- */
 const search=document.getElementById('search'), sgBox=document.getElementById('sg');
 const SIDX=[];
-(D.places||[]).forEach(o=>SIDX.push({t:'place',o,label:o.name,ar:o.ar,sub:o.kind||'place'}));
+(D.places||[]).forEach(o=>SIDX.push({t:'place',o,label:o.name,ar:o.ar,
+  sub:()=>o.kind?Tg('placeKind',o.kind):''}));
 (D.people||[]).forEach(o=>SIDX.push({t:'person',o,label:o.name,ar:o.ar,
-  sub:[o.role,o.tribe].filter(Boolean).join(' · ')||'figure'}));
+  sub:()=>[o.role&&Tg('role',o.role), isAr()?(o._tribe&&NAME('tribes',o._tribe)):o.tribe].filter(Boolean).join(' · ')}));
 (D.tribes||[]).forEach(o=>SIDX.push({t:'tribe',o,label:o.name,ar:o.ar,
-  sub:(tribeEvents.get(o.id)||[]).length+' events'}));
+  sub:()=>nEvents((tribeEvents.get(o.id)||[]).length)}));
 (D.polities||[]).forEach(o=>SIDX.push({t:'polity',o,label:o.name,ar:o.ar,
-  sub:(o.from??'?')+'–'+(o.to??'?')+' CE'}));
+  sub:()=>(o.from??'?')+'–'+(o.to??'?')+' '+T('ce')}));
 events.forEach(o=>SIDX.push({t:'event',o,label:o.title,ar:o.ar,
-  sub:(o.year??'?')+' CE · '+(o.category||'event')}));
+  sub:()=>(o.year??'?')+' '+T('ce')+(o.category?' · '+Tg('category',o.category):'')}));
 SIDX.forEach(r=>{r.n=norm(r.label); r.a=r.ar||'';});
 
 const RANK={place:0,person:1,tribe:2,polity:3,event:4};
@@ -1746,7 +1775,7 @@ function renderSg(){
   sgBox.innerHTML=sgList.map((r,i)=>
     '<div class="sgrow" role="option" id="sg'+i+'" data-i="'+i+'" aria-selected="'+(i===sgAt)+'">'
     +typeIco(r.t,r.o)
-    +'<span class="nm"><b>'+esc(NAME({person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events'}[r.t],r.o))+'</b><span>'+esc(TYPE2(r.t))+' · '+esc(r.sub||'')+'</span></span>'
+    +'<span class="nm"><b>'+esc(NAME({person:'people',place:'places',tribe:'tribes',polity:'polities',event:'events'}[r.t],r.o))+'</b><span>'+esc(TYPE2(r.t))+(r.sub()?' · '+esc(r.sub()):'')+'</span></span>'
     +(r.ar?'<span class="arx">'+esc(r.ar)+'</span>':'<span></span>')
     +'</div>').join('');
   sgBox.hidden=false; search.setAttribute('aria-expanded','true');
@@ -1806,8 +1835,9 @@ function updatePeek(){
   const n=visibleEvents().filter(e=>e.year===st.year).length;
   const py=document.getElementById('peekYear'), pt=document.getElementById('peekText');
   if(py) py.textContent=st.year;
-  if(pt) pt.textContent = n? (n+' event'+(n>1?'s':'')+' · drag up for detail')
-                           : 'nothing dated here · drag up';
+  if(pt) pt.textContent = isAr()
+    ? (n? 'أحداث هذه السنة: '+n+' · اسحب للأعلى للتفصيل' : 'لا شيء مؤرَّخ هنا · اسحب للأعلى')
+    : (n? (n+' event'+(n>1?'s':'')+' · drag up for detail') : 'nothing dated here · drag up');
 }
 (function(){
   let d=null;
@@ -1846,7 +1876,7 @@ document.getElementById('focuspill').onclick=()=>{
 document.getElementById('langBtn').onclick=()=>{
   st.lang = st.lang==='ar'?'en':'ar';
   if(!st.scriptLocked) st.script = st.lang==='ar'?'arabic':'both';
-  applyPrefs(); buildRail(); drawDynamic(); renderPanel(); updatePeek();
+  applyPrefs(); buildRail(); drawDynamic(); updateScale(); renderPanel(); updatePeek();
 };
 document.getElementById('moreBtn').onclick=function(){
   const c=document.querySelector('.controls');

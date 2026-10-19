@@ -33,11 +33,11 @@ ranges = [
   "p":[[41.1,27.6],[42.0,27.2],[42.9,27.0]]},
  {"id":"hajar","name":"al-Ḥajar","ar":"جبال الحجر","w":2.6,
   "p":[[55.9,24.4],[56.9,24.0],[57.9,23.4],[59.2,22.4]]},
- {"id":"zagros","name":"Zagros","ar":"","w":3.0,
+ {"id":"zagros","name":"Zagros","ar":"جبال زاغروس","w":3.0,
   "p":[[45.6,36.4],[47.6,34.4],[49.6,32.0],[52.2,29.6],[54.6,28.2],[56.6,27.2]]},
- {"id":"taurus","name":"Taurus","ar":"","w":2.6,
+ {"id":"taurus","name":"Taurus","ar":"جبال طوروس","w":2.6,
   "p":[[30.2,37.0],[32.6,37.2],[35.2,37.6],[38.0,37.8],[40.4,38.0]]},
- {"id":"habasha","name":"Ethiopian highlands","ar":"","w":3.4,
+ {"id":"habasha","name":"Ethiopian highlands","ar":"هضبة الحبشة","w":3.4,
   "p":[[37.2,14.8],[38.4,12.6],[39.2,10.6],[39.4,8.4],[38.6,6.6]]},
  {"id":"harra","name":"Ḥarrat al-Shām","ar":"حرة الشام","w":2.4,
   "p":[[36.6,33.2],[37.6,31.6],[38.4,30.0],[39.2,28.4]]},
@@ -61,5 +61,5 @@ seas = [
  ["Baḥr al-Hind","بحر الهند",65.0,9.0,0],
 ]
 json.dump({"sands":sands,"ranges":ranges,"regions":regions,"seas":seas},
-          open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'terrain.json'),'w'),ensure_ascii=False,separators=(',',':'))
+          open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'terrain.json'),'w',encoding='utf-8'),ensure_ascii=False,separators=(',',':'))
 print('terrain.json written')

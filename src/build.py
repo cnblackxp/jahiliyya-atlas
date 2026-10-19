@@ -52,7 +52,7 @@ def main():
     page = page.replace("__DATAAR__", dump(data_ar))
 
     dest = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "index.html")
-    with open(dest, "w", encoding="utf-8") as f:
+    with open(dest, "w", encoding="utf-8", newline="\n") as f:
         f.write(page)
 
     print(f"wrote {dest}  {os.path.getsize(dest) / 1024:.1f} KB")

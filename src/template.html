@@ -198,6 +198,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .filters input{accent-color:var(--accent);margin:0}
 a{color:var(--accent)}
 .foot{margin-top:20px;font-size:11px;color:var(--faint);line-height:1.5;border-top:1px solid var(--line);padding-top:10px}
+.srcs{display:grid;gap:8px;margin-bottom:12px}
+.src{border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:var(--panel2);display:grid;gap:3px;border-left-width:3px;border-left-color:var(--line2)}
+.src-t{font-family:var(--f-display);font-size:14.5px;line-height:1.25;color:var(--fg);text-decoration:none}
+a.src-t:hover{color:var(--accent);text-decoration:underline}
+.src-m{font-size:10.5px;color:var(--faint)}
+.src-u{font-family:var(--f-mono);font-size:10.5px;color:var(--accent);word-break:break-all;direction:ltr;text-align:left;unicode-bidi:plaintext;text-decoration:none}
+.src-u:hover{text-decoration:underline}
+.src-n{font-size:12px;color:var(--muted);line-height:1.4}
+:root[data-lang="ar"] .src{border-left-width:1px;border-right-width:3px;border-right-color:var(--line2)}
 
 /* ---------- map type ---------- */
 .lbl{font-family:var(--f-display);fill:var(--mapfg);pointer-events:none;paint-order:stroke;
@@ -411,7 +420,7 @@ const UIEN={ui:{
  proposedRange:'Could be anywhere in', kind:'Kind', coordinates:'Coordinates', span:'Span',
  seat:'Seat', role:'Role', tribe:'Tribe', dates:'Dates', dating:'Dating',
  rangeCentre:'Range centre', nothingMatches:'Nothing matches that.', events:'events', zones:'Zones',
- event:'Event', figure:'Figure', power:'Power'},
+ event:'Event', figure:'Figure', power:'Power', sources:'Sources'},
  evidence:{EPI:'Inscription-fixed',EXT:'External source',TRAD:'Later Arabic tradition',RECON:'Modern reconstruction'},
  certainty:{fixed:'fixed',approximate:'approximate',contested:'contested',legendary:'legendary',estimated:'estimated'},
  coord:{exact:'exact',approximate:'approximate',guessed:'guessed'},
@@ -470,6 +479,36 @@ function ico(name,cls){
 }
 function typeIco(kind,o){ return ico(iconName(kind,o),'ic-'+kind); }
 // a Latin-script name inside Arabic text, marked as a transliteration
+// Sources as their own section: every source shows its title and its full address, and says
+// what it backs when that is recorded. A record with none says so rather than showing nothing.
+const SUPPORTS={date:['the date','التاريخ'],place:['the place','الموضع'],people:['the people','الأعلام'],narrative:['the account','الخبر']};
+function srcSection(rec,kind){
+  const list=(rec.sources||[]).filter(x=>x&&(x.url||x.title));
+  const A=isAr();
+  let h='<div class="sect">'+esc(T('sources'))+(list.length?' · '+list.length:'')+'</div>';
+  if(!list.length) return h+'<p class="none">'+(A?'لم يُسجَّل مصدرٌ ل'+({event:'هذا الحدث',person:'هذه الشخصية',place:'هذا الموضع',tribe:'هذه القبيلة',polity:'هذه الدولة'}[kind])+' بعد.'
+    :'No source recorded for this '+({event:'event',person:'figure',place:'place',tribe:'tribe',polity:'power'}[kind])+' yet.')+'</p>';
+  return h+'<div class="srcs">'+list.map(x=>{
+    let u='';try{u=x.url?decodeURI(x.url):'';}catch(_){u=x.url||'';}
+    const t=x.url?'<a class="src-t" dir="auto" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.title||u)+'</a>'
+                 :'<span class="src-t" dir="auto">'+esc(x.title)+'</span>';
+    const bits=[];
+    if(x.author) bits.push(x.author);
+    if(x.work&&x.work!==x.title) bits.push(x.work);
+    if(x.volume||x.page) bits.push(A?[x.volume&&'ج '+x.volume,x.page&&'ص '+x.page].filter(Boolean).join('، ')
+                                   :[x.volume&&'vol. '+x.volume,x.page&&'p. '+x.page].filter(Boolean).join(', '));
+    if(x.year) bits.push(x.year);
+    const sup=(x.supports||[]).map(k=>SUPPORTS[k]?SUPPORTS[k][A?1:0]:k);
+    if(sup.length) bits.push((A?'يُسنِد ':'Backs ')+sup.join(A?' و':', '));
+    if(x.accessed) bits.push((A?'رُوجع في ':'Checked ')+x.accessed);
+    if(!x.url) bits.push(A?'عملٌ مطبوع بلا رابط':'Printed work, no link');
+    const note=A?(x.noteAr||x.note):x.note;
+    return '<div class="src">'+t
+      +(bits.length?'<div class="src-m" dir="auto">'+bits.map(esc).join(' · ')+'</div>':'')
+      +(x.url?'<a class="src-u" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(u)+'</a>':'')
+      +(note?'<div class="src-n" dir="auto">'+esc(note)+'</div>':'')+'</div>';
+  }).join('')+'</div>';
+}
 function latn(t){ return '<span lang="ar-Latn" dir="ltr">'+esc(t)+'</span>'; }
 // N events, phrased so the Arabic needs no number agreement
 function nEvents(n,here){ return isAr()? ((here?'ما وقع هنا':T('events'))+' · '+n) : (n+' event'+(n===1?'':'s')+(here?' here':'')); }
@@ -1354,7 +1393,7 @@ function evDetail(e){
   if(trb.length) h+='<div class="sect">'+esc(T('tribes'))+'</div><div class="chips">'+trb.map(x=>chip('tribe',x)).join('')+'</div>';
   if(pol.length) h+='<div class="sect">'+esc(T('powers'))+'</div><div class="chips">'+pol.map(x=>chip('polity',x)).join('')+'</div>';
   if(pl) h+='<div class="sect">'+esc(T('place'))+'</div><div class="chips">'+chip('place',pl)+'</div>';
-  if(e.source) h+='<p style="font-size:11.5px"><a href="'+esc(e.source)+'" target="_blank" rel="noopener">'+esc(T('source'))+'</a></p>';
+  h+=srcSection(e,'event');
   return h+'</div>';
 }
 function personDetail(p){
@@ -1390,6 +1429,7 @@ function personDetail(p){
       +withPeople.slice(0,12).map(x=>chip('person',x)).join('')+'</div>';
   }
   if(evs.length){ h+='<div class="sect">'+esc(T('appearsIn'))+' · '+evs.length+'</div>'+evs.map(evCard).join(''); }
+  h+=srcSection(p,'person');
   return h+'</div>';
 }
 function placeDetail(p){
@@ -1413,6 +1453,7 @@ function placeDetail(p){
       +conn.slice(0,16).map(x=>chip('person',x)).join('')+'</div>';
   }
   if(evs.length) h+='<div class="sect">'+nEvents(evs.length,true)+'</div>'+evs.map(evCard).join('');
+  h+=srcSection(p,'place');
   return h+'</div>';
 }
 function tribeDetail(t){
@@ -1429,6 +1470,7 @@ function tribeDetail(t){
   if(pls.length) h+='<div class="sect">'+esc(T('whereTheyTurnUp'))+'</div><div class="chips">'+pls.map(x=>chip('place',x)).join('')+'</div>';
   if(evs.length) h+='<div class="sect">'+nEvents(evs.length)+'</div>'+evs.map(evCard).join('');
   else h+='<p class="none">'+(isAr()?'لا يذكر هذه القبيلةَ أيُّ حدثٍ في البيانات.':'No events in the dataset name this tribe.')+'</p>';
+  h+=srcSection(t,'tribe');
   h+='<div class="foot">'+(isAr()?TRIBE_RULE_AR:'Tribe links are matched on names in the event text and on each figure\u2019s stated tribe, '
    +'so they are a reading aid rather than a claim in the sources.')+'</div>';
   return h+'</div>';
@@ -1447,6 +1489,7 @@ function polityDetail(p){
    +'</dl>';
   if(cap) h+='<div class="sect">'+esc(T('connections'))+'</div><div class="chips">'+chip('place',cap)+'</div>';
   if(evs.length) h+='<div class="sect">'+nEvents(evs.length)+'</div>'+evs.map(evCard).join('');
+  h+=srcSection(p,'polity');
   return h+'</div>';
 }
 

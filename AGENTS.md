@@ -123,7 +123,7 @@ cd build && for t in ../tests/test_*.py; do python3 -I "$t"; done
 Regenerating the basemap is optional and needs `shapely`. The committed geo
 JSON is the output of those two scripts.
 
-**Always run all six test files before publishing.** They exist because this
+**Always run all seven test files before publishing.** They exist because this
 project kept shipping bugs that looked fine in a screenshot: a focus pill
 rendered off-screen behind the bottom sheet, pointer capture silently killing
 every marker click, two-finger pan computing a distance ratio that is 1 when
@@ -135,6 +135,13 @@ Five collections in `arabia.json`: `places`, `events`, `people`, `polities`,
 `tribes`. Ids are stable and referenced across files — **never rename or delete
 one.** `arabia.ar.json` is a parallel map from the same ids to Arabic fields
 only; if you add a record, add its Arabic too.
+
+Every record has a `sources` list (schema in `data/REVISION.md` §6.1): a link
+or a printed work, its title as published, what it `supports`, and a `note`
+when the source says something other than the entry. **Only attach a source
+you have read and that carries the claim** — the audit found six that did not.
+A source that disagrees with the entry is attached with a note saying so; it
+does not change the entry by itself.
 
 Things that are easy to get wrong:
 
@@ -175,9 +182,9 @@ Things that are easy to get wrong:
 
 1. The three selection bugs in `KNOWN_ISSUES.md`. One rule fixes all three.
    Write the failing tests first.
-2. The citation schema change, also in `KNOWN_ISSUES.md` — one URL per event is
-   the weakest part of the project, and nearly every credibility improvement
-   depends on fixing it first.
+2. Sourcing, `KNOWN_ISSUES.md` §3. The schema is in place; the data is not —
+   people, places, tribes and powers have no sources yet, and most events
+   have one. The checklist there is the work.
 3. Deep-link the inscriptions to DASI and OCIANA records. Biggest credibility
    win per hour: the strongest evidence currently cites Wikipedia.
 4. Depth over reach. 172 events across 340 years is thin. Resist extending the

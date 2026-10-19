@@ -12,12 +12,13 @@ def ck(n,c,d=''):
 # Allowed on purpose: the transliterated second name (.ar .arbig .arx), the
 # evidence codes (.tag), the EN button, and path notes, which have no Arabic in
 # the data yet (.where). A transliteration set inside Arabic text is marked
-# lang="ar-Latn".
+# lang="ar-Latn". A source's own title and address (.src-t, .src-u) are quoted
+# as published, in whatever language that is.
 LEAKS="""(root)=>{const out=[];const R=document.querySelector(root);if(!R)return out;
 const w=document.createTreeWalker(R,NodeFilter.SHOW_TEXT);let n;
 while(n=w.nextNode()){const t=n.textContent.trim();
   if(!/[A-Za-z]{2,}/.test(t)||/[\\u0600-\\u06FF]/.test(t))continue;
-  const el=n.parentElement;if(!el||el.closest('script,style,.ar,.arbig,.arx,.tag,.where,#langBtn,[lang="ar-Latn"]'))continue;
+  const el=n.parentElement;if(!el||el.closest('script,style,.ar,.arbig,.arx,.tag,.where,#langBtn,[lang="ar-Latn"],.src-t,.src-u'))continue;
   const r=el.getBoundingClientRect(),cs=getComputedStyle(el);
   if(!r.width||!r.height||cs.visibility==='hidden'||cs.display==='none'||el.closest('[hidden]'))continue;
   out.push(t.slice(0,60));}

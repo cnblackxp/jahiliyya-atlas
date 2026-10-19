@@ -19,7 +19,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The Lakhmid capital on the desert edge, about 7 km east-south-east of Najaf, near present-day Kūfa and close to the Euphrates, with a branch of the river reaching it. The Arabic sources date the oldest documented mention of the place to 132 CE, when Palmyrene forces were stationed there — two centuries before the Lakhm shaykhs. A Christian Arab city of palaces, monasteries and salaried scribes, with Persian-language administration, a local Hīrī script that fed into Arabic, and children from the nearby villages sent in to learn writing. It killed three of its own poets in forty-five years.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "khawarnaq",
@@ -31,7 +32,8 @@
    "from": 400,
    "to": 640,
    "blurb": "The most famous Lakhmid building, near al-Ḥīra, said to have been put up by al-Nuʿmān I to house the Sasanian prince Bahrām V, and its Roman architect Sinimmār said to have been killed so he could not build its like anywhere else. Al-Nuʿmān III received the poets of the Arabs here and held a literary session in it called al-Muʾtamar; the palace kept craftsmen on, and a line of ʿAmr ibn Kulthūm is cited for it. Unlocated.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "ctesiphon",
@@ -43,7 +45,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The Sasanian capital on the Tigris, where Arab client kings came to petition, where ʿAdī ibn Zayd was schooled, and where the True Cross was carried in 614. Al-Nuʿmān III was seized here in 602.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "khanaqin",
@@ -55,7 +58,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A Zagros-foothill town where Khusraw II imprisoned the last Lakhmid king after deposing him. Al-Nuʿmān III is said to have died here of plague.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "nahrawan",
@@ -67,7 +71,8 @@
    "from": 580,
    "to": 640,
    "blurb": "Canal country east of Ctesiphon where al-Nuʿmān III fought beside the fugitive Khusraw II against the usurper Bahrām Chōbīn.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "dhi-qar",
@@ -79,7 +84,8 @@
    "from": 590,
    "to": 640,
    "blurb": "The watering place where Bakr ibn Wāʾil beat a Sasanian column. Where it was is genuinely disputed: the Arabic sources put it at Ṭarīf, south of Medina in the north of the peninsula, while the usual placement in southern Iraq west of the Euphrates is an inference from the name of the modern Iraqi governorate. No source identifies the site. The coordinates here follow the common Iraqi placement and should be read as a guess with a rival candidate a thousand kilometres away.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "constantinople",
@@ -91,7 +97,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The imperial city at the far end of the road from al-Ḥīra. Imruʾ al-Qays went there to beg troops from Justinian; ʿAdī ibn Zayd went in 579 as a Sasanian envoy and came back with books.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "ankara",
@@ -103,7 +110,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Anatolian city where Imruʾ al-Qays fell ill and died on the road home. A tomb at Hıdırlık is traditionally pointed out as his.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "chalcis",
@@ -115,7 +123,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A fortified town south-west of Aleppo, now identified as the field of Yawm Ḥalīma in June 554, where the Lakhmid al-Mundhir III was killed.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "rusafa",
@@ -127,7 +136,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The great desert shrine of St Sergius, patron of Arab Christians, with basilicas and a building commissioned by the Ghassanid al-Mundhir. Byzantium and the Ghassanids were reconciled here in 575.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "zabad",
@@ -139,7 +149,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A village south-east of Aleppo whose martyrium of St Sergius carries the earliest dated Paleo-Arabic inscription, trilingual in Greek, Syriac and Arabic, from 512.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "callinicum",
@@ -151,7 +162,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Euphrates crossing where Belisarius was beaten in 531 by Persians and Lakhmids, and where two Greek sources flatly contradict each other about whether the Ghassanid Arabs ran or held.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "thannuris",
@@ -163,7 +175,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Mesopotamian battlefield of 528 where the Ghassanid king Jabalah IV was killed fighting for Byzantium.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "dara",
@@ -175,7 +188,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The fortress Anastasius built against Persian Nisibis from 505, lost to Khusraw I in 573 and handed back in 591. The hinge of the whole northern frontier.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "antioch",
@@ -187,7 +201,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The great city of Roman Syria, which al-Mundhir III raided up to but never took, and which the Persians looted in 613.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "damascus",
@@ -199,7 +214,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Northern terminus of the Quraysh summer caravans and the city the Ghassanid camps sat behind. Fell to the Persians in 613.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "jerusalem",
@@ -211,7 +227,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Taken by the Persians in 614 after a three-week siege; the True Cross was carried off to Ctesiphon, a loss the whole Christian East felt.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "alexandria",
@@ -223,7 +240,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Egypt's port and grain engine, which fell to the Persians after a year-long siege in 618 — after which the Constantinople bread dole was abolished.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "bosra",
@@ -235,7 +253,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Capital of Roman Arabia and the market the Meccan caravans aimed at. Its civic era, epoch 105/106 CE, dates the Namāra, Jabal Usays and Ḥarrān inscriptions.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "al-jabiya",
@@ -247,7 +266,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The Ghassanid royal camp between the Ḥawrān plain and the Golan — a seat of government that was a tent city, not a walled capital. Foreign envoys came out here to meet the kings.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "jabal-says",
@@ -259,7 +279,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A volcanic hill about 105 km south-east of Damascus, source of the 528 Arabic inscription often called the only pre-Islamic Arabic text with historical content.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "namara",
@@ -271,7 +292,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A basalt site in the Ḥarra about 100 km south-east of Damascus where the funerary stone of Imruʾ al-Qays 'king of all the Arabs' was found. The stone is now in the Louvre.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "harran-al-laja",
@@ -283,7 +305,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A village south of Damascus whose martyrium of St John carries a Greek-Arabic bilingual of 568, dated by an Arabian era reckoned from the destruction of Khaybar.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "yarmuk",
@@ -295,7 +318,8 @@
    "from": 600,
    "to": 640,
    "blurb": "The river valley where the Ghassanids and the Byzantine field army were broken in 636, closing the period.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "petra",
@@ -307,7 +331,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The dead Nabataean capital, annexed by Rome in 106, still standing in the landscape as carved facades and high places when travellers of the 6th century rode past.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "hegra",
@@ -319,7 +344,8 @@
    "from": 300,
    "to": 640,
    "blurb": "131 rock-cut Nabataean tombs across some 12 km², with Jabal Ithlib as the religious quarter. By the 6th century these were read as the houses of Thamūd, a race annihilated by God — a mistake that was itself a live belief of the period.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "dadan",
@@ -331,7 +357,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The older oasis capital beneath al-ʿUlā, with lion-flanked tombs above it and the god Dhū Ghaybat in its inscriptions. Already a ruin field in late antiquity.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "al-ula",
@@ -343,7 +370,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A long palm oasis on the incense road, with a Jewish population appearing from the 5th century.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "tayma",
@@ -355,7 +383,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A walled oasis on the Syrian road, called a city of the Jews in pre-Islamic verse, with a deep epigraphic past going back to the Babylonians and the god Ṣalm of Maḥram.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "al-ablaq",
@@ -367,7 +396,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Al-Samawʾal's piebald fortress on a hill by Taymāʾ, a staging post for travellers to and from Syria, and the place where he let his son be killed rather than hand over Imruʾ al-Qays's deposits.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "khaybar",
@@ -379,7 +409,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A black-rock oasis of date palms and Jewish settlement. Its 'destruction' around 105 CE was still the epoch of a local dating era in 568.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "dumat-al-jandal",
@@ -391,7 +422,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The crossroads oasis at the end of Wādī Sirḥān, an annual fair whose sovereignty was contested between the clients of Byzantium and of Persia, with a market known for slaves. The idol Wadd stood here, and a Christian Arabic graffito of 548/9 was found nearby.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "wadi-sirhan",
@@ -403,7 +435,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The long depression carrying the route from the Gulf and inner Arabia up into southern Syria.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "ruwafa",
@@ -415,7 +448,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Ruins of a temple dedicated in 165–169 by 'the Thamūd of Robathū' with Roman backing — hard evidence that the people the Qurʾān calls annihilated were serving in Roman auxiliary units.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "yathrib",
@@ -427,7 +461,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A spread of fortified farmsteads and palm groves held by Aws and Khazraj alongside three Jewish tribes, exhausted by a century of feuding by 617.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "buath",
@@ -439,7 +474,8 @@
    "from": 600,
    "to": 640,
    "blurb": "The field near Medina where Aws beat Khazraj in the last fight before Islam. Its exact position relative to the oasis is not given in the sources.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "mecca",
@@ -451,7 +487,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A sanctuary town in a dry valley, run by Quraysh clans around the Kaʿba and its idols. There is no inscription, no dig and no outside document for Mecca before 632 — everything about it is literary.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "arafat",
@@ -463,7 +500,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The plain outside the Meccan sacred zone where pilgrims stood in adoration — and which the Ḥums of Quraysh refused to leave their ḥaram to visit.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "mina",
@@ -475,7 +513,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The valley where pilgrims sacrificed, and where the tashrīq days were counted out after the tenth of Dhū al-Ḥijja.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "taif",
@@ -487,7 +526,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A cool, walled fruit-growing town above Mecca, home of Thaqīf and of Allāt's cubic rock, and Mecca's commercial rival on the road from Yemen.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "ukaz",
@@ -499,7 +539,8 @@
    "from": 500,
    "to": 640,
    "blurb": "The great fair between Nakhla and al-Ṭāʾif, running twenty-one days each year in Dhū al-Qaʿda before the pilgrimage. Trade, treaties, lawsuits, sport, recited poetry — and the ground most of the Fijār blood was spilled on.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "majanna",
@@ -511,7 +552,8 @@
    "from": 500,
    "to": 640,
    "blurb": "A fair held near Mecca in the same season as ʿUkāẓ and competing with it. Its site is not fixed.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "dhu-al-majaz",
@@ -523,7 +565,8 @@
    "from": 500,
    "to": 640,
    "blurb": "The third of the Meccan-season fairs, held close to the pilgrimage stations. Its site is not fixed.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "nakhla",
@@ -535,7 +578,8 @@
    "from": 560,
    "to": 640,
    "blurb": "Valley on the Mecca–Ṭāʾif side where Hawāzin fell on Quraysh and Kināna, who got away into the sanctuary at nightfall.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "shamta",
@@ -547,7 +591,8 @@
    "from": 560,
    "to": 640,
    "blurb": "A Fijār field near ʿUkāẓ, won by Hawāzin.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-abla",
@@ -559,7 +604,8 @@
    "from": 560,
    "to": 640,
    "blurb": "A Fijār field at ʿUkāẓ itself, won by Hawāzin.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-hurayra",
@@ -571,7 +617,8 @@
    "from": 560,
    "to": 640,
    "blurb": "Lava-field ground near ʿUkāẓ where the eighth and last Fijār day was fought.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-mushallal",
@@ -583,7 +630,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Manāt's coastal sanctuary between Medina and Mecca, where Aws and Khazraj shaved their heads and without which they did not count a pilgrimage finished.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "nakhlat-al-shamiyya",
@@ -595,7 +643,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The valley of Ḥurāḍ on the Mecca–Iraq road, where al-ʿUzzā had three trees, a house called Buss that gave oracles, a sacred ravine and a killing-ground for sacrifice.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "hudhayl-country",
@@ -607,7 +656,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The seat of the idol Suwāʿ, in Hudhayl country near Yanbuʿ, with the Banū Lihyān as its keepers.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "tabala",
@@ -619,7 +669,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The white quartz block called Dhū al-Khalaṣa, the 'southern Kaʿba', on the road between Mecca and Ṣanʿāʾ. Blood-revenge was decided here by three arrows: the enjoiner, the forbidder, the vigilant.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "jurash",
@@ -631,7 +682,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A southern highland town whose people kept the god Yaghūth, named in poetry and in no inscription at all.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "najran",
@@ -643,7 +695,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A rich oasis city on the Yemen–Ḥijāz road, Christian by the 6th century, with a martyrium called the Kaʿba of Najrān that drew pilgrims for forty years. In 523 its Christians were massacred.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "hima",
@@ -655,7 +708,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A wells-and-rock-art site about 90 km north of Najrān holding the earliest precisely dated Paleo-Arabic inscriptions — 470 and 513 — several of them Christian, cut with big ornate crosses.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "marib",
@@ -667,7 +721,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The old Sabaean capital in its artificial oasis, multi-storey mud brick above a canal network, with the dam upstream and a church built in it by the 520s.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "marib-dam",
@@ -679,7 +734,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A 14-metre earth-and-stone barrage with spillways and sluices, visibly failing across the 6th century: breaches in 449, 450, 542 and 548, repairs in 450 and 557, then an overtopping around 570 that nobody repaired.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "awwam",
@@ -691,7 +747,8 @@
    "from": 300,
    "to": 400,
    "blurb": "The largest temple complex in South Arabia, Almaqah's house, with an oval wall 757 m round, an alabaster water conduit, a dream-oracle and some twenty thousand burials beside it. Abandoned in the 4th century.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "sirwah",
@@ -703,7 +760,8 @@
    "from": 300,
    "to": 640,
    "blurb": "An Almaqah sanctuary west of Maʾrib with monumental inscriptions — including a seven-tonne block that fell from its plinth in an earthquake.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "baraqish",
@@ -715,7 +773,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A Minaean walled town with a sixteen-column temple linked to ʿAthtar and altars with bulls' heads at either end.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "sanaa",
@@ -727,7 +786,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The highland city that overtook Ẓafār as the seat of power, besieged by the Persians in 570 and the capital of Sasanian Yemen thereafter.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "zafar",
@@ -739,7 +799,8 @@
    "from": 300,
    "to": 570,
    "blurb": "The Ḥimyarite royal capital in the southern highlands, from which kings of Sabaʾ and dhū-Raydān ruled before the centre of gravity moved north to Ṣanʿāʾ.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "naiit",
@@ -751,7 +812,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A highland site about 50 km north of Ṣanʿāʾ. A fragmentary Abraha inscription published in 2025 came from here, and line 5 may — or may not — read 'elephants'.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "murayghan",
@@ -763,7 +825,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Where Abraha's northern campaign inscriptions were cut, including the one dated 552 that records his fourth raid on Maʿadd and never mentions Mecca.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "aksum",
@@ -775,7 +838,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The Christian Ethiopian capital across the Red Sea, which invaded Yemen in the 520s and whose soldiers then defected to Abraha and stayed.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "adulis",
@@ -787,7 +851,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Aksum's Red Sea port, from which the fleets crossed to Yemen.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "hadramawt",
@@ -799,7 +864,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The long southern wadi country, the god Sayīn's land, and where the Kinda withdrew when their power in Najd collapsed.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "qaryat-al-faw",
@@ -811,7 +877,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A caravan city on the edge of the Empty Quarter with five temples, seventeen or more wells, and the only painted human figures from the Arabian interior — banqueters, camel drivers, vine scrolls in white, ochre, red and black. Abandoned around the 5th century when the water ran out.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "shib-jabala",
@@ -823,7 +890,8 @@
    "from": 540,
    "to": 640,
    "blurb": "An isolated mountain pass in Banū ʿĀmir country, said to be about 150 km south of ʿUnayza, where Kindite power in northern Arabia was broken. The site itself is not identified.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "unayza",
@@ -835,7 +903,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A Najd settlement used by the sources as the landmark from which Shiʿb Jabala is measured.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "najd",
@@ -847,7 +916,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The central plateau: gravel plains, red sand, scattered wells, and the tribal country where almost every named fighting day of the Arabs was fought.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "al-yamama",
@@ -859,7 +929,8 @@
    "from": 300,
    "to": 640,
    "blurb": "South-eastern Najd, Banū Ḥanīfa country — settled farmers with date groves and wheat fields who supplied grain to Mecca, not nomads.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "hajar-yamama",
@@ -871,7 +942,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The chief town of al-Yamāma and the seat of its governor. Its position is not securely fixed.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "falj",
@@ -883,7 +955,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A valley of wells in al-Yamāma, where the first fighting of the Basūs war was done at ʿUnayza and where Musaylima later proclaimed himself a prophet.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "hajar-bahrayn",
@@ -895,7 +968,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The oasis seat of eastern Arabia under Lakhmid and Sasanian authority, with a bishop in the synod records from 410 onward.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "al-mushaqqar",
@@ -907,7 +981,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A fortress in Hajar of al-Baḥrayn where a Persian commander and Khusraw's agent in al-Yamāma drew the Banū Tamīm in on a promise of grain, killed them in small parties, and then shut the gates on the rest. Unlocated.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "bahrayn",
@@ -919,7 +994,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The eastern coastal province — palm oases, pearl banks, a Persian governor and a scatter of Nestorian bishoprics.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "mashmahig",
@@ -931,7 +1007,8 @@
    "from": 300,
    "to": 640,
    "blurb": "An island see of the Church of the East in the Gulf, named in the synods from 410.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "darayn",
@@ -943,7 +1020,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A Gulf island port and bishopric on the eastern trade run.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "suhar",
@@ -955,7 +1033,8 @@
    "from": 300,
    "to": 640,
    "blurb": "Oman's main port, looking east to India and north to the Gulf.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "hormuz",
@@ -967,7 +1046,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The Persian side of the strait, where the Gulf shipping funnelled through.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "fulayj",
@@ -979,7 +1059,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A late Sasanian fort on the Omani coast — the hardest archaeological evidence of Persian military presence in Arabia.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "oman",
@@ -991,7 +1072,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The Sasanian province of the south-east, with its own Christian diocese of Beth Mazūnāyē.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "hail",
@@ -1003,7 +1085,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The oasis under the twin mountains of Ṭayyiʾ, where ʿAntara is said to have died and where Ḥātim was buried.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "tuwarin",
@@ -1015,7 +1098,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The burial place of Ḥātim al-Ṭāʾī near Ḥāʾil, though other traditions put his tomb elsewhere.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "qusayba",
@@ -1027,7 +1111,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A place in the Qaṣīm given as ʿAntara's birthplace.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "wadi-abqar",
@@ -1039,7 +1124,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A deep valley in Najd where, poets said, a man who sleeps out may be visited by a jinnī who teaches him verse. Nothing confirms it was ever a real identifiable place.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "sarawat",
@@ -1051,7 +1137,8 @@
    "from": 300,
    "to": 640,
    "blurb": "The western mountain spine, cooler and wetter than the plains, where outlaw bands hid and Azd and Khathʿam ranged.",
-   "coordConfidence": "approximate"
+   "coordConfidence": "approximate",
+   "sources": []
   },
   {
    "id": "khazaz",
@@ -1063,7 +1150,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A mountain on the road between Baṣra and Mecca, behind the desert of Munʿij, where Maʿadd lit beacons for three nights and refused to be eaten by the people of Yemen.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-kulab",
@@ -1075,7 +1163,8 @@
    "from": 400,
    "to": 640,
    "blurb": "A water between Kūfa and Baṣra, remembered as 'the stones of al-Kulāb', where two sons of the Kindite king set matching bounties on each other's heads.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "rahrahan",
@@ -1087,7 +1176,8 @@
    "from": 500,
    "to": 640,
    "blurb": "Fighting ground at 'the nearest waters of Banū Dārim' in Najd, where Maʿbad ibn Zurāra was taken and died a prisoner. The sources name no toponym and disagree about who won.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "dhi-najab",
@@ -1099,7 +1189,8 @@
    "from": 500,
    "to": 640,
    "blurb": "Where the Yarbūʿ of Tamīm took their revenge a year after Shiʿb Jabala.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-habaa",
@@ -1111,7 +1202,8 @@
    "from": 540,
    "to": 640,
    "blurb": "A well in Fazāra country, and the dramatic centre of the Dāḥis war: morning-to-noon fighting in summer heat, oaths and curses at the water's edge, and a mutilated body.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "dhu-husa",
@@ -1123,7 +1215,8 @@
    "from": 540,
    "to": 640,
    "blurb": "The one clear defeat ʿAbs took in the Dāḥis sequence, still being thrown at them in verse a generation later.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-muraqqab",
@@ -1135,7 +1228,8 @@
    "from": 540,
    "to": 640,
    "blurb": "First day of the ordered Dāḥis list, ʿAbs over Fazāra.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-faruq",
@@ -1147,7 +1241,8 @@
    "from": 540,
    "to": 640,
    "blurb": "A day won by ʿAbs over a Kindite leader and the people of Hajar — though another list makes it a Qays-against-Tamīm day entirely.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-raqam",
@@ -1159,7 +1254,8 @@
    "from": 540,
    "to": 640,
    "blurb": "Listed inside the Dāḥis cycle but actually Ghaṭafān over Banū ʿĀmir — a day-name that has drifted.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "araair",
@@ -1171,7 +1267,8 @@
    "from": 540,
    "to": 640,
    "blurb": "A day whose loser the sources cannot agree on: one has the chief of Kalb killed here, another has Fazāra beating ʿAbs.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-nahy",
@@ -1183,7 +1280,8 @@
    "from": 480,
    "to": 560,
    "blurb": "A water where Banū Shaybān were camped, and the Basūs war's first or second great day depending on which source you take.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-dhanaib",
@@ -1195,7 +1293,8 @@
    "from": 480,
    "to": 560,
    "blurb": "Called the greatest encounter of the Basūs war. One source instead uses the name for the spot where Jassās speared Kulayb.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "waridat",
@@ -1207,7 +1306,8 @@
    "from": 480,
    "to": 560,
    "blurb": "Slaughter among Bakr, and the day al-Muhalhil stood over Hammām ibn Murra's body and composed an elegy for the man he had killed.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-qusaybat",
@@ -1219,7 +1319,8 @@
    "from": 480,
    "to": 560,
    "blurb": "A beating so bad Bakr thought they would never get up from it — though one source reverses the outcome.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "quda",
@@ -1231,7 +1332,8 @@
    "from": 480,
    "to": 560,
    "blurb": "Also called Taḥlāq al-Limam, the shaving of the forelocks: Bakr shaved their heads to know one another, and their women went among the wounded with water and clubs.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-fusayl",
@@ -1243,7 +1345,8 @@
    "from": 480,
    "to": 560,
    "blurb": "The last day of the Basūs war, named 'the camel calf' — the same creature whose killing is said to have started it.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "ayn-ubagh",
@@ -1255,7 +1358,8 @@
    "from": 500,
    "to": 640,
    "blurb": "A spring at Dhāt al-Khiyār, out in the steppe between Syria and Iraq, where the Lakhmid al-Mundhir ibn Māʾ al-Samāʾ was killed and his army broken.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-sullan",
@@ -1267,7 +1371,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A valley of water and halfa grass in Tihāma beside Mount Khazāz, on Yāqūt's description. There are two days of this name and the sources confuse them constantly; the second was fought in a different valley, one belonging to Banū ʿAmr of Tamīm, and is also called Yawm al-Sūbān and Qāʿ al-Qurayṭayn.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-nisar",
@@ -1279,7 +1384,8 @@
    "from": 400,
    "to": 640,
    "blurb": "A day of Ḍabba and Banū Tamīm, surviving only as an index entry in two medieval lists.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "tikhfa",
@@ -1291,7 +1397,8 @@
    "from": 500,
    "to": 640,
    "blurb": "Where Banū Yarbūʿ beat a Lakhmid king — the sources disagree over whether it was the father or the son.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "awara",
@@ -1303,7 +1410,8 @@
    "from": 500,
    "to": 640,
    "blurb": "Two days of the same name, one against Bakr under al-Mundhir ibn Māʾ al-Samāʾ, the second against Tamīm under his son ʿAmr ibn Hind.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "hiraa",
@@ -1315,7 +1423,8 @@
    "from": 300,
    "to": 640,
    "blurb": "A cave near the summit of a steep hill about three kilometres north-east of the Meccan sanctuary. The tradition has Muḥammad withdrawing there for stretches at a time before the revelation began, which is in keeping with the solitary retreat (taḥannuth) the sīra reports of other Meccans as well.",
-   "coordConfidence": "exact"
+   "coordConfidence": "exact",
+   "sources": []
   },
   {
    "id": "al-hanw",
@@ -1327,7 +1436,8 @@
    "from": 480,
    "to": 560,
    "blurb": "A day of the Basūs war that Ibn al-Athīr names and the English reconstruction left out altogether. He gives it no location; the point on the map only holds it among the other days of the war. Al-Aʿshā uses the same name — 'the battle of al-Ḥinw' — for Dhū Qār, so the name was re-used.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   },
   {
    "id": "al-naqiyya",
@@ -1339,7 +1449,8 @@
    "from": 480,
    "to": 560,
    "blurb": "Another Basūs day named by Ibn al-Athīr and missing from the English reconstruction. No location is given for it in any source; the point only holds its place in the sequence.",
-   "coordConfidence": "guessed"
+   "coordConfidence": "guessed",
+   "sources": []
   }
  ],
  "events": [
@@ -1366,7 +1477,14 @@
     "nabataean-legacy",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Dumat_al-Jandal"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dumat_al-Jandal",
+     "title": "Dumat al-Jandal",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "thamud-temple-ruwafa",
@@ -1388,7 +1506,14 @@
    "dispute": "Outside the dataset's 300–640 window, included because it is the hard counter-evidence to the Thamūd legend that characters in the period believed. 'Thamudic' as an epigraphic label is a misnomer with no demonstrated link to the tribe.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Thamud"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Thamud",
+     "title": "Thamud",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "zenobia-marid",
@@ -1410,7 +1535,14 @@
    "dispute": "Just before the window; the Palmyrene layer is part of what the period inherited.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Dumat_al-Jandal"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dumat_al-Jandal",
+     "title": "Dumat al-Jandal",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "himyar-conquers-saba",
@@ -1436,7 +1568,30 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Himyarite_Kingdom"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Shammar_Yahri'sh",
+     "title": "Shammar Yahri'sh",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "date",
+      "narrative"
+     ],
+     "note": "First attested 275 CE; first king to bear the title of Sabaʾ, dhū-Raydān, Ḥaḍramawt and Yamnat; had united most of Yemen by c. 280.",
+     "noteAr": "أولُ ذكرٍ له في النقوش سنة 275م، وهو أول من حمل لقب ملك سبأ وذي ريدان وحضرموت ويمنت، ووحّد معظم اليمن نحو 280م."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/شمر_يهرعش",
+     "title": "شمر يهرعش",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "date",
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "namara-inscription",
@@ -1463,7 +1618,14 @@
     "lakhmids",
     "byzantines"
    ],
-   "source": "https://islamic-awareness.org/history/islam/inscriptions/namarah"
+   "sources": [
+    {
+     "url": "https://islamic-awareness.org/history/islam/inscriptions/namarah",
+     "title": "Namarah Inscription: The Second Oldest Dated Pre-Islamic Arabic Inscription (328 CE)",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "marib-temple-last-pagan",
@@ -1487,7 +1649,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml"
+   "sources": [
+    {
+     "url": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml",
+     "title": "Diversity and Rabbinization - 7. The Judaism of the Ancient Kingdom of Ḥimyar in Arabia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "himyar-monotheist-reform",
@@ -1514,7 +1683,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml"
+   "sources": [
+    {
+     "url": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml",
+     "title": "Diversity and Rabbinization - 7. The Judaism of the Ancient Kingdom of Ḥimyar in Arabia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "khazaz-day",
@@ -1539,7 +1715,18 @@
     "abu-amr"
    ],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1908"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1908",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "97",
+     "title": "ج6 - ص97 - كتاب العقد الفريد - يوم خزاز",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hira-bishop-410",
@@ -1564,7 +1751,13 @@
     "lakhmids",
     "sasanians"
    ],
-   "source": "https://www.iranicaonline.org/articles/hira"
+   "sources": [
+    {
+     "url": "https://www.iranicaonline.org/articles/hira",
+     "title": "Ḥīra — Encyclopaedia Iranica",
+     "lang": "en"
+    }
+   ]
   },
   {
    "id": "rahmanan-first",
@@ -1588,7 +1781,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml"
+   "sources": [
+    {
+     "url": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml",
+     "title": "Diversity and Rabbinization - 7. The Judaism of the Ancient Kingdom of Ḥimyar in Arabia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "sullan-i",
@@ -1610,7 +1810,14 @@
    "dispute": "Leadership contested three ways, and Yāqūt makes the opponents Madhḥij and Kalb. The Muʿjam al-Asāṭīr compiler explicitly accuses Jawād ʿAlī of confusing al-Sullān I with al-Sullān II, and al-Maydānī of the same error. Undated.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "http://mdmf1439.blogspot.com/2018/09/blog-post_8.html"
+   "sources": [
+    {
+     "url": "http://mdmf1439.blogspot.com/2018/09/blog-post_8.html",
+     "title": "مدونة محمد مفرج السيد الرديني : السلان ( يوم السلان )",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hujr-akil-installed",
@@ -1638,7 +1845,14 @@
     "kinda",
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda",
+     "title": "Kingdom of Kinda",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dam-breach-449",
@@ -1662,7 +1876,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "al-bardan",
@@ -1688,7 +1909,14 @@
    "politiesIds": [
     "kinda"
    ],
-   "source": "https://almerja.com/more.php?idm=66589"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66589",
+     "title": "ايام العرب في الجاهلية",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dam-repair-450",
@@ -1714,7 +1942,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "faw-abandoned",
@@ -1738,7 +1973,13 @@
    "politiesIds": [
     "kinda"
    ],
-   "source": "https://whc.unesco.org/en/list/1712"
+   "sources": [
+    {
+     "url": "https://whc.unesco.org/en/list/1712",
+     "title": "Cultural Landscape of Al-Faw Archaeological Area — UNESCO World Heritage List",
+     "lang": "en"
+    }
+   ]
   },
   {
    "id": "cih540-456",
@@ -1762,7 +2003,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml"
+   "sources": [
+    {
+     "url": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml",
+     "title": "Diversity and Rabbinization - 7. The Judaism of the Ancient Kingdom of Ḥimyar in Arabia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "zm1-462",
@@ -1786,7 +2034,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml"
+   "sources": [
+    {
+     "url": "https://books.openbookpublishers.com/10.11647/obp.0219/ch7.xhtml",
+     "title": "Diversity and Rabbinization - 7. The Judaism of the Ancient Kingdom of Ḥimyar in Arabia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hima-470",
@@ -1810,7 +2065,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Hima_Paleo-Arabic_inscriptions"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Hima_Paleo-Arabic_inscriptions",
+     "title": "Hima Paleo-Arabic inscriptions",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "amr-al-maqsur-killed",
@@ -1836,7 +2098,14 @@
    "politiesIds": [
     "kinda"
    ],
-   "source": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda",
+     "title": "Kingdom of Kinda",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-war-begins",
@@ -1864,7 +2133,14 @@
     "al-muhalhil"
    ],
    "politiesIds": [],
-   "source": "https://www.marefa.org/حرب_البسوس"
+   "sources": [
+    {
+     "url": "https://www.marefa.org/حرب_البسوس",
+     "title": "حرب البسوس",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-unayza",
@@ -1888,7 +2164,14 @@
     "al-muhalhil"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "al-nisar-day",
@@ -1910,7 +2193,14 @@
    "dispute": "Listed in the contents of both Ibn al-Athīr and al-ʿIqd al-Farīd and in al-Qalqashandī's roll, with no narrative recovered anywhere and no date. The year here is a bare midpoint of the period, not an estimate.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://almerja.com/more.php?idm=66589"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66589",
+     "title": "ايام العرب في الجاهلية",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-nahy",
@@ -1934,7 +2224,14 @@
     "al-muhalhil"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "qusayy-takes-kaba",
@@ -1960,7 +2257,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Quraysh"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Quraysh",
+     "title": "Quraysh",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "kinda-federates-502",
@@ -1987,7 +2291,14 @@
     "kinda",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda",
+     "title": "Kingdom of Kinda",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "mundhir-iii-raids-503",
@@ -2015,7 +2326,14 @@
     "sasanians",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Nu%27man"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Nu%27man",
+     "title": "Al-Mundhir III ibn al-Nu'man",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-dhanaib",
@@ -2039,7 +2357,14 @@
     "al-muhalhil"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-waridat",
@@ -2064,7 +2389,14 @@
     "hammam"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "zabad-inscription",
@@ -2089,7 +2421,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Zabad_inscription"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Zabad_inscription",
+     "title": "Zabad inscription",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hima-513",
@@ -2113,7 +2452,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Hima_Paleo-Arabic_inscriptions"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Hima_Paleo-Arabic_inscriptions",
+     "title": "Hima Paleo-Arabic inscriptions",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-qusaybat",
@@ -2135,7 +2481,14 @@
    "dispute": "Undated. Ibn al-Athīr gives the day to Taghlib; al-Maʿrifa reverses the outcome and also states flatly that Hammām was killed here, where Ibn al-Athīr says only 'it is also said'.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dhu-nuwas-accession",
@@ -2161,7 +2514,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Dhu_Nuwas"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dhu_Nuwas",
+     "title": "Dhu Nuwas",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "jabalah-camp-jabiya",
@@ -2187,7 +2547,14 @@
    "politiesIds": [
     "ghassanids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Jabiyah"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Jabiyah",
+     "title": "Jabiyah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "tasm-jadis-destroyed",
@@ -2213,7 +2580,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Tasm_and_Jadis"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Tasm_and_Jadis",
+     "title": "Tasm and Jadis",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "zarqa-blinded",
@@ -2239,7 +2613,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Zarqa_al_Yamama"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Zarqa_al_Yamama",
+     "title": "Zarqa al Yamama",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "himyar-expels-lakhmids-najd",
@@ -2267,7 +2648,14 @@
     "himyar",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Nu%27man"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Nu%27man",
+     "title": "Al-Mundhir III ibn al-Nu'man",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "najran-massacre",
@@ -2294,7 +2682,14 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Christian_community_of_Najran"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Christian_community_of_Najran",
+     "title": "Christian community of Najran",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "simeon-letter",
@@ -2318,7 +2713,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Letter_on_the_Himyarite_Martyrs"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Letter_on_the_Himyarite_Martyrs",
+     "title": "Letter on the Himyarite Martyrs",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "aksumite-invasion",
@@ -2348,7 +2750,14 @@
     "himyar",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Dhu_Nuwas"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dhu_Nuwas",
+     "title": "Dhu Nuwas",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-quda",
@@ -2374,7 +2783,29 @@
     "bujayr"
    ],
    "politiesIds": [],
-   "source": "https://www.marefa.org/حرب_البسوس"
+   "sources": [
+    {
+     "url": "https://www.marefa.org/حرب_البسوس",
+     "title": "حرب البسوس",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://shamela.ws/book/21712/479",
+     "title": "ذكر مقتل كليب والأيام بين بكر وتغلب",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "483",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Yawm Quḍḍa, also called Taḥlāq al-Limam, where Bakr shaved their heads.",
+     "noteAr": "يومُ قِضّة، وهو يوم تحلاق اللِّمَم، حين حلقت بكرٌ رؤوسها."
+    }
+   ]
   },
   {
    "id": "hujr-killed",
@@ -2401,7 +2832,14 @@
    "politiesIds": [
     "kinda"
    ],
-   "source": "https://en.wikipedia.org/wiki/Imru%27_al-Qais"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Imru%27_al-Qais",
+     "title": "Imru' al-Qais",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "shanfara-dies",
@@ -2425,7 +2863,14 @@
     "al-shanfara"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Al-Shanfara"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Shanfara",
+     "title": "Al-Shanfara",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "al-harith-ibn-amr-dies",
@@ -2452,7 +2897,14 @@
     "kinda",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kinda",
+     "title": "Kingdom of Kinda",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "jabal-usays",
@@ -2476,7 +2928,14 @@
    "politiesIds": [
     "ghassanids"
    ],
-   "source": "https://www.islamic-awareness.org/history/islam/inscriptions/usays.html"
+   "sources": [
+    {
+     "url": "https://www.islamic-awareness.org/history/islam/inscriptions/usays.html",
+     "title": "Jabal Usays Inscription: A Pre-Islamic Arabic Inscription From 528 CE",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "thannuris",
@@ -2505,7 +2964,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Iberian_War"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Iberian_War",
+     "title": "Iberian War",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "harith-made-king",
@@ -2533,7 +2999,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Harith_ibn_Jabalah"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Harith_ibn_Jabalah",
+     "title": "Al-Harith ibn Jabalah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "mundhir-syria-raid-529",
@@ -2560,7 +3033,14 @@
     "lakhmids",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Nu%27man"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Nu%27man",
+     "title": "Al-Mundhir III ibn al-Nu'man",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "basus-fusayl",
@@ -2584,7 +3064,14 @@
     "al-harith-ibn-ubad"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "kulab-i",
@@ -2611,7 +3098,14 @@
    "politiesIds": [
     "kinda"
    ],
-   "source": "https://mail.almerja.com/more.php?idm=66664"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66664",
+     "title": "يوم كلاب الاول",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "callinicum",
@@ -2641,7 +3135,14 @@
     "lakhmids",
     "ghassanids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Iberian_War"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Iberian_War",
+     "title": "Iberian War",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "perpetual-peace",
@@ -2669,7 +3170,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Perpetual_Peace_(532)"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Perpetual_Peace_(532)",
+     "title": "Perpetual Peace (532)",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hujras-kills-jassas",
@@ -2694,7 +3202,14 @@
     "jalila"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "imru-vengeance-war",
@@ -2721,7 +3236,14 @@
     "kinda",
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Imru%27_al-Qais"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Imru%27_al-Qais",
+     "title": "Imru' al-Qais",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "muhalhil-dies",
@@ -2745,7 +3267,14 @@
     "al-muhalhil"
    ],
    "politiesIds": [],
-   "source": "https://mail.almerja.com/more.php?idm=66635"
+   "sources": [
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dam-breach-542",
@@ -2772,7 +3301,14 @@
     "aksum",
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "theodora-jacob",
@@ -2801,7 +3337,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Harith_ibn_Jabalah"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Harith_ibn_Jabalah",
+     "title": "Al-Harith ibn Jabalah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "ukaz-founded",
@@ -2825,7 +3368,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Souk_Okaz"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Souk_Okaz",
+     "title": "Souk Okaz",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "abraha-dam-repair",
@@ -2851,7 +3401,14 @@
    "politiesIds": [
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "awara-i",
@@ -2877,7 +3434,30 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://fajernet.net/article.php?cid=12&id=6820"
+   "sources": [
+    {
+     "url": "https://ar.wikipedia.org/wiki/يوم_أوارة_الأول",
+     "title": "يوم أوارة الأول",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    },
+    {
+     "url": "https://shamela.ws/book/21712/493",
+     "title": "يوم أوارة الأول",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "497",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "cih541",
@@ -2907,7 +3487,14 @@
     "ghassanids",
     "kinda"
    ],
-   "source": "https://en.wikipedia.org/wiki/CIH_541"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/CIH_541",
+     "title": "CIH 541",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dam-breach-548",
@@ -2933,7 +3520,14 @@
    "politiesIds": [
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "duma-graffito",
@@ -2955,7 +3549,14 @@
    "dispute": null,
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Dumat_al-Jandal"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dumat_al-Jandal",
+     "title": "Dumat al-Jandal",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "murayghan-1",
@@ -2984,7 +3585,14 @@
     "aksum",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Abraha"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Abraha",
+     "title": "Abraha",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "amr-ibn-hind-accession",
@@ -3010,7 +3618,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Amr_ibn_Hind"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Amr_ibn_Hind",
+     "title": "Amr ibn Hind",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "yawm-halima",
@@ -3042,7 +3657,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Yawm_Halima"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Yawm_Halima",
+     "title": "Yawm Halima",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "ayn-ubagh",
@@ -3071,7 +3693,14 @@
     "ghassanids",
     "lakhmids"
    ],
-   "source": "https://almerja.com/aklam/indexv.php?id=7949"
+   "sources": [
+    {
+     "url": "https://almerja.com/aklam/indexv.php?id=7949",
+     "title": "ايام العرب- ح5 :(يوم عين اباغ)",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dam-repair-557",
@@ -3097,7 +3726,14 @@
    "politiesIds": [
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "last-himyarite-text",
@@ -3123,7 +3759,14 @@
    "politiesIds": [
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Abraha"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Abraha",
+     "title": "Abraha",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "barqi-robin-naiit",
@@ -3149,7 +3792,36 @@
    "politiesIds": [
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/B%C4%81riq%C4%AB-Robin-N%C4%81%CA%BFi%E1%B9%AD_1"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Abraha",
+     "title": "Abraha",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Mentions a newly discovered Ḥimyarite inscription of Abraha that may name elephants. The dedicated article cited before (Bāriqī-Robin-Nāʿiṭ 1) was deleted from Wikipedia on 2026-03-21.",
+     "noteAr": "يذكر نقشًا حِمْيَريًّا مكتشفًا حديثًا لأبرهة قد يَرِد فيه ذكر الفِيَلة. وقد حُذفت المقالة المخصَّصة التي كانت مَصدرَه (Bāriqī-Robin-Nāʿiṭ 1) من ويكيبيديا في 21 مارس 2026."
+    },
+    {
+     "url": null,
+     "title": "Fragment of a Ḥimyarite inscription commissioned by King Abraha, with the hypothetical mention of elephants",
+     "lang": "en",
+     "author": "Zāhir ʿĀṭif al-Bāriqī and Christian J. Robin",
+     "work": "Semitica et Classica",
+     "volume": "18",
+     "page": "295–300",
+     "year": 2025,
+     "supports": [
+      "date",
+      "place",
+      "narrative"
+     ],
+     "note": "The editio princeps. Cited from a bibliography; the article itself was not consulted for this entry.",
+     "noteAr": "النشرة الأولى للنقش. نُقل وصفها من ثَبَت مراجع، ولم يُطَّلع على المقالة نفسها لهذا المدخل."
+    }
+   ]
   },
   {
    "id": "harith-aaraj-vs-taghlib",
@@ -3176,7 +3848,14 @@
    "politiesIds": [
     "ghassanids"
    ],
-   "source": "https://www.islamweb.net/ar/library/content/126/157/"
+   "sources": [
+    {
+     "url": "https://www.islamweb.net/ar/library/content/126/157/",
+     "title": "إسلام ويب  - الكامل في التاريخ - ذكر أيام العرب في الجاهلية - ذكر الحرب بين الحارث الأعرج وبني تغلب- الجزء رقم1",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "samawal-dies",
@@ -3201,7 +3880,14 @@
     "imru-al-qays-poet"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Samaw%27al_ibn_%27Adiya"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Samaw%27al_ibn_%27Adiya",
+     "title": "Samaw'al ibn 'Adiya",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "awara-ii",
@@ -3227,7 +3913,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://fajernet.net/article.php?cid=12&id=6820"
+   "sources": [
+    {
+     "url": "https://fajernet.net/article.php?cid=12&id=6820",
+     "title": "شبكة فجر الثقافية  :: أيام العرب وحروبها",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fifty-year-peace",
@@ -3255,7 +3948,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_572%E2%80%93591"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_572%E2%80%93591",
+     "title": "Byzantine–Sasanian War of 572–591",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "imru-constantinople",
@@ -3284,7 +3984,14 @@
     "byzantines",
     "ghassanids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Imru%27_al-Qais"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Imru%27_al-Qais",
+     "title": "Imru' al-Qais",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "imru-death",
@@ -3312,7 +4019,14 @@
     "kinda",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Imru%27_al-Qais"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Imru%27_al-Qais",
+     "title": "Imru' al-Qais",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "amr-ibn-hind-killed",
@@ -3339,7 +4053,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Amr_ibn_Hind"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Amr_ibn_Hind",
+     "title": "Amr ibn Hind",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-race",
@@ -3366,7 +4087,14 @@
     "al-rabi-ibn-ziyad"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Dahis_and_al-Ghabra"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dahis_and_al-Ghabra",
+     "title": "Dahis and al-Ghabra",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "harran-inscription",
@@ -3390,7 +4118,14 @@
    "politiesIds": [
     "ghassanids"
    ],
-   "source": "https://www.islamic-awareness.org/history/islam/inscriptions/harran"
+   "sources": [
+    {
+     "url": "https://www.islamic-awareness.org/history/islam/inscriptions/harran",
+     "title": "Harran Inscription: A Pre-Islamic Arabic Inscription From 568 CE",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-ghadaq",
@@ -3415,7 +4150,14 @@
     "al-rabi-ibn-ziyad"
    ],
    "politiesIds": [],
-   "source": "https://almerja.com/more.php?idm=66592"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66592",
+     "title": "أيام داحس والغبراء",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "harith-ibn-jabala-dies",
@@ -3442,7 +4184,14 @@
    "politiesIds": [
     "ghassanids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Harith_ibn_Jabalah"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Harith_ibn_Jabalah",
+     "title": "Al-Harith ibn Jabalah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "letter-archimandrites",
@@ -3466,7 +4215,14 @@
    "politiesIds": [
     "ghassanids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Christianity_in_pre-Islamic_Arabia"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Christianity_in_pre-Islamic_Arabia",
+     "title": "Christianity in pre-Islamic Arabia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "tarafa-executed",
@@ -3494,7 +4250,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Tarafa"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Tarafa",
+     "title": "Tarafa",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "malik-ibn-zuhayr-killed",
@@ -3520,7 +4283,18 @@
     "hudhayfa"
    ],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1829",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "18",
+     "title": "ج6 - ص18 - كتاب العقد الفريد - حرب داحس والغبراء وهي من حروب قيس",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "monasteries-of-hind",
@@ -3547,7 +4321,14 @@
     "lakhmids",
     "kinda"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Hirah"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Hirah",
+     "title": "Al-Hira",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "sasanian-conquest-yemen",
@@ -3578,7 +4359,14 @@
     "sasanian-yemen",
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Sasanian_Yemen"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Sasanian_Yemen",
+     "title": "Sasanian Yemen",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "satih-prophecy",
@@ -3607,7 +4395,13 @@
     "sasanians",
     "lakhmids"
    ],
-   "source": "https://www.academia.edu/63286164/The_Two_Old_Soothsayers_in_the_Islamic_Historiographical_Tradition"
+   "sources": [
+    {
+     "url": "https://www.academia.edu/63286164/The_Two_Old_Soothsayers_in_the_Islamic_Historiographical_Tradition",
+     "title": "www.academia.edu",
+     "lang": "en"
+    }
+   ]
   },
   {
    "id": "tikhfa-day",
@@ -3631,7 +4425,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://almerja.com/more.php?idm=66589"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66589",
+     "title": "ايام العرب في الجاهلية",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "year-of-elephant",
@@ -3659,7 +4460,14 @@
     "himyar",
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Year_of_the_Elephant"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Year_of_the_Elephant",
+     "title": "Year of the Elephant",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "muhammad-born",
@@ -3688,7 +4496,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "abd-allah-dies",
@@ -3716,7 +4531,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-muraqqab",
@@ -3738,7 +4560,18 @@
    "dispute": "An index entry with no narrative recovered. Undated.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1829",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "18",
+     "title": "ج6 - ص18 - كتاب العقد الفريد - حرب داحس والغبراء وهي من حروب قيس",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "sayf-vassal-king",
@@ -3767,7 +4600,14 @@
     "sasanian-yemen",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Sasanian_Yemen"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Sasanian_Yemen",
+     "title": "Sasanian Yemen",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dam-final-breach",
@@ -3792,7 +4632,14 @@
     "sasanian-yemen",
     "himyar"
    ],
-   "source": "https://en.wikipedia.org/wiki/Marib_Dam"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Marib_Dam",
+     "title": "Marib Dam",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "justin-assassination-plot",
@@ -3820,7 +4667,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Harith"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Harith",
+     "title": "Al-Mundhir III ibn al-Harith",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-dhu-husa",
@@ -3842,7 +4696,18 @@
    "dispute": "An index entry with no narrative recovered. Undated.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1829",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "18",
+     "title": "ج6 - ص18 - كتاب العقد الفريد - حرب داحس والغبراء وهي من حروب قيس",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-yamariyya",
@@ -3864,7 +4729,21 @@
    "dispute": "An index entry with no narrative recovered, and no location given. Undated.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1832",
+     "title": "يوم اليعمرية لعبس على ذبيان",
+     "lang": "ar",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "21",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "ghassanids-sack-hira",
@@ -3891,7 +4770,14 @@
     "ghassanids",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_572%E2%80%93591"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_572%E2%80%93591",
+     "title": "Byzantine–Sasanian War of 572–591",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "rusafa-reconciliation",
@@ -3918,7 +4804,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Harith"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Harith",
+     "title": "Al-Mundhir III ibn al-Harith",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-habaa",
@@ -3947,7 +4840,18 @@
     "qarawash"
    ],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1834"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1834",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "23",
+     "title": "ج6 - ص23 - كتاب العقد الفريد - يوم الهباءة لعبس على ذبيان",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "wahriz-returns",
@@ -3975,7 +4879,14 @@
     "sasanians",
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Sasanian_Yemen"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Sasanian_Yemen",
+     "title": "Sasanian Yemen",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "amina-dies",
@@ -4002,7 +4913,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "abd-al-muttalib-guardianship",
@@ -4030,7 +4948,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hatim-dies",
@@ -4056,7 +4981,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Hatim_al-Tai"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Hatim_al-Tai",
+     "title": "Hatim al-Tai",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "adi-embassy",
@@ -4084,7 +5016,14 @@
     "sasanians",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Adi_ibn_Zayd"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Adi_ibn_Zayd",
+     "title": "Adi ibn Zayd",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-faruq",
@@ -4108,7 +5047,14 @@
    "politiesIds": [
     "kinda"
    ],
-   "source": "https://almerja.com/more.php?idm=66592"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66592",
+     "title": "أيام داحس والغبراء",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "rahrahan",
@@ -4137,7 +5083,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "https://almerja.com/reading.php?idm=66646"
+   "sources": [
+    {
+     "url": "https://almerja.com/reading.php?idm=66646",
+     "title": "يوم الرحرحان",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "al-waqit",
@@ -4159,7 +5112,14 @@
    "dispute": "Undated and unlocated. Fajernet gives the tribes without naming a winner.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://almerja.com/more.php?idm=66589"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66589",
+     "title": "ايام العرب في الجاهلية",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "shib-jabala",
@@ -4189,7 +5149,14 @@
     "kinda",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Battle_of_Shi%27b_Jabala"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Battle_of_Shi%27b_Jabala",
+     "title": "Battle of Shi'b Jabala",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-qatan",
@@ -4211,7 +5178,21 @@
    "dispute": "Index entry only: no narrative, no location, no date.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1836",
+     "title": "يوم قطن",
+     "lang": "ar",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "25",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "dhi-najab",
@@ -4233,7 +5214,14 @@
    "dispute": "Dated only relative to Shiʿb Jabala — one year after, per al-Khāqānī, who gives Jabala as 57 years before Islam. That relative link is firmer than either absolute date.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Battle_of_Shi%27b_Jabala"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Battle_of_Shi%27b_Jabala",
+     "title": "Battle of Shi'b Jabala",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "numan-iii-accession",
@@ -4260,7 +5248,14 @@
     "lakhmids",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir",
+     "title": "Al-Nu'man III ibn al-Mundhir",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "mundhir-ghassanid-exiled",
@@ -4288,7 +5283,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Harith"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Mundhir_III_ibn_al-Harith",
+     "title": "Al-Mundhir III ibn al-Harith",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-ghadir-qalha",
@@ -4310,7 +5312,23 @@
    "dispute": "Index entry only: no narrative, no location, no date.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1836",
+     "title": "يوم قطن",
+     "lang": "ar",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "25",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Yawm Ghadīr Qalhā is told on the same page, after Yawm Quṭn.",
+     "noteAr": "يومُ غدير قَلْهى مرويٌّ في الصفحة نفسها بعد يوم قطن."
+    }
+   ]
   },
   {
    "id": "ghassanid-phylarchate-broken",
@@ -4338,7 +5356,14 @@
     "ghassanids",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Ghassanids"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Ghassanids",
+     "title": "Ghassanids",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-raqam",
@@ -4360,7 +5385,18 @@
    "dispute": "Filed inside the Dāḥis cycle in the indexes but it is not an ʿAbs-against-Dhubyān day at all. Al-Khāqānī has it as Banū Fazāra against Banū ʿĀmir. Another reused name. Undated.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/23789/1829"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/23789/1829",
+     "work": "al-ʿIqd al-farīd",
+     "author": "Ibn ʿAbd Rabbih",
+     "volume": "6",
+     "page": "18",
+     "title": "ج6 - ص18 - كتاب العقد الفريد - حرب داحس والغبراء وهي من حروب قيس",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fijar-trigger",
@@ -4389,7 +5425,14 @@
     "quraysh",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Fijar_Wars"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fijar_Wars",
+     "title": "Fijar Wars",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fijar-nakhla",
@@ -4415,7 +5458,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Fijar_Wars"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fijar_Wars",
+     "title": "Fijar Wars",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-araair",
@@ -4437,7 +5487,14 @@
    "dispute": "One almerja text says that; the mirror of the same text says Fazāra fought ʿAbs here and Fazāra won. The identity of the losing tribe at ʿArāʿir is genuinely contested. Undated.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://almerja.com/more.php?idm=66592"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66592",
+     "title": "أيام داحس والغبراء",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fijar-shamta",
@@ -4461,7 +5518,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Fijar_Wars"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fijar_Wars",
+     "title": "Fijar Wars",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fijar-abla",
@@ -4485,7 +5549,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Fijar_Wars"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fijar_Wars",
+     "title": "Fijar Wars",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fijar-ukaz",
@@ -4509,7 +5580,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Fijar_Wars"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Fijar_Wars",
+     "title": "Fijar Wars",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-dhat-al-jarajir",
@@ -4533,7 +5611,14 @@
     "antara"
    ],
    "politiesIds": [],
-   "source": "https://almerja.com/more.php?idm=66592"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66592",
+     "title": "أيام داحس والغبراء",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "fijar-hurayra",
@@ -4557,7 +5642,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://almerja.com/more.php?idm=66589"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66589",
+     "title": "ايام العرب في الجاهلية",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "numan-shelters-khusraw",
@@ -4587,7 +5679,14 @@
     "sasanians",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir",
+     "title": "Al-Nu'man III ibn al-Mundhir",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "sullan-ii",
@@ -4616,7 +5715,14 @@
    "politiesIds": [
     "lakhmids"
    ],
-   "source": "http://mdmf1439.blogspot.com/2018/09/blog-post_8.html"
+   "sources": [
+    {
+     "url": "http://mdmf1439.blogspot.com/2018/09/blog-post_8.html",
+     "title": "مدونة محمد مفرج السيد الرديني : السلان ( يوم السلان )",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "peace-591",
@@ -4644,7 +5750,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_572%E2%80%93591"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_572%E2%80%93591",
+     "title": "Byzantine–Sasanian War of 572–591",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "numan-converts",
@@ -4671,7 +5784,14 @@
     "lakhmids",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir",
+     "title": "Al-Nu'man III ibn al-Mundhir",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hilf-al-fudul",
@@ -4695,7 +5815,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Quraysh"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Quraysh",
+     "title": "Quraysh",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "muhammad-marries-khadija",
@@ -4722,7 +5849,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "adi-strangled",
@@ -4750,7 +5884,14 @@
     "lakhmids",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Adi_ibn_Zayd"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Adi_ibn_Zayd",
+     "title": "Adi ibn Zayd",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "al-safqa",
@@ -4779,7 +5920,14 @@
    "politiesIds": [
     "sasanians"
    ],
-   "source": "https://almerja.com/more.php?idm=66589"
+   "sources": [
+    {
+     "url": "https://almerja.com/more.php?idm=66589",
+     "title": "ايام العرب في الجاهلية",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dahis-peace",
@@ -4806,7 +5954,32 @@
     "qays-ibn-zuhayr"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Dahis_and_al-Ghabra"
+   "sources": [
+    {
+     "url": "https://ar.wikipedia.org/wiki/الحارث_بن_عوف_المري",
+     "title": "الحارث بن عوف المري",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "people",
+      "narrative"
+     ],
+     "note": "Al-Ḥārith ibn ʿAwf carried the blood-money of the Dāḥis war together with Harim ibn Sinān.",
+     "noteAr": "الحارث بن عوف أحدُ مَن حملوا دياتِ حرب داحس والغبراء مع هرم بن سنان."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/هرم_بن_سنان",
+     "title": "هرم بن سنان",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "people",
+      "narrative"
+     ],
+     "note": "Harim ibn Sinān worked with al-Ḥārith ibn ʿAwf for peace between ʿAbs and Dhubyān and bore the blood-money.",
+     "noteAr": "سعى هرم بن سنان مع الحارث بن عوف في الصلح بين عبس وذبيان، وتحمّلا ديات القتلى."
+    }
+   ]
   },
   {
    "id": "kulab-ii",
@@ -4833,7 +6006,14 @@
    "politiesIds": [
     "sasanians"
    ],
-   "source": "https://www.islamweb.net/ar/library/content/126/183/"
+   "sources": [
+    {
+     "url": "https://www.islamweb.net/ar/library/content/126/183/",
+     "title": "إسلام ويب  - الكامل في التاريخ - ذكر أيام العرب في الجاهلية - يوم الصفقة والكلاب الثاني- الجزء رقم1",
+     "lang": "ar",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "nabigha-returns",
@@ -4861,7 +6041,14 @@
     "lakhmids",
     "ghassanids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Nabigha"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Nabigha",
+     "title": "Al-Nabigha",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "shaqiqa-bistam",
@@ -4885,7 +6072,31 @@
     "bistam"
    ],
    "politiesIds": [],
-   "source": "https://shamela.ws/book/21712/449"
+   "sources": [
+    {
+     "url": "https://ar.wikipedia.org/wiki/يوم_الشقيقة",
+     "title": "يوم الشقيقة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "people"
+     ]
+    },
+    {
+     "url": "https://shamela.ws/book/21712/544",
+     "title": "يوم الشقيقة وقتل بسطام بن قيس",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "548",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "urwa-dies",
@@ -4909,7 +6120,14 @@
     "urwa-ibn-al-ward"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Urwa_ibn_al-Ward"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Urwa_ibn_al-Ward",
+     "title": "Urwa ibn al-Ward",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "numan-deposed",
@@ -4941,7 +6159,14 @@
     "sasanians",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Nu%27man_III_ibn_al-Mundhir",
+     "title": "Al-Nu'man III ibn al-Mundhir",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "quraysh-split-605",
@@ -4965,7 +6190,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Quraysh"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Quraysh",
+     "title": "Quraysh",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "kaba-rebuilt-black-stone",
@@ -4991,7 +6223,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dhi-qar",
@@ -5020,7 +6259,14 @@
     "sasanians",
     "lakhmids"
    ],
-   "source": "https://en.wikipedia.org/wiki/Battle_of_Dhi_Qar"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Battle_of_Dhi_Qar",
+     "title": "Battle of Dhu Qar",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "antara-dies",
@@ -5044,7 +6290,14 @@
     "antara"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Antarah_ibn_Shaddad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Antarah_ibn_Shaddad",
+     "title": "Antarah ibn Shaddad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "quss-dies",
@@ -5068,7 +6321,14 @@
     "quss"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Quss_Ibn_Sa%27ida_al-Iyadi"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Quss_Ibn_Sa%27ida_al-Iyadi",
+     "title": "Quss Ibn Sa'ida al-Iyadi",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "taabbata-dies",
@@ -5092,7 +6352,14 @@
     "taabbata-sharran"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Ta%27abbata_Sharran"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Ta%27abbata_Sharran",
+     "title": "Ta'abbata Sharran",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "revelation-begins",
@@ -5119,7 +6386,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "khansa-muawiya",
@@ -5143,7 +6417,14 @@
     "al-khansa"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Al-Khansa"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Khansa",
+     "title": "Al-Khansa'",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "public-preaching-begins",
@@ -5169,7 +6450,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "jerusalem-falls",
@@ -5196,7 +6484,14 @@
     "sasanians",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628",
+     "title": "Byzantine–Sasanian War of 602–628",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "aksum-migrations",
@@ -5224,7 +6519,14 @@
     "quraysh",
     "aksum"
    ],
-   "source": "https://en.wikipedia.org/wiki/Migration_to_Abyssinia"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Migration_to_Abyssinia",
+     "title": "Migration to Abyssinia",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hashim-boycott",
@@ -5251,7 +6553,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "buath",
@@ -5279,7 +6588,14 @@
    "politiesIds": [
     "yathrib"
    ],
-   "source": "https://en.wikipedia.org/wiki/Yawm_al-Buath"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Yawm_al-Buath",
+     "title": "Yawm al-Buath",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "alexandria-falls",
@@ -5306,7 +6622,14 @@
     "sasanians",
     "byzantines"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628",
+     "title": "Byzantine–Sasanian War of 602–628",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "year-of-sorrow",
@@ -5334,7 +6657,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "musaylima-claims",
@@ -5358,7 +6688,14 @@
     "musaylima"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Al-Yamama"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Yamama",
+     "title": "Al-Yamama",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "aqaba-pledge-first",
@@ -5385,7 +6722,14 @@
     "quraysh",
     "yathrib"
    ],
-   "source": "https://madainproject.com/pledges_of_aqabah"
+   "sources": [
+    {
+     "url": "https://madainproject.com/pledges_of_aqabah",
+     "title": "Pledges of 'Aqabah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hijra",
@@ -5412,7 +6756,14 @@
     "quraysh",
     "yathrib"
    ],
-   "source": "https://en.wikipedia.org/wiki/Hijrah"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Hijrah",
+     "title": "Hijrah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "heraclius-counteroffensive",
@@ -5439,7 +6790,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628",
+     "title": "Byzantine–Sasanian War of 602–628",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "aqaba-pledge-second",
@@ -5466,7 +6824,14 @@
     "quraysh",
     "yathrib"
    ],
-   "source": "https://madainproject.com/pledges_of_aqabah"
+   "sources": [
+    {
+     "url": "https://madainproject.com/pledges_of_aqabah",
+     "title": "Pledges of 'Aqabah",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "ganzaka-624",
@@ -5494,7 +6859,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628",
+     "title": "Byzantine–Sasanian War of 602–628",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "nineveh",
@@ -5522,7 +6894,14 @@
     "byzantines",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Byzantine%E2%80%93Sasanian_War_of_602%E2%80%93628",
+     "title": "Byzantine–Sasanian War of 602–628",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "badhan-ends",
@@ -5549,7 +6928,14 @@
     "sasanian-yemen",
     "sasanians"
    ],
-   "source": "https://en.wikipedia.org/wiki/Sasanian_Yemen"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Sasanian_Yemen",
+     "title": "Sasanian Yemen",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "asha-dies",
@@ -5573,7 +6959,32 @@
     "al-asha"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Mu%27allaqat"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-A'sha",
+     "title": "Al-A'sha",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "date",
+      "narrative"
+     ],
+     "note": "Gives his death as c. 625, at the low end of this entry's 625–630 range, and has him turned back on the road to Muḥammad.",
+     "noteAr": "يجعل وفاته نحو 625، وهو أدنى المدى 625–630 في هذا المدخل، ويذكر أنه رجع وهو في طريقه إلى النبي."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/أعشى_قيس",
+     "title": "أعشى قيس",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "place"
+     ],
+     "note": "Lived into Islam without converting; born and died at Manfūḥa in al-Yamāma.",
+     "noteAr": "أدرك الإسلام ولم يُسلم، ومولده ووفاته في منفوحة باليمامة."
+    }
+   ]
   },
   {
    "id": "khansa-converts",
@@ -5600,7 +7011,14 @@
    "politiesIds": [
     "yathrib"
    ],
-   "source": "https://en.wikipedia.org/wiki/Al-Khansa"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Khansa",
+     "title": "Al-Khansa'",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "allat-shrine-demolished",
@@ -5624,7 +7042,14 @@
     "muhammad"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Al-Lat"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Lat",
+     "title": "Al-Lat",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "durayd-dies",
@@ -5651,7 +7076,14 @@
    "politiesIds": [
     "quraysh"
    ],
-   "source": "https://en.wikipedia.org/wiki/Durayd_ibn_al-Simma"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Durayd_ibn_al-Simma",
+     "title": "Durayd ibn al-Simma",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "wadd-demolished",
@@ -5675,7 +7107,14 @@
     "muhammad"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Dumat_al-Jandal"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dumat_al-Jandal",
+     "title": "Dumat al-Jandal",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "dhu-al-khalasa-demolished",
@@ -5699,7 +7138,14 @@
     "muhammad"
    ],
    "politiesIds": [],
-   "source": "https://en.wikipedia.org/wiki/Dhu_al-Khalasa"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Dhu_al-Khalasa",
+     "title": "Dhu'l-Khalasa",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "muhammad-dies",
@@ -5726,7 +7172,14 @@
     "quraysh",
     "yathrib"
    ],
-   "source": "https://en.wikipedia.org/wiki/Muhammad"
+   "sources": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Muhammad",
+     "title": "Muhammad",
+     "lang": "en",
+     "accessed": "2026-10-19"
+    }
+   ]
   },
   {
    "id": "hira-surrenders",
@@ -5751,7 +7204,13 @@
     "lakhmids",
     "sasanians"
    ],
-   "source": "https://www.iranicaonline.org/articles/hira"
+   "sources": [
+    {
+     "url": "https://www.iranicaonline.org/articles/hira",
+     "title": "Ḥīra — Encyclopaedia Iranica",
+     "lang": "en"
+    }
+   ]
   },
   {
    "id": "basus-hanw",
@@ -5775,7 +7234,32 @@
     "al-harith-ibn-ubad"
    ],
    "politiesIds": [],
-   "source": "https://www.marefa.org/حرب_البسوس"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/21712/480",
+     "title": "ذكر مقتل كليب والأيام بين بكر وتغلب",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "484",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "In his summary list of the five great days al-Ḥanw is the third, won by Bakr over Taghlib.",
+     "noteAr": "في تعداده المُجمَل للأيام الخمسة الكبرى الحِنْوُ ثالثُها، وكان لبكر على تغلب."
+    },
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "basus-naqiyya",
@@ -5799,7 +7283,32 @@
     "al-harith-ibn-ubad"
    ],
    "politiesIds": [],
-   "source": "https://www.marefa.org/حرب_البسوس"
+   "sources": [
+    {
+     "url": "https://shamela.ws/book/21712/480",
+     "title": "ذكر مقتل كليب والأيام بين بكر وتغلب",
+     "lang": "ar",
+     "work": "al-Kāmil fī al-taʾrīkh",
+     "author": "Ibn al-Athīr, ed. ʿUmar ʿAbd al-Salām Tadmurī",
+     "volume": "1",
+     "page": "484",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Names al-Naqiyya among the lesser days after al-Taḥāluq, won by Bakr over Taghlib.",
+     "noteAr": "يذكر النَّقِيّة في الأيام التي دون الخمسة بعد التحالق، وكانت لبكر على تغلب."
+    },
+    {
+     "url": "https://mail.almerja.com/more.php?idm=66635",
+     "title": "مقتل كليب والأيام بين بكر وتغلب (حرب البسوس)",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ]
+    }
+   ]
   },
   {
    "id": "hira-palmyrene-garrison",
@@ -5821,7 +7330,30 @@
    "dispute": "Outside the file's 300–640 window, so it is reachable by search rather than by the year slider. The English reconstruction does not mention this date at all and starts al-Ḥīra's history in the late 4th century, where Encyclopaedia Iranica puts the arrival of the Lakhm shaykhs; the Arabic sources supply 132 as the oldest documented reference. Nothing connects the garrison to the later Arab city except the place.",
    "peopleIds": [],
    "politiesIds": [],
-   "source": "https://www.marefa.org/الحيرة"
+   "sources": [
+    {
+     "url": "https://ar.wikipedia.org/wiki/الحيرة",
+     "title": "الحيرة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "place"
+     ],
+     "note": "Gives the oldest mention of al-Ḥīra as a text of the Palmyrene era dated 32 CE — not 132 — and says nothing of troops stationed there. The event's year and its garrison claim are not carried by any source found in the 2026-10-19 audit.",
+     "noteAr": "تجعل أقدمَ ذكرٍ للحيرة نصًّا من زمن مملكة تدمر مؤرَّخًا بعام 32م — لا 132 — ولا تذكر قوّاتٍ مُرابطة فيها. فسنةُ الحدث وخبرُ الحامية لم يحملهما أيُّ مصدرٍ وُجد في مراجعة 19 أكتوبر 2026."
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Al-Hira",
+     "title": "Al-Hira",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "place"
+     ],
+     "note": "Same as the Arabic article: \"a Roman source dated to 32 CE mentions a settlement that may correspond to Al-Hira\"; no garrison.",
+     "noteAr": "كالمقالة العربية: مصدرٌ رومانيٌّ مؤرَّخ بعام 32م يذكر مستوطَنةً قد تكون الحيرة؛ ولا ذكرَ لحامية."
+    }
+   ]
   }
  ],
  "people": [
@@ -5867,7 +7399,8 @@
      "placeId": "ankara",
      "what": "Falls ill on the road home and dies"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "tarafa",
@@ -5891,7 +7424,8 @@
      "placeId": "hajar-bahrayn",
      "what": "Delivers his own death warrant unopened and is executed"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-mutalammis",
@@ -5910,7 +7444,8 @@
      "placeId": "hira",
      "what": "Has his death warrant read aloud and destroys it"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "amr-ibn-kulthum",
@@ -5929,7 +7464,8 @@
      "placeId": "hira",
      "what": "Kills ʿAmr ibn Hind at his own table and rides out"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-harith-ibn-hilliza",
@@ -5948,7 +7484,8 @@
      "placeId": "hira",
      "what": "Delivers his ode before ʿAmr ibn Hind"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "zuhayr",
@@ -5961,7 +7498,8 @@
    "lifeNote": "Contradictory inside a single Arabic page: born c. 520 in Najd and died c. 608 in one place, born c. 530 and died between 611 and 627 a few lines further on. Nöldeke gives only 'productive at the end of the 6th century'. The tribe is settled in the Arabic sources — Muzayna, with Murra of the Ḥijāz on his father's mother's side — and he was raised among Ghaṭafān in the house of his maternal uncle Bashāma ibn al-Ghadīr.",
    "tribe": "Muzayna",
    "blurb": "The moralist of the Muʿallaqāt, whose closing gnomic lines are the most quoted wisdom verse of the age. His ode was composed after the Dāḥis war ran itself out, and it praises Harim ibn Sinān and al-Ḥārith ibn ʿAwf by name for paying the blood-money of both sides — about three thousand camels — out of their own property. Harim swore to give him something every time he greeted him, until the poet grew ashamed of what he was taking and would wish a gathering good morning man by man, leaving Harim out. His son Kaʿb later praised Muḥammad. Beware the name-collision with Qays ibn Zuhayr, a different man entirely.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "antara",
@@ -5990,7 +7528,8 @@
      "placeId": "hail",
      "what": "Dies at Ḥāʾil, by the account that lets him reach old age"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "labid",
@@ -6014,7 +7553,8 @@
      "placeId": "yathrib",
      "what": "Comes to Medina and accepts Islam"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-nabigha",
@@ -6043,7 +7583,8 @@
      "placeId": "hira",
      "what": "Returns to al-Ḥīra"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-asha",
@@ -6056,7 +7597,8 @@
    "lifeNote": "Only 'died not long before 630' is sourced. His name and tribe, conventionally Maymūn ibn Qays of Bakr, could not be confirmed.",
    "tribe": "Bakr",
    "blurb": "He credited a jinnī named Misḥal with his poetry, sang the day of Dhū Qār under another name, and ended up composing a poem in honour of Muḥammad. Sometimes added to the Muʿallaqāt.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-khansa",
@@ -6080,7 +7622,8 @@
      "placeId": "yathrib",
      "what": "Comes to Medina with her clan's deputation and converts"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-muhalhil",
@@ -6124,7 +7667,8 @@
      "placeId": "hajar-bahrayn",
      "what": "Dies of thirst in captivity near Hajar"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "adi-ibn-zayd",
@@ -6158,7 +7702,8 @@
      "placeId": "hira",
      "what": "Imprisoned and strangled"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-shanfara",
@@ -6171,7 +7716,8 @@
    "lifeNote": "No dates whatsoever in the accessible sources; mid-to-late 6th century is a handbook convention nobody could cite, and the c. 525 death figure circulates without apparatus. His tribe, conventionally Azd or Banū Salāmān, is likewise unsourced.",
    "tribe": "Azd",
    "blurb": "An outlaw poet of Taʾabbaṭa Sharran's band, famous as a runner. He had vowed a hundred Azdī dead and got to ninety-nine; an Azdī who later kicked his skull took a splinter and died of it, which the tradition counts as the hundredth. The Lāmiyyat al-ʿArab that made him famous has been credited since medieval times to a known 8th-century forger.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "taabbata-sharran",
@@ -6195,7 +7741,8 @@
      "placeId": "sarawat",
      "what": "Killed raiding Banū Hudhayl; his body thrown into the cave of al-Rakhmān"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "urwa-ibn-al-ward",
@@ -6208,7 +7755,8 @@
    "lifeNote": "520–600 is given with nothing behind either figure.",
    "tribe": "ʿAbs",
    "blurb": "The outlaw who stole to feed the poor and was called the most generous of the ancient Arabs. Some of his verse is about the wife he divorced while drunk and could not get back when sober.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-samawal",
@@ -6237,7 +7785,8 @@
      "placeId": "tayma",
      "what": "Dies at Taymāʾ"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "imru-al-qays-namara",
@@ -6256,7 +7805,8 @@
      "placeId": "namara",
      "what": "Buried under the inscription that fixes the century"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-mundhir-iii-lakhmid",
@@ -6290,7 +7840,8 @@
      "placeId": "chalcis",
      "what": "Falls at Yawm Ḥalīma"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "amr-ibn-hind",
@@ -6319,7 +7870,8 @@
      "placeId": "hira",
      "what": "Killed at dinner"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-mundhir-iv",
@@ -6332,7 +7884,8 @@
    "lifeNote": "Reign given as 574 or 575 to 580 in the conventional table, which is a late reconstruction and unverifiable.",
    "tribe": "Lakhm",
    "blurb": "A short-reigning Lakhmid who matters mainly because his name appears among the leaders at Shiʿb Jabala — which is the one detail that makes Caskel's c. 580 date for that battle work and all the others fail.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-numan-iii",
@@ -6366,7 +7919,8 @@
      "placeId": "khanaqin",
      "what": "Imprisoned at Khānaqīn, where he dies of plague"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "iyas-ibn-qabisa",
@@ -6390,7 +7944,8 @@
      "placeId": "dhi-qar",
      "what": "On the Sasanian side when Bakr ibn Wāʾil wins"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "jabalah-iv",
@@ -6414,7 +7969,8 @@
      "placeId": "thannuris",
      "what": "Killed at Thannuris"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-harith-ibn-jabala",
@@ -6458,7 +8014,8 @@
      "placeId": "al-jabiya",
      "what": "Dies, reportedly during an earthquake"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-mundhir-ghassanid",
@@ -6492,7 +8049,8 @@
      "placeId": "constantinople",
      "what": "Arrested, then exiled to Sicily"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-numan-vi",
@@ -6511,7 +8069,8 @@
      "placeId": "constantinople",
      "what": "Arrested and tried for treason"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "hujr-akil-al-murar",
@@ -6524,7 +8083,8 @@
    "lifeNote": "The English sources state that no regnal dates exist for him at all and place him in the early-to-mid 5th century only by inference from his Ḥimyarite sponsor's reign. The Arabic sources give dates: installed in 425 by Ḥasan ibn ʿAmr ibn Tubbāʿ, king of Ḥimyar, and reigning 425–458. The 458 here is the end of that reign and is used as the death year; nothing independent confirms it, and he is also said simply to have reigned long and died of old age at Baṭn ʿAqīl.",
    "tribe": "Kinda",
    "blurb": "'Eater of bitter herbs', set over the Maʿadd tribes in 425 by a Ḥimyarite king. Kinda's kingship begins with him, as a southern crown's delegated instrument for governing nomads, and the Arabic sources run his reign to 458.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "amr-al-maqsur",
@@ -6537,7 +8097,8 @@
    "lifeNote": "The English sources have nothing but 'probably killed in battle against the Rabīʿa in the late 5th century'. The Arabic sources give the reign as 458–489, which is where the 489 death year comes from. They also spell the epithet al-Manṣūr, not al-Maqṣūr — a disagreement about the pointing of the name itself, not about the man.",
    "tribe": "Kinda",
    "blurb": "Ḥujr's successor in Najd, reigning 458–489 by the Arabic reckoning, rejected by the Rabīʿa tribes and probably killed fighting them. The Arabic sources write his epithet al-Manṣūr where the English ones write al-Maqṣūr.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-harith-ibn-amr",
@@ -6550,7 +8111,8 @@
    "lifeNote": "The 502 federate treaty and his existence are externally attested; the manner of his death is contested. The Arabic sources add a reign — 489–528 — and a foundation date of 425 for the kingdom he inherited, where the English ones say no regnal dates were found.",
    "tribe": "Kinda",
    "blurb": "The best-known Kindite king and the first to appear in Byzantine sources, holding a Ḥimyarite mandate, a Byzantine federate treaty and a phylarchate in Palestine at once. He converted to Mazdakism under one Persian king and lost al-Ḥīra when the next one restored the Lakhmids. Killed in the Syrian Desert — by the Lakhmid al-Mundhir III or by the Banū Kalb, depending which source you take. His four sons divided his command and ruined it.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "hujr-ibn-al-harith",
@@ -6563,7 +8125,8 @@
    "lifeNote": "Dated purely by inference from the collapse of Kinda's Ḥimyarite sponsor in 525.",
    "tribe": "Kinda",
    "blurb": "Imruʾ al-Qays's father, set as Kindite regent over the Asad and Ghaṭafān and killed when the Asad revolted. Everything in the most famous biography in Arabic poetry starts from his death.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "shurahbil",
@@ -6582,7 +8145,8 @@
      "placeId": "al-kulab",
      "what": "Defeated and killed at Yawm al-Kulāb I"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "salama-ibn-al-harith",
@@ -6595,7 +8159,8 @@
    "lifeNote": "Undated.",
    "tribe": "Kinda",
    "blurb": "Shuraḥbīl's brother and the winner at al-Kulāb, who then showed remorse over the head delivered to him. Taghlib expelled him afterwards and he took refuge with Bakr ibn Wāʾil.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "shammar-yuharish",
@@ -6608,7 +8173,8 @@
    "lifeNote": "Conventionally 275–300 from the inscriptional ruler list; the boundaries are soft.",
    "tribe": "Ḥimyar",
    "blurb": "The king who finished unifying South Arabia under Ḥimyar and gave the dynasty its long title.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "malkikarib",
@@ -6621,7 +8187,8 @@
    "lifeNote": "c. 375–400 from the ruler list.",
    "tribe": "Ḥimyar",
    "blurb": "The king under whom Judaism became Ḥimyar's de facto state religion, though legend gives the credit to his son.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abu-karib-asad",
@@ -6634,7 +8201,8 @@
    "lifeNote": "c. 390–440 in the ruler list; the figures are reconstructions from inscriptions and not sharp.",
    "tribe": "Ḥimyar",
    "blurb": "Credited by legend as Ḥimyar's first Jewish convert, and attested campaigning into central Arabia and installing Ḥujr over the Maʿadd — the act that creates the kingdom of Kinda.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "sharahbiil-yafur",
@@ -6653,7 +8221,8 @@
      "placeId": "marib-dam",
      "what": "Rebuilds the dam"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "dhu-nuwas",
@@ -6677,7 +8246,8 @@
      "placeId": "sanaa",
      "what": "Killed as the Aksumites take the country"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-harith-najran",
@@ -6690,7 +8260,8 @@
    "lifeNote": "The killing is dated 523, in November by one reckoning, and is the best-documented event in all of pre-Islamic Arabia.",
    "tribe": "Banū al-Ḥārith",
    "blurb": "Greek Arethas. The leader of Najrān's Christians, killed with some three hundred and forty followers. A Syriac letter written within months, a Syriac book, a hagiography and three Sabaic inscriptions all bear on his death — and the inscriptions, the only contemporary ones, are political texts that barely mention religion.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "kaleb",
@@ -6703,7 +8274,8 @@
    "lifeNote": "His reign is not fixed in the accessible sources; the invasion he ordered is spread 525–543.",
    "tribe": "Aksum",
    "blurb": "The Christian king of Aksum who sent an army across the Red Sea after the Najrān killings, deposed the Ḥimyarite king and installed a viceroy — and then lost control of his own occupation when one army defected to Abraha and a second was beaten.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abraha",
@@ -6737,7 +8309,8 @@
      "placeId": "sanaa",
      "what": "Last dated text of his reign — the record goes dark"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "masruq",
@@ -6750,7 +8323,8 @@
    "lifeNote": "571–572 in the ruler list, in a window so tight it strains against the 570 Persian conquest.",
    "tribe": "Aksum",
    "blurb": "Abraha's son by a Ḥimyarite noblewoman, and Sayf ibn Dhī Yazan's half-brother. He was killed in battle when the Persians came, and Ethiopian rule in Yemen ended with him.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "sayf-ibn-dhi-yazan",
@@ -6789,7 +8363,8 @@
      "placeId": "sanaa",
      "what": "Stabbed to death by a servant"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "wahriz",
@@ -6813,7 +8388,8 @@
      "placeId": "sanaa",
      "what": "Returns with four thousand men and governs"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "badhan",
@@ -6826,7 +8402,8 @@
    "lifeNote": "Served until 628.",
    "tribe": "Persian",
    "blurb": "The last Sasanian governor of Yemen, unrelated to Wahrīz's family, in post as the empire that appointed him fell apart.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "khusraw-i",
@@ -6839,7 +8416,8 @@
    "lifeNote": "Reign 531–579, externally fixed.",
    "tribe": "Sasanian",
    "blurb": "He took the throne and immediately bought peace for eleven thousand pounds of Byzantine gold, took Dara after a four-month siege, invaded Anatolia and was beaten near Melitene, sent an army to take Yemen off the Ethiopians, and died with a peace half-negotiated. He reportedly barred future Persian kings from leading armies in person except against another monarch.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "khusraw-ii",
@@ -6873,7 +8451,8 @@
      "placeId": "ctesiphon",
      "what": "Overthrown and killed"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "justinian",
@@ -6886,7 +8465,8 @@
    "lifeNote": "Reign 527–565, externally fixed.",
    "tribe": "Byzantine",
    "blurb": "The emperor who made one Arab king answer for the whole eastern frontier, paid for a Perpetual Peace that lasted eight years, and — in the story Arabs told afterwards — received a dispossessed poet-prince and sent him home with a poisoned robe.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "theodora",
@@ -6899,7 +8479,8 @@
    "lifeNote": "Died 548.",
    "tribe": "Byzantine",
    "blurb": "The empress an Arab Miaphysite king petitioned in 542, and who answered by appointing the bishop who went on to build what became the Syriac Orthodox church.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "jacob-baradaeus",
@@ -6912,7 +8493,8 @@
    "lifeNote": "Appointed 542.",
    "tribe": "Syriac",
    "blurb": "Appointed bishop at a Ghassanid king's request, and the man who turned Miaphysite Syria into a church with its own hierarchy. The most consequential thing any Arab client ever caused.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "justin-ii",
@@ -6925,7 +8507,8 @@
    "lifeNote": "Reign 565–578.",
    "tribe": "Byzantine",
    "blurb": "He stopped paying Persia tribute, started a twenty-year war, and ordered his own best Arab ally assassinated.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "maurice",
@@ -6938,7 +8521,8 @@
    "lifeNote": "Reign 582–602, murdered.",
    "tribe": "Byzantine",
    "blurb": "He exiled one Arab client king to Sicily, broke up the other's confederation, restored a Persian king to his throne — and was murdered by Phocas in 602, which gave that same Persian king his pretext for the final war.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "phocas",
@@ -6951,7 +8535,8 @@
    "lifeNote": "Reign 602–610.",
    "tribe": "Byzantine",
    "blurb": "A usurper whose murder of his predecessor handed Khusraw II a casus belli, in the same year Khusraw destroyed the Lakhmids.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "heraclius",
@@ -6980,7 +8565,8 @@
      "placeId": "ctesiphon",
      "what": "Breaks the Persian army at Nineveh"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "hind-bint-al-harith",
@@ -6993,7 +8579,8 @@
    "lifeNote": "Undated. The Lakhmid women called Hind are repeatedly conflated in the tradition, and the sources call one of them both daughter and granddaughter of al-Nuʿmān.",
    "tribe": "Kinda",
    "blurb": "A Kindite princess married to the Lakhmid al-Mundhir III and mother of ʿAmr ibn Hind. She converted to Christianity and founded a monastery in the capital; her husband never converted.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "kulayb",
@@ -7006,7 +8593,8 @@
    "lifeNote": "The 494 death comes from one modern Arabic compilation and nothing else. The whole war it starts is now read as a composite of separate raid-stories.",
    "tribe": "Taghlib",
    "blurb": "Really named Wāʾil, and called 'little dog' because he staked a puppy at the pastures he reserved for himself and killed anything that came near. He enforced his pasture and water so violently that other tribes came to loathe him. He shot a she-camel that had strayed among his brother-in-law's herd and was speared for it, and forty years of war followed.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "jassas",
@@ -7019,7 +8607,8 @@
    "lifeNote": "Undated.",
    "tribe": "Shaybān of Bakr",
    "blurb": "He speared Kulayb over a camel and his father refused to hand him over, which is the formal start of the war. He raised Kulayb's son himself, and the boy killed him when he found out who his father's killer was.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-basus",
@@ -7032,7 +8621,8 @@
    "lifeNote": "Her name and lineage — al-Basūs bint Munqidh al-Tamīmiyya — appear in Ibn al-Athīr; another account gives her no lineage and only calls her a woman related to Jassās.",
    "tribe": "Tamīm",
    "blurb": "The woman whose lament for a killed she-camel went round the camps and made a man kill his brother-in-law. Whether the camel was hers or a guest's, and whether it had a name, depends entirely which source you read.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "jalila",
@@ -7045,7 +8635,8 @@
    "lifeNote": "Undated, and absent from several of the sources that cover the war.",
    "tribe": "Shaybān of Bakr",
    "blurb": "Jassās's sister and Kulayb's wife, caught exactly between brother and husband. She had been boasting about her two brothers, which is given as part of why Kulayb was already angry. At the funeral Kulayb's sister reviled her in front of everyone. She went back to her father's house, and the son she bore Kulayb grew up to kill her brother.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "hammam",
@@ -7058,7 +8649,8 @@
    "lifeNote": "Undated, and the sources place his death at three different days — Wāridāt, al-Quṣaybāt or Quḍa.",
    "tribe": "Shaybān of Bakr",
    "blurb": "Jassās's brother, and al-Muhalhil's drinking companion before the war — he was the man who carried the news of Kulayb's death to Kulayb's brother. He was killed by a Taghlibī he had fostered himself, and al-Muhalhil composed an elegy over his body.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-harith-ibn-ubad",
@@ -7077,7 +8669,8 @@
      "placeId": "quda",
      "what": "Leads Bakr at the shaving of the forelocks and captures al-Muhalhil"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "bujayr",
@@ -7090,7 +8683,8 @@
    "lifeNote": "Undated. Ibn al-Athīr makes him al-Ḥārith's son, al-Maʿrifa his nephew; one version has him carrying a peace letter, the other an announcement of withdrawal.",
    "tribe": "Bakr",
    "blurb": "The young man sent to the enemy's war-leader, and killed by him. Both versions of the Basūs war turn on his death: Taghlib win every day before it and lose every day after.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "qays-ibn-zuhayr",
@@ -7124,7 +8718,8 @@
      "placeId": "oman",
      "what": "By one account, a hermit in Oman, killed there"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "hudhayfa",
@@ -7153,7 +8748,8 @@
      "placeId": "al-habaa",
      "what": "Run down at the well and killed"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "hamal",
@@ -7166,7 +8762,8 @@
    "lifeNote": "Undated.",
    "tribe": "Dhubyān / Fazāra",
    "blurb": "Ḥudhayfa's brother, who in one version is the man who hid the ambushers along the race course. At al-Habāʾa he asked his men whom they would least like to see coming, they named two, and those two came. He begged by God and by kinship and was refused.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-rabi-ibn-ziyad",
@@ -7179,7 +8776,8 @@
    "lifeNote": "Undated.",
    "tribe": "ʿAbs",
    "blurb": "An ʿAbsī who paid a hundred camels of blood-money out of his own property early in the war, took Ḥudhayfa prisoner once, and was one of the two men Ḥamal least wanted to see at the well.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "shaddad",
@@ -7192,7 +8790,8 @@
    "lifeNote": "Undated.",
    "tribe": "ʿAbs",
    "blurb": "ʿAntara's father, and the named ʿAbsī cavalryman at al-Habāʾa, riding a mare called Jarwa that he praised in verse. He blocked Dhubyān from reaching their horses, which decided the day.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "qarawash",
@@ -7205,7 +8804,8 @@
    "lifeNote": "Undated.",
    "tribe": "ʿAbs",
    "blurb": "The man who struck with a broad-bladed spear at al-Habāʾa and broke Ḥudhayfa's spine.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-harith-ibn-awf",
@@ -7218,7 +8818,8 @@
    "lifeNote": "Undated. The English-language peace accounts credit him alone, but the Arabic sources put his cousin Harim ibn Sinān in the mediation beside him and make the two of them jointly responsible for the blood-money — about three thousand camels over three years — and jointly praised in Zuhayr's Muʿallaqa. Harim's father Sinān ibn Abī Ḥāritha appears on the opposite side of the matter, as the failed coalition-builder.",
    "tribe": "Murra",
    "blurb": "The Murrī who cooled the war down, and one of the two men who paid for its end. With his cousin Harim ibn Sinān he covered the blood-price of the dead on both sides out of their own herds and stopped forty years of killing between ʿAbs and Dhubyān. Zuhayr's Muʿallaqa names them both — the connection the English sources could not make and the Arabic ones state outright.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "laqit",
@@ -7237,7 +8838,8 @@
      "placeId": "shib-jabala",
      "what": "Leads the coalition into the pass and is killed"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "zurara",
@@ -7250,7 +8852,8 @@
    "lifeNote": "Undated; he is said to have died in the same days as Raḥraḥān.",
    "tribe": "Tamīm",
    "blurb": "Chief of Banū Dārim, warned by a woman who had seen the armies and could tell him who the commanders were — the one warning in the whole corpus that was actually heeded. He got his family and herds away, but his son Maʿbad was taken and died in captivity.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "mabad",
@@ -7263,7 +8866,8 @@
    "lifeNote": "Undated.",
    "tribe": "Tamīm",
    "blurb": "Captured by Banū ʿĀmir at Raḥraḥān and kept until he died of it. The captive son dying in enemy hands is the day's whole dramatic residue and the reason for everything that follows.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-ahwas",
@@ -7276,7 +8880,8 @@
    "lifeNote": "Undated.",
    "tribe": "Banū ʿĀmir",
    "blurb": "Brother of the chief whose killing set the Najd chain in motion, and the man who led the final cavalry charge at Shiʿb Jabala.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abu-bara",
@@ -7289,7 +8894,8 @@
    "lifeNote": "Undated.",
    "tribe": "Banū ʿĀmir",
    "blurb": "Called Mulāʿib al-Asinna, the player with spear-points. He led the ʿĀmir and Hawāzin side in the Fijār, and at al-Sullān he knocked an old man down again and again and then asked him to point out someone worth ransoming — and got pointed at a thin black man he took for a slave, who turned out to be worth four hundred camels.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "dirar",
@@ -7302,7 +8908,8 @@
    "lifeNote": "Undated.",
    "tribe": "Ḍabba",
    "blurb": "An old man who forbade his own men to flee at al-Sullān and held the command with his sons standing over him. And then had the presence of mind, flat on his back, to send his attacker after the richest prisoner on the field disguised as a slave.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "wabra",
@@ -7315,7 +8922,8 @@
    "lifeNote": "Undated.",
    "tribe": "Kalb",
    "blurb": "Al-Nuʿmān's half-brother and the commander of his army at al-Sullān, captured in his own charge and ransomed for a thousand camels and a horse, which made his captor rich.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "hanzala",
@@ -7328,7 +8936,8 @@
    "lifeNote": "Undated.",
    "tribe": "Bakr ibn Wāʾil",
    "blurb": "One of the Bakrī leaders at Dhū Qār — in a battle where, Landau-Tasseron notes, the leadership shifted from warrior to warrior with no commander-in-chief at all.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "bistam",
@@ -7341,7 +8950,8 @@
    "lifeNote": "Undated; known from a chapter heading with no narrative recovered.",
    "tribe": "Shaybān of Bakr",
    "blurb": "A famous raider whose death gave a fighting day its name.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "hatim-al-tai",
@@ -7354,7 +8964,8 @@
    "lifeNote": "The 578 death comes from Kitāb al-Aghānī alone; another tradition puts it in the year of Muḥammad's birth. No birth date exists anywhere.",
    "tribe": "Ṭayyiʾ",
    "blurb": "A chief of Ṭayyiʾ who is said to have given away everything but his mount and his weapons, associated with the Lakhmid court, and still invoked by name in a living proverb. The riddle-quest romances built on him in Persian and Urdu are centuries later.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-barrad",
@@ -7367,7 +8978,8 @@
    "lifeNote": "Undated except through the Fijār's own loose window.",
    "tribe": "Kināna",
    "blurb": "A man his own tribe had expelled, who killed a Banū ʿĀmir notable during a sacred month and seized a king's caravan. The sacrilege that gave the Fijār wars their name.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "urwa-al-rahhal",
@@ -7380,7 +8992,8 @@
    "lifeNote": "Undated.",
    "tribe": "Banū ʿĀmir",
    "blurb": "Killed in a sacred month while escorting the Lakhmid king's caravan, which set four years of fighting going at the fairground.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "qays-ibn-asim",
@@ -7393,7 +9006,8 @@
    "lifeNote": "Undated.",
    "tribe": "Madhḥij",
    "blurb": "Led the Madhḥij side at al-Kulāb II, in a fight his people's elders had advised against and the other side had been pushed into by a soothsayer.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "hudayr",
@@ -7412,7 +9026,8 @@
      "placeId": "buath",
      "what": "Rallies the Aws and wins the day"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "amr-ibn-al-numan",
@@ -7425,7 +9040,8 @@
    "lifeNote": "Dated only by Buʿāth.",
    "tribe": "Khazraj",
    "blurb": "The Khazraj chief who took hostages from the Jewish tribes of the oasis and killed them when they would not hand over property — and so drove those tribes into the other side's camp. He was killed in the fighting that followed.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "ibn-ubayy",
@@ -7438,7 +9054,8 @@
    "lifeNote": "Chosen as peace-keeper after Buʿāth, c. 617; lost influence after 622.",
    "tribe": "Khazraj",
    "blurb": "Chosen by both exhausted tribes to keep the peace at Yathrib after Buʿāth. The consensus leader of a post-civil-war oasis — and the vacancy his weakness left is the one Muḥammad walked into in 622.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "qusayy",
@@ -7451,7 +9068,8 @@
    "lifeNote": "The sharpest chronological contradiction in the whole record: Hawting says his children must have lived in the second half of the fifth century, Watt says Qusayy himself probably died in the second half of the sixth. A hundred years apart, unresolved.",
    "tribe": "Quraysh",
    "blurb": "The man who pulled the scattered descendants of Fihr together, took the Meccan sanctuary and set up the clan offices everything after him runs on. The name Quraysh may come from him.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "durayd",
@@ -7464,7 +9082,8 @@
    "lifeNote": "Died January 630. His birth is given only as the 6th century.",
    "tribe": "Hawāzin",
    "blurb": "Chief of Banū Jusham, who fought in about a hundred battles and, one authority says, lost none. He stayed a pagan into extreme old age and was carried to his last battle in a litter. Called the first poet of the knights.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "musaylima",
@@ -7477,7 +9096,8 @@
    "lifeNote": "His claim is placed before the Hijra, c. 622; nothing else is fixed.",
    "tribe": "Banū Ḥanīfa",
    "blurb": "A soothsayer of the settled farming Yamāma who declared himself a prophet in his own village before the Hijra. Central Arabia produced its own claimants.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "quss",
@@ -7496,7 +9116,8 @@
      "placeId": "ukaz",
      "what": "Preaching at the fair"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "zarqa-al-yamama",
@@ -7509,7 +9130,8 @@
    "lifeNote": "Entirely legendary, and her story's sourcing is weak — a comparative-literature book and a newspaper feature. Her sight-range is given as a week, not the three days usually repeated.",
    "tribe": "Jadīs",
    "blurb": "The blue-eyed woman who could see riders a week away. The enemy came hidden behind trees they carried, and she said the trees were moving, and her people decided she had gone mad. After they killed the men of the camp the invaders tore out her eyes and crucified her. The most persistent shape in the whole corpus is the woman who warns and is not believed.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "satih",
@@ -7528,7 +9150,8 @@
      "placeId": "hira",
      "what": "A Christian of al-Ḥīra is sent to find him with the Persian king's question"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "shiqq",
@@ -7541,7 +9164,8 @@
    "lifeNote": "Same verdict as for Saṭīḥ: an ʿAbbāsid construction, not a remembered figure. The popular version giving him a jinn mother is not supported by the one specialist source available.",
    "tribe": null,
    "blurb": "A seer with half a face, half a head and half a body — his name means 'half'. The seer and the half-being are the same image across this whole corpus: the one who sees the unseen is himself not quite a whole man.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "bilqis",
@@ -7554,7 +9178,8 @@
    "lifeNote": "The Qurʾān never names her; the name and the jinn parentage are both exegetical, from al-Ṭabarī, al-Zamakhsharī and al-Bayḍāwī. No inscription names any such queen, and the Awwām temple folk-named after her was excavated with nothing linking it to her.",
    "tribe": null,
    "blurb": "The queen of Sabaʾ, unnamed in scripture, who sent gifts that were refused, came to Solomon's palace and lifted her clothes crossing a floor she took for water. The hairy legs that explain the glass floor are a folk elaboration on an exegetical elaboration — two steps out from a text that says only that she bared her shins.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "halima",
@@ -7567,7 +9192,8 @@
    "lifeNote": "Undated. The Arabic sources are more precise than the English ones about who she was: a daughter of al-Ḥārith the Ghassanid king himself, and the day is named after her. The proverb usually attached to her — that Ḥalīma's day is no secret — appears in al-Khāqānī's list.",
    "tribe": "Ghassān",
    "blurb": "Daughter of al-Ḥārith ibn Jabala, the Ghassanid king, and not merely a princess who helped her tribe's fighters: the Arabic sources make her the king's own daughter and say the day carries her name because of her. The best-dated battle in the whole Arabic corpus is called after her.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abu-karib-son",
@@ -7580,7 +9206,8 @@
    "lifeNote": "Undated.",
    "tribe": "Ghassān",
    "blurb": "Al-Ḥārith's son, who came out for the single combat at ʿAyn Ubāgh and killed the man sent against him — and only then found out it had not been the enemy king's son at all, but a champion in his clothes.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abu-amr",
@@ -7593,7 +9220,8 @@
    "lifeNote": "An 8th-century Basran philologist, well outside the period, included because of what he said about it.",
    "tribe": null,
    "blurb": "He sat in a Friday circle at Baṣra while men argued over who had led the Arabs at Khazāz, and ruled against all three candidates on the grounds that the day was older than any of them — adding that he had been asking the question for sixty years and had never found anybody who knew. The most honest sentence in the entire corpus.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "muhammad",
@@ -7632,7 +9260,8 @@
      "placeId": "yathrib",
      "what": "Dies at Medina"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "khadija",
@@ -7645,7 +9274,8 @@
    "lifeNote": "No birth date exists. The tradition makes her about forty at her marriage c. 595 and has her die in the Year of Sorrow, given as 619 or 620. Her standing as a merchant who financed caravans is repeated everywhere in the sīra and interrogated nowhere: the searches for critical scholarship on it turned up only devotional and popular writing.",
    "tribe": "Quraysh, clan of Asad",
    "blurb": "A Meccan businesswoman of the Banū Asad branch of Quraysh, twice widowed, who employed Muḥammad on a Syrian caravan and then married him. She was his only wife while she lived, and the first to accept what he said he had heard at Ḥirāʾ. Her cousin Waraqa ibn Nawfal, named in the lists of pre-Islamic Arab monotheists, is the man the tradition has her take him to.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abu-talib",
@@ -7658,7 +9288,8 @@
    "lifeNote": "No birth date. His death is placed in the Year of Sorrow, 619 or 620, by its position relative to the Hijra rather than by any record. His floruit, like his father's, is undated in the sources reached.",
    "tribe": "Quraysh, clan of Hāshim",
    "blurb": "Head of the Banū Hāshim after ʿAbd al-Muṭṭalib and guardian of his orphaned nephew. He never accepted his nephew's preaching but extended clan protection over him, which is what made the boycott of the Hāshim necessary and what his death removed. Father of ʿAlī.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abd-al-muttalib",
@@ -7671,7 +9302,8 @@
    "lifeNote": "His floruit is undated in every source reached. The conventional 578 for his death is arithmetic off a contested birth year: tradition has him die when his grandson was eight, and the grandson's birth is placed anywhere in 552-572. The stories attached to him — Hubal's arrows choosing his son ʿAbd Allāh for sacrifice and a hundred camels offered instead, his dealings with Abraha in the Elephant narrative, the rediscovery of the Zamzam well — are all narrative, and the hundred-camel blood-price often credited to him could not be sourced to him specifically.",
    "tribe": "Quraysh, clan of Hāshim",
    "blurb": "Head of the Banū Hāshim, custodian of the sanctuary's water and of his clan's share in the Meccan offices, and the figure through whom the Quraysh genealogies pass. His sons included ʿAbd Allāh, Abū Ṭālib, Ḥamza and al-ʿAbbās. The later name of the Banū Hāshim was simply Banū ʿAbd al-Muṭṭalib.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "abd-allah-ibn-abd-al-muttalib",
@@ -7684,7 +9316,8 @@
    "lifeNote": "Known only as his son's father. The tradition has him die on a trading journey about six months before the birth, which makes his death date move with the birth date across 552-572. Al-Zuhrī preserves a tradition that puts the Year of the Elephant before he was even born, which breaks the synchronism from inside the tradition.",
    "tribe": "Quraysh, clan of Hāshim",
    "blurb": "A son of ʿAbd al-Muṭṭalib, said in the Hubal-arrows story to have been the one chosen for sacrifice and ransomed with a hundred camels. He died young, away from Mecca, leaving a pregnant wife.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "amina-bint-wahb",
@@ -7697,7 +9330,8 @@
    "lifeNote": "No dates of her own. Her death is reckoned as her son's sixth year, so it moves with his contested birth year across the whole 552-578 span. Nothing external touches her.",
    "tribe": "Quraysh, clan of Zuhra",
    "blurb": "Of the Banū Zuhra of Quraysh, widowed before her son was born and dead while he was a small child. The tradition has her send him out to a wet-nurse among the Banū Saʿd of Hawāzin, which is the ordinary Meccan practice of the time and not a detail about her.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "al-najashi",
@@ -7710,7 +9344,8 @@
    "lifeNote": "The Islamic sources give him only a title, not a name that can be matched to the Aksumite king-list. He has been identified with Armah since 1895 and alternatively with Ella Tsaham, and Hahn has argued Armah was a son of Kāleb under another name; the Aksumite coin sequence gives relative order, not absolute dates, so none of the identifications is fixed. The one near-anchor is Munro-Hay's reading of a three-cross reverse as a reference to the Persian capture of Jerusalem in 614, and that reading is itself conditional.",
    "tribe": "Aksum",
    "blurb": "The Christian king of Aksum who, in the sīra, gave asylum to Meccan emigrants and refused a Qurashī delegation's request to send them back. Whoever he was, the episode puts Mecca inside the Red Sea world that Aksum and Ḥimyar had been fighting over for a century.",
-   "path": []
+   "path": [],
+   "sources": []
   },
   {
    "id": "harim-ibn-sinan",
@@ -7734,7 +9369,8 @@
      "placeId": "najd",
      "what": "Dies on Banū Asad land at Ruzāʾ, travelling to al-Nuʿmān III at al-Ḥīra"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "hawdha-ibn-ali",
@@ -7753,7 +9389,8 @@
      "placeId": "al-mushaqqar",
      "what": "Draws Tamīm to the fortress of al-Mushaqqar, then frees a hundred of them"
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "al-mukabbir",
@@ -7772,7 +9409,8 @@
      "placeId": "al-mushaqqar",
      "what": "Shuts the gates of al-Mushaqqar on the Banū Tamīm"
     }
-   ]
+   ],
+   "sources": []
   }
  ],
  "polities": [
@@ -7844,7 +9482,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "ghassanids",
@@ -7920,7 +9559,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "kinda",
@@ -7975,7 +9615,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "himyar",
@@ -8029,7 +9670,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "aksum",
@@ -8057,7 +9699,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "aksumite-yemen",
@@ -8095,7 +9738,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "sasanian-yemen",
@@ -8128,7 +9772,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "sasanians",
@@ -8208,7 +9853,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "byzantines",
@@ -8251,7 +9897,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "quraysh",
@@ -8295,7 +9942,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "yathrib",
@@ -8318,7 +9966,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "nabataean-legacy",
@@ -8351,7 +10000,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   },
   {
    "id": "sasanian-bahrayn",
@@ -8379,7 +10029,8 @@
       }
      ]
     }
-   ]
+   ],
+   "sources": []
   }
  ],
  "tribes": [
@@ -8390,7 +10041,8 @@
    "lat": 30.2,
    "lon": 45.0,
    "r": 320,
-   "blurb": "A confederation running from south-western Iraq into eastern Arabia, with Shaybān as its strongest branch. Forty years at war with Taghlib over a camel, and then the tribe that beat a Persian column at Dhū Qār and was remembered for it."
+   "blurb": "A confederation running from south-western Iraq into eastern Arabia, with Shaybān as its strongest branch. Forty years at war with Taghlib over a camel, and then the tribe that beat a Persian column at Dhū Qār and was remembered for it.",
+   "sources": []
   },
   {
    "id": "taghlib",
@@ -8399,7 +10051,8 @@
    "lat": 33.0,
    "lon": 40.5,
    "r": 300,
-   "blurb": "Kulayb's and al-Muhalhil's people, who won every great day of the Basūs war until their war-leader killed a peace envoy, and lost every one after. Christianised and dispersed into the Jazīra and lower Iraq, which the war-story explains as a defeat and probably is not."
+   "blurb": "Kulayb's and al-Muhalhil's people, who won every great day of the Basūs war until their war-leader killed a peace envoy, and lost every one after. Christianised and dispersed into the Jazīra and lower Iraq, which the war-story explains as a defeat and probably is not.",
+   "sources": []
   },
   {
    "id": "abs",
@@ -8408,7 +10061,8 @@
    "lat": 26.2,
    "lon": 41.5,
    "r": 230,
-   "blurb": "ʿAntara's tribe and Qays ibn Zuhayr's, and the ʿAbs of forty years of killing with Dhubyān over a rigged horse race. Some of them stayed out of it to guard Lakhmid caravans, which is exactly the detail that wrecks the war's traditional dates."
+   "blurb": "ʿAntara's tribe and Qays ibn Zuhayr's, and the ʿAbs of forty years of killing with Dhubyān over a rigged horse race. Some of them stayed out of it to guard Lakhmid caravans, which is exactly the detail that wrecks the war's traditional dates.",
+   "sources": []
   },
   {
    "id": "dhubyan",
@@ -8417,7 +10071,8 @@
    "lat": 26.6,
    "lon": 41.0,
    "r": 250,
-   "blurb": "Ḥudhayfa ibn Badr's people, Ghaṭafānī, and ʿAbs's enemies in the long feud. At al-Habāʾa they lost about four hundred men in a morning and called the day the Perdition."
+   "blurb": "Ḥudhayfa ibn Badr's people, Ghaṭafānī, and ʿAbs's enemies in the long feud. At al-Habāʾa they lost about four hundred men in a morning and called the day the Perdition.",
+   "sources": []
   },
   {
    "id": "tamim",
@@ -8426,7 +10081,8 @@
    "lat": 26.5,
    "lon": 45.0,
    "r": 420,
-   "blurb": "A very large tribe across north-eastern Arabia, with Dārim and Yarbūʿ among its branches. It fought nearly everyone — Bakr, ʿĀmir, Madhḥij, the Lakhmids, the Persians at al-Mushaqqar — and much later got accused of female infanticide by its political enemies."
+   "blurb": "A very large tribe across north-eastern Arabia, with Dārim and Yarbūʿ among its branches. It fought nearly everyone — Bakr, ʿĀmir, Madhḥij, the Lakhmids, the Persians at al-Mushaqqar — and much later got accused of female infanticide by its political enemies.",
+   "sources": []
   },
   {
    "id": "asad",
@@ -8435,7 +10091,8 @@
    "lat": 26.0,
    "lon": 42.8,
    "r": 200,
-   "blurb": "The tribe that killed Ḥujr and so set the most famous vengeance quest in Arabic poetry going. Also the tribe of ʿAbīd ibn al-Abraṣ, a poet and contemporary of the man who came to avenge his father on them."
+   "blurb": "The tribe that killed Ḥujr and so set the most famous vengeance quest in Arabic poetry going. Also the tribe of ʿAbīd ibn al-Abraṣ, a poet and contemporary of the man who came to avenge his father on them.",
+   "sources": []
   },
   {
    "id": "tayyi",
@@ -8444,7 +10101,8 @@
    "lat": 27.5,
    "lon": 41.7,
    "r": 280,
-   "blurb": "The tribe under the twin mountains at Ḥāʾil, Ḥātim's people, with a reputation for generosity built on one man. They also supplied the chief Khusraw handed al-Ḥīra to in 602."
+   "blurb": "The tribe under the twin mountains at Ḥāʾil, Ḥātim's people, with a reputation for generosity built on one man. They also supplied the chief Khusraw handed al-Ḥīra to in 602.",
+   "sources": []
   },
   {
    "id": "ghatafan",
@@ -8453,7 +10111,8 @@
    "lat": 26.0,
    "lon": 41.3,
    "r": 300,
-   "blurb": "The parent grouping over Dhubyān, Fazāra and ʿAbs, so most of the Dāḥis war is internal to it. Ghaṭafān stayed out of the Fijār on the Qays side."
+   "blurb": "The parent grouping over Dhubyān, Fazāra and ʿAbs, so most of the Dāḥis war is internal to it. Ghaṭafān stayed out of the Fijār on the Qays side.",
+   "sources": []
   },
   {
    "id": "hawazin",
@@ -8462,7 +10121,8 @@
    "lat": 21.8,
    "lon": 41.0,
    "r": 320,
-   "blurb": "The confederation that won four of the Fijār days against Quraysh and lost only one. Banū ʿĀmir and Thaqīf sit under it, and so does Labīd."
+   "blurb": "The confederation that won four of the Fijār days against Quraysh and lost only one. Banū ʿĀmir and Thaqīf sit under it, and so does Labīd.",
+   "sources": []
   },
   {
    "id": "amir",
@@ -8471,7 +10131,8 @@
    "lat": 23.0,
    "lon": 44.0,
    "r": 330,
-   "blurb": "Hawāzin's biggest branch, with Kilāb and Kaʿb and Jaʿfar under it. Victors at Shiʿb Jabala, caravan-robbers at al-Sullān, and a party to half the fighting days of Najd."
+   "blurb": "Hawāzin's biggest branch, with Kilāb and Kaʿb and Jaʿfar under it. Victors at Shiʿb Jabala, caravan-robbers at al-Sullān, and a party to half the fighting days of Najd.",
+   "sources": []
   },
   {
    "id": "kinda-tribe",
@@ -8480,7 +10141,8 @@
    "lat": 24.0,
    "lon": 45.5,
    "r": 280,
-   "blurb": "Originally South Arabian and moved north into Najd in the 4th or 5th century, where a Ḥimyarite mandate made its chiefs kings over the nomads. Imruʾ al-Qays's house. After Shiʿb Jabala much of it withdrew to Ḥaḍramawt."
+   "blurb": "Originally South Arabian and moved north into Najd in the 4th or 5th century, where a Ḥimyarite mandate made its chiefs kings over the nomads. Imruʾ al-Qays's house. After Shiʿb Jabala much of it withdrew to Ḥaḍramawt.",
+   "sources": []
   },
   {
    "id": "quraysh-tribe",
@@ -8489,7 +10151,8 @@
    "lat": 21.42,
    "lon": 39.83,
    "r": 130,
-   "blurb": "The clans of the Meccan sanctuary, split into the Confederates and the Perfumed and into those who lived around the Kaʿba and those on the outskirts. Caravan merchants with alliances bought from the bedouin along the route."
+   "blurb": "The clans of the Meccan sanctuary, split into the Confederates and the Perfumed and into those who lived around the Kaʿba and those on the outskirts. Caravan merchants with alliances bought from the bedouin along the route.",
+   "sources": []
   },
   {
    "id": "aws",
@@ -8498,7 +10161,8 @@
    "lat": 24.5,
    "lon": 39.65,
    "r": 45,
-   "blurb": "One of the two Arab tribes of Yathrib, allied with the Jewish Qurayẓa and Naḍīr, and the winners at Buʿāth."
+   "blurb": "One of the two Arab tribes of Yathrib, allied with the Jewish Qurayẓa and Naḍīr, and the winners at Buʿāth.",
+   "sources": []
   },
   {
    "id": "khazraj",
@@ -8507,7 +10171,8 @@
    "lat": 24.44,
    "lon": 39.57,
    "r": 45,
-   "blurb": "The other Arab tribe of Yathrib, allied with Qaynuqāʿ. Its chief's killing of Jewish hostages is what pushed the other two Jewish tribes to the opposite side and lost him the day and his life."
+   "blurb": "The other Arab tribe of Yathrib, allied with Qaynuqāʿ. Its chief's killing of Jewish hostages is what pushed the other two Jewish tribes to the opposite side and lost him the day and his life.",
+   "sources": []
   },
   {
    "id": "hudhayl",
@@ -8516,7 +10181,8 @@
    "lat": 21.9,
    "lon": 40.0,
    "r": 170,
-   "blurb": "A Ḥijāzī tribe in the hills around Mecca, keepers of the idol Suwāʿ, and the people Taʾabbaṭa Sharran spent his life raiding and died raiding."
+   "blurb": "A Ḥijāzī tribe in the hills around Mecca, keepers of the idol Suwāʿ, and the people Taʾabbaṭa Sharran spent his life raiding and died raiding.",
+   "sources": []
   },
   {
    "id": "hanifa",
@@ -8525,7 +10191,8 @@
    "lat": 24.5,
    "lon": 46.7,
    "r": 200,
-   "blurb": "Settled farmers of the Yamāma with date groves and wheat fields, who supplied grain to Mecca and sent skilled workers there. Not nomads at all — and their travellers are the ones recorded asking a valley's jinn for safe passage."
+   "blurb": "Settled farmers of the Yamāma with date groves and wheat fields, who supplied grain to Mecca and sent skilled workers there. Not nomads at all — and their travellers are the ones recorded asking a valley's jinn for safe passage.",
+   "sources": []
   },
   {
    "id": "madhhij",
@@ -8534,7 +10201,8 @@
    "lat": 15.5,
    "lon": 44.6,
    "r": 280,
-   "blurb": "A large southern grouping, driven to the gates of Najrān in the 328 inscription and still fighting Tamīm at al-Kulāb nearly three centuries later. Al-Muhalhil ended his life married into one of its clans."
+   "blurb": "A large southern grouping, driven to the gates of Najrān in the 328 inscription and still fighting Tamīm at al-Kulāb nearly three centuries later. Al-Muhalhil ended his life married into one of its clans.",
+   "sources": []
   },
   {
    "id": "azd",
@@ -8543,7 +10211,8 @@
    "lat": 19.5,
    "lon": 42.0,
    "r": 330,
-   "blurb": "A southern tribal mass whose dispersal northward the genealogies explain by the Maʾrib dam's failure — a story that puts a 2nd-century ancestor in charge of a 6th-century flood, and does real etiological work explaining why Yemeni-descended tribes are in Syria, Mecca and Medina."
+   "blurb": "A southern tribal mass whose dispersal northward the genealogies explain by the Maʾrib dam's failure — a story that puts a 2nd-century ancestor in charge of a 6th-century flood, and does real etiological work explaining why Yemeni-descended tribes are in Syria, Mecca and Medina.",
+   "sources": []
   },
   {
    "id": "judham",
@@ -8552,7 +10221,8 @@
    "lat": 29.5,
    "lon": 35.8,
    "r": 200,
-   "blurb": "A tribe of the north-western marches between the Ḥijāz and the Roman frontier, in the orbit of the Byzantine clients."
+   "blurb": "A tribe of the north-western marches between the Ḥijāz and the Roman frontier, in the orbit of the Byzantine clients.",
+   "sources": []
   },
   {
    "id": "kalb",
@@ -8561,7 +10231,8 @@
    "lat": 31.5,
    "lon": 38.0,
    "r": 350,
-   "blurb": "The dominant tribe at Dūmat al-Jandal and across the Wādī Sirḥān corridor, keepers of the idol Wadd, and a tribe whose men turn up on both imperial sides — including as a Lakhmid army commander and as a possible killer of a Kindite king."
+   "blurb": "The dominant tribe at Dūmat al-Jandal and across the Wādī Sirḥān corridor, keepers of the idol Wadd, and a tribe whose men turn up on both imperial sides — including as a Lakhmid army commander and as a possible killer of a Kindite king.",
+   "sources": []
   },
   {
    "id": "iyad",
@@ -8570,7 +10241,8 @@
    "lat": 32.0,
    "lon": 43.5,
    "r": 220,
-   "blurb": "A north Arabian tribe in the Lakhmid orbit, present as Persian auxiliaries at Dhū Qār, and the tribe of the preacher who stood up at ʿUkāẓ and spoke about one God."
+   "blurb": "A north Arabian tribe in the Lakhmid orbit, present as Persian auxiliaries at Dhū Qār, and the tribe of the preacher who stood up at ʿUkāẓ and spoke about one God.",
+   "sources": []
   },
   {
    "id": "qudaa",
@@ -8579,7 +10251,8 @@
    "lat": 31.0,
    "lon": 37.0,
    "r": 330,
-   "blurb": "A large northern grouping spanning the Syrian desert margins, with Kalb among its branches, and an opponent of Kinda in the earliest-remembered of the fighting days."
+   "blurb": "A large northern grouping spanning the Syrian desert margins, with Kalb among its branches, and an opponent of Kinda in the earliest-remembered of the fighting days.",
+   "sources": []
   },
   {
    "id": "thaqif",
@@ -8588,7 +10261,8 @@
    "lat": 21.27,
    "lon": 40.42,
    "r": 110,
-   "blurb": "The tribe of al-Ṭāʾif, keepers of Allāt's cubic rock, Mecca's commercial rival and its ally in the Fijār."
+   "blurb": "The tribe of al-Ṭāʾif, keepers of Allāt's cubic rock, Mecca's commercial rival and its ally in the Fijār.",
+   "sources": []
   },
   {
    "id": "khuzaa",
@@ -8597,7 +10271,8 @@
    "lat": 21.7,
    "lon": 39.6,
    "r": 150,
-   "blurb": "A Ḥijāzī tribe that held the Meccan sanctuary before Quraysh, and which the tradition blames for importing the idols that stood around the Kaʿba."
+   "blurb": "A Ḥijāzī tribe that held the Meccan sanctuary before Quraysh, and which the tradition blames for importing the idols that stood around the Kaʿba.",
+   "sources": []
   },
   {
    "id": "sulaym",
@@ -8606,7 +10281,8 @@
    "lat": 23.5,
    "lon": 40.8,
    "r": 230,
-   "blurb": "Al-Khansāʾ's tribe, Hawāzin-side in the Fijār, and the people whose skirmishes with Murra and Asad killed both of her brothers and produced a thousand lines of elegy."
+   "blurb": "Al-Khansāʾ's tribe, Hawāzin-side in the Fijār, and the people whose skirmishes with Murra and Asad killed both of her brothers and produced a thousand lines of elegy.",
+   "sources": []
   },
   {
    "id": "shayban",
@@ -8615,7 +10291,8 @@
    "lat": 30.5,
    "lon": 45.5,
    "r": 220,
-   "blurb": "Bakr's hardest branch: Jassās's clan, the Basūs war's engine, and the core of the force that beat the Persians at Dhū Qār."
+   "blurb": "Bakr's hardest branch: Jassās's clan, the Basūs war's engine, and the core of the force that beat the Persians at Dhū Qār.",
+   "sources": []
   }
  ]
 }

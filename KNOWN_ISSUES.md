@@ -68,18 +68,43 @@ selected figure only, show the connecting segments as inferred, and fade a pin
 whose last known position is long behind the current year — "we lost track of
 him" should not look like "he stayed".
 
-## 3. Sourcing is one URL per event
+## 3. Sourcing is thin — schema ready, data still to come
 
-116 of 172 sources are Wikipedia, every event has exactly one source, and many
-point at a container rather than a claim — the 449 dam breach cites the "Marib
+**Done (2026-10-19):** every record in every collection now has a `sources`
+list (schema in `data/REVISION.md` §6.1), the panel shows it as its own
+section, all 82 links were audited, and the eleven events whose link was dead,
+off-topic or only a contents page were re-sourced (§6.2).
+
+**To do — the data:**
+
+- [ ] **Sources for people, places, tribes and powers.** All 256 have an empty
+  list; the panel says "No source recorded … yet". Start with the figures whose
+  dates carry a `lifeNote`, and places with `coordConfidence: exact`.
+- [ ] **More than one source per event.** 162 of 172 still have one. Split by
+  what each backs (`supports`): the date, the place and the account often come
+  from different works.
+- [ ] **Fill `supports`** on the 160 migrated sources, which have none yet.
+- [ ] **Deep-link the inscriptions** (priority 3 in AGENTS.md): CIH 540/541,
+  Ry 506, Murayghān, ẒM 1, the Ḥimà texts → DASI; Namāra, Jabal Usays,
+  Ḥarrān → OCIANA or the published edition, alongside the current links.
+- [ ] **Read the three unread links** by hand: Iranica *Ḥīra*
+  (`hira-bishop-410`, `hira-surrenders`) and academia.edu (`satih-prophecy`).
+- [ ] **Settle al-Ḥīra in 132** (`REVISION.md` §6.3): no source found carries
+  the year or the garrison; both Wikipedias say 32 CE.
+- [ ] **Replace container pages** where a direct one exists: 33 URLs serve 123
+  events, *Muhammad* alone 11.
+- [ ] **Archive copies** (`archive`) for anything that could vanish — one
+  Wikipedia page already did.
+
+**Why it mattered:** before this, 116 of 172 sources were Wikipedia, every
+event had exactly one source, and many pointed at a container rather than a
+claim — the 449 dam breach cites the "Marib
 Dam" article rather than the inscription that dates it. The strongest evidence
 in the atlas (CIH 541, Ry 506, Ja 1028) links to Wikipedia instead of to the
 DASI or OCIANA record with its photograph and facsimile.
 
-The fix is a schema change: replace `source` with a list of records carrying
-work, author, edition, volume, page, URL, access date, archive URL, and a
-`supports` field naming which claim each one backs. The date, the location and
-the narrative of a single event often come from different places.
+The date, the location and the narrative of a single event often come from
+different places, which is what the `supports` field is for.
 
 This is what let bug #4 happen.
 

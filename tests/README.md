@@ -51,6 +51,12 @@ pans without opening it. Written after two-finger pan turned out to compute
 only a distance ratio, which is 1 when fingers move together — so it jittered
 the zoom and never panned.
 
+**test_sources.py** — the `sources` schema and its panel section. Every record
+in every collection has a list, no record keeps the old `source` field, every
+source has a title and a link or a printed work. In the panel: the section has
+its own heading with a count, the address is visible as text, a printed work
+is not drawn as a link, notes show, and a record with none says so.
+
 **test_arabic.py** — the Arabic interface, desktop and phone. Walks every tab
 and a detail card of each kind and fails on any visible text that is Latin with
 no Arabic in it, apart from the transliterated second name, the evidence codes

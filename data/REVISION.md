@@ -299,3 +299,73 @@ a transmitted figure or a convention, that `dateNote` says what it rests on, and
 `dateRange` and `endYear` answer different questions (uncertainty about the start vs. the end
 of a span). The §2 statement that 52 events are `legendary` and 27 `contested` is now 55 and
 31, and 107 of 154 events carrying a non-null `dispute` is now 122 of 168.
+
+---
+
+## 6. Sources — audit, schema change and eleven re-sourced events (later on 2026-10-19)
+
+No date, grade, range, dispute, title or summary changed in this pass. Only where each record
+points for its evidence changed.
+
+### 6.1 Schema
+
+`events[].source` (one URL string) is gone. **Every record in all five collections now has a
+`sources` list**: events carry what they had, and people, places, tribes and powers carry an
+empty list until they are sourced. Each entry is an object:
+
+| field | meaning |
+|---|---|
+| `url` | the link, or `null` for a printed work with no online copy |
+| `title` | the page or chapter title as published, in its own language |
+| `lang` | `en` / `ar` — the language of the source, not of the record |
+| `work`, `author`, `volume`, `page`, `year` | for books and articles; Shamela pages carry volume and page |
+| `accessed` | the date the page was fetched and read for this audit; absent if it could not be read |
+| `supports` | what the source backs: any of `date`, `place`, `people`, `narrative`; absent where not yet assessed |
+| `note`, `noteAr` | what the source actually says, where that differs from or qualifies the entry |
+| `archive` | reserved for an archived copy; unused so far |
+
+Only fields with a value are written. The panel shows the list as its own **Sources** section
+with each title, its full address, what it backs and its note.
+
+### 6.2 The audit
+
+All 82 distinct URLs behind the 172 events were fetched and checked against the claim of each
+event that cites them: the place, the people, the title and, for EPI/EXT events on
+English-language pages, the year. 78 were read; Iranica (`hira`, cited by `hira-bishop-410` and
+`hira-surrenders`) and academia.edu (`satih-prophecy`) refuse automated access and remain
+unread; the UNESCO page for al-Faw was confirmed by search to be the right site. One link was
+dead, six pointed at a page that does not carry the event, and four pointed at a contents list
+rather than the account:
+
+| event | was | problem | now |
+|---|---|---|---|
+| `barqi-robin-naiit` | Wikipedia *Bāriqī-Robin-Nāʿiṭ 1* | page deleted 2026-03-21 (G8); no archived copy | Wikipedia *Abraha*; al-Bāriqī & Robin 2025, *Semitica et Classica* 18: 295–300 (no link; cited from a bibliography, not consulted) |
+| `basus-hanw` | marefa *حرب البسوس* | page does not name al-Ḥanw | al-Kāmil i 484 (Shamela 21712/480); almerja Basūs page |
+| `basus-naqiyya` | marefa *حرب البسوس* | page does not name al-Naqiyya | al-Kāmil i 484; almerja Basūs page |
+| `hira-palmyrene-garrison` | marefa *الحيرة* | page has neither 132 nor Palmyrene troops | ar + en Wikipedia *al-Ḥīra*, **with a note: both give 32 CE, not 132, and no garrison** — see 6.3 |
+| `dahis-peace` | en Wikipedia *Dahis and al-Ghabra* | page does not mention the peace | ar Wikipedia *الحارث بن عوف المري*, *هرم بن سنان* |
+| `asha-dies` | en Wikipedia *Muʿallaqāt* | mentions al-Aʿshā, not his death | en Wikipedia *Al-A'sha* (gives c. 625 — inside this entry's 625–630, at its low end; noted); ar Wikipedia *أعشى قيس* |
+| `himyar-conquers-saba` | en Wikipedia *Himyar* | does not name Shammar Yuharʿish; dates Ḥaḍramawt c. 300, against this entry's "already taken" | en Wikipedia *Shammar Yahri'sh* (first attested 275, Yemen united by c. 280); ar *شمر يهرعش* |
+| `dahis-yamariyya` | al-ʿIqd vi 18 (Shamela 23789/1829) | the chapter page; the day's name was only in the contents sidebar | al-ʿIqd vi 21 (23789/1832), the day's own account |
+| `dahis-qatan` | al-ʿIqd vi 18 | as above | al-ʿIqd vi 25 (23789/1836) |
+| `dahis-ghadir-qalha` | al-ʿIqd vi 18 | as above | al-ʿIqd vi 25, after Yawm Quṭn |
+| `shaqiqa-bistam` | al-Kāmil i 453 (21712/449) | the contents page of the ayyām | ar Wikipedia *يوم الشقيقة*; al-Kāmil i 548 (21712/544) |
+
+Two more found on the way: `awara-i` cited a fajernet list that names the day and nothing more
+— replaced with ar Wikipedia *يوم أوارة الأول* and al-Kāmil i 497; `basus-quda` keeps its
+marefa page and gains al-Kāmil i 483, which tells Yawm Quḍḍa / Taḥlāq al-Limam directly.
+
+Not changed, but worth knowing: 33 URLs serve 123 events between them. *Muhammad* (en
+Wikipedia) backs 11 events, *Marib Dam* 7, al-ʿIqd vi 18 still backs `malik-ibn-zuhayr-killed`
+correctly. These are container pages — they do carry the claim, usually in one sentence.
+
+### 6.3 Open question: al-Ḥīra in 132
+
+`hira-palmyrene-garrison` (REVISION.ar.md §11) puts the oldest mention of al-Ḥīra in 132 CE,
+from Palmyrene troops stationed there, graded EXT / fixed. No source found in this audit carries
+either the year or the garrison. Both Wikipedias say instead that the oldest mention is a
+Palmyrene-era text dated **32 CE**, and say nothing of troops. The entry is left exactly as it
+was — year, grade and dispute untouched — with the two Wikipedia pages attached and the
+discrepancy stated in their notes, until the Arabic source behind §11 is found. If it turns
+out to be 32, the event falls a century earlier and its `dispute` needs rewriting; if no
+source carries the garrison, the summary does too.

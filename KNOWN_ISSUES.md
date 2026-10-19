@@ -77,10 +77,17 @@ off-topic or only a contents page were re-sourced (§6.2).
 
 **To do — the data:**
 
+- [ ] **Extend the Imruʾ al-Qays pattern to every event** (`REVISION.md` §6.4):
+  three or more sources per event, at least one English and one Arabic, each
+  read, with a note wherever a source dates or places it differently. Arabic
+  classical works on Shamela or Wikisource (al-Kāmil, al-ʿIqd, Ibn Kathīr)
+  beside a modern reference on each side.
+- [ ] **Kitāb al-Aghānī** for the Imruʾ al-Qays events — the main classical
+  source for all five, not yet found online in a citable form.
 - [ ] **Sources for people, places, tribes and powers.** All 256 have an empty
   list; the panel says "No source recorded … yet". Start with the figures whose
   dates carry a `lifeNote`, and places with `coordConfidence: exact`.
-- [ ] **More than one source per event.** 162 of 172 still have one. Split by
+- [ ] **More than one source per event.** 156 of 172 still have one. Split by
   what each backs (`supports`): the date, the place and the account often come
   from different works.
 - [ ] **Fill `supports`** on the 160 migrated sources, which have none yet.

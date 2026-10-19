@@ -203,7 +203,8 @@ a{color:var(--accent)}
 .src-t{font-family:var(--f-display);font-size:14.5px;line-height:1.25;color:var(--fg);text-decoration:none}
 a.src-t:hover{color:var(--accent);text-decoration:underline}
 .src-m{font-size:10.5px;color:var(--faint)}
-.src-u{font-family:var(--f-mono);font-size:10.5px;color:var(--accent);word-break:break-all;direction:ltr;text-align:left;unicode-bidi:plaintext;text-decoration:none}
+/* Plex Mono has no Arabic, and a monospace fallback draws Arabic letters unjoined: let Arabic in an address fall to a UI face */
+.src-u{font-family:'IBM Plex Mono','Segoe UI','Noto Sans Arabic',Tahoma,system-ui,sans-serif;font-size:10.5px;color:var(--accent);word-break:break-all;direction:ltr;text-align:left;unicode-bidi:isolate;text-decoration:none}
 .src-u:hover{text-decoration:underline}
 .src-n{font-size:12px;color:var(--muted);line-height:1.4}
 :root[data-lang="ar"] .src{border-left-width:1px;border-right-width:3px;border-right-color:var(--line2)}

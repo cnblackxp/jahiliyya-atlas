@@ -1624,6 +1624,28 @@
      "title": "Namarah Inscription: The Second Oldest Dated Pre-Islamic Arabic Inscription (328 CE)",
      "lang": "en",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://en.wikipedia.org/wiki/Namara_inscription",
+     "title": "Namara inscription",
+     "lang": "en",
+     "accessed": "2026-10-19",
+     "supports": [
+      "date",
+      "place",
+      "people"
+     ]
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/نقش_النمارة",
+     "title": "نقش النمارة",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "date",
+      "place",
+      "people"
+     ]
     }
    ]
   },
@@ -2838,6 +2860,47 @@
      "title": "Imru' al-Qais",
      "lang": "en",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://www.gutenberg.org/files/37985/37985-h/37985-h.htm",
+     "title": "A Literary History of the Arabs",
+     "lang": "en",
+     "work": "A Literary History of the Arabs",
+     "author": "Reynold A. Nicholson",
+     "year": 1907,
+     "accessed": "2026-10-19",
+     "page": "104",
+     "supports": [
+      "narrative"
+     ],
+     "note": "\"Finally they revolted and put him to death\" — Ḥujr, set over the Banū Asad.",
+     "noteAr": "يذكر أنهم ثاروا عليه آخرَ الأمر فقتلوه — حجرٌ وكان مَلِكًا على بني أسد."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/حجر_بن_الحارث",
+     "title": "حجر بن الحارث",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "All accounts agree his killer was of the Banū Asad; quotes Muḥammad ibn Ḥabīb al-Baghdādī. Gives Ḥujr c. 470–535.",
+     "noteAr": "اتّفقت روايات مقتله على أنّ قاتله من بني أسد؛ وينقل قول محمد بن حبيب البغدادي. ويجعل حجرًا نحو 470–535م."
+    },
+    {
+     "url": "https://ar.wikisource.org/wiki/البداية_والنهاية/الجزء_الثاني/امرؤ_القيس_بن_حجر_الكندي_صاحب_إحدى_المعلقات",
+     "title": "امرؤ القيس بن حجر الكندي صاحب إحدى المعلقات",
+     "lang": "ar",
+     "work": "al-Bidāya wa-l-nihāya",
+     "author": "Ibn Kathīr",
+     "volume": "2",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Via Ibn al-Kalbī: he set out against the Banū Asad \"when they killed his father\".",
+     "noteAr": "عن ابن الكلبي: أقبل يريد قتال بني أسد «حين قتلوا أباه»."
     }
    ]
   },
@@ -3242,6 +3305,59 @@
      "title": "Imru' al-Qais",
      "lang": "en",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://www.gutenberg.org/files/37985/37985-h/37985-h.htm",
+     "title": "A Literary History of the Arabs",
+     "lang": "en",
+     "work": "A Literary History of the Arabs",
+     "author": "Reynold A. Nicholson",
+     "year": 1907,
+     "accessed": "2026-10-19",
+     "page": "105",
+     "supports": [
+      "narrative"
+     ],
+     "note": "His vow to touch no meat, wine or ointment until avenged.",
+     "noteAr": "نذرُه ألّا يأكل لحمًا ولا يشرب خمرًا ولا يدّهن حتى يُدرك ثأره."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/امرؤ_القيس",
+     "title": "امرؤ القيس",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "\"Today wine, tomorrow business\", and his oath to take his father's blood.",
+     "noteAr": "«اليوم خمر وغدًا أمر»، وحلفُه على الأخذ بثأر أبيه."
+    },
+    {
+     "url": "https://ar.wikisource.org/wiki/البداية_والنهاية/الجزء_الثاني/امرؤ_القيس_بن_حجر_الكندي_صاحب_إحدى_المعلقات",
+     "title": "امرؤ القيس بن حجر الكندي صاحب إحدى المعلقات",
+     "lang": "ar",
+     "work": "al-Bidāya wa-l-nihāya",
+     "author": "Ibn Kathīr",
+     "volume": "2",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Via Ibn al-Kalbī: he broke the divining arrows at Dhū al-Khalaṣa and raided the Asad with heavy slaughter.",
+     "noteAr": "عن ابن الكلبي: كسر القداح عند ذي الخلصة، وأغار على بني أسد فقتلهم قتلًا ذريعًا."
+    },
+    {
+     "url": "https://shamela.ws/book/5449/1",
+     "title": "أشعار الشعراء الستة الجاهليين — ترجمة امرئ القيس",
+     "lang": "ar",
+     "work": "Ashʿār al-shuʿarāʾ al-sitta al-jāhiliyyīn",
+     "page": "1",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Bakr and Taghlib helped him, killed among the Asad, then said his revenge was taken and left him. The modern editor's introduction to an edition of al-Aʿlam al-Shantamarī's collection, not al-Aʿlam himself; it dates the poet's death to 560. Shamela's page numbers do not match the printed edition.",
+     "noteAr": "أعانته بكر وتغلب وأوقعتا ببني أسد، ثم قالتا: قد أصبتَ ثأرك، وتركتاه. مقدّمةُ المحقِّق الحديثة لطبعةٍ من مجموع الأعلم الشنتمري، لا كلامُ الأعلم نفسه؛ وتجعل وفاة الشاعر سنة 560م. وترقيم الشاملة فيه آليٌّ لا يوافق المطبوع."
     }
    ]
   },
@@ -3886,6 +4002,46 @@
      "title": "Samaw'al ibn 'Adiya",
      "lang": "en",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/السموأل",
+     "title": "السموأل",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "date"
+     ],
+     "note": "The siege, the son taken while hunting, and the armour kept; gives his death as 560.",
+     "noteAr": "الحصار، وأخذُ ابنه في متصيَّدٍ له، والوفاء بالدروع؛ ويجعل وفاته سنة 560م."
+    },
+    {
+     "url": "https://www.jewishencyclopedia.com/articles/13060-samau-il-ibn-adiya",
+     "title": "Samuel ibn 'Adiya",
+     "lang": "en",
+     "work": "Jewish Encyclopedia",
+     "year": 1906,
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Tells the siege after the Kitāb al-Aghānī, and says it is not known whether it came before or after Imruʾ al-Qays's death.",
+     "noteAr": "يروي الحصار عن كتاب الأغاني، ويقول إنه لا يُعرف أكان قبل موت امرئ القيس أم بعده."
+    },
+    {
+     "url": "https://www.gutenberg.org/files/37985/37985-h/37985-h.htm",
+     "title": "A Literary History of the Arabs",
+     "lang": "en",
+     "work": "A Literary History of the Arabs",
+     "author": "Reynold A. Nicholson",
+     "year": 1907,
+     "accessed": "2026-10-19",
+     "page": "84–85",
+     "supports": [
+      "narrative"
+     ],
+     "note": "The five coats of mail and the son captured on the hunt.",
+     "noteAr": "الدروع الخمس، والابن الذي أُسر وهو خارجٌ إلى الصيد."
     }
    ]
   },
@@ -3990,6 +4146,59 @@
      "title": "Imru' al-Qais",
      "lang": "en",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://www.gutenberg.org/files/37985/37985-h/37985-h.htm",
+     "title": "A Literary History of the Arabs",
+     "lang": "en",
+     "work": "A Literary History of the Arabs",
+     "author": "Reynold A. Nicholson",
+     "year": 1907,
+     "accessed": "2026-10-19",
+     "page": "104",
+     "supports": [
+      "narrative"
+     ],
+     "note": "\"He then set out for Constantinople, where he was favourably received by the Emperor Justinian.\"",
+     "noteAr": "يذكر أنه قصد القسطنطينية فأحسن الإمبراطور يوستنيان استقباله."
+    },
+    {
+     "url": "https://www.jewishencyclopedia.com/articles/13060-samau-il-ibn-adiya",
+     "title": "Samuel ibn 'Adiya",
+     "lang": "en",
+     "work": "Jewish Encyclopedia",
+     "year": 1906,
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Asked al-Samawʾal for a letter to the Ghassanid al-Ḥārith ibn Abī Shamir to reach Justinian.",
+     "noteAr": "طلب من السموأل كتابًا إلى الحارث بن أبي شمر الغساني ليبلغ يوستنيان."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/امرؤ_القيس",
+     "title": "امرؤ القيس",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Left the Kindite armour at Taymāʾ and went to Justinian I with ʿAmr ibn Qamīʾa.",
+     "noteAr": "استودع دروع ملوك كندة في تيماء، وقصد القيصر جستنيان الأول ومعه عمرو بن قميئة."
+    },
+    {
+     "url": "https://ar.wikisource.org/wiki/البداية_والنهاية/الجزء_الثاني/امرؤ_القيس_بن_حجر_الكندي_صاحب_إحدى_المعلقات",
+     "title": "امرؤ القيس بن حجر الكندي صاحب إحدى المعلقات",
+     "lang": "ar",
+     "work": "al-Bidāya wa-l-nihāya",
+     "author": "Ibn Kathīr",
+     "volume": "2",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Says he praised Caesar to ask for help and, disappointed, satirised him.",
+     "noteAr": "يذكر أنه امتدح قيصر يستنجده، فلم يجد عنده ما أمّل فهجاه."
     }
    ]
   },
@@ -4025,6 +4234,63 @@
      "title": "Imru' al-Qais",
      "lang": "en",
      "accessed": "2026-10-19"
+    },
+    {
+     "url": "https://www.gutenberg.org/files/37985/37985-h/37985-h.htm",
+     "title": "A Literary History of the Arabs",
+     "lang": "en",
+     "work": "A Literary History of the Arabs",
+     "author": "Reynold A. Nicholson",
+     "year": 1907,
+     "accessed": "2026-10-19",
+     "page": "104",
+     "supports": [
+      "narrative",
+      "place",
+      "date"
+     ],
+     "note": "Died at Angora \"about 540 a.d.\" — two decades before this entry's 561–565 — and gives the poisoned-robe story.",
+     "noteAr": "مات بأنقرة «نحو 540م» — قبل مدى هذا المدخل (561–565) بعقدين — ويروي قصة الحُلّة المسمومة."
+    },
+    {
+     "url": "https://ar.wikipedia.org/wiki/امرؤ_القيس",
+     "title": "امرؤ القيس",
+     "lang": "ar",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "place"
+     ],
+     "note": "Gives both accounts — the poisoned robe, or smallpox on the way home — and burial at Ankara; dates his life 500–540.",
+     "noteAr": "يذكر الروايتين — الجُبّة المسمومة، أو الجدري في طريق عودته — ودفنه بأنقرة؛ ويؤرّخ حياته 500–540م."
+    },
+    {
+     "url": "https://shamela.ws/book/5449/2",
+     "title": "أشعار الشعراء الستة الجاهليين — ترجمة امرئ القيس",
+     "lang": "ar",
+     "work": "Ashʿār al-shuʿarāʾ al-sitta al-jāhiliyyīn",
+     "page": "2",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative",
+      "place"
+     ],
+     "note": "The poisoned robe, the ulcers that named him Dhū al-Qurūḥ, death at Ankara on the way back. The modern editor's introduction to an edition of al-Aʿlam al-Shantamarī's collection, not al-Aʿlam himself; it dates the poet's death to 560. Shamela's page numbers do not match the printed edition.",
+     "noteAr": "الحُلّة المسمومة، والقروح التي سُمّي بها ذا القروح، وموته بأنقرة عائدًا. مقدّمةُ المحقِّق الحديثة لطبعةٍ من مجموع الأعلم الشنتمري، لا كلامُ الأعلم نفسه؛ وتجعل وفاة الشاعر سنة 560م. وترقيم الشاملة فيه آليٌّ لا يوافق المطبوع."
+    },
+    {
+     "url": "https://ar.wikisource.org/wiki/البداية_والنهاية/الجزء_الثاني/امرؤ_القيس_بن_حجر_الكندي_صاحب_إحدى_المعلقات",
+     "title": "امرؤ القيس بن حجر الكندي صاحب إحدى المعلقات",
+     "lang": "ar",
+     "work": "al-Bidāya wa-l-nihāya",
+     "author": "Ibn Kathīr",
+     "volume": "2",
+     "accessed": "2026-10-19",
+     "supports": [
+      "narrative"
+     ],
+     "note": "Has Caesar poison him, but places his death beside a woman's grave at Jabal ʿAsīb, not Ankara.",
+     "noteAr": "يجعل قيصر يسقيه السمّ، لكنه يجعل موته إلى جنب قبر امرأة عند جبل عسيب، لا بأنقرة."
     }
    ]
   },

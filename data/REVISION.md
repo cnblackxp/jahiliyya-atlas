@@ -369,3 +369,30 @@ was — year, grade and dispute untouched — with the two Wikipedia pages attac
 discrepancy stated in their notes, until the Arabic source behind §11 is found. If it turns
 out to be 32, the event falls a century earlier and its `dispute` needs rewriting; if no
 source carries the garrison, the summary does too.
+
+### 6.4 Imruʾ al-Qays — a pilot of multi-source, two-language citation
+
+Every event that names an Imruʾ al-Qays now has three to five sources, at least one English
+and one Arabic, each read and checked against the event. Nothing in the entries changed.
+
+| event | added |
+|---|---|
+| `hujr-killed` | Nicholson, *Literary History of the Arabs* (1907) p. 104; ar Wikipedia *حجر بن الحارث*; Ibn Kathīr, *al-Bidāya wa-l-nihāya* ii (Wikisource), via Ibn al-Kalbī |
+| `imru-vengeance-war` | Nicholson p. 105; ar Wikipedia *امرؤ القيس*; Ibn Kathīr; *Ashʿār al-shuʿarāʾ al-sitta* (editor's introduction, Shamela 5449 p. 1) |
+| `samawal-dies` | ar Wikipedia *السموأل*; *Jewish Encyclopedia* (1906) "Samuel ibn ʿAdiya"; Nicholson pp. 84–85 |
+| `imru-constantinople` | Nicholson p. 104; *Jewish Encyclopedia*; ar Wikipedia *امرؤ القيس*; Ibn Kathīr |
+| `imru-death` | Nicholson p. 104; ar Wikipedia *امرؤ القيس*; *Ashʿār* introduction p. 2; Ibn Kathīr |
+| `namara-inscription` | en Wikipedia *Namara inscription*; ar Wikipedia *نقش النمارة* (the other Imruʾ al-Qays, ibn ʿAmr) |
+
+The new sources do not agree on his dates, and the notes say so rather than choosing:
+Nicholson puts the death "about 540", Arabic Wikipedia gives his life as 500–540, the
+*Ashʿār* introduction gives 560, and English Wikipedia keeps the 561–565 this atlas uses.
+Ibn Kathīr has Caesar poison him but places the death at Jabal ʿAsīb rather than Ankara. The
+*Jewish Encyclopedia* says it is not known whether al-Samawʾal's siege came before or after the
+poet's death, which matches the existing `dateNote` of `samawal-dies`.
+
+Two of these need care. The *Ashʿār* pages are the modern editor's introduction, not
+al-Aʿlam al-Shantamarī, and Shamela's page numbers there do not match the printed book; both
+facts are in the notes. Britannica was wanted and could not be read (it refuses automated
+access), so it is not cited. *Kitāb al-Aghānī*, the main classical source for every one of
+these episodes, was not reachable online in a citable form and is the obvious next addition.
